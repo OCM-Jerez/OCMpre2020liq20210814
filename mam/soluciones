@@ -1,0 +1,3 @@
+Para colapsar codigo entre dos lineas.
+// #region Etiqueta
+// #endregion
