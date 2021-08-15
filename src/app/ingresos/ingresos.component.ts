@@ -5,11 +5,10 @@ import { GridOptions } from 'ag-grid-community/main';
 
 import { GetScreenSizeService } from '../services/get-screen-size.service';
 
- import localeTextESPes from '@presu/json/localeTextESPes.json';
+import localeTextESPes from '@presu/json/localeTextESPes.json';
 import { SCREEN_SIZE } from 'src/app/screen-size.enum';
 import { CellRendererOCM } from '../shared/utils/utils';
 import { GlobalConstants } from '@presu/shared/global-constants';
-//import { GlobalConstants } from '../shared/global-constants';
 
 @Component({
   selector: 'app-ingresos',
@@ -41,11 +40,11 @@ export class IngresosPorEconomicoComponent {
 
     switch (this.screenSize) {
       case (SCREEN_SIZE.XS1):
-       // Xiaomi Redmi Note 6 Pro. Jose Luis Moreno 400
-          this.DesCapWidth = 120;
-          this.DesEcoWidth = 150;
-          this.CreditosWidth = 100;
-          break;
+        // Xiaomi Redmi Note 6 Pro. Jose Luis Moreno 400
+        this.DesCapWidth = 120;
+        this.DesEcoWidth = 150;
+        this.CreditosWidth = 100;
+        break;
       case (SCREEN_SIZE.XS):
         // El Samsung Note 8 mio, dice que es una pantalla XS 427.
         this.DesCapWidth = 130;
@@ -57,12 +56,12 @@ export class IngresosPorEconomicoComponent {
         this.DesEcoWidth = 370;
         this.CreditosWidth = 100;
         break;
-        case (SCREEN_SIZE.MD1):
-            // Xiaomi Redmi Note 6 Pro apaisado. Jose Luis Moreno 700
-          this.DesCapWidth = 300;
-          this.DesEcoWidth = 270;
-          this.CreditosWidth = 100;
-          break;
+      case (SCREEN_SIZE.MD1):
+        // Xiaomi Redmi Note 6 Pro apaisado. Jose Luis Moreno 700
+        this.DesCapWidth = 300;
+        this.DesEcoWidth = 270;
+        this.CreditosWidth = 100;
+        break;
       case (SCREEN_SIZE.MD):
         // El Samsung Note 8 mio, apaisado dice que es una pantalla MD 798.
         this.DesCapWidth = 300;
@@ -147,7 +146,7 @@ export class IngresosPorEconomicoComponent {
 
       {
         headerName: 'Previsiones Iniciales',
-        field: 'Previsiones Iniciales',
+        field: 'Iniciales',
         width: this.columnasWidth,
         resizable: true,
         aggFunc: 'sum',
@@ -155,7 +154,7 @@ export class IngresosPorEconomicoComponent {
       },
       {
         headerName: 'Total Modificaciones',
-        field: 'Total Modificaciones',
+        field: 'Modificaciones',
         width: this.columnasWidth,
         resizable: true,
         aggFunc: 'sum',
@@ -163,7 +162,7 @@ export class IngresosPorEconomicoComponent {
       },
       {
         headerName: 'Previsiones totales',
-        field: 'Previsiones totales',
+        field: 'Definitivas',
         width: this.columnasWidth,
         resizable: true,
         aggFunc: 'sum',
@@ -171,55 +170,55 @@ export class IngresosPorEconomicoComponent {
       },
       {
         headerName: 'Derechos Reconocidos Netos',
-        field: 'Derechos Reconocidos Netos',
+        field: 'DerechosReconocidosNetos',
         width: this.columnasWidth,
         resizable: true,
         aggFunc: 'sum',
         cellRenderer: CellRendererOCM
       },
-      {
-        headerName: '% de Realizacion del Presupuesto',
-        field: '% de Realizacion del Presupuesto',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
-      },
+      // {
+      //   headerName: 'Realizacion del Presupuesto',
+      //   field: 'DiferenciaPrevision',
+      //   width: this.columnasWidth,
+      //   resizable: true,
+      //   aggFunc: 'sum',
+      //   cellRenderer: CellRendererOCM
+      // },
       {
         headerName: 'Derechos Recaudados',
-        field: 'Derechos Recaudados',
+        field: 'RecaudacionNeta',
         width: this.columnasWidth,
         resizable: true,
         aggFunc: 'sum',
         cellRenderer: CellRendererOCM
       },
       {
-        headerName: 'Devoluciones de ingreso',
-        field: 'Devoluciones de ingreso',
+        headerName: 'Derechos anulados',
+        field: 'DerechosAnulados',
         width: this.columnasWidth,
         resizable: true,
         aggFunc: 'sum',
         cellRenderer: CellRendererOCM
       },
-      {
-        headerName: 'Recaudación Líquida',
-        field: 'Recaudación Líquida',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
-      },
-      {
-        headerName: '% Rec/Der',
-        field: '% Rec/Der',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
-      },
+      // {
+      //   headerName: 'Recaudación Líquida',
+      //   field: 'Recaudación Líquida',
+      //   width: this.columnasWidth,
+      //   resizable: true,
+      //   aggFunc: 'sum',
+      //   cellRenderer: CellRendererOCM
+      // },
+      // {
+      //   headerName: '% Rec/Der',
+      //   field: '% Rec/Der',
+      //   width: this.columnasWidth,
+      //   resizable: true,
+      //   aggFunc: 'sum',
+      //   cellRenderer: CellRendererOCM
+      // },
       {
         headerName: 'Derechos Pendientes de Cobro',
-        field: 'Derechos Pendientes de Cobro',
+        field: 'DerechosPendienteCobro',
         width: this.columnasWidth,
         resizable: true,
         aggFunc: 'sum',
@@ -227,7 +226,7 @@ export class IngresosPorEconomicoComponent {
       },
       {
         headerName: 'Estado de Ejecución',
-        field: 'Estado de Ejecución',
+        field: 'DiferenciaPrevision',
         width: this.columnasWidth,
         resizable: true,
         aggFunc: 'sum',
@@ -250,7 +249,7 @@ export class IngresosPorEconomicoComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.rowData = this.http.get(GlobalConstants.jsonIngresos);
-    }
+  }
 
   expandAll() {
     this.gridApi.expandAll();

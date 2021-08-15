@@ -2,11 +2,13 @@
 
 
 # Partiendo PDF publicado por el Ayuntamiento
-![alt text](https://res.cloudinary.com/dabrencx7/image/upload/c_scale,h_292,w_614/v1628963150/Presupuestos/presupuestoPDF_g6uhql.png)
+![alt text](https://res.cloudinary.com/dabrencx7/image/upload/v1628963150/Presupuestos/presupuestoPDF_g6uhql.png)
+![alt text](https://res.cloudinary.com/dabrencx7/image/upload/v1629010030/Presupuestos/ingresosPDF_i7wjvv.png)
 
 - Utilizar conversor online. El ultimo utilizado es el de [Adobe](https://documentcloud.adobe.com/link/acrobat/pdf-to-excel?x_api_client_id=adobe_com&x_api_client_location=pdf_to_excel)
 
-- Grabar como xlsm para permitir usar Macros.
+- Grabar como xlsm para permitir usar macros.
+- En Vista ->Macros Grabar nueva macros con todo el código de más abajo.
 - Ejecutar macro **borrarSuma** seleccionando la columna adecuada, NO toda la     columna
 - Ejecutar macro **borrarIniciales** seleccionando la columna adecuada, NO toda la     columna.
 - Ejecutar macro **borrarDescripcion** seleccionando la columna adecuada, NO toda la     columna
