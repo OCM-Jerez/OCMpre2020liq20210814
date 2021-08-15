@@ -1,0 +1,49 @@
+<div class="divIndice">
+  <h3 class="rowTexto" style="color: rgb(98, 146, 25)">Ingresos.</h3>
+  <div class="rowStyle">
+    <div class="card">
+      <div class="cardHeaderImage">
+        <a routerLink="/IngresosPorEconomico">
+          <img class="img" src="assets/img/Ingresos.png" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <h3 class="rowTexto" style="color: red">Gastos.</h3>
+  <div class="rowStyle" style="padding-bottom: 60px">
+
+    <div class="card">
+      <div class="cardHeaderImage">
+        <a (click)="porCapitulo()">
+          <img class="img" src="assets/img/Capitulo.png" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="rowStyle">
+    <div class="card">
+      <div class="cardHeaderImage">
+        <a (click)="porOrganico()">
+          <img class="img" src="assets/img/PorOrganico.png" />
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="cardHeaderImage">
+        <a (click)="porPrograma()">
+          <img class="img" src="assets/img/PorPrograma.png" />
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="cardHeaderImage">
+        <a (click)="porEconomico()">
+          <img class="img" src="assets/img/PorEconomico.png" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

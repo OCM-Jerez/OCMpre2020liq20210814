@@ -21,7 +21,11 @@
     "@angular/router": "~12.2.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@ng-select/ng-select": "^3.7.3",
+    "ag-grid-angular": "^24.1.0",
+    "ag-grid-community": "^24.1.0",
+    "ag-grid-enterprise": "^24.1.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.1",
