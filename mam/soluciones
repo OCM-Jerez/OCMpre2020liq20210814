@@ -2,12 +2,4 @@ Para colapsar codigo entre dos lineas.
 // #region Etiqueta
 // #endregion
 
-https://midu.dev/como-cargar-archivos-json-esmodules-node-js/
-import { readFile } from 'fs/promises'
-
-// leemos el archivo usando top-level await y con
-// codificación utf-8
-const file = await readFile('./file.json', 'utf-8')
-
-// transformamos el contenido en un JSON
-const json = JSON.parse(file)
+- Al cambiar de get a import JSON hay que quitar | Async en el HTML
