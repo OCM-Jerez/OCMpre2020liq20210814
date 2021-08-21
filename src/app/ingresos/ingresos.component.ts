@@ -1,14 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
 import { GetScreenSizeService } from '../services/get-screen-size.service';
 
 import localeTextESPes from '@presu/json/localeTextESPes.json';
+import dataJSON from '@presu/json/202020210814LiqIng.json';
 import { SCREEN_SIZE } from 'src/app/screen-size.enum';
 import { CellRendererOCM } from '../shared/utils/utils';
-import { GlobalConstants } from '@presu/shared/global-constants';
 
 @Component({
   selector: 'app-ingresos',
@@ -35,7 +34,7 @@ export class IngresosPorEconomicoComponent {
   // width de todas las columnas con valores úmericos.
   columnasWidth = 160;
 
-  constructor(private http: HttpClient, private getScreenSizeService: GetScreenSizeService) {
+  constructor(private getScreenSizeService: GetScreenSizeService) {
     this.screenSize = this.getScreenSizeService.getIsMobileResolution();
 
     switch (this.screenSize) {
@@ -248,7 +247,7 @@ export class IngresosPorEconomicoComponent {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = this.http.get(GlobalConstants.jsonIngresos);
+    this.rowData = dataJSON;
   }
 
   expandAll() {
