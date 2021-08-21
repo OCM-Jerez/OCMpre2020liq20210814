@@ -1,16 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
-
 import { SCREEN_SIZE } from 'src/app/screen-size.enum';
-
 import { GetScreenSizeService } from '../services/get-screen-size.service';
+import dataJSON from '@presu/json/202020210814LiqGas.json';
 import localeTextESPes from '../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../shared/utils/utils';
-import { GlobalConstants } from '../shared/global-constants';
 
 @Component({
   selector: 'app-gastos',
@@ -44,7 +41,6 @@ export class GastosPorCapituloComponent {
   columnsDcha: [];
 
   constructor(
-    private http: HttpClient,
     private getScreenSizeService: GetScreenSizeService,
     public tipoclasificacionService: TipoClasificacionService) {
     this.screenSize = this.getScreenSizeService.getIsMobileResolution();
@@ -775,7 +771,7 @@ export class GastosPorCapituloComponent {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = this.http.get(GlobalConstants.jsonGastos);
+    this.rowData = dataJSON
   }
 
   expandAll() {
