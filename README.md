@@ -1,4 +1,4 @@
-<h2 align='center'> App desarrolla en Angular para la consulta de las liquidaciones de presupuesto del Ayuntamiento de Jerez</h2>
+<h2 align='center'> App desarrollada en Angular para la consulta de las liquidaciones de presupuesto del Ayuntamiento de Jerez</h2>
 <img src='https://res.cloudinary.com/dabrencx7/image/upload/v1629968791/Presupuestos/liquidacion_toc8gy.jpg'/>
 
 # Motivación 💪
@@ -11,6 +11,7 @@
 <ul>
   <li>Permite listar los datos agrupados por diferentes conceptos.</li>
   <ul>
+          <li>Por capítulos.</li>
           <li>Por orgánico.</li>
           <li>Por programa.</li>
           <li>Por económico.</li>
@@ -43,7 +44,7 @@
 
 # Librerias usadas 📖
 - <a href= 'https://www.ag-grid.com/' target="_blank"> AG Grid</a>
-
+- <a href= 'https://github.com/ng-select/ng-select' target="_blank"> Angular ng-select</a>
 
 # Licencia ⚖
 
