@@ -3,3 +3,5 @@ Para colapsar codigo entre dos lineas.
 // #endregion
 
 - Al cambiar de get a import JSON hay que quitar | Async en el HTML
+
+- Si uninstall '@ng-select/ng-select da problemas al compilar.
