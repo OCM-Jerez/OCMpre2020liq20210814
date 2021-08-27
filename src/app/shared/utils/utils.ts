@@ -1,12 +1,14 @@
 export function CellRendererOCM(params: any) {
   if (params.value) {
-    const valorFormateado: number = params.value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    const valorFormateado: number = params.value
+      .toString()
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     if (params.node.footer) {
       switch (params.node.level) {
         case 3: // Total cuarto nivel.
-        return `<p style="text-align: right; color: red; font-size: 12px; font-weight: bold">${valorFormateado}</p>`;
+          return `<p style="text-align: right; color: red; font-size: 12px; font-weight: bold">${valorFormateado}</p>`;
         case 2: // Total tercero nivel.
-        return `<p style="text-align: right; color: red; font-size: 12px; font-weight: bold">${valorFormateado}</p>`;
+          return `<p style="text-align: right; color: red; font-size: 12px; font-weight: bold">${valorFormateado}</p>`;
         case 1: // Total segundo nivel.
           return `<p style="text-align: right; color: red; font-size: 12px; font-weight: bold">${valorFormateado}</p>`;
         case 0:  // Total primer nivel.
