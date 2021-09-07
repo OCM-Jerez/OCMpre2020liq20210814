@@ -8,12 +8,14 @@
 - Utilizar conversor online. El ultimo utilizado es el de [Adobe](https://documentcloud.adobe.com/link/acrobat/pdf-to-excel?x_api_client_id=adobe_com&x_api_client_location=pdf_to_excel)
 
 - Grabar como xlsm para permitir usar macros.
-- En Vista ->Macros Grabar nueva macros con todo el código de más abajo.
-- Ejecutar macro **borrarSuma** seleccionando la columna adecuada, NO toda la     columna
-- Ejecutar macro **borrarIniciales** seleccionando la columna adecuada, NO toda la     columna.
-- Ejecutar macro **borrarDescripcion** seleccionando la columna adecuada, NO toda la     columna
+- Copiar y pegar en otra pestaña las dos primeras filas de cabecera
 
-- Ejecutar macro **BorrarLineaVacia** seleccionando la **columna B** adecuada, NO toda la     columna
+- En Vista ->Macros Grabar nueva macros con todo el código de más abajo.
+- Ejecutar macro **borrarSuma** seleccionando la columna adecuada (la que contine la palabra Suma), NO toda la columna
+- Ejecutar macro **borrarIniciales** seleccionando la columna adecuada (la que contine la palabra INICIALES)  **columna E**, NO toda la columna
+- Ejecutar macro **borrarDescripcion** seleccionando la columna adecuada (la que contine la palabra DESCRIPCIÓN)  **columna D**, NO toda la columna
+
+- Ejecutar macro **BorrarLineaVacia** seleccionando  **el rango que contiene texto** de la **columna B** adecuada, NO toda la columna
 
 ```javascript
 Sub borrarSuma()
@@ -86,6 +88,7 @@ End Sub
 
 - Hacer lo mismo para DesCap, DesEco y DesPro abriendo sus correspondientes ficheros.
 
+- **HAY QUE UNIFICAR TODOS LOS NOMBRES IGUAL PARA PERMITIR UN SOLO PROYECTO DONDE SE SELECCIONE EL AÑO A MOSTRAR**.
 - Cambiar nombres que contengan un . de lo contrario no se muestran los valores en ag-grid.
 - Saldo de Gastos Compromet. => Saldo de Gastos Comprometidos
 - Facturas consumen disp. Pend. Contabilizar => Facturas consumen disp Pend Contabilizar
@@ -101,8 +104,11 @@ End Sub
 - 20210507 fecha ejecucion
 
 - En el CSV generado revisar todas las columnas numericas.
+- Problemas para convertir a numero, el numero esta como texto.
+- Lo copio a la izquierda multiplicando por 1.
 - Las pongo como numero, decimales=0, sin separador de miles.
 - Los porcentajes = porcentaje, dos decimales.
+- Copio el rango completo y lo pego como valor en el rango original.
 
 
 
