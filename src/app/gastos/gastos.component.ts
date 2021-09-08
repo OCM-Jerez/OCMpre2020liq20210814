@@ -88,19 +88,16 @@ export class GastosComponent {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
     switch (this.tipoClasificacion) {
       case 'capítulo':
-        // console.log(this.tipoClasificacion);
         this.myGroupName = 'Capítulo-Programa';
         this.myHeaderName = 'Capítulo';
         this.myField = 'DesCap';
         break;
       case 'económico':
-        // console.log(this.tipoClasificacion);
         this.myGroupName = 'Económico-Programa';
         this.myHeaderName = 'Económico';
         this.myField = 'DesEco';
         break;
       case 'organico':
-        // console.log(this.tipoClasificacion);
         this.myGroupName = 'Orgánico-Programa';
         this.myHeaderName = 'Orgánico';
         this.myField = 'DesOrg';
@@ -118,12 +115,9 @@ export class GastosComponent {
       case 'capítulo':
       case 'económico':
       case 'organico':
-        // console.log(this.tipoClasificacion);
-        // console.log('por el iffffffffffffffffffffffffffffff');
         this.columnDefs = [
           {
             headerName: this.myGroupName,
-            // totales = realizados + ordenados + reconocidos
             children: [
               {
                 headerName: this.myHeaderName,
@@ -145,7 +139,6 @@ export class GastosComponent {
                       }
                       break;
                     case 'económico':
-                      // console.log('en el casse: ', tipoclasificacionService.getTipoClasificacion());
                       if (params.data) {
                         return params.data.CodEco + ' - ' + params.data.DesEco;
                       } else {
@@ -164,7 +157,6 @@ export class GastosComponent {
                       break;
                   }
                 },
-
                 cellRendererParams: {
                   suppressCount: true,
                   innerRenderer: params => params.node.group ? `<span style="color: black; font-size: 12px; margin-left: 0px;">${params.value}</span>` : null,
@@ -181,13 +173,14 @@ export class GastosComponent {
                 }
               },
 
+              /**
+               en el caso de gastos por programa
+               anular columna Programa ya que en este caso es la primera y hay que añadir dos niveles más:
+                  capítulo
+                  económico
+               pero no se como crear condicion dentro de el array de
+              */
 
-              // en el caso de gastos por programa
-              // anular columna Programa ya que en este caso es la primera y hay que añadir dos niveles más:
-              //      capítulo
-              //      económico
-
-              // pero no se como crear condicion dentro de el array de
               {
                 headerName: 'Programa',
                 field: 'DesPro',
@@ -208,7 +201,7 @@ export class GastosComponent {
               },
             ]
           },
-          //************************* campos comunes ***************************
+          // #region Campos comunes
           {
             headerName: 'Créditos',
             children: [
@@ -241,55 +234,11 @@ export class GastosComponent {
               },
             ]
           },
-          // #region Columnas sin ningun dato en el Excel original.
-          // {
-          //   headerName: 'Saldo de Créditos Retenidos pdtes de utilización',
-          //   field: 'Saldo de Créditos Retenidos pdtes de utilización',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-          // {
-          //   headerName: 'Saldo de Créditos Retenidos para Trans',
-          //   field: 'Saldo de Créditos Retenidos para Trans',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-          // {
-          //   headerName: 'Saldo de Acuerd Créd para No DisponibilIdad',
-          //   field: 'Saldo de Acuerd Créd para No DisponibilIdad',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-          // {
-          //   headerName: 'Saldo de Gastos Autorizados',
-          //   field: 'Saldo de Gastos Autorizados',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-          // {
-          //   headerName: 'Saldo de Gastos Comprometidos',
-          //   field: 'Saldo de Gastos Comprometidos',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-          // #endregion
           {
             headerName: 'Pagos',
-            // totales = realizados + ordenados + reconocidos
             children: [
               {
                 headerName: 'Totales',
-                // field: 'ObligacionesReconocidasNetas',
                 field: 'Pagos',
                 width: this.CreditosWidth,
                 resizable: true,
@@ -297,33 +246,6 @@ export class GastosComponent {
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
-              // {
-              //   headerName: 'Realizados',
-              //   field: 'Pagos',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
-              // {
-              //   headerName: 'Ordenados',
-              //   field: 'Saldo de Pagos Ordenados',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
-              // {
-              //   headerName: 'Reconocidos',
-              //   field: 'Saldo de Obligaciones Reconocidas',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
             ]
           },
           {
@@ -335,7 +257,6 @@ export class GastosComponent {
             cellRenderer: CellRendererOCM
           },
           {
-            // headerName: 'Saldos',
             headerName: 'Créditos',
             children: [
               {
@@ -347,57 +268,12 @@ export class GastosComponent {
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
-              // {
-              //   headerName: 'Facturas',
-              //   field: 'Facturas consumen disp Pend Contabilizar',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
-              // {
-              //   headerName: 'Real',
-              //   field: 'Saldo de Crédito Disponible Real',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
-              // {
-              //   headerName: 'Vinculación',
-              //   field: 'Saldo de Créditos disp a nivel de Vinculación',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
             ]
           },
-
-          // {
-          //   headerName: '% de Realizacion del Presupuesto',
-          //   field: '% de Realizacion del Presupuesto',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-
-          // {
-          //   headerName: 'Gastado en Fase Definitiva',
-          //   field: 'Gastado en Fase Definitiva',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
+          // #endregion
         ];
         break;
       case 'programa':
-        // console.log('por progrma');
         this.columnDefs = [
           {
             headerName: 'Programa-Organico-Capítulo-Económico.',
@@ -523,7 +399,6 @@ export class GastosComponent {
                 columnGroupShow: 'open',
                 filter: false,
                 valueGetter: params => {
-                  // console.log(this.screen);
                   if (params.data) {
                     switch (this.screenSize) {
                       case (SCREEN_SIZE.XS):
@@ -538,21 +413,6 @@ export class GastosComponent {
                         return params.data.CodEco + ' - ' + params.data.DesEco;
                       default:
                     }
-                    // #region Determinar tamaño pantalla
-                    // switch (this.screen) {
-                    //   case (SCREEN_SIZE.XS):
-                    //     return '<span style="color: red; font-size: 8px;"> ' + params.data.CodEco + ' - ' + params.data.DesEco + '</span>';
-                    //   case (SCREEN_SIZE.SM):
-                    //     return '<span style="color: red; font-size: 8px;"> ' + params.data.CodEco + ' - ' + params.data.DesEco + '</span>';
-                    //   case (SCREEN_SIZE.MD):
-                    //     return '<span style="color: red; font-size: 8px;"> ' + params.data.CodEco + ' - ' + params.data.DesEco + '</span>';
-                    //   case (SCREEN_SIZE.LG):
-                    //     return '<span style="color: red; font-size: 8px;"> ' + params.data.CodEco + ' - ' + params.data.DesEco + '</span>';
-                    //   case (SCREEN_SIZE.XL):
-                    //     return '<span style="color: red; font-size: 12px;"> ' + params.data.DesEco + '</span>';
-                    //   default:
-                    // }
-                    // #endregion
                   } else {
                     return null;
                   }
@@ -560,7 +420,6 @@ export class GastosComponent {
               },
             ]
           },
-
           // #region Campos comunes
           {
             headerName: 'Créditos',
@@ -594,51 +453,8 @@ export class GastosComponent {
               },
             ]
           },
-          // #region Columnas sin ningun dato en el Excel original.
-          // {
-          //   headerName: 'Saldo de Créditos Retenidos pdtes de utilización',
-          //   field: 'Saldo de Créditos Retenidos pdtes de utilización',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-          // {
-          //   headerName: 'Saldo de Créditos Retenidos para Trans',
-          //   field: 'Saldo de Créditos Retenidos para Trans',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-          // {
-          //   headerName: 'Saldo de Acuerd Créd para No DisponibilIdad',
-          //   field: 'Saldo de Acuerd Créd para No DisponibilIdad',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-          // {
-          //   headerName: 'Saldo de Gastos Autorizados',
-          //   field: 'Saldo de Gastos Autorizados',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-          // {
-          //   headerName: 'Saldo de Gastos Comprometidos',
-          //   field: 'Saldo de Gastos Comprometidos',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-          // #endregion
           {
             headerName: 'Pagos',
-            // totales = realizados + ordenados + reconocidos
             children: [
               {
                 headerName: 'Totales',
@@ -649,33 +465,6 @@ export class GastosComponent {
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
-              // {
-              //   headerName: 'Realizados',
-              //   field: 'Pagos Realizados',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
-              // {
-              //   headerName: 'Ordenados',
-              //   field: 'Saldo de Pagos Ordenados',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
-              // {
-              //   headerName: 'Reconocidos',
-              //   field: 'Saldo de Obligaciones Reconocidas',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
             ]
           },
           {
@@ -688,11 +477,8 @@ export class GastosComponent {
           },
           {
             headerName: 'Créditos',
-            // real = disponible - facturas
             children: [
               {
-                // headerName: 'Créditos',
-
                 headerName: 'Disponibles',
                 field: 'RemanenteCredito',
                 width: 140,
@@ -701,53 +487,8 @@ export class GastosComponent {
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
-              // {
-              //   headerName: 'Facturas',
-              //   field: 'Facturas consumen disp Pend Contabilizar',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
-              // {
-              //   headerName: 'Real',
-              //   field: 'Saldo de Crédito Disponible Real',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
-              // {
-              //   headerName: 'Vinculación',
-              //   field: 'Saldo de Créditos disp a nivel de Vinculación',
-              //   width: this.CreditosWidth,
-              //   resizable: true,
-              //   columnGroupShow: 'open',
-              //   aggFunc: 'sum',
-              //   cellRenderer: CellRendererOCM
-              // },
-
             ]
           },
-          // {
-          //   headerName: '% de Realizacion del Presupuesto',
-          //   field: '% de Realizacion del Presupuesto',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
-
-          // {
-          //   headerName: 'Gastado en Fase Definitiva',
-          //   field: 'Gastado en Fase Definitiva',
-          //   width: this.CreditosWidth,
-          //   resizable: true,
-          //   aggFunc: 'sum',
-          //   cellRenderer: CellRendererOCM
-          // },
           // #endregion
         ];
         break;
