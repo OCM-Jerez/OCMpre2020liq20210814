@@ -17,7 +17,7 @@ import { CellRendererOCM } from '../shared/utils/utils';
   styleUrls: ['./gastos.component.css']
 })
 
-export class GastosPorCapituloComponent {
+export class GastosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
   public gridColumnApi;
@@ -87,13 +87,13 @@ export class GastosPorCapituloComponent {
     this.CreditosWidth = 100;
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
     switch (this.tipoClasificacion) {
-      case 'capitulo':
+      case 'capítulo':
         // console.log(this.tipoClasificacion);
-        this.myGroupName = 'Capitulo-Programa';
-        this.myHeaderName = 'Capitulo';
+        this.myGroupName = 'Capítulo-Programa';
+        this.myHeaderName = 'Capítulo';
         this.myField = 'DesCap';
         break;
-      case 'economico':
+      case 'económico':
         // console.log(this.tipoClasificacion);
         this.myGroupName = 'Económico-Programa';
         this.myHeaderName = 'Económico';
@@ -106,7 +106,7 @@ export class GastosPorCapituloComponent {
         this.myField = 'DesOrg';
         break;
       case 'programa':
-        this.myGroupName = 'Programa-Capitulo-Económico';
+        this.myGroupName = 'Programa-Capítulo-Económico';
         this.myHeaderName = 'Programa';
         this.myField = 'DesPro';
         break;
@@ -115,8 +115,8 @@ export class GastosPorCapituloComponent {
     }
 
     switch (tipoclasificacionService.getTipoClasificacion()) {
-      case 'capitulo':
-      case 'economico':
+      case 'capítulo':
+      case 'económico':
       case 'organico':
         // console.log(this.tipoClasificacion);
         // console.log('por el iffffffffffffffffffffffffffffff');
@@ -137,14 +137,14 @@ export class GastosPorCapituloComponent {
                 cellRenderer: 'agGroupCellRenderer',
                 valueGetter: params => {
                   switch (tipoclasificacionService.getTipoClasificacion()) {
-                    case 'capitulo':
+                    case 'capítulo':
                       if (params.data) {
                         return params.data.CodCap + ' - ' + params.data.DesCap;
                       } else {
                         return null;
                       }
                       break;
-                    case 'economico':
+                    case 'económico':
                       // console.log('en el casse: ', tipoclasificacionService.getTipoClasificacion());
                       if (params.data) {
                         return params.data.CodEco + ' - ' + params.data.DesEco;
@@ -170,7 +170,7 @@ export class GastosPorCapituloComponent {
                   innerRenderer: params => params.node.group ? `<span style="color: black; font-size: 12px; margin-left: 0px;">${params.value}</span>` : null,
                   footerValueGetter(params) {
                     switch (params.node.level) {
-                      case 0:  // Total capitulo.
+                      case 0:  // Total capítulo.
                         return `<span style="color: red; font-size: 14px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
                       case -1: // Total general.
                         return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
@@ -183,9 +183,9 @@ export class GastosPorCapituloComponent {
 
 
               // en el caso de gastos por programa
-              // anular columna Programa ya que en este caso es la primerra y hay que añadir dos niveles más:
-              //      capitulo
-              //      economico
+              // anular columna Programa ya que en este caso es la primera y hay que añadir dos niveles más:
+              //      capítulo
+              //      económico
 
               // pero no se como crear condicion dentro de el array de
               {

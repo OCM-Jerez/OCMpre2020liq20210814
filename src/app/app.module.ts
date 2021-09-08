@@ -15,7 +15,7 @@ import { IndiceComponent } from './indice/indice.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { TipoClasificacionService } from './services/tipoClasificacion.service';
-import { GastosPorCapituloComponent } from './gastos/gastos.component';
+import { GastosComponent } from './gastos/gastos.component';
 import { IngresosPorEconomicoComponent } from './ingresos/ingresos.component';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { IngresosPorEconomicoComponent } from './ingresos/ingresos.component';
     HeaderComponent,
     FooterComponent,
     IngresosPorEconomicoComponent,
-    GastosPorCapituloComponent
+    GastosComponent
   ],
   imports: [
     BrowserModule,

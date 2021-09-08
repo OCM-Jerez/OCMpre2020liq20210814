@@ -25,22 +25,22 @@ export class IndiceComponent implements OnInit {
   }
 
   porCapitulo() {
-    this.tipoclasificacionService.tipoClasificacion = 'capitulo'
-    this.router.navigate(['/GastosPorCapitulo'])
+    this.tipoclasificacionService.tipoClasificacion = 'capítulo'
+    this.router.navigate(['/Gastos'])
   }
 
   porEconomico() {
-    this.tipoclasificacionService.tipoClasificacion = 'economico'
-    this.router.navigate(['/GastosPorCapitulo'])
+    this.tipoclasificacionService.tipoClasificacion = 'económico'
+    this.router.navigate(['/Gastos'])
   }
 
   porOrganico() {
     this.tipoclasificacionService.tipoClasificacion = 'organico'
-    this.router.navigate(['/GastosPorCapitulo'])
+    this.router.navigate(['/Gastos'])
   }
 
   porPrograma() {
     this.tipoclasificacionService.tipoClasificacion = 'programa'
-    this.router.navigate(['/GastosPorCapitulo'])
+    this.router.navigate(['/Gastos'])
   }
 }
