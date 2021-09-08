@@ -5,8 +5,8 @@ import { GridOptions } from 'ag-grid-community/main';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 import { SCREEN_SIZE } from 'src/app/screen-size.enum';
 import { GetScreenSizeService } from '../services/get-screen-size.service';
-import dataJSON from '@presu/json/202020210814LiqGas.json';
-// import dataJSON from '@presu/json/2019LiqGas.json';
+// import dataJSON from '@presu/json/202020210814LiqGas.json';
+import dataJSON from '@presu/json/2019LiqGas.json';
 
 import localeTextESPes from '../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../shared/utils/utils';
@@ -335,52 +335,48 @@ export class GastosComponent {
             cellRenderer: CellRendererOCM
           },
           {
-            headerName: 'Saldos',
-            // real = disponible - facturas
+            // headerName: 'Saldos',
+            headerName: 'Créditos',
             children: [
               {
-                headerName: 'Creditos disponibles',
-                children: [
-                  {
-                    headerName: 'Disponibles',
-                    field: 'RemanenteCredito',
-                    width: 140,
-                    resizable: true,
-                    columnGroupShow: 'close',
-                    aggFunc: 'sum',
-                    cellRenderer: CellRendererOCM
-                  },
-                  // {
-                  //   headerName: 'Facturas',
-                  //   field: 'Facturas consumen disp Pend Contabilizar',
-                  //   width: this.CreditosWidth,
-                  //   resizable: true,
-                  //   columnGroupShow: 'open',
-                  //   aggFunc: 'sum',
-                  //   cellRenderer: CellRendererOCM
-                  // },
-                  // {
-                  //   headerName: 'Real',
-                  //   field: 'Saldo de Crédito Disponible Real',
-                  //   width: this.CreditosWidth,
-                  //   resizable: true,
-                  //   columnGroupShow: 'open',
-                  //   aggFunc: 'sum',
-                  //   cellRenderer: CellRendererOCM
-                  // },
-                  // {
-                  //   headerName: 'Vinculación',
-                  //   field: 'Saldo de Créditos disp a nivel de Vinculación',
-                  //   width: this.CreditosWidth,
-                  //   resizable: true,
-                  //   columnGroupShow: 'open',
-                  //   aggFunc: 'sum',
-                  //   cellRenderer: CellRendererOCM
-                  // },
-                ]
+                headerName: 'Disponibles',
+                field: 'RemanenteCredito',
+                width: 140,
+                resizable: true,
+                columnGroupShow: 'close',
+                aggFunc: 'sum',
+                cellRenderer: CellRendererOCM
               },
+              // {
+              //   headerName: 'Facturas',
+              //   field: 'Facturas consumen disp Pend Contabilizar',
+              //   width: this.CreditosWidth,
+              //   resizable: true,
+              //   columnGroupShow: 'open',
+              //   aggFunc: 'sum',
+              //   cellRenderer: CellRendererOCM
+              // },
+              // {
+              //   headerName: 'Real',
+              //   field: 'Saldo de Crédito Disponible Real',
+              //   width: this.CreditosWidth,
+              //   resizable: true,
+              //   columnGroupShow: 'open',
+              //   aggFunc: 'sum',
+              //   cellRenderer: CellRendererOCM
+              // },
+              // {
+              //   headerName: 'Vinculación',
+              //   field: 'Saldo de Créditos disp a nivel de Vinculación',
+              //   width: this.CreditosWidth,
+              //   resizable: true,
+              //   columnGroupShow: 'open',
+              //   aggFunc: 'sum',
+              //   cellRenderer: CellRendererOCM
+              // },
             ]
           },
+
           // {
           //   headerName: '% de Realizacion del Presupuesto',
           //   field: '% de Realizacion del Presupuesto',
@@ -691,50 +687,48 @@ export class GastosComponent {
             cellRenderer: CellRendererOCM
           },
           {
-            headerName: 'Saldos',
+            headerName: 'Créditos',
             // real = disponible - facturas
             children: [
               {
-                headerName: 'Creditos disponibles',
-                children: [
-                  {
-                    headerName: 'Disponibles',
-                    field: 'RemanenteCredito',
-                    width: 140,
-                    resizable: true,
-                    columnGroupShow: 'close',
-                    aggFunc: 'sum',
-                    cellRenderer: CellRendererOCM
-                  },
-                  // {
-                  //   headerName: 'Facturas',
-                  //   field: 'Facturas consumen disp Pend Contabilizar',
-                  //   width: this.CreditosWidth,
-                  //   resizable: true,
-                  //   columnGroupShow: 'open',
-                  //   aggFunc: 'sum',
-                  //   cellRenderer: CellRendererOCM
-                  // },
-                  // {
-                  //   headerName: 'Real',
-                  //   field: 'Saldo de Crédito Disponible Real',
-                  //   width: this.CreditosWidth,
-                  //   resizable: true,
-                  //   columnGroupShow: 'open',
-                  //   aggFunc: 'sum',
-                  //   cellRenderer: CellRendererOCM
-                  // },
-                  // {
-                  //   headerName: 'Vinculación',
-                  //   field: 'Saldo de Créditos disp a nivel de Vinculación',
-                  //   width: this.CreditosWidth,
-                  //   resizable: true,
-                  //   columnGroupShow: 'open',
-                  //   aggFunc: 'sum',
-                  //   cellRenderer: CellRendererOCM
-                  // },
-                ]
+                // headerName: 'Créditos',
+
+                headerName: 'Disponibles',
+                field: 'RemanenteCredito',
+                width: 140,
+                resizable: true,
+                columnGroupShow: 'close',
+                aggFunc: 'sum',
+                cellRenderer: CellRendererOCM
               },
+              // {
+              //   headerName: 'Facturas',
+              //   field: 'Facturas consumen disp Pend Contabilizar',
+              //   width: this.CreditosWidth,
+              //   resizable: true,
+              //   columnGroupShow: 'open',
+              //   aggFunc: 'sum',
+              //   cellRenderer: CellRendererOCM
+              // },
+              // {
+              //   headerName: 'Real',
+              //   field: 'Saldo de Crédito Disponible Real',
+              //   width: this.CreditosWidth,
+              //   resizable: true,
+              //   columnGroupShow: 'open',
+              //   aggFunc: 'sum',
+              //   cellRenderer: CellRendererOCM
+              // },
+              // {
+              //   headerName: 'Vinculación',
+              //   field: 'Saldo de Créditos disp a nivel de Vinculación',
+              //   width: this.CreditosWidth,
+              //   resizable: true,
+              //   columnGroupShow: 'open',
+              //   aggFunc: 'sum',
+              //   cellRenderer: CellRendererOCM
+              // },
+
             ]
           },
           // {
