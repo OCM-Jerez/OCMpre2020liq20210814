@@ -14,7 +14,7 @@ import { CellRendererOCM } from '../shared/utils/utils';
   templateUrl: './ingresos.component.html',
   styleUrls: ['./ingresos.component.css']
 })
-export class IngresosPorEconomicoComponent {
+export class IngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
   public gridColumnApi;

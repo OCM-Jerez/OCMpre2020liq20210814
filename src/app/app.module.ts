@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+
+import { NgSelectModule } from '@ng-select/ng-select';
 import { AgGridModule } from 'ag-grid-angular';
 import 'ag-grid-enterprise';
 
@@ -11,30 +12,30 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { IndiceComponent } from './indice/indice.component';
-import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { TipoClasificacionService } from './services/tipoClasificacion.service';
 import { GastosComponent } from './gastos/gastos.component';
-import { IngresosPorEconomicoComponent } from './ingresos/ingresos.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { IndiceComponent } from './indice/indice.component';
+import { IngresosComponent } from './ingresos/ingresos.component';
+import { TipoClasificacionService } from './services/tipoClasificacion.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndiceComponent,
-    HeaderComponent,
     FooterComponent,
-    IngresosPorEconomicoComponent,
-    GastosComponent
+    GastosComponent,
+    HeaderComponent,
+    IndiceComponent,
+    IngresosComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    NgSelectModule,
     FormsModule,
+    NgSelectModule,
     AgGridModule.withComponents([
-    ]),
-    HttpClientModule
+    ])
   ],
   providers: [TipoClasificacionService],
   bootstrap: [AppComponent]

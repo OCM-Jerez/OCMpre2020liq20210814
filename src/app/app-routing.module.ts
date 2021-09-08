@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IndiceComponent } from './indice/indice.component';
-import { IngresosPorEconomicoComponent } from './ingresos/ingresos.component';
+import { IngresosComponent } from './ingresos/ingresos.component';
 import { GastosComponent } from './gastos/gastos.component';
 
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
-  { path: 'IngresosPorEconomico', component: IngresosPorEconomicoComponent },
+  { path: 'Ingresos', component: IngresosComponent },
   { path: 'Gastos', component: GastosComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
