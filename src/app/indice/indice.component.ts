@@ -35,7 +35,7 @@ export class IndiceComponent implements OnInit {
   }
 
   porOrganico() {
-    this.tipoclasificacionService.tipoClasificacion = 'organico'
+    this.tipoclasificacionService.tipoClasificacion = 'orgánico'
     this.router.navigate(['/Gastos'])
   }
 

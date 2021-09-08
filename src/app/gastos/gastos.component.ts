@@ -97,7 +97,7 @@ export class GastosComponent {
         this.myHeaderName = 'Económico';
         this.myField = 'DesEco';
         break;
-      case 'organico':
+      case 'orgánico':
         this.myGroupName = 'Orgánico-Programa';
         this.myHeaderName = 'Orgánico';
         this.myField = 'DesOrg';
@@ -114,7 +114,7 @@ export class GastosComponent {
     switch (tipoclasificacionService.getTipoClasificacion()) {
       case 'capítulo':
       case 'económico':
-      case 'organico':
+      case 'orgánico':
         this.columnDefs = [
           {
             headerName: this.myGroupName,
@@ -145,7 +145,7 @@ export class GastosComponent {
                         return null;
                       }
                       break;
-                    case 'organico':
+                    case 'orgánico':
                       if (params.data) {
                         return params.data.CodOrg + ' - ' + params.data.DesOrg;
                       } else {
@@ -341,7 +341,7 @@ export class GastosComponent {
                   footerValueGetter(params) {
                     const val = params.value.split(' - ')[1];
                     switch (params.node.level) {
-                      case 1:  // Total organico.
+                      case 1:  // Total orgánico.
                         return `<span style="color: red; font-size: 12px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
                       case -1: // Total general.
                         return '';
