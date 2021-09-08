@@ -207,7 +207,7 @@ export class GastosComponent {
             children: [
               {
                 headerName: 'Totales',
-                field: 'definitivas',
+                field: 'Definitivas',
                 width: 120,
                 resizable: true,
                 columnGroupShow: 'close',
@@ -426,7 +426,7 @@ export class GastosComponent {
             children: [
               {
                 headerName: 'Totales',
-                field: 'definitivas',
+                field: 'Definitivas',
                 width: 120,
                 resizable: true,
                 columnGroupShow: 'close',
