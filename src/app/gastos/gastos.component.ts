@@ -5,7 +5,7 @@ import { GridOptions } from 'ag-grid-community/main';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 import { SCREEN_SIZE } from 'src/app/screen-size.enum';
 import { GetScreenSizeService } from '../services/get-screen-size.service';
-// import dataJSON from '@presu/json/202020210814LiqGas.json';
+// import dataJSON from '@presu/json/2020LiqGas.json';
 import dataJSON from '@presu/json/2019LiqGas.json';
 
 import localeTextESPes from '../../assets/data/localeTextESPes.json';
