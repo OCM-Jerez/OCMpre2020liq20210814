@@ -12,8 +12,8 @@ import { CellRendererOCM } from '../shared/utils/utils';
 
 @Component({
   selector: 'app-gastos',
-  templateUrl: './gastos.component.html',
-  styleUrls: ['./gastos.component.css']
+  templateUrl: './gastos.component.html'
+
 })
 
 export class GastosComponent {
