@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { GetScreenSizeService } from '../services/get-screen-size.service';
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
 
+import { AVALAIBLE_YEARS } from '../avalaible-years-data'
+
 @Component({
   selector: 'app-indice',
   templateUrl: './indice.component.html',
@@ -13,11 +15,22 @@ import { TipoClasificacionService } from '../services/tipoClasificacion.service'
 })
 export class IndiceComponent implements OnInit {
   pantallaSize!: string;
+
+  radioSel!: any;
+  radioSelected?: string;
+  radioSelectedString?:
+    string;
+  yearsList: any[];
+
   constructor(
     private router: Router,
     private getScreenSizeService: GetScreenSizeService,
     private tipoclasificacionService: TipoClasificacionService
-  ) { }
+  ) {
+    this.yearsList = AVALAIBLE_YEARS;
+    this.radioSelected = "todos";
+    this.getSelectedItem();
+  }
 
   ngOnInit() {
     this.pantallaSize = this.getScreenSizeService.getIsMobileResolution();
@@ -43,4 +56,14 @@ export class IndiceComponent implements OnInit {
     this.tipoclasificacionService.tipoClasificacion = 'programa'
     this.router.navigate(['/Gastos'])
   }
+
+  getSelectedItem() {
+    this.radioSel = AVALAIBLE_YEARS.find(Item => Item.year === this.radioSelected)!;
+    this.radioSelectedString = JSON.stringify(this.radioSel);
+  }
+
+  onItemChange() {
+    this.getSelectedItem();
+  }
+
 }
