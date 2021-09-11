@@ -5,6 +5,7 @@
 ![alt text](https://res.cloudinary.com/dabrencx7/image/upload/v1628963150/Presupuestos/presupuestoPDF_g6uhql.png)
 ![alt text](https://res.cloudinary.com/dabrencx7/image/upload/v1629010030/Presupuestos/ingresosPDF_i7wjvv.png)
 
+- Convertir a Excel con Foxit.
 - Utilizar conversor online. El ultimo utilizado es el de [Adobe](https://documentcloud.adobe.com/link/acrobat/pdf-to-excel?x_api_client_id=adobe_com&x_api_client_location=pdf_to_excel)
 - Alternativa para no tener que registrarse https://www.ilovepdf.com/pdf_to_excel
 
@@ -116,10 +117,7 @@ End Sub
 
 - Archivo->guardar como->desplegable tipo archivo-> CSV UTF-8 (delimitado por comas) (\*.csv)
 - Si no se hace como UTF-8 el json contendra simbolos extraños.  
-- Guardar como 202020210507EjeGas
-- 2020 año del presupuesto
-- 20210507 fecha ejecucion
-
+- Guardar como 2020LiqGas
 - En el CSV generado revisar todas las columnas numericas.
 - 
 
@@ -128,20 +126,21 @@ End Sub
 
 **\*\***\*\*\***\*\*** INGRESOS **\*\*\*\***\*\*\*\***\*\*\*\***
 
-- Renombro columna Eco. -> CodEco
-- Inserto columna DesEco.
-- formula BUSCARV(VALOR(X)......;2;0)
+- Insertar 3 columnas a partir columan C.
+- Copiar primera fila Excel anterior.
+- Copiar formulas 3 nuevas columnas a partir columna B.
 - Es importante que el ultimo valor sea 0 para que sea busqueda exacta y en caso de faltar algun valor en la tabla de #N/D
-- Insertar columnas:
-
-        ⋅⋅⋅CodCap
-        ⋅⋅⋅DesCap
-
+- Comprobar #N/D.
+- Cambiar formato columnas F a O inclusive para que en aLINEACIÓN no haya nada combinado.
+- Copiar Cabecera columnas F a O inclusive y pegar a partir de Q
+- Multiplicar + 1 columans F a O inclusive.
+- Copiar el rango y pegarlo como valor en F a O inclusive.
+- Borrar a partir de Q.
+- Cambiar formato a numerico sin decimales ni separador de miles columnas A y D
 - Archivo->guardar como->desplegable tipo archivo-> CSV UTF-8 (delimitado por comas) (\*.csv)
 - Si no se hace como UTF-8 el json contendra simbolos extraños.  
-- Guardar como 202020210507EjeGas
-- 2020 año del presupuesto
-- 20210507 fecha ejecucion
+- Cambiar nombre Iiniciales y DerechoisCancelados.
+- Guardar. 
 - En el CSV generado revisar todas las columnas numericas.
 - Las pongo como numero, decimales=0, sin separador de miles.
 - Los porcentajes = porcentaje, dos decimales.
