@@ -17,7 +17,9 @@ import { GastosComponent } from './gastos/gastos.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { IndiceComponent } from './indice/indice.component';
 import { IngresosComponent } from './ingresos/ingresos.component';
+
 import { TipoClasificacionService } from './services/tipoClasificacion.service';
+import { AvalaibleYearsService } from './services/avalaibleYears.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,10 @@ import { TipoClasificacionService } from './services/tipoClasificacion.service';
     AgGridModule.withComponents([
     ])
   ],
-  providers: [TipoClasificacionService],
+  providers: [
+    TipoClasificacionService,
+    AvalaibleYearsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,19 +2,22 @@
 
   <div class="rowStyle">
 
-    <div class="col-3 col-offset-1">
+    <div class="col-4 col-offset-1">
       <div>
         <h4> Selecciona año a mostrar</h4>
       </div>
-      <div>
-        <ul class="list-group">
-          <li class="list-group-item" *ngFor="let item of yearsList">
-            <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{item.year}}"
-              (change)="onItemChange()" />
-            {{item.year}}
 
-          </li>
-        </ul>
+      <div class="col-12">
+        <div>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of yearsList">
+              <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{item.year}}"
+                (change)="onItemChange()" />
+              {{item.year}}
+
+            </li>
+          </ul>
+        </div>
       </div>
       <!-- <h5>{{radioSelectedString}}</h5> -->
     </div>

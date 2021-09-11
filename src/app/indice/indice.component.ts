@@ -7,6 +7,7 @@ import { GetScreenSizeService } from '../services/get-screen-size.service';
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
 
 import { AVALAIBLE_YEARS } from '../avalaible-years-data'
+import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 
 @Component({
   selector: 'app-indice',
@@ -18,17 +19,18 @@ export class IndiceComponent implements OnInit {
 
   radioSel!: any;
   radioSelected?: string;
-  radioSelectedString?:
-    string;
+  // radioSelectedString?:
+  //   string;
   yearsList: any[];
 
   constructor(
     private router: Router,
     private getScreenSizeService: GetScreenSizeService,
-    private tipoclasificacionService: TipoClasificacionService
+    private tipoclasificacionService: TipoClasificacionService,
+    private avalaibleYearsService: AvalaibleYearsService
   ) {
     this.yearsList = AVALAIBLE_YEARS;
-    this.radioSelected = "todos";
+    this.radioSelected = "2020";
     this.getSelectedItem();
   }
 
@@ -59,7 +61,9 @@ export class IndiceComponent implements OnInit {
 
   getSelectedItem() {
     this.radioSel = AVALAIBLE_YEARS.find(Item => Item.year === this.radioSelected)!;
-    this.radioSelectedString = JSON.stringify(this.radioSel);
+    // this.radioSelectedString = JSON.stringify(this.radioSel);
+    this.avalaibleYearsService.setAvalaibleYear(this.radioSel.year);
+    console.log(this.radioSel.year);
   }
 
   onItemChange() {
