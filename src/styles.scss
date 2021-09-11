@@ -1,14 +1,12 @@
 // Mis parciales.
 // https://www.udemy.com/course/advanced-css-and-scss/learn/lecture/8274478#overview
-
-@import"/src/app/scss/animations";
-@import"/src/app/scss/base";
-@import"/src/app/scss/typography";
-@import"/src/app/scss/utilities";
-
-@import"/src/app/scss/functions";
-@import"/src/app/scss/mixins";
-@import"/src/app/scss/variables";
+@use"/src/app/scss/animations";
+@use"/src/app/scss/base";
+@use"/src/app/scss/functions";
+@use"/src/app/scss/mixins";
+@use"/src/app/scss/typography";
+@use"/src/app/scss/utilities";
+@use"/src/app/scss/variables";
 
 @import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss";
@@ -285,13 +283,14 @@ body{
 }
 // #endregion
 /******** END  @media screen *****************/
+
 // #endregion
 /******** END Mis cosas *****************/
 
 // #region AG-Grid
 .ag-header-group-cell{
   font-size: 20px;
-  color: red;
+  color: green;
  }
 
  .ag-header-cell {
