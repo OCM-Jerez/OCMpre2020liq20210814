@@ -5,7 +5,7 @@ import { GridOptions } from 'ag-grid-community/main';
 import { GetScreenSizeService } from '../services/get-screen-size.service';
 
 import localeTextESPes from '@presu/json/localeTextESPes.json';
-import dataJSON from '@presu/json/202020210814LiqIng.json';
+import dataJSON from '@presu/json/2020LiqIng.json';
 import { SCREEN_SIZE } from 'src/app/screen-size.enum';
 import { CellRendererOCM } from '../shared/utils/utils';
 
