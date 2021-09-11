@@ -6,18 +6,14 @@
 ![alt text](https://res.cloudinary.com/dabrencx7/image/upload/v1629010030/Presupuestos/ingresosPDF_i7wjvv.png)
 
 - Utilizar conversor online. El ultimo utilizado es el de [Adobe](https://documentcloud.adobe.com/link/acrobat/pdf-to-excel?x_api_client_id=adobe_com&x_api_client_location=pdf_to_excel)
+- Alternativa para no tener que registrarse https://www.ilovepdf.com/pdf_to_excel
 
+- Crear carpeta OCM debajo de la carpeta donde es el fichero a convertir.
+- Grabar fichero generado en la carpeta OCM.
+- Abrir fichero Excel.
 - Grabar como xlsm para permitir usar macros.
-- Copiar y pegar en otra pestaña las dos primeras filas de cabecera
+- En Vista ->Macros->Ver macros-> Borrar el codigo que existe. Grabar nueva macros con todo el código siguiente:
 
-- En Vista ->Macros Grabar nueva macros con todo el código de más abajo.
-- Ejecutar macro **borrarSuma** seleccionando la columna adecuada (la que contine la palabra Suma), NO toda la columna
-- Ejecutar macro **borrarIniciales** seleccionando la columna adecuada (la que contine la palabra INICIALES)  **columna E**, NO toda la columna
-- Ejecutar macro **borrarDescripcion** seleccionando la columna adecuada (la que contine la palabra DESCRIPCIÓN)  **columna D**, NO toda la columna
-
-- Ejecutar macro **BorrarLineaVacia** seleccionando  **el rango que contiene texto** de la **columna B** adecuada, NO toda la columna
-
-```javascript
 Sub borrarSuma()
 For Each Fila In Selection
 If Fila.Value = "Suma" Then
@@ -50,7 +46,28 @@ End If
 Next Fila
 End Sub
 
-```
+- Grabar macros.
+- Ejecutar macro **borrarSuma** seleccionando la columna adecuada (la que contine la palabra Suma) **columna D**.
+- Ejecutar macro **borrarIniciales** seleccionando la columna adecuada (la que contine la palabra INICIALES)  **columna E**.
+- Ejecutar macro **borrarDescripcion** seleccionando la columna adecuada (la que contine la palabra DESCRIPCIÓN)  **columna D**.
+- Ejecutar macro **BorrarLineaVacia** seleccionando  **el rango que contiene texto** de la **columna B**. 
+
+- Insertar 5 columna desde columna D
+- Abrir Excel año anterior
+- Copiar y pegar primera fila.
+- Copiar y pegar formulas columnas D-H inclusive.
+- Revisar año de las tablas usar en las formulas.
+
+
+
+- Buscar #N/D
+- Problemas para convertir a numero, el numero esta como texto.
+- Lo copio a la izquierda multiplicando por 1.
+- Las pongo como numero, decimales=0, sin separador de miles.
+- Los porcentajes = porcentaje, dos decimales.
+- Copio el rango completo y lo pego como valor en el rango original.
+
+- 
 
 
 
@@ -104,11 +121,7 @@ End Sub
 - 20210507 fecha ejecucion
 
 - En el CSV generado revisar todas las columnas numericas.
-- Problemas para convertir a numero, el numero esta como texto.
-- Lo copio a la izquierda multiplicando por 1.
-- Las pongo como numero, decimales=0, sin separador de miles.
-- Los porcentajes = porcentaje, dos decimales.
-- Copio el rango completo y lo pego como valor en el rango original.
+- 
 
 
 
