@@ -11,8 +11,7 @@ import { CellRendererOCM } from '../shared/utils/utils';
 
 @Component({
   selector: 'app-ingresos',
-  templateUrl: './ingresos.component.html',
-  styleUrls: ['./ingresos.component.css']
+  templateUrl: './ingresos.component.html'
 })
 export class IngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
