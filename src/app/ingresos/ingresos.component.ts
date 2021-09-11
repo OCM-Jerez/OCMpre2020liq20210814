@@ -5,7 +5,7 @@ import { GridOptions } from 'ag-grid-community/main';
 import { GetScreenSizeService } from '../services/get-screen-size.service';
 
 import localeTextESPes from '@presu/json/localeTextESPes.json';
-import dataJSON from '@presu/json/2020LiqIng.json';
+import dataJSON from '@presu/json/2017LiqIng.json';
 import { SCREEN_SIZE } from 'src/app/screen-size.enum';
 import { CellRendererOCM } from '../shared/utils/utils';
 
@@ -141,7 +141,6 @@ export class IngresosComponent {
           },
         ]
       },
-
       {
         headerName: 'Previsiones Iniciales',
         field: 'Iniciales',
@@ -167,24 +166,8 @@ export class IngresosComponent {
         cellRenderer: CellRendererOCM
       },
       {
-        headerName: 'Derechos Reconocidos Netos',
-        field: 'DerechosReconocidosNetos',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
-      },
-      // {
-      //   headerName: 'Realizacion del Presupuesto',
-      //   field: 'DiferenciaPrevision',
-      //   width: this.columnasWidth,
-      //   resizable: true,
-      //   aggFunc: 'sum',
-      //   cellRenderer: CellRendererOCM
-      // },
-      {
-        headerName: 'Derechos Recaudados',
-        field: 'RecaudacionNeta',
+        headerName: 'Derechos Reconocidos',
+        field: 'DerechosReconocidos',
         width: this.columnasWidth,
         resizable: true,
         aggFunc: 'sum',
@@ -198,22 +181,30 @@ export class IngresosComponent {
         aggFunc: 'sum',
         cellRenderer: CellRendererOCM
       },
-      // {
-      //   headerName: 'Recaudación Líquida',
-      //   field: 'Recaudación Líquida',
-      //   width: this.columnasWidth,
-      //   resizable: true,
-      //   aggFunc: 'sum',
-      //   cellRenderer: CellRendererOCM
-      // },
-      // {
-      //   headerName: '% Rec/Der',
-      //   field: '% Rec/Der',
-      //   width: this.columnasWidth,
-      //   resizable: true,
-      //   aggFunc: 'sum',
-      //   cellRenderer: CellRendererOCM
-      // },
+      {
+        headerName: 'Derechos cancelados',
+        field: 'DerechosCancelados',
+        width: this.columnasWidth,
+        resizable: true,
+        aggFunc: 'sum',
+        cellRenderer: CellRendererOCM
+      },
+      {
+        headerName: 'Derechos Reconocidos Netos',
+        field: 'DerechosReconocidosNetos',
+        width: this.columnasWidth,
+        resizable: true,
+        aggFunc: 'sum',
+        cellRenderer: CellRendererOCM
+      },
+      {
+        headerName: 'Recaudación neta',
+        field: 'RecaudacionNeta',
+        width: this.columnasWidth,
+        resizable: true,
+        aggFunc: 'sum',
+        cellRenderer: CellRendererOCM
+      },
       {
         headerName: 'Derechos Pendientes de Cobro',
         field: 'DerechosPendienteCobro',
@@ -223,7 +214,7 @@ export class IngresosComponent {
         cellRenderer: CellRendererOCM
       },
       {
-        headerName: 'Estado de Ejecución',
+        headerName: 'Exceso/defecto previsión',
         field: 'DiferenciaPrevision',
         width: this.columnasWidth,
         resizable: true,
