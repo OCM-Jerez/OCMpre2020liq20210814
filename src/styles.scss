@@ -1,32 +1,32 @@
 // Mis parciales.
 // https://www.udemy.com/course/advanced-css-and-scss/learn/lecture/8274478#overview
-@use"/src/app/scss/animations";
-@use"/src/app/scss/base";
-@use"/src/app/scss/functions";
-@use"/src/app/scss/mixins";
-@use"/src/app/scss/typography";
-@use"/src/app/scss/utilities";
-@import"/src/app/scss/variables";
+@use "/src/app/scss/animations";
+@use "/src/app/scss/base";
+@use "/src/app/scss/functions";
+@use "/src/app/scss/mixins";
+@use "/src/app/scss/typography";
+@use "/src/app/scss/utilities";
+@import "/src/app/scss/variables";
 
 @import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss";
 
-body{
+body {
   width: 98vw;
   height: 100vh;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
- // #region OCM
-.OCM-navBar{
-  height:50px;
+// #region OCM
+.OCM-navBar {
+  height: 50px;
   margin-right: 10px;
   margin-left: 10px;
   margin-top: 10px;
- background-color: map-get($OCM-colors, navBarBackground);
+  background-color: map-get($OCM-colors, navBarBackground);
 
-    .OCM-center{
+  .OCM-center {
     position: absolute;
     width: 100%;
     left: 0;
@@ -34,51 +34,49 @@ body{
     text-align: center;
     overflow: visible;
     height: 0;
-   }
-
-   .OCM-titulo {
-  margin-top: 20px;
-  color: #f3f4f5;
-  font-family: var($fuente-principal);
-  text-shadow: 2px 2px 2px rgb(10, 2, 2);
   }
 
+  .OCM-titulo {
+    margin-top: 20px;
+    color: #f3f4f5;
+    font-family: var($fuente-principal);
+    text-shadow: 2px 2px 2px rgb(10, 2, 2);
   }
+}
 
-
-.OCM-home{
+.OCM-home {
   font-size: 32px;
   color: white;
   margin-right: 40px;
 }
 
-.OCM-btnExpand{
+.OCM-btnExpand {
   margin-left: 20px;
   margin-bottom: 5px;
   font-size: 10px;
   font-weight: bold;
   color: aliceblue;
-  background-color: green
- }
-
- .OCM-btnCollapse{
-  margin-left: 20px;
-  margin-bottom: 5px;
-  font-size: 10px;
-  font-weight: bold;
-  color: aliceblue;
-  background-color: rgb(201, 72, 72)
- }
- // #endregion
-/******** END  OCM *****************/
-
- // #region @media screen
- @media screen and (max-width: 3000px) {
-  .ag-cell-value{
-    font-size: 12px;
+  background-color: green;
 }
 
-  #home{
+.OCM-btnCollapse {
+  margin-left: 20px;
+  margin-bottom: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  color: aliceblue;
+  background-color: rgb(201, 72, 72);
+}
+// #endregion
+/******** END  OCM *****************/
+
+// #region @media screen
+@media screen and (max-width: 3000px) {
+  .ag-cell-value {
+    font-size: 12px;
+  }
+
+  #home {
     font-size: 16px;
   }
 
@@ -86,28 +84,29 @@ body{
     margin-top: 2px;
     width: 173px;
     height: 37px;
-    }
-    .textoLogo{
-      margin-left:2px;
-      font-size: 20px;
-    }
+  }
 
-    .OCM-titulo {
-      font-weight: 700 !important;
-          font-size: 28px;
-      }
+  .textoLogo {
+    margin-left: 2px;
+    font-size: 20px;
+  }
+
+  .OCM-titulo {
+    font-weight: 700 !important;
+    font-size: 28px;
+  }
 }
 
 @media screen and (max-width: 2000px) {
   .ag-header-cell-text {
-     font-size: 12px;
-    }
-
-  .ag-cell-value{
-      font-size: 12px;
+    font-size: 12px;
   }
 
-  #home{
+  .ag-cell-value {
+    font-size: 12px;
+  }
+
+  #home {
     font-size: 14px;
   }
 
@@ -115,28 +114,29 @@ body{
     margin-top: 2px;
     width: 173px;
     height: 37px;
-    }
-    .textoLogo{
-      margin-left:2px;
-      font-size: 16px;
-    }
+  }
 
-    .OCM-titulo {
-      font-weight: 700 !important;
-           font-size: 24px;
-      }
+  .textoLogo {
+    margin-left: 2px;
+    font-size: 16px;
+  }
+
+  .OCM-titulo {
+    font-weight: 700 !important;
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
   .ag-header-cell-text {
-     font-size: 10px;
-    }
-
-  .ag-cell-value{
-      font-size: 12px;
+    font-size: 10px;
   }
 
-  #home{
+  .ag-cell-value {
+    font-size: 12px;
+  }
+
+  #home {
     font-size: 14px;
   }
 
@@ -144,30 +144,30 @@ body{
     margin-top: 2px;
     width: 173px;
     height: 37px;
-    }
+  }
 
-    .textoLogo{
-      margin-left:2px;
-      font-size: 16px;
-    }
+  .textoLogo {
+    margin-left: 2px;
+    font-size: 16px;
+  }
 
-    .OCM-titulo {
-      font-weight: 700 !important;
-      font-size: 24px;
-        }
+  .OCM-titulo {
+    font-weight: 700 !important;
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 992px) {
   // MD Samsung Note apaisado
   .ag-header-cell-text {
     font-size: 12px;
-   }
+  }
 
-  .ag-cell-value{
+  .ag-cell-value {
     font-size: 10px;
-}
+  }
 
-  #home{
+  #home {
     font-size: 12px;
   }
 
@@ -175,29 +175,29 @@ body{
     margin-top: 2px;
     width: 173px;
     height: 37px;
-    }
-    .textoLogo{
-      margin-left:1px;
-      font-size: 8px;
-    }
+  }
 
-    .OCM-titulo {
-      font-weight: 600 !important;
-         font-size: 14px;
-    
-    }
+  .textoLogo {
+    margin-left: 1px;
+    font-size: 8px;
+  }
+
+  .OCM-titulo {
+    font-weight: 600 !important;
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 750px) {
   .ag-header-cell-text {
     font-size: 9px;
-   }
+  }
 
-  .ag-cell-value{
+  .ag-cell-value {
     font-size: 8px;
-}
+  }
 
-  #home{
+  #home {
     font-size: 10px;
   }
 
@@ -205,35 +205,35 @@ body{
     margin-top: 2px;
     width: 173px;
     height: 37px;
-    }
-    .textoLogo{
-      margin-left:2px;
-      font-size: 8px;
-    }
+  }
 
-    .OCM-titulo {
-      font-weight: 500 !important;
-           font-size: 10px;
-   
-    }
+  .textoLogo {
+    margin-left: 2px;
+    font-size: 8px;
+  }
+
+  .OCM-titulo {
+    font-weight: 500 !important;
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 576px) {
   .ag-header-cell-text {
     font-size: 9px;
-   }
+  }
 
-  .ag-cell-value{
+  .ag-cell-value {
     font-size: 5px;
-}
+  }
 
-  .OCM-home{
+  .OCM-home {
     font-size: 16px;
     color: white;
     margin-right: 40px;
   }
 
-  #home{
+  #home {
     font-size: 8px;
   }
 
@@ -241,19 +241,18 @@ body{
     margin-top: 2px;
     width: 173px;
     height: 37px;
-    }
-    .textoLogo{
-      margin-left:2px;
-      font-size: 8px;
-    }
- 
-
-.OCM-titulo {
-      font-weight: 400 !important;
-      font-size: 10px;
-   
-    }
   }
+
+  .textoLogo {
+    margin-left: 2px;
+    font-size: 8px;
+  }
+
+  .OCM-titulo {
+    font-weight: 400 !important;
+    font-size: 10px;
+  }
+}
 
 // #endregion
 /******** END  @media screen *****************/
@@ -262,18 +261,18 @@ body{
 /******** END Mis cosas *****************/
 
 // #region AG-Grid
-.ag-header-group-cell{
+.ag-header-group-cell {
   font-size: 20px;
   color: green;
- }
+}
 
- .ag-header-cell {
-   width: 20px;
+.ag-header-cell {
+  width: 20px;
   // transform: rotate(90deg);
   // margin-top: 10px;
   /*Since we are rotating a span*/
   display: inline-block;
- }
+}
 
 // Sobreescribe lo definido en  /node_modules\ag-grid-community\src\styles\ag-grid.scss :365
 // .ag-header-cell-label {
@@ -296,120 +295,128 @@ body{
   color: green;
   font-family: Arial;
   font-weight: bold;
-  font-size:12px;
+  font-size: 12px;
 }
 
- .ag-cell-label-container{
+.ag-cell-label-container {
   /*Necessary to allow for text to grow vertically*/
   height: 100%;
- }
+}
 
- .ag-pivot-off {
-  color:#8a6d3b;
- }
+.ag-pivot-off {
+  color: #8a6d3b;
+}
 
- .ag-pivot-on {
-  color:#1b6d85;
+.ag-pivot-on {
+  color: #1b6d85;
   font-weight: bold;
- }
+}
 
- .ag-pivot-off {
+.ag-pivot-off {
   font-size: 50px;
   color: red;
- }
+}
 
- .ag-pivot-on {
+.ag-pivot-on {
   font-size: 25px;
   color: green;
- }
- .ag-floating-filter-body input {
-  height:49px;
- }
+}
+.ag-floating-filter-body input {
+  height: 49px;
+}
 
- .ag-floating-filter-button {
+.ag-floating-filter-button {
   margin-top: -49px;
- }
+}
 
- .ag-floating-filter-button button {
-  height:49px
- }
+.ag-floating-filter-button button {
+  height: 49px;
+}
 
- .ag-floating-filter-body input {
+.ag-floating-filter-body input {
   font-size: 15px;
   font-weight: bold;
- }
+}
 
- .ag-row-group-leaf-indent > .ag-group-value {
+.ag-row-group-leaf-indent > .ag-group-value {
   text-align-last: right;
   width: 100%;
- }
+}
 
- .ag-cell-value{
+.ag-cell-value {
   // overflow: hidden;
   text-overflow: ellipsis;
   color: black;
- }
+}
 // #endregion
- /******** END ag-grid *****************/
+/******** END ag-grid *****************/
 
 // #region Preloader
 .spinner-wrapper {
-	position: fixed;
-	z-index: 999999;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: #fff;
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
 }
 
 .spinner {
-	position: absolute;
-	top: 50%; /* centers the loading animation vertically one the screen */
-	left: 50%; /* centers the loading animation horizontally one the screen */
-	width: 3.75rem;
-	height: 1.25rem;
-	margin: -0.625rem 0 0 -1.875rem; /* is width and height divided by two */
-	text-align: center;
+  position: absolute;
+  top: 50%; /* centers the loading animation vertically one the screen */
+  left: 50%; /* centers the loading animation horizontally one the screen */
+  width: 3.75rem;
+  height: 1.25rem;
+  margin: -0.625rem 0 0 -1.875rem; /* is width and height divided by two */
+  text-align: center;
 }
 
 .spinner > div {
-	display: inline-block;
-	width: 1rem;
-	height: 1rem;
-	border-radius: 100%;
-	background-color: #00bfd8;
-	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-	animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  background-color: #00bfd8;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 
 .spinner .bounce1 {
-	-webkit-animation-delay: -0.32s;
-	animation-delay: -0.32s;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
 }
 
 .spinner .bounce2 {
-	-webkit-animation-delay: -0.16s;
-	animation-delay: -0.16s;
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
 }
 
 @-webkit-keyframes sk-bouncedelay {
-	0%, 80%, 100% { -webkit-transform: scale(0); }
-	40% { -webkit-transform: scale(1.0); }
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
 }
 
 @keyframes sk-bouncedelay {
-	0%, 80%, 100% {
-		-webkit-transform: scale(0);
-		-ms-transform: scale(0);
-		transform: scale(0);
-	} 40% {
-		-webkit-transform: scale(1.0);
-		-ms-transform: scale(1.0);
-		transform: scale(1.0);
-	}
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 // #endregion
 /******** END Preloader *****************/
-
