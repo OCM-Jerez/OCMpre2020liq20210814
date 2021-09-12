@@ -6,19 +6,10 @@
 @use"/src/app/scss/mixins";
 @use"/src/app/scss/typography";
 @use"/src/app/scss/utilities";
-@use"/src/app/scss/variables";
+@import"/src/app/scss/variables";
 
 @import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss";
-
-
-:root {
-  // The :root pseudo-class represents an element that is the root of the document. In HTML, this is always the HTML element.
-  --fuente-principal: 'Roboto', serif;
-  --primario: #da595e;
-  --obscuro: #484848;
-  --claro: #ffffff;
-}
 
 body{
   width: 98vw;
@@ -27,25 +18,13 @@ body{
   flex-direction: column;
 }
 
-// #region Mis cosas
-
-// .centrarSection{
-//   min-height: 90vh; /*will cover the 100% of viewport */
-//  overflow: hidden;
-//  display: block;
-//  position: relative;
-//  padding-bottom: 90px; /* height of your footer */
-// }
-
-.navBarOCM{
+.OCM-navBar{
   height:50px;
   margin-right: 10px;
   margin-left: 10px;
   margin-top: 10px;
-  /* background-color: aqua; */
-  }
-
-  .navbar-center
+ background-color: map-get($OCM-colors, navBarBackground);
+ .OCM-center
 {
     position: absolute;
     width: 100%;
@@ -55,6 +34,9 @@ body{
     overflow: visible;
     height: 0;
 }
+  }
+
+ 
 
 .homeOCM{
   font-size: 32px;
