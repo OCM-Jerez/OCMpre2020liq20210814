@@ -1,4 +1,4 @@
-<nav class="navbar  OCM-navBar">
+<nav class="navbar OCM-navBar">
   <div class="p-2 w-90">
     <a class="navbar-brand" href="#">
       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 400 400"
@@ -19,7 +19,7 @@
   </div>
   <div class="flex-shrink-1">
     <a routerLink="/" *ngIf="router.url !== '/home'">
-      <i class="fa fa-home homeOCM" aria-hidden="true"></i>
+      <i class="fa fa-home OCM-home" aria-hidden="true"></i>
     </a>
   </div>
   <h1 class="titulo OCM-center" style="font-size: 16px"> Liquidación presupuesto {{ year | async }}</h1>
