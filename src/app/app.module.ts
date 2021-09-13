@@ -20,6 +20,7 @@ import { IngresosComponent } from './ingresos/ingresos.component';
 
 import { TipoClasificacionService } from './services/tipoClasificacion.service';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
+import { HeaderAgGridComponent } from './shared/header-ag-grid/header-ag-grid.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AvalaibleYearsService } from './services/avalaibleYears.service';
     GastosComponent,
     HeaderComponent,
     IndiceComponent,
-    IngresosComponent
+    IngresosComponent,
+    HeaderAgGridComponent
   ],
   imports: [
     BrowserModule,
