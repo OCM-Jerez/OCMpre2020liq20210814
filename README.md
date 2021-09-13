@@ -18,6 +18,11 @@
       </ul>
     </ul>
 
+# Procedencia de los datos
+
+- PDF publicado por el Ayuntamiento.
+- Se pasa de PDF a JSON con procedimiento propio.
+
 # Como ejecutar el código 🖥
 
 - Clonar el repositorio.
