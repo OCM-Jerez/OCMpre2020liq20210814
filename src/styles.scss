@@ -26,7 +26,7 @@ body {
   margin-top: 10px;
   background-color: map-get($OCM-colors, navBarBackground);
 
-  .OCM-center {
+  .OCM-headerCenter {
     position: absolute;
     width: 100%;
     left: 0;
@@ -67,11 +67,18 @@ body {
   color: aliceblue;
   background-color: rgb(201, 72, 72);
 }
+
+.OCM-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 // #endregion
 /******** END  OCM *****************/
 
 // #region @media screen
-@media screen and (max-width: 3000px) {
+@media screen and (max-width: 6000px) {
   .ag-cell-value {
     font-size: 12px;
   }
