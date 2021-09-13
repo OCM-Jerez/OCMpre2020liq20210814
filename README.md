@@ -22,6 +22,7 @@
 
 - PDF publicado por el Ayuntamiento.
 - Se pasa de PDF a JSON con procedimiento propio.
+- Se puede consultar el procedimiento en el fichero [ mam/preparacionDatos.md](https://github.com/OCM-Jerez/OCMpre2020liq20210814/blob/master/mam/preparacionDatos.md) 
 
 # Como ejecutar el código 🖥
 
