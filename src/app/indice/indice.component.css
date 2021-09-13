@@ -2,14 +2,14 @@
 .divIndice {
   padding-top: 30px;
   height: 80vh;
- }
+}
 
 /* Como CSS no tiene la propiedad background.opacity
 insertamosun seudo elemento con el mismo tamaño. */
 .divIndice::after {
   content: "";
-  background: url('../../assets/img/textura.jpg');
-  opacity: 0,5;
+  background: url("../../assets/img/textura.jpg");
+  opacity: 0, 5;
   top: 0;
   left: 0;
   bottom: 0;
@@ -23,7 +23,7 @@ insertamosun seudo elemento con el mismo tamaño. */
   margin-bottom: 40px;
   font-weight: 900 !important;
   margin-top: 10px;
-  color:black;
+  color: black;
   font-family: var(--fuente-principal);
   font-size: 42px;
   text-shadow: 4px 4px 4px #aaa;
@@ -38,6 +38,10 @@ insertamosun seudo elemento con el mismo tamaño. */
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+.OCM-no-bullets {
+  list-style-type: none; /* Remove bullets */
 }
 
 /* Card --------------------------------------------------------------------- */
@@ -89,4 +93,3 @@ insertamosun seudo elemento con el mismo tamaño. */
 @media screen and (max-width: 750px) {
 }
 /* -----------------------------------------------------------------------------------------------*/
-
