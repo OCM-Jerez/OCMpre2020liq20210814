@@ -61,9 +61,7 @@ export class IndiceComponent implements OnInit {
 
   getSelectedItem() {
     this.radioSel = AVALAIBLE_YEARS.find(Item => Item.year === this.radioSelected)!;
-    // this.radioSelectedString = JSON.stringify(this.radioSel);
     this.avalaibleYearsService.setAvalaibleYear(this.radioSel.year);
-    console.log(this.radioSel.year);
   }
 
   onItemChange() {

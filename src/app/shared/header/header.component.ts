@@ -16,6 +16,5 @@ export class HeaderComponent {
   ) {
 
     this.year = avalaibleYearsService.getAvalaibleYear();
-    console.log('año  ', this.year);
   }
 }

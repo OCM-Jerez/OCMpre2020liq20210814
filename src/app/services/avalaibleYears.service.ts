@@ -8,11 +8,9 @@ export class AvalaibleYearsService {
 
   public setAvalaibleYear(yearSelected: string): void {
     this.year$.next(yearSelected);
-    console.log(this.year$);
   }
 
   public getAvalaibleYear() {
-    console.log(this.year$);
     return this.year$.asObservable();
   }
 }
