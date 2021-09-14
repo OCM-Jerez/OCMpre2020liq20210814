@@ -1,0 +1,32 @@
+@import "/src/app/scss/variables";
+
+.OCM-navBar {
+    height: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: map-get($OCM-colors, navBarBackground);
+
+    .OCM-headerCenter {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        text-align: center;
+        overflow: visible;
+        height: 0;
+    }
+
+    .OCM-titulo {
+        margin-top: 20px;
+        color: #f3f4f5;
+        font-family: var($fuente-principal);
+        text-shadow: 2px 2px 2px rgb(10, 2, 2);
+    }
+}
+
+.OCM-home {
+    font-size: 32px;
+    color: white;
+    margin-right: 40px;
+}

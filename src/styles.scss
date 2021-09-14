@@ -31,36 +31,6 @@ body {
 }
 
 // #region OCM
-.OCM-navBar {
-  height: 50px;
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-top: 10px;
-  background-color: map-get($OCM-colors, navBarBackground);
-
-  .OCM-headerCenter {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    text-align: center;
-    overflow: visible;
-    height: 0;
-  }
-
-  .OCM-titulo {
-    margin-top: 20px;
-    color: #f3f4f5;
-    font-family: var($fuente-principal);
-    text-shadow: 2px 2px 2px rgb(10, 2, 2);
-  }
-}
-
-.OCM-home {
-  font-size: 32px;
-  color: white;
-  margin-right: 40px;
-}
 
 .OCM-btnExpand {
   margin-left: 20px;
@@ -307,7 +277,7 @@ body {
 //   padding:0 !important;
 // }
 
-.ag-header-cell-text {
+.ag-header-cell-label .ag-header-cell-text {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -315,6 +285,9 @@ body {
   font-family: Arial;
   font-weight: bold;
   font-size: 12px;
+  /*Necessary to allow for text to grow vertically*/
+  height: 100%;
+  padding: 0 !important;
 }
 
 .ag-cell-label-container {
