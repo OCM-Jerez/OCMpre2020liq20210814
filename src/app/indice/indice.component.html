@@ -1,7 +1,7 @@
 <div class="OCM-indice">
 
-  <h3 class="OCM-text-cabecera" style="color: rgb(47, 0, 255); margin-bottom: 4px;">Selecciona año a mostrar.</h3>
-  <div class="OCM-row-add">
+  <h3 class="OCM-text--cabecera" style="color: rgb(47, 0, 255); margin-bottom: 4px;">Selecciona año a mostrar.</h3>
+  <div class="OCM-row--add">
     <ul class="list-group list-group-horizontal">
       <li style="margin-right: 20px;font-size: 32px;" class="OCM-no-bullets" *ngFor="let item of yearsList">
         <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{item.year}}"
@@ -11,48 +11,48 @@
     </ul>
   </div>
 
-  <h3 class="OCM-text-cabecera" style="color: rgb(98, 146, 25)">Ingresos.</h3>
-  <div class="OCM-row-add">
+  <h3 class="OCM-text--cabecera" style="color: rgb(98, 146, 25)">Ingresos.</h3>
+  <div class="OCM-row--add">
 
-    <div class="OCM-card-empty">
+    <div class="OCM-card--empty">
     </div>
 
     <div class="OCM-card">
-      <div class="OCM-card-headerImage">
+      <div class="OCM-card__headerImage">
         <a routerLink="/Ingresos">
           <img class="img" src="assets/img/Ingresos.png" />
         </a>
       </div>
     </div>
 
-    <div class="OCM-card-empty">
+    <div class="OCM-card--empty">
     </div>
 
   </div>
   <br>
 
-  <h3 class="OCM-text-cabecera" style="color: red">Gastos.</h3>
-  <div class="OCM-row-add" style="padding-bottom: 60px">
+  <h3 class="OCM-text--cabecera" style="color: red">Gastos.</h3>
+  <div class="OCM-row--add" style="padding-bottom: 60px">
 
-    <div class="OCM-card-empty">
+    <div class="OCM-card--empty">
     </div>
 
     <div class="OCM-card">
-      <div class="OCM-card-headerImage">
+      <div class="OCM-card__headerImage">
         <a (click)="porCapitulo()">
           <img class="img" src="assets/img/Capitulo.png" />
         </a>
       </div>
     </div>
 
-    <div class="OCM-card-empty">
+    <div class="OCM-card--empty">
     </div>
 
   </div>
 
-  <div class="OCM-row-add">
+  <div class="OCM-row--add">
     <div class="OCM-card">
-      <div class="OCM-card-headerImage">
+      <div class="OCM-card__headerImage">
         <a (click)="porOrganico()">
           <img class="img" src="assets/img/PorOrganico.png" />
         </a>
@@ -60,7 +60,7 @@
     </div>
 
     <div class="OCM-card">
-      <div class="OCM-card-headerImage">
+      <div class="OCM-card__headerImage">
         <a (click)="porPrograma()">
           <img class="img" src="assets/img/PorPrograma.png" />
         </a>
@@ -68,7 +68,7 @@
     </div>
 
     <div class="OCM-card">
-      <div class="OCM-card-headerImage">
+      <div class="OCM-card__headerImage">
         <a (click)="porEconomico()">
           <img class="img" src="assets/img/PorEconomico.png" />
         </a>

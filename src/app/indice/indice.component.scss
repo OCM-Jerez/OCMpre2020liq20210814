@@ -1,4 +1,6 @@
 /* https://www.w3schools.com/cssref/css_selectors.asp */
+// https://fixu.cl/que-es-la-metodologia-bem-y-como-se-aplica-al-front-end/
+
 .OCM-indice {
   padding-top: 3rem;
   height: 80vh;
@@ -18,23 +20,27 @@ insertamosun seudo elemento con el mismo tamaño. */
   z-index: -1;
 }
 
-.OCM-text-cabecera {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  font-weight: 900;
-  margin-top: 1rem;
-  color: black;
-  font-family: var(--fuente-principal);
-  font-size: 4.2rem;
-  text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
-  text-align: center;
+.OCM-text {
+  &--cabecera {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 900;
+    margin-top: 1rem;
+    color: black;
+    font-family: var(--fuente-principal);
+    font-size: 4.2rem;
+    text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+    text-align: center;
+  }
 }
 
-.OCM-row-add {
-  display: flex;
-  margin: 1rem;
-  justify-content: center;
-  text-align: center;
+.OCM-row {
+  &--add {
+    display: flex;
+    margin: 1rem;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .OCM-no-bullets {
@@ -44,7 +50,6 @@ insertamosun seudo elemento con el mismo tamaño. */
 /* Card --------------------------------------------------------------------- */
 /* https://www.w3schools.com/bootstrap4/bootstrap_cards.asp */
 .OCM-card {
-  /* border: 0; */
   display: flex;
   justify-content: space-around;
   margin-bottom: 0.3rem;
@@ -61,34 +66,35 @@ insertamosun seudo elemento con el mismo tamaño. */
   min-width: 10rem;
   min-height: 0.5rem;
   text-align: center;
-}
 
-.OCM-card-empty {
-  width: 100%;
-}
+  &__title {
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #3c4858;
+    font-family: var(--fuente-principal);
+    font-size: 1.4rem;
+    text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+    text-align: center;
+  }
 
-.OCM-card-headerImage {
-  position: relative;
-  padding: 0;
-  z-index: 1;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-  margin-top: -3rem;
-  border-radius: 0.6rem;
-  max-height: 21.5rem;
-  img {
+  &__headerImage {
+    position: relative;
+    padding: 0;
+    z-index: 1;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: -3rem;
+    border-radius: 0.6rem;
+    max-height: 21.5rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &--empty {
     width: 100%;
-    height: 100%;
   }
 }
 
-.OCM-card-title {
-  font-weight: 700;
-  margin-top: 1rem;
-  color: #3c4858;
-  font-family: var(--fuente-principal);
-  font-size: 1.4rem;
-  text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
-  text-align: center;
-}
 /* End Card --------------------------------------------------------------------- */
