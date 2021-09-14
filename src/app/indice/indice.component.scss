@@ -33,19 +33,18 @@ insertamosun seudo elemento con el mismo tamaño. */
     // font-size: 4.2rem;
     text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
     text-align: center;
+  }
+  &--años {
+    color: rgb(47, 0, 255);
+    margin-bottom: 0.2rem;
+  }
 
-    &--años {
-      color: rgb(47, 0, 255);
-      margin-bottom: 0.2rem;
-    }
+  &--ingresos {
+    color: rgb(98, 146, 25);
+  }
 
-    &--ingresos {
-      color: rgb(98, 146, 25);
-    }
-
-    &--gastos {
-      color: red;
-    }
+  &--gastos {
+    color: red;
   }
 }
 
