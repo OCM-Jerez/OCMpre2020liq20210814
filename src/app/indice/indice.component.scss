@@ -71,11 +71,10 @@ insertamosun seudo elemento con el mismo tamaño. */
   margin-top: -30px;
   border-radius: 6px;
   max-height: 215px;
-}
-
-.OCM-card-headerImage img {
-  width: 80%;
-  height: 80%;
+  img {
+    width: 80%;
+    height: 80%;
+  }
 }
 
 .OCM-card-title {

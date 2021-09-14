@@ -12,7 +12,7 @@ import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 @Component({
   selector: 'app-indice',
   templateUrl: './indice.component.html',
-  styleUrls: ['./indice.component.css']
+  styleUrls: ['./indice.component.scss']
 })
 export class IndiceComponent implements OnInit {
   pantallaSize!: string;
