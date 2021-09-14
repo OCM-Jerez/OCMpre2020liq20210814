@@ -28,9 +28,24 @@ insertamosun seudo elemento con el mismo tamaño. */
     margin-top: 1rem;
     color: black;
     font-family: var(--fuente-principal);
-    font-size: 4.2rem;
+    // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+    font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
+    // font-size: 4.2rem;
     text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
     text-align: center;
+
+    &--años {
+      color: rgb(47, 0, 255);
+      margin-bottom: 0.2rem;
+    }
+
+    &--ingresos {
+      color: rgb(98, 146, 25);
+    }
+
+    &--gastos {
+      color: red;
+    }
   }
 }
 
@@ -45,6 +60,10 @@ insertamosun seudo elemento con el mismo tamaño. */
 
 .OCM-no-bullets {
   list-style-type: none;
+  font-size: clamp(0.6rem, -1.275rem + 8.333vw, 2rem);
+  font-weight: 900;
+  margin-right: 2rem;
+  margin-bottom: 4rem;
 }
 
 /* https://www.w3schools.com/bootstrap4/bootstrap_cards.asp */
