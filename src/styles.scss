@@ -12,8 +12,14 @@
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss";
 
 html {
-  /* 62.5% of 16px base font size is 10px */
-  font-size: 62.5%;
+  box-sizing: border-box; //https://www.udemy.com/course/css-grid-y-flexbox-la-guia-definitiva-crea-10-proyectos/learn/lecture/28229796#announcements
+  font-size: 62.5%; /* 62.5% of 16px base font size is 10px */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; // https://www.udemy.com/course/css-grid-y-flexbox-la-guia-definitiva-crea-10-proyectos/learn/lecture/28229796#announcements
 }
 
 body {
@@ -21,6 +27,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  line-height: 2rem;
 }
 
 // #region OCM
