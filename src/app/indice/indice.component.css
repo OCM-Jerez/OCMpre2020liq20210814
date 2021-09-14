@@ -1,12 +1,12 @@
 /* https://www.w3schools.com/cssref/css_selectors.asp */
-.divIndice {
+.OCM-indice {
   padding-top: 30px;
   height: 80vh;
 }
 
 /* Como CSS no tiene la propiedad background.opacity
 insertamosun seudo elemento con el mismo tamaño. */
-.divIndice::after {
+.OCM-indice::after {
   content: "";
   background: url("../../assets/img/textura.jpg");
   opacity: 0, 5;
@@ -18,10 +18,10 @@ insertamosun seudo elemento con el mismo tamaño. */
   z-index: -1;
 }
 
-.rowTexto {
-  margin-top: 40px !important;
-  margin-bottom: 40px;
-  font-weight: 900 !important;
+.OCM-text-cabecera {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 900;
   margin-top: 10px;
   color: black;
   font-family: var(--fuente-principal);
@@ -30,27 +30,27 @@ insertamosun seudo elemento con el mismo tamaño. */
   text-align: center;
 }
 
-.rowStyle {
+.OCM-row-add {
+  display: flex;
   margin-top: 10px;
   margin-right: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
-  display: flex;
   justify-content: center;
   text-align: center;
 }
 
 .OCM-no-bullets {
-  list-style-type: none; /* Remove bullets */
+  list-style-type: none;
 }
 
 /* Card --------------------------------------------------------------------- */
 /* https://www.w3schools.com/bootstrap4/bootstrap_cards.asp */
-.card {
+.OCM-card {
   /* border: 0; */
   margin-bottom: 3px;
   margin-top: 20px;
-  border-radius: 6px !important;
+  border-radius: 6px;
   color: rgba(0, 0, 0, 0.87);
   background: #fff;
   width: 100%;
@@ -62,7 +62,7 @@ insertamosun seudo elemento con el mismo tamaño. */
   text-align: center;
 }
 
-.cardHeaderImage {
+.OCM-card-headerImage {
   position: relative;
   padding: 0;
   z-index: 1;
@@ -73,13 +73,13 @@ insertamosun seudo elemento con el mismo tamaño. */
   max-height: 215px;
 }
 
-.cardHeaderImage img {
+.OCM-card-headerImage img {
   width: 80%;
   height: 80%;
 }
 
-.card-title {
-  font-weight: 700 !important;
+.OCM-card-title {
+  font-weight: 700;
   margin-top: 10px;
   color: #3c4858;
   font-family: var(--fuente-principal);
@@ -88,8 +88,3 @@ insertamosun seudo elemento con el mismo tamaño. */
   text-align: center;
 }
 /* End Card --------------------------------------------------------------------- */
-
-/* -----------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 750px) {
-}
-/* -----------------------------------------------------------------------------------------------*/
