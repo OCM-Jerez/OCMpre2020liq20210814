@@ -11,8 +11,13 @@
 @import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss";
 
+html {
+  /* 62.5% of 16px base font size is 10px */
+  font-size: 62.5%;
+}
+
 body {
-  width: 98vw;
+  width: 98vw; // evita que se vea la barra de scroll
   height: 100vh;
   display: flex;
   flex-direction: column;
