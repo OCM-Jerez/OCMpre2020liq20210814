@@ -2,10 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
+import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 import { SCREEN_SIZE } from 'src/app/screen-size.enum';
 import { GetScreenSizeService } from '../services/get-screen-size.service';
-import dataJSON from '@presu/json/2020LiqGas.json';
 
 import localeTextESPes from '../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../shared/utils/utils';
@@ -14,7 +14,6 @@ import { HeaderAgGridComponent } from '@presu/shared/header-ag-grid/header-ag-gr
 @Component({
   selector: 'app-gastos',
   templateUrl: './gastos.component.html'
-
 })
 
 export class GastosComponent {
@@ -27,7 +26,7 @@ export class GastosComponent {
   public localeText;
   public rowData: any;
   public groupHeaderHeight = 25;
-  public headerHeight = 75;
+  public headerHeight = 25;
   public isExpanded = false;
   public DesCapWidth?: number;
   public DesProWidth?: number;
@@ -42,6 +41,7 @@ export class GastosComponent {
 
   constructor(
     private getScreenSizeService: GetScreenSizeService,
+    private avalaibleYearsService: AvalaibleYearsService,
     public tipoclasificacionService: TipoClasificacionService) {
     this.screenSize = this.getScreenSizeService.getIsMobileResolution();
     switch (this.screenSize) {
@@ -238,7 +238,7 @@ export class GastosComponent {
             children: [
               {
                 headerName: 'Comprometidos',
-                headerComponentFramework: HeaderAgGridComponent,
+                // headerComponentFramework: HeaderAgGridComponent,
                 field: 'GastosComprometidos',
                 width: 138,
                 resizable: true,
@@ -248,7 +248,7 @@ export class GastosComponent {
               },
               {
                 headerName: 'Obligaciones,reconocidas,netas',
-                headerComponentFramework: HeaderAgGridComponent,
+                // headerComponentFramework: HeaderAgGridComponent,
                 field: 'ObligacionesReconocidasNetas',
                 width: 128,
                 resizable: true,
@@ -258,7 +258,7 @@ export class GastosComponent {
               },
               {
                 headerName: 'Totales',
-                headerComponentFramework: HeaderAgGridComponent,
+                // headerComponentFramework: HeaderAgGridComponent,
                 field: 'Pagos',
                 width: this.CreditosWidth,
                 resizable: true,
@@ -268,7 +268,7 @@ export class GastosComponent {
               },
               {
                 headerName: 'OPA',
-                headerComponentFramework: HeaderAgGridComponent,
+                // headerComponentFramework: HeaderAgGridComponent,
                 field: 'ObligacionesPendientePago',
                 width: this.CreditosWidth,
                 resizable: true,
@@ -546,10 +546,10 @@ export class GastosComponent {
     this.localeText = localeTextESPes;
   }
 
-  onGridReady(params) {
+  async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = dataJSON
+    this.rowData = await this.avalaibleYearsService.getDataJson(true);
   }
 
   expandAll() {

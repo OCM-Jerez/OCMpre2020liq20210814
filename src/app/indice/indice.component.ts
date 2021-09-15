@@ -3,11 +3,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { GetScreenSizeService } from '../services/get-screen-size.service';
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
 
 import { AVALAIBLE_YEARS } from '../avalaible-years-data'
-import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 
 @Component({
   selector: 'app-indice',
@@ -19,8 +19,6 @@ export class IndiceComponent implements OnInit {
 
   radioSel!: any;
   radioSelected?: string;
-  // radioSelectedString?:
-  //   string;
   yearsList: any[];
 
   constructor(
@@ -31,12 +29,11 @@ export class IndiceComponent implements OnInit {
   ) {
     this.yearsList = AVALAIBLE_YEARS;
     this.radioSelected = "2020";
-    this.getSelectedItem();
   }
 
   ngOnInit() {
     this.pantallaSize = this.getScreenSizeService.getIsMobileResolution();
-    // console.log(this.pantallaSize);
+    this.radioSelected = this.avalaibleYearsService.getCurrentYear();
   }
 
   porCapitulo() {

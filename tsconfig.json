@@ -25,6 +25,7 @@
     "target": "es2017",
     "module": "es2020",
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "typeRoots": [
       "node_modules/@types"

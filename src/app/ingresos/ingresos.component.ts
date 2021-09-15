@@ -1,11 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
+import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { GetScreenSizeService } from '../services/get-screen-size.service';
 
 import localeTextESPes from '@presu/json/localeTextESPes.json';
-import dataJSON from '@presu/json/2017LiqIng.json';
 import { SCREEN_SIZE } from 'src/app/screen-size.enum';
 import { CellRendererOCM } from '../shared/utils/utils';
 
@@ -33,7 +33,8 @@ export class IngresosComponent {
   // width de todas las columnas con valores úmericos.
   columnasWidth = 160;
 
-  constructor(private getScreenSizeService: GetScreenSizeService) {
+  constructor(private getScreenSizeService: GetScreenSizeService,
+    private avalaibleYearsService: AvalaibleYearsService) {
     this.screenSize = this.getScreenSizeService.getIsMobileResolution();
 
     switch (this.screenSize) {
@@ -234,10 +235,11 @@ export class IngresosComponent {
     this.localeText = localeTextESPes;
   }
 
-  onGridReady(params) {
+
+  async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = dataJSON;
+    this.rowData = await this.avalaibleYearsService.getDataJson(false);
   }
 
   expandAll() {
