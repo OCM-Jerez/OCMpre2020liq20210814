@@ -1,5 +1,5 @@
 <div>
-  <h4 class="text-center"> Gastos por {{ tipoclasificacionService.getTipoClasificacion() }}</h4>
+  <h4 class="OCM-text--cabecera"> Gastos por {{ tipoclasificacionService.getTipoClasificacion() }}</h4>
 
   <button *ngIf="!isExpanded" type="button" class="btn OCM-btnExpand" (click)="expandAll()">Expandir todo</button>
   <button *ngIf="isExpanded" type="button" class="btn OCM-btnCollapse" (click)="collapseAll()">Colapsar todo</button>
