@@ -56,6 +56,10 @@ export class IndiceComponent implements OnInit {
     this.router.navigate(['/Gastos'])
   }
 
+  comparativas() {
+    this.router.navigate(['/Comparativas'])
+  }
+
   getSelectedItem() {
     this.radioSel = AVALAIBLE_YEARS.find(Item => Item.year === this.radioSelected)!;
     this.avalaibleYearsService.setAvalaibleYear(this.radioSel.year);
