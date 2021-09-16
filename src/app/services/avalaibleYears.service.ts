@@ -18,8 +18,8 @@ export class AvalaibleYearsService {
 
   async getDataJson(isExpense: boolean) {
     const data = await import(`../../assets/data/${this.year}Liq${isExpense ? 'Gas' : 'Ing'}.json`);
-    const result: any = (data as any).default;
-    return result;
+    // const result: any = (data as any).default;
+    return data.default;
   }
 
   getCurrentYear(): string {
