@@ -4,13 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { IndiceComponent } from './indice/indice.component';
 import { IngresosComponent } from './ingresos/ingresos.component';
 import { GastosComponent } from './gastos/gastos.component';
-import { ComparativasComponent } from './comparativas/comparativas.component';
+import { ComparaEcoComponent } from './comparativas/comparaEco/compara-eco.component';
+import { ComparaOPAComponent } from './comparativas/comparaOPA/compara-opa.component';
 
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
   { path: 'Ingresos', component: IngresosComponent },
   { path: 'Gastos', component: GastosComponent },
-  { path: 'Comparativas', component: ComparativasComponent },
+  { path: 'ComparaEco', component: ComparaEcoComponent },
+  { path: 'ComparaOPA', component: ComparaOPAComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 @NgModule({

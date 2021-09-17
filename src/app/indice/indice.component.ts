@@ -56,8 +56,12 @@ export class IndiceComponent implements OnInit {
     this.router.navigate(['/Gastos'])
   }
 
-  comparativas() {
-    this.router.navigate(['/Comparativas'])
+  comparaOPA() {
+    this.router.navigate(['/ComparaOPA'])
+  }
+
+  comparaEco() {
+    this.router.navigate(['/ComparaEco'])
   }
 
   getSelectedItem() {

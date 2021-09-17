@@ -21,7 +21,9 @@ import { IngresosComponent } from './ingresos/ingresos.component';
 import { TipoClasificacionService } from './services/tipoClasificacion.service';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './shared/header-ag-grid/header-ag-grid.component';
-import { ComparativasComponent } from './comparativas/comparativas.component';
+import { ComparaEcoComponent } from './comparativas/comparaEco/compara-eco.component';
+import { ComparaOPAComponent } from './comparativas/comparaOPA/compara-opa.component';
+import { ComparaProComponent } from './comparativas/compara-pro/compara-pro.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ComparativasComponent } from './comparativas/comparativas.component';
     IndiceComponent,
     IngresosComponent,
     HeaderAgGridComponent,
-    ComparativasComponent
+    ComparaEcoComponent,
+    ComparaOPAComponent,
+    ComparaProComponent
   ],
   imports: [
     BrowserModule,

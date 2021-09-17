@@ -2,16 +2,17 @@ import { Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
-import { AvalaibleYearsService } from '../services/avalaibleYears.service';
-import localeTextESPes from '../../assets/data/localeTextESPes.json';
-import { CellRendererOCM } from '../shared/utils/utils';
+import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
+import localeTextESPes from '../../../assets/data/localeTextESPes.json';
+import { CellRendererOCM } from '../../shared/utils/utils';
 
 @Component({
-  selector: 'app-comparativas',
-  templateUrl: './comparativas.component.html',
-  styleUrls: ['./comparativas.component.scss']
+  selector: 'app-compara-opa',
+  templateUrl: './compara-opa.component.html',
+  styleUrls: ['./compara-opa.component.scss']
 })
-export class ComparativasComponent {
+export class ComparaOPAComponent {
+
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
   public gridColumnApi;
@@ -50,19 +51,10 @@ export class ComparativasComponent {
         }
       },
       {
-        headerName: '2017',
+        headerName: 'OPA',
         children: [
           {
-            headerName: 'Pagos',
-            field: 'ObligacionesReconocidasNetas2017',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-          {
-            headerName: 'OPA',
+            headerName: '2017',
             field: 'OPA2017',
             width: this.OPAWidth,
             resizable: true,
@@ -70,22 +62,8 @@ export class ComparativasComponent {
             aggFunc: 'sum',
             cellRenderer: CellRendererOCM
           },
-        ]
-      },
-      {
-        headerName: '2018',
-        children: [
           {
-            headerName: 'Pagos',
-            field: 'ObligacionesReconocidasNetas2018',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-          {
-            headerName: 'OPA',
+            headerName: '2018',
             field: 'OPA2018',
             width: this.OPAWidth,
             resizable: true,
@@ -93,22 +71,8 @@ export class ComparativasComponent {
             aggFunc: 'sum',
             cellRenderer: CellRendererOCM
           },
-        ]
-      },
-      {
-        headerName: '2019',
-        children: [
           {
-            headerName: 'Pagos',
-            field: 'ObligacionesReconocidasNetas2019',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-          {
-            headerName: 'OPA',
+            headerName: '2019',
             field: 'OPA2019',
             width: this.OPAWidth,
             resizable: true,
@@ -116,22 +80,8 @@ export class ComparativasComponent {
             aggFunc: 'sum',
             cellRenderer: CellRendererOCM
           },
-        ]
-      },
-      {
-        headerName: '2020',
-        children: [
           {
-            headerName: 'Pagos',
-            field: 'ObligacionesReconocidasNetas2020',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-          {
-            headerName: 'OPA',
+            headerName: '2020',
             field: 'OPA2020',
             width: this.OPAWidth,
             resizable: true,
@@ -139,8 +89,41 @@ export class ComparativasComponent {
             aggFunc: 'sum',
             cellRenderer: CellRendererOCM
           },
+          {
+            headerName: '2020-2019',
+            field: 'OPAdif',
+            width: this.OPAWidth + 28,
+            resizable: true,
+            rowGroup: true,
+            columnGroupShow: 'open',
+            aggFunc: 'sum',
+            cellRenderer: CellRendererOCM,
+            valueGetter: params => {
+              // if (params.data) {
+              let opa2019 = 0;
+              let opa2020 = 0;
+
+              if (params.data.OPA2019) {
+                opa2019 += params.data.OPA2019;
+              }
+
+              if (params.data.OPA2020) {
+                opa2020 += params.data.OPA2020;
+              }
+
+              // console.log('opa2020', opa2020, 'opa2019', opa2019);
+              // if ((opa2020 - opa2019) > 0) {
+              return (opa2020 - opa2019);
+
+              // } else {
+              //   return null;
+              // }
+            }
+
+          },
         ]
       },
+
     ];
     this.defaultColDef = {
       sortable: true,
@@ -160,7 +143,6 @@ export class ComparativasComponent {
         Object.entries(data).forEach(prop => this.result2020.push({
           "CodEco": prop[1]['CodEco'],
           "DesEco": prop[1]['DesEco'],
-          "ObligacionesReconocidasNetas2020": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2020": prop[1]['ObligacionesPendientePago']
         }));
       })
@@ -176,7 +158,6 @@ export class ComparativasComponent {
         Object.entries(data).forEach(prop => this.result2019.push({
           "CodEco": prop[1]['CodEco'],
           "DesEco": prop[1]['DesEco'],
-          "ObligacionesReconocidasNetas2019": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2019": prop[1]['ObligacionesPendientePago']
         }));
       })
@@ -192,7 +173,6 @@ export class ComparativasComponent {
         Object.entries(data).forEach(prop => this.result2018.push({
           "CodEco": prop[1]['CodEco'],
           "DesEco": prop[1]['DesEco'],
-          "ObligacionesReconocidasNetas2018": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2018": prop[1]['ObligacionesPendientePago']
         }));
       })
@@ -208,7 +188,6 @@ export class ComparativasComponent {
         Object.entries(data).forEach(prop => this.result2017.push({
           "CodEco": prop[1]['CodEco'],
           "DesEco": prop[1]['DesEco'],
-          "ObligacionesReconocidasNetas2017": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2017": prop[1]['ObligacionesPendientePago']
         }));
         this.rowData = this.result2017.concat(this.result2018).concat(this.result2019).concat(this.result2020);
@@ -219,5 +198,11 @@ export class ComparativasComponent {
       .finally(() => {
         console.log('finally');
       });
+
+    // console.log(this.rowData[0]);
+    // this.rowData.forEach(prop => this.rowData.push({
+    //   "OPAdif": prop[1]['OPA2020'] - prop[1]['OPA2019']
+    // }));
   }
+
 }
