@@ -7,11 +7,12 @@ import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../shared/utils/utils';
 
 @Component({
-  selector: 'app-comparativas',
-  templateUrl: './compara-eco.component.html',
-  styleUrls: ['./compara-eco.component.scss']
+  selector: 'app-compara-pro',
+  templateUrl: './compara-pro.component.html',
+  styleUrls: ['./compara-pro.component.scss']
 })
-export class ComparaEcoComponent {
+export class ComparaProComponent {
+
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
   public gridColumnApi;
@@ -32,18 +33,18 @@ export class ComparaEcoComponent {
   constructor(private avalaibleYearsService: AvalaibleYearsService) {
     this.columnDefs = [
       {
-        headerName: 'Economico',
-        field: 'DesEco',
+        headerName: 'Programa',
+        field: 'DesPro',
         cellClass: 'resaltado',
         // filter: false,
         width: 550,
         pinned: 'left',
         rowGroup: true,
-        showRowGroup: 'DesEco',
+        showRowGroup: 'DesPro',
         columnGroupShow: 'open',
         valueGetter: params => {
           if (params.data) {
-            return params.data.CodEco + ' - ' + params.data.DesEco;
+            return params.data.CodPro + ' - ' + params.data.DesPro;
           } else {
             return null;
           }
@@ -141,6 +142,7 @@ export class ComparaEcoComponent {
           },
         ]
       },
+
     ];
     this.defaultColDef = {
       sortable: true,
@@ -158,8 +160,8 @@ export class ComparaEcoComponent {
     await this.avalaibleYearsService.getYearDataJson('2020', true)
       .then(data => {
         Object.entries(data).forEach(prop => this.result2020.push({
-          "CodEco": prop[1]['CodEco'],
-          "DesEco": prop[1]['DesEco'],
+          "CodPro": prop[1]['CodPro'],
+          "DesPro": prop[1]['DesPro'],
           "ObligacionesReconocidasNetas2020": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2020": prop[1]['ObligacionesPendientePago']
         }));
@@ -174,8 +176,8 @@ export class ComparaEcoComponent {
     await this.avalaibleYearsService.getYearDataJson('2019', true)
       .then(data => {
         Object.entries(data).forEach(prop => this.result2019.push({
-          "CodEco": prop[1]['CodEco'],
-          "DesEco": prop[1]['DesEco'],
+          "CodPro": prop[1]['CodPro'],
+          "DesPro": prop[1]['DesPro'],
           "ObligacionesReconocidasNetas2019": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2019": prop[1]['ObligacionesPendientePago']
         }));
@@ -190,8 +192,8 @@ export class ComparaEcoComponent {
     await this.avalaibleYearsService.getYearDataJson('2018', true)
       .then(data => {
         Object.entries(data).forEach(prop => this.result2018.push({
-          "CodEco": prop[1]['CodEco'],
-          "DesEco": prop[1]['DesEco'],
+          "CodPro": prop[1]['CodPro'],
+          "DesPro": prop[1]['DesPro'],
           "ObligacionesReconocidasNetas2018": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2018": prop[1]['ObligacionesPendientePago']
         }));
@@ -206,8 +208,8 @@ export class ComparaEcoComponent {
     await this.avalaibleYearsService.getYearDataJson('2017', true)
       .then(data => {
         Object.entries(data).forEach(prop => this.result2017.push({
-          "CodEco": prop[1]['CodEco'],
-          "DesEco": prop[1]['DesEco'],
+          "CodPro": prop[1]['CodPro'],
+          "DesPro": prop[1]['DesPro'],
           "ObligacionesReconocidasNetas2017": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2017": prop[1]['ObligacionesPendientePago']
         }));
@@ -219,5 +221,6 @@ export class ComparaEcoComponent {
       .finally(() => {
         console.log('finally');
       });
+
   }
 }
