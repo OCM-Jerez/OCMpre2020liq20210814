@@ -154,6 +154,7 @@ export class ComparativasComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+
     await this.avalaibleYearsService.getYearDataJson('2020', true)
       .then(data => {
         Object.entries(data).forEach(prop => this.result2020.push({
@@ -210,8 +211,7 @@ export class ComparativasComponent {
           "ObligacionesReconocidasNetas2017": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2017": prop[1]['ObligacionesPendientePago']
         }));
-        const resultTotal = this.result2017.concat(this.result2018).concat(this.result2019).concat(this.result2020);
-        this.rowData = resultTotal;
+        this.rowData = this.result2017.concat(this.result2018).concat(this.result2019).concat(this.result2020);
       })
       .catch(error => {
         console.error(error);
