@@ -155,21 +155,36 @@ export class ComparaEcoComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
 
+    // await this.avalaibleYearsService.getYearDataJson('2020', true)
+    //   .then(data => {
+    //     Object.entries(data).forEach(prop => this.result2020.push({
+    //       "CodEco": prop[1]['CodEco'],
+    //       "DesEco": prop[1]['DesEco'],
+    //       "ObligacionesReconocidasNetas2020": prop[1]['ObligacionesReconocidasNetas'],
+    //       "OPA2020": prop[1]['ObligacionesPendientePago']
+    //     }));
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //   })
+    //   .finally(() => {
+    //     console.log('finally');
+    //   });
+    // console.log(this.result2020);
+
     await this.avalaibleYearsService.getYearDataJson('2020', true)
       .then(data => {
-        Object.entries(data).forEach(prop => this.result2020.push({
-          "CodEco": prop[1]['CodEco'],
-          "DesEco": prop[1]['DesEco'],
-          "ObligacionesReconocidasNetas2020": prop[1]['ObligacionesReconocidasNetas'],
-          "OPA2020": prop[1]['ObligacionesPendientePago']
-        }));
+        Object.entries(data).reduce((accumulator, currentValue) => {
+          this.result2020.push({
+            "CodEco": currentValue[1]['CodEco'],
+            "DesEco": currentValue[1]['DesEco'],
+            "ObligacionesReconocidasNetas2020": currentValue[1]['ObligacionesReconocidasNetas'],
+            "OPA2020": currentValue[1]['ObligacionesPendientePago']
+          });
+          return accumulator;
+        }, []);
       })
-      .catch(error => {
-        console.error(error);
-      })
-      .finally(() => {
-        console.log('finally');
-      });
+    console.log(this.result2020);
 
     await this.avalaibleYearsService.getYearDataJson('2019', true)
       .then(data => {
@@ -211,7 +226,9 @@ export class ComparaEcoComponent {
           "ObligacionesReconocidasNetas2017": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2017": prop[1]['ObligacionesPendientePago']
         }));
-        this.rowData = this.result2017.concat(this.result2018).concat(this.result2019).concat(this.result2020);
+        // this.rowData = this.result2017.concat(this.result2018).concat(this.result2019).concat(this.result2020);
+        // this.rowData = this.result2017.concat(this.result2018, this.result2019, this.result2020);
+        this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
       })
       .catch(error => {
         console.error(error);
