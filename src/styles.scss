@@ -34,32 +34,31 @@ body {
 .OCM-text {
   &--cabecera {
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-weight: 900;
     margin-top: 1rem;
     color: black;
     font-family: var(--fuente-principal);
     // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
     font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
-    // font-size: 4.2rem;
-    text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+    // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
     text-align: center;
   }
   &--años {
-    color: rgb(47, 0, 255);
+    color: map-get($OCM-colors, claro);
     margin-bottom: 0.2rem;
   }
 
   &--ingresos {
-    color: rgb(98, 146, 25);
+    color: map-get($OCM-colors, claro);
   }
 
   &--gastos {
-    color: red;
+    color: map-get($OCM-colors, claro);
   }
 
   &--comparativas {
-    color: black;
+    color: map-get($OCM-colors, claro);
   }
 }
 

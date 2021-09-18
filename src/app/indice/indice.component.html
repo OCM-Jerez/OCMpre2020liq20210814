@@ -1,4 +1,5 @@
 <div class="OCM-indice">
+  <hr style="color : white">
 
   <h3 class=" OCM-text--cabecera OCM-text--años">Selecciona año a mostrar.</h3>
   <div class="OCM-row--add">
@@ -18,11 +19,9 @@
     </div>
 
     <div class="OCM-card">
-      <div class="OCM-card__headerImage">
-        <a routerLink="/Ingresos">
-          <img src="assets/img/Ingresos.jpg" />
-        </a>
-      </div>
+      <a routerLink="/Ingresos">
+        <span class="OCM-card__title">Por capítulos</span>
+      </a>
     </div>
 
     <div class="OCM-card--empty">
@@ -30,7 +29,7 @@
 
   </div>
   <br>
-  <br>
+
 
   <h3 class="OCM-text--cabecera OCM-text--gastos">Gastos.</h3>
   <div class="OCM-row--add">
@@ -39,42 +38,38 @@
     </div>
 
     <div class="OCM-card">
-      <div class="OCM-card__headerImage">
-        <a (click)="porCapitulo()">
-          <img class="img" src="assets/img/Capitulo.png" />
-        </a>
-      </div>
+      <a (click)="porCapitulo()">
+        <span class="OCM-card__title">Por capítulos</span>
+      </a>
     </div>
 
     <div class="OCM-card--empty">
     </div>
 
   </div>
-  <br>
+
 
   <div class="OCM-row--add">
     <div class="OCM-card">
-      <div class="OCM-card__headerImage">
-        <a (click)="porOrganico()">
-          <img class="img" src="assets/img/PorOrganico.png" />
-        </a>
-      </div>
+      <a (click)="porOrganico()">
+        <span class="OCM-card__title">Por organico</span>
+        <span class="OCM-card__title">¿Quién lo gasta?</span>
+      </a>
+
     </div>
 
     <div class="OCM-card">
-      <div class="OCM-card__headerImage">
-        <a (click)="porPrograma()">
-          <img class="img" src="assets/img/PorPrograma.png" />
-        </a>
-      </div>
+      <a (click)="porPrograma()">
+        <span class="OCM-card__title">Por programa</span>
+        <span class="OCM-card__title">¿Para qué se gasta?</span>
+      </a>
     </div>
 
     <div class="OCM-card">
-      <div class="OCM-card__headerImage">
-        <a (click)="porEconomico()">
-          <img class="img" src="assets/img/PorEconomico.png" />
-        </a>
-      </div>
+      <a (click)="porEconomico()">
+        <span class="OCM-card__title">Por económico</span>
+        <span class="OCM-card__title">¿En qué se gasta?</span>
+      </a>
     </div>
   </div>
   <br>
@@ -90,11 +85,9 @@
     </div>
 
     <div class="OCM-card">
-      <div class="OCM-card__headerImage">
-        <a routerLink="/Ingresos">
-          <img class="img" src="assets/img/Ingresos.jpg" />
-        </a>
-      </div>
+      <a routerLink="/Ingresos">
+        <span class="OCM-card__title">Por capítulos</span>
+      </a>
     </div>
 
     <div class="OCM-card--empty">
@@ -102,55 +95,44 @@
 
   </div>
   <br>
-  <br>
+
 
   <h3 class="OCM-text--cabecera OCM-text--gastos">Gastos.</h3>
   <div class="OCM-row--add">
 
     <div class="OCM-card">
-      <div class="OCM-card__headerImage">
-        <a (click)="comparaOPA()">
-          <img class="img" src="assets/img/PorPrograma.png" />
-        </a>
-      </div>
+      <a (click)="comparaOrg()">
+        <span class="OCM-card__title">Por organico</span>
+      </a>
     </div>
 
     <div class="OCM-card">
-      <div class="OCM-card__headerImage">
-        <a (click)="comparaEco()">
-          <img class="img" src="assets/img/PorEconomico.png" />
-        </a>
-      </div>
+      <a (click)="comparaPro()">
+        <span class="OCM-card__title">Por programa</span> </a>
     </div>
 
     <div class="OCM-card">
-      <div class="OCM-card__headerImage">
-        <a (click)="comparaPro()">
-          <img class="img" src="assets/img/PorPrograma.png" />
-        </a>
-      </div>
+      <a (click)="comparaEco()">
+        <span class="OCM-card__title">Por económico</span>
+      </a>
     </div>
 
   </div>
-  <br>
-  <br>
+
 
   <div class="OCM-row--add">
+    <div class="OCM-card--empty">
+    </div>
 
     <div class="OCM-card">
-      <div class="OCM-card__headerImage">
-        <a (click)="comparaOPA()">
-          <img class="img" src="assets/img/PorPrograma.png" />
-        </a>
-      </div>
+      <a (click)="comparaOPA()">
+        <span class="OCM-card__title">Por OPA</span>
+        <span class="OCM-card__title">Facturas en el cajon de cada año</span>
+      </a>
     </div>
 
-    <div class="OCM-card--empty">
-      f
-    </div>
 
     <div class="OCM-card--empty">
-      f
     </div>
 
   </div>

@@ -2,10 +2,10 @@
 
 .OCM-navBar {
     height: 50px;
-    margin-right: 10px;
-    margin-left: 10px;
+    // margin-right: 10px;
+    // margin-left: 10px;
     margin-top: 10px;
-    background-color: map-get($OCM-colors, navBarBackground);
+    background-color: map-get($OCM-colors, navBarDarkBackground);
 
     .OCM-headerCenter {
         position: absolute;

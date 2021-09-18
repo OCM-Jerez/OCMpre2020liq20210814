@@ -1,24 +1,26 @@
 /* https://www.w3schools.com/cssref/css_selectors.asp */
 // https://fixu.cl/que-es-la-metodologia-bem-y-como-se-aplica-al-front-end/
+@import "/src/app/scss/variables";
 
 .OCM-indice {
   padding-top: 3rem;
   height: 80vh;
+  background-color: #15202b;
 }
 
 /* Como CSS no tiene la propiedad background.opacity
-insertamosun seudo elemento con el mismo tamaño. */
-.OCM-indice::after {
-  content: "";
-  background: url("../../assets/img/textura.jpg");
-  opacity: 0, 5;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-}
+insertamo sun seudo elemento con el mismo tamaño. */
+// .OCM-indice::after {
+//   content: "";
+//   background: url("../../assets/img/textura.jpg");
+//   opacity: 0, 5;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   position: absolute;
+//   z-index: -1;
+// }
 
 .OCM-row {
   &--add {
@@ -30,6 +32,7 @@ insertamosun seudo elemento con el mismo tamaño. */
 }
 
 .OCM-no-bullets {
+  color: map-get($OCM-colors, claro);
   list-style-type: none;
   font-size: clamp(0.6rem, -1.275rem + 8.333vw, 2rem);
   font-weight: 900;
@@ -40,47 +43,34 @@ insertamosun seudo elemento con el mismo tamaño. */
 /* https://www.w3schools.com/bootstrap4/bootstrap_cards.asp */
 .OCM-card {
   display: flex;
+  width: clamp(20rem, 20rem, 20rem);
+  height: clamp(5rem, 5rem, 5rem);
   justify-content: space-around;
+  text-justify: auto;
   margin-bottom: 0.3rem;
   margin-top: 2rem;
   border-radius: 0.6rem;
   color: rgba(0, 0, 0, 0.87);
-  background: #fff;
-  width: 100%;
+  background: #262729;
   box-shadow: 1rem 1rem 0.5rem 0px rgba(0, 0, 0, 0.75);
   margin-left: 2rem;
   margin-right: 2rem;
-  max-width: 30rem;
-  max-height: 21.5rem;
-  min-width: 10rem;
-  min-height: 0.5rem;
   text-align: center;
   transition: transform 0.5s ease-in-out;
   transition: box-shadow 0.3s;
 
   &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(20rem, 20rem, 20rem);
+
+    color: map-get($OCM-colors, claro);
     font-weight: 700;
-    margin-top: 1rem;
-    color: #3c4858;
     font-family: var(--fuente-principal);
     font-size: 1.4rem;
-    text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+    // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
     text-align: center;
-  }
-
-  &__headerImage {
-    position: relative;
-    padding: 0;
-    z-index: 1;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    margin-top: -3rem;
-    border-radius: 0.6rem;
-    max-height: 6rem;
-    img {
-      width: 100%;
-      height: 100%;
-    }
   }
 
   &--empty {
