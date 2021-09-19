@@ -64,6 +64,10 @@ export class IndiceComponent implements OnInit {
     this.router.navigate(['/ComparaIng'])
   }
 
+  comparaIngEco() {
+    this.router.navigate(['/ComparaIngEco'])
+  }
+
   comparaOPA() {
     this.router.navigate(['/ComparaOPA'])
   }
