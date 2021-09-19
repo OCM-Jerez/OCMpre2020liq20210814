@@ -16,19 +16,34 @@ export class AvalaibleYearsService {
     return this.subject$.asObservable();
   }
 
-  async getDataJson(isExpense: boolean) {
+  async getDataJson(isGas: boolean) {
     // throw new Error('Not implemented');
-    const data = await import(`../../assets/data/${this.year}Liq${isExpense ? 'Gas' : 'Ing'}.json`);
+    const data = await import(`../../assets/data/${this.year}Liq${isGas ? 'Gas' : 'Ing'}.json`);
     // const result: any = (data as any).default;
     return data.default;
   }
 
-  async getYearDataJson(year: string, isExpense: boolean) {
-    const data = await import(`../../assets/data/${year}Liq${isExpense ? 'Gas' : 'Ing'}.json`);
+  async getYearDataJson(year: string, isGas: boolean) {
+    const data = await import(`../../assets/data/${year}Liq${isGas ? 'Gas' : 'Ing'}.json`);
     return data.default;
   }
 
   getCurrentYear(): string {
     return this.year
   }
+
+  async getData(year: string, result: any[], Cod: string, Des: string, derechos: string, isGas: boolean) {
+    const data = await this.getYearDataJson(year, isGas).then(data => {
+      Object.entries(data).reduce((acumulator, currentValue) => {
+        result.push({
+          [Cod]: currentValue[1][Cod],
+          [Des]: currentValue[1][Des],
+          [derechos]: currentValue[1]['DerechosReconocidosNetos'],
+        });
+        return acumulator;
+      }, []);
+    })
+  }
+
+
 }

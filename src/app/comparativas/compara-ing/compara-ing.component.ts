@@ -38,14 +38,12 @@ export class ComparaIngComponent {
             headerName: 'Capítulo',
             field: 'CodCap',
             cellClass: 'resaltado',
-            // filter: false,
             width: 250,
             pinned: 'left',
             rowGroup: true,
             showRowGroup: 'CodCap',
             columnGroupShow: 'open',
             cellRenderer: CellRendererOCMtext,
-            // comparator: (valueA, valueB, nodeA, nodeB, isInverted) => valueA - valueB,
             valueGetter: params => {
               if (params.data) {
                 return params.data.CodCap + ' - ' + params.data.DesCap;
@@ -56,24 +54,6 @@ export class ComparaIngComponent {
           },
         ]
       },
-      // {
-      //   headerName: 'Des',
-      //   field: 'DesCap',
-      //   cellClass: 'resaltado',
-      //   // filter: false,
-      //   width: 250,
-      //   pinned: 'left',
-      //   rowGroup: true,
-      //   showRowGroup: 'DesCap',
-      //   columnGroupShow: 'open',
-      //   valueGetter: params => {
-      //     if (params.data) {
-      //       return params.data.DesCap;
-      //     } else {
-      //       return null;
-      //     }
-      //   }
-      // },
 
       {
         headerName: '2017',
@@ -91,8 +71,8 @@ export class ComparaIngComponent {
         headerName: '2020',
         field: 'DerechosReconocidosNetos2020',
       },
-
     ];
+
     this.defaultColDef = {
       width: this.CreditosWidth,
       sortable: true,
@@ -108,64 +88,11 @@ export class ComparaIngComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-
-    await this.avalaibleYearsService.getYearDataJson('2020', false)
-      .then(data => {
-        Object.entries(data).reduce((accumulator, currentValue) => {
-          this.result2020.push({
-            "CodCap": currentValue[1]['CodCap'],
-            "DesCap": currentValue[1]['DesCap'],
-            "DerechosReconocidosNetos2020": currentValue[1]['DerechosReconocidosNetos'],
-          });
-          return accumulator;
-        }, []);
-      })
-    console.log(this.result2020);
-
-    await this.avalaibleYearsService.getYearDataJson('2019', false)
-      .then(data => {
-        Object.entries(data).forEach(prop => this.result2019.push({
-          "CodCap": prop[1]['CodCap'],
-          "DesCap": prop[1]['DesCap'],
-          "DerechosReconocidosNetos2019": prop[1]['DerechosReconocidosNetos'],
-        }));
-      })
-      .catch(error => {
-        console.error(error);
-      })
-      .finally(() => {
-        console.log('finally');
-      });
-
-    await this.avalaibleYearsService.getYearDataJson('2018', false)
-      .then(data => {
-        Object.entries(data).forEach(prop => this.result2018.push({
-          "CodCap": prop[1]['CodCap'],
-          "DesCap": prop[1]['DesCap'],
-          "DerechosReconocidosNetos2018": prop[1]['DerechosReconocidosNetos'],
-        }));
-      })
-      .catch(error => {
-        console.error(error);
-      })
-      .finally(() => {
-        console.log('finally');
-      });
-
-    await this.avalaibleYearsService.getYearDataJson('2017', false)
-      .then(data => {
-        Object.entries(data).forEach(prop => this.result2017.push({
-          "CodCap": prop[1]['CodCap'],
-          "DesCap": prop[1]['DesCap'],
-          "DerechosReconocidosNetos2017": prop[1]['DerechosReconocidosNetos'],
-        }));
-        this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
-      })
-      .catch(error => {
-        console.error(error);
-      })
-      .finally(() => {
-        console.log('finally');
-      });
+    await this.avalaibleYearsService.getData('2020', this.result2020, "CosCap", "DesCap", "DerechosReconocidosNetos2020", false)
+    await this.avalaibleYearsService.getData('2019', this.result2019, "CosCap", "DesCap", "DerechosReconocidosNetos2019", false)
+    await this.avalaibleYearsService.getData('2018', this.result2018, "CosCap", "DesCap", "DerechosReconocidosNetos2018", false)
+    await this.avalaibleYearsService.getData('2017', this.result2017, "CosCap", "DesCap", "DerechosReconocidosNetos2017", false)
+    this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
   }
+
 }
