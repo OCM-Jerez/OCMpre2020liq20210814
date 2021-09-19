@@ -36,6 +36,10 @@ export class IndiceComponent implements OnInit {
     this.radioSelected = this.avalaibleYearsService.getCurrentYear();
   }
 
+  porIngresos() {
+    this.router.navigate(['/Ingresos'])
+  }
+
   porCapitulo() {
     this.tipoclasificacionService.tipoClasificacion = 'capítulo'
     this.router.navigate(['/Gastos'])
@@ -54,6 +58,10 @@ export class IndiceComponent implements OnInit {
   porPrograma() {
     this.tipoclasificacionService.tipoClasificacion = 'programa'
     this.router.navigate(['/Gastos'])
+  }
+
+  comparaIng() {
+    this.router.navigate(['/ComparaIng'])
   }
 
   comparaOPA() {

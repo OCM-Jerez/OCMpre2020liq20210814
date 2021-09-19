@@ -7,11 +7,11 @@ import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM } from '../../shared/utils/utils';
 
 @Component({
-  selector: 'app-compara-org',
-  templateUrl: './compara-org.component.html',
-  styleUrls: ['./compara-org.component.scss']
+  selector: 'app-compara-ing',
+  templateUrl: './compara-ing.component.html',
+  styleUrls: ['./compara-ing.component.scss']
 })
-export class ComparaOrgComponent {
+export class ComparaIngComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
   public gridColumnApi;
@@ -32,22 +32,22 @@ export class ComparaOrgComponent {
   constructor(private avalaibleYearsService: AvalaibleYearsService) {
     this.columnDefs = [
       {
-        headerName: 'Clasificado por orgánico',
+        headerName: 'Clasificado por capítulo',
         children: [
           {
-            headerName: 'Orgánico',
-            field: 'CodOrg',
+            headerName: 'Capítulo',
+            field: 'CodCap',
             cellClass: 'resaltado',
             // filter: false,
             width: 250,
             pinned: 'left',
             rowGroup: true,
-            showRowGroup: 'CodOrg',
+            showRowGroup: 'CodCap',
             columnGroupShow: 'open',
             // comparator: (valueA, valueB, nodeA, nodeB, isInverted) => valueA - valueB,
             valueGetter: params => {
               if (params.data) {
-                return params.data.CodOrg + ' - ' + params.data.DesOrg;
+                return params.data.CodCap + ' - ' + params.data.DesCap;
               } else {
                 return null;
               }
@@ -57,17 +57,17 @@ export class ComparaOrgComponent {
       },
       // {
       //   headerName: 'Des',
-      //   field: 'DesOrg',
+      //   field: 'DesCap',
       //   cellClass: 'resaltado',
       //   // filter: false,
       //   width: 250,
       //   pinned: 'left',
       //   rowGroup: true,
-      //   showRowGroup: 'DesOrg',
+      //   showRowGroup: 'DesCap',
       //   columnGroupShow: 'open',
       //   valueGetter: params => {
       //     if (params.data) {
-      //       return params.data.DesOrg;
+      //       return params.data.DesCap;
       //     } else {
       //       return null;
       //     }
@@ -183,8 +183,8 @@ export class ComparaOrgComponent {
       .then(data => {
         Object.entries(data).reduce((accumulator, currentValue) => {
           this.result2020.push({
-            "CodOrg": currentValue[1]['CodOrg'],
-            "DesOrg": currentValue[1]['DesOrg'],
+            "CodCap": currentValue[1]['CodCap'],
+            "DesCap": currentValue[1]['DesCap'],
             "ObligacionesReconocidasNetas2020": currentValue[1]['ObligacionesReconocidasNetas'],
             "OPA2020": currentValue[1]['ObligacionesPendientePago']
           });
@@ -196,8 +196,8 @@ export class ComparaOrgComponent {
     await this.avalaibleYearsService.getYearDataJson('2019', true)
       .then(data => {
         Object.entries(data).forEach(prop => this.result2019.push({
-          "CodOrg": prop[1]['CodOrg'],
-          "DesOrg": prop[1]['DesOrg'],
+          "CodCap": prop[1]['CodCap'],
+          "DesCap": prop[1]['DesCap'],
           "ObligacionesReconocidasNetas2019": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2019": prop[1]['ObligacionesPendientePago']
         }));
@@ -212,8 +212,8 @@ export class ComparaOrgComponent {
     await this.avalaibleYearsService.getYearDataJson('2018', true)
       .then(data => {
         Object.entries(data).forEach(prop => this.result2018.push({
-          "CodOrg": prop[1]['CodOrg'],
-          "DesOrg": prop[1]['DesOrg'],
+          "CodCap": prop[1]['CodCap'],
+          "DesCap": prop[1]['DesCap'],
           "ObligacionesReconocidasNetas2018": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2018": prop[1]['ObligacionesPendientePago']
         }));
@@ -228,13 +228,11 @@ export class ComparaOrgComponent {
     await this.avalaibleYearsService.getYearDataJson('2017', true)
       .then(data => {
         Object.entries(data).forEach(prop => this.result2017.push({
-          "CodOrg": prop[1]['CodOrg'],
-          "DesOrg": prop[1]['DesOrg'],
+          "CodCap": prop[1]['CodCap'],
+          "DesCap": prop[1]['DesCap'],
           "ObligacionesReconocidasNetas2017": prop[1]['ObligacionesReconocidasNetas'],
           "OPA2017": prop[1]['ObligacionesPendientePago']
         }));
-        // this.rowData = this.result2017.concat(this.result2018).concat(this.result2019).concat(this.result2020);
-        // this.rowData = this.result2017.concat(this.result2018, this.result2019, this.result2020);
         this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
       })
       .catch(error => {

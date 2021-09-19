@@ -25,6 +25,7 @@ import { ComparaEcoComponent } from './comparativas/compara-eco/compara-eco.comp
 import { ComparaOPAComponent } from './comparativas/compara-OPA/compara-opa.component';
 import { ComparaProComponent } from './comparativas/compara-pro/compara-pro.component';
 import { ComparaOrgComponent } from './comparativas/compara-org/compara-org.component';
+import { ComparaIngComponent } from './comparativas/compara-ing/compara-ing.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ComparaOrgComponent } from './comparativas/compara-org/compara-org.comp
     ComparaEcoComponent,
     ComparaOPAComponent,
     ComparaProComponent,
-    ComparaOrgComponent
+    ComparaOrgComponent,
+    ComparaIngComponent
   ],
   imports: [
     BrowserModule,

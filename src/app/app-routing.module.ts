@@ -8,11 +8,13 @@ import { ComparaEcoComponent } from './comparativas/compara-eco/compara-eco.comp
 import { ComparaOPAComponent } from './comparativas/compara-OPA/compara-opa.component';
 import { ComparaProComponent } from './comparativas/compara-pro/compara-pro.component';
 import { ComparaOrgComponent } from './comparativas/compara-org/compara-org.component';
+import { ComparaIngComponent } from './comparativas/compara-ing/compara-ing.component';
 
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
   { path: 'Ingresos', component: IngresosComponent },
   { path: 'Gastos', component: GastosComponent },
+  { path: 'ComparaIng', component: ComparaIngComponent },
   { path: 'ComparaEco', component: ComparaEcoComponent },
   { path: 'ComparaOPA', component: ComparaOPAComponent },
   { path: 'ComparaPro', component: ComparaProComponent },
