@@ -27,4 +27,7 @@ export function CellRendererOCM(params: any) {
 }
 
 
+export function CellRendererOCMtext(params: any) {
+  return params.value
+}
 

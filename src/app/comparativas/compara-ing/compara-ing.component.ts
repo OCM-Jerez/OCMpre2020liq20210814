@@ -4,7 +4,7 @@ import { GridOptions } from 'ag-grid-community/main';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
-import { CellRendererOCM } from '../../shared/utils/utils';
+import { CellRendererOCM, CellRendererOCMtext } from '../../shared/utils/utils';
 
 @Component({
   selector: 'app-compara-ing',
@@ -44,6 +44,7 @@ export class ComparaIngComponent {
             rowGroup: true,
             showRowGroup: 'CodCap',
             columnGroupShow: 'open',
+            cellRenderer: CellRendererOCMtext,
             // comparator: (valueA, valueB, nodeA, nodeB, isInverted) => valueA - valueB,
             valueGetter: params => {
               if (params.data) {
@@ -73,103 +74,32 @@ export class ComparaIngComponent {
       //     }
       //   }
       // },
+
       {
         headerName: '2017',
-        children: [
-          {
-            headerName: 'Pagos',
-            field: 'ObligacionesReconocidasNetas2017',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-          {
-            headerName: 'OPA',
-            field: 'OPA2017',
-            width: this.OPAWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-        ]
+        field: 'DerechosReconocidosNetos2017',
       },
       {
         headerName: '2018',
-        children: [
-          {
-            headerName: 'Pagos',
-            field: 'ObligacionesReconocidasNetas2018',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-          {
-            headerName: 'OPA',
-            field: 'OPA2018',
-            width: this.OPAWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-        ]
+        field: 'DerechosReconocidosNetos2018',
       },
       {
         headerName: '2019',
-        children: [
-          {
-            headerName: 'Pagos',
-            field: 'ObligacionesReconocidasNetas2019',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-          {
-            headerName: 'OPA',
-            field: 'OPA2019',
-            width: this.OPAWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-        ]
+        field: 'DerechosReconocidosNetos2019',
       },
       {
         headerName: '2020',
-        children: [
-          {
-            headerName: 'Pagos',
-            field: 'ObligacionesReconocidasNetas2020',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-          {
-            headerName: 'OPA',
-            field: 'OPA2020',
-            width: this.OPAWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
-          },
-        ]
+        field: 'DerechosReconocidosNetos2020',
       },
+
     ];
     this.defaultColDef = {
+      width: this.CreditosWidth,
       sortable: true,
       resizable: true,
-      filter: true
+      filter: true,
+      aggFunc: 'sum',
+      cellRenderer: CellRendererOCM
     };
     this.gridOptions = {} as GridOptions;
     this.localeText = localeTextESPes;
@@ -179,27 +109,25 @@ export class ComparaIngComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
 
-    await this.avalaibleYearsService.getYearDataJson('2020', true)
+    await this.avalaibleYearsService.getYearDataJson('2020', false)
       .then(data => {
         Object.entries(data).reduce((accumulator, currentValue) => {
           this.result2020.push({
             "CodCap": currentValue[1]['CodCap'],
             "DesCap": currentValue[1]['DesCap'],
-            "ObligacionesReconocidasNetas2020": currentValue[1]['ObligacionesReconocidasNetas'],
-            "OPA2020": currentValue[1]['ObligacionesPendientePago']
+            "DerechosReconocidosNetos2020": currentValue[1]['DerechosReconocidosNetos'],
           });
           return accumulator;
         }, []);
       })
     console.log(this.result2020);
 
-    await this.avalaibleYearsService.getYearDataJson('2019', true)
+    await this.avalaibleYearsService.getYearDataJson('2019', false)
       .then(data => {
         Object.entries(data).forEach(prop => this.result2019.push({
           "CodCap": prop[1]['CodCap'],
           "DesCap": prop[1]['DesCap'],
-          "ObligacionesReconocidasNetas2019": prop[1]['ObligacionesReconocidasNetas'],
-          "OPA2019": prop[1]['ObligacionesPendientePago']
+          "DerechosReconocidosNetos2019": prop[1]['DerechosReconocidosNetos'],
         }));
       })
       .catch(error => {
@@ -209,13 +137,12 @@ export class ComparaIngComponent {
         console.log('finally');
       });
 
-    await this.avalaibleYearsService.getYearDataJson('2018', true)
+    await this.avalaibleYearsService.getYearDataJson('2018', false)
       .then(data => {
         Object.entries(data).forEach(prop => this.result2018.push({
           "CodCap": prop[1]['CodCap'],
           "DesCap": prop[1]['DesCap'],
-          "ObligacionesReconocidasNetas2018": prop[1]['ObligacionesReconocidasNetas'],
-          "OPA2018": prop[1]['ObligacionesPendientePago']
+          "DerechosReconocidosNetos2018": prop[1]['DerechosReconocidosNetos'],
         }));
       })
       .catch(error => {
@@ -225,13 +152,12 @@ export class ComparaIngComponent {
         console.log('finally');
       });
 
-    await this.avalaibleYearsService.getYearDataJson('2017', true)
+    await this.avalaibleYearsService.getYearDataJson('2017', false)
       .then(data => {
         Object.entries(data).forEach(prop => this.result2017.push({
           "CodCap": prop[1]['CodCap'],
           "DesCap": prop[1]['DesCap'],
-          "ObligacionesReconocidasNetas2017": prop[1]['ObligacionesReconocidasNetas'],
-          "OPA2017": prop[1]['ObligacionesPendientePago']
+          "DerechosReconocidosNetos2017": prop[1]['DerechosReconocidosNetos'],
         }));
         this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
       })
