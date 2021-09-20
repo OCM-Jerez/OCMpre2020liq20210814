@@ -39,6 +39,13 @@ export class ComparaGasComponent {
     private tipoclasificacionService: TipoClasificacionService) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
     switch (this.tipoClasificacion) {
+      case 'cap':
+        this._headerName = 'Clasificado por capítulo';
+        this._subHeaderName = 'Capítulo';
+        this._codField = 'CodCap';
+        this._desField = 'DesCap';
+        this._width = 250;
+        break;
       case 'org':
         this._headerName = 'Clasificado por orgánico';
         this._subHeaderName = 'Orgánico';
@@ -204,6 +211,12 @@ export class ComparaGasComponent {
     this.tipoClasificacion = this.tipoclasificacionService.getTipoClasificacion();
 
     switch (this.tipoClasificacion) {
+      case 'cap':
+        await this.avalaibleYearsService.getDataGas('2020', this.result2020, "CodCap", "DesCap", "ObligacionesReconocidasNetas2020", "OPA2020", true)
+        await this.avalaibleYearsService.getDataGas('2019', this.result2019, "CodCap", "DesCap", "ObligacionesReconocidasNetas2019", "OPA2019", true)
+        await this.avalaibleYearsService.getDataGas('2018', this.result2018, "CodCap", "DesCap", "ObligacionesReconocidasNetas2018", "OPA2018", true)
+        await this.avalaibleYearsService.getDataGas('2017', this.result2017, "CodCap", "DesCap", "ObligacionesReconocidasNetas2017", "OPA2017", true)
+        break;
       case 'org':
         await this.avalaibleYearsService.getDataGas('2020', this.result2020, "CodOrg", "DesOrg", "ObligacionesReconocidasNetas2020", "OPA2020", true)
         await this.avalaibleYearsService.getDataGas('2019', this.result2019, "CodOrg", "DesOrg", "ObligacionesReconocidasNetas2019", "OPA2019", true)
