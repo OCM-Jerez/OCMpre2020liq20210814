@@ -13,19 +13,16 @@ import { AppRoutingModule } from './app-routing.module';
 // Components
 import { AppComponent } from './app.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { GastosComponent } from './gastos/gastos.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { IndiceComponent } from './indice/indice.component';
 import { IngresosComponent } from './ingresos/ingresos.component';
+import { GastosComponent } from './gastos/gastos.component';
+import { ComparaIngComponent } from './comparativas/compara-ing/compara-ing.component';
+import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.component';
 
 import { TipoClasificacionService } from './services/tipoClasificacion.service';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './shared/header-ag-grid/header-ag-grid.component';
-import { ComparaOPAComponent } from './comparativas/compara-OPA/compara-opa.component';
-import { ComparaProComponent } from './comparativas/compara-pro/compara-pro.component';
-import { ComparaOrgComponent } from './comparativas/compara-org/compara-org.component';
-import { ComparaIngComponent } from './comparativas/compara-ing/compara-ing.component';
-import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.component';
 
 @NgModule({
   declarations: [
@@ -36,9 +33,6 @@ import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.comp
     IndiceComponent,
     IngresosComponent,
     HeaderAgGridComponent,
-    ComparaOPAComponent,
-    ComparaProComponent,
-    ComparaOrgComponent,
     ComparaIngComponent,
     ComparaGasComponent,
   ],
