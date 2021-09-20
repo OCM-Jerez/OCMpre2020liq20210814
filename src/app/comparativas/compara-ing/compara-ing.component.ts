@@ -30,97 +30,68 @@ export class ComparaIngComponent {
   result2018 = [];
   result2019 = [];
   result2020 = [];
+  private _headerName: string;
+  private _codField: string;
+  private _desField: string;
+  private _width: number;
 
   constructor(private avalaibleYearsService: AvalaibleYearsService,
     private tipoclasificacionService: TipoClasificacionService) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
 
     if (this.tipoClasificacion === 'capítulo') {
-      this.columnDefs = [
-        {
-          headerName: 'Clasificado por capítulo',
-          children: [
-            {
-              headerName: 'Capítulo',
-              field: 'CodCap',
-              cellClass: 'resaltado',
-              width: 250,
-              pinned: 'left',
-              rowGroup: true,
-              showRowGroup: 'CodCap',
-              columnGroupShow: 'open',
-              cellRenderer: CellRendererOCMtext,
-              valueGetter: params => {
-                if (params.data) {
-                  return params.data.CodCap + ' - ' + params.data.DesCap;
-                } else {
-                  return null;
-                }
-              }
-            },
-          ]
-        },
-        {
-          headerName: '2017',
-          field: 'DerechosReconocidosNetos2017',
-        },
-        {
-          headerName: '2018',
-          field: 'DerechosReconocidosNetos2018',
-        },
-        {
-          headerName: '2019',
-          field: 'DerechosReconocidosNetos2019',
-        },
-        {
-          headerName: '2020',
-          field: 'DerechosReconocidosNetos2020',
-        },
-      ];
+      this._headerName = 'Clasificado por capítulo';
+      this._codField = 'CodCap';
+      this._desField = 'DesCap';
+      this._width = 250;
     } else {
-      this.columnDefs = [
-        {
-          headerName: 'Clasificado por económico',
-          children: [
-            {
-              headerName: 'Económico',
-              field: 'CodEco',
-              cellClass: 'resaltado',
-              // filter: false,
-              width: 520,
-              pinned: 'left',
-              rowGroup: true,
-              showRowGroup: 'CodEco',
-              columnGroupShow: 'open',
-              cellRenderer: CellRendererOCMtext,
-              valueGetter: params => {
-                if (params.data) {
-                  return params.data.CodEco + ' - ' + params.data.DesEco;
-                } else {
-                  return null;
-                }
-              }
-            },
-          ]
-        },
-        {
-          headerName: '2017',
-          field: 'DerechosReconocidosNetos2017',
-        },
-        {
-          headerName: '2018',
-          field: 'DerechosReconocidosNetos2018',
-        },
-        {
-          headerName: '2019',
-          field: 'DerechosReconocidosNetos2019',
-        },
-        {
-          headerName: '2020',
-          field: 'DerechosReconocidosNetos2020',
-        },
-      ];
+      this._headerName = 'Clasificado por económico';
+      this._codField = 'CodEco';
+      this._desField = 'DesEco';
+      this._width = 520;
     }
+
+    this.columnDefs = [
+      {
+        headerName: this._headerName,
+        children: [
+          {
+            headerName: this._headerName,
+            field: this._codField,
+            cellClass: 'resaltado',
+            width: this._width,
+            pinned: 'left',
+            rowGroup: true,
+            showRowGroup: this._codField,
+            columnGroupShow: 'open',
+            cellRenderer: CellRendererOCMtext,
+            valueGetter: params => {
+              if (params.data) {
+                return params.data[this._codField] + ' - ' + params.data[this._desField];
+              } else {
+                return null;
+              }
+            }
+          },
+        ]
+      },
+      {
+        headerName: '2017',
+        field: 'DerechosReconocidosNetos2017',
+      },
+      {
+        headerName: '2018',
+        field: 'DerechosReconocidosNetos2018',
+      },
+      {
+        headerName: '2019',
+        field: 'DerechosReconocidosNetos2019',
+      },
+      {
+        headerName: '2020',
+        field: 'DerechosReconocidosNetos2020',
+      },
+    ];
 
     this.defaultColDef = {
       width: this.CreditosWidth,
@@ -138,7 +109,6 @@ export class ComparaIngComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.tipoClasificacion = this.tipoclasificacionService.getTipoClasificacion();
-
     if (this.tipoClasificacion === 'capítulo') {
       await this.avalaibleYearsService.getData('2020', this.result2020, "CodCap", "DesCap", "DerechosReconocidosNetos2020", false)
       await this.avalaibleYearsService.getData('2019', this.result2019, "CodCap", "DesCap", "DerechosReconocidosNetos2019", false)
@@ -149,7 +119,6 @@ export class ComparaIngComponent {
       await this.avalaibleYearsService.getData('2019', this.result2019, "CodEco", "DesEco", "DerechosReconocidosNetos2019", false)
       await this.avalaibleYearsService.getData('2018', this.result2018, "CodEco", "DesEco", "DerechosReconocidosNetos2018", false)
       await this.avalaibleYearsService.getData('2017', this.result2017, "CodEco", "DesEco", "DerechosReconocidosNetos2017", false)
-
     }
     this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
   }
