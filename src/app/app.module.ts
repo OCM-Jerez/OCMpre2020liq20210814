@@ -21,7 +21,6 @@ import { IngresosComponent } from './ingresos/ingresos.component';
 import { TipoClasificacionService } from './services/tipoClasificacion.service';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './shared/header-ag-grid/header-ag-grid.component';
-import { ComparaEcoComponent } from './comparativas/compara-eco/compara-eco.component';
 import { ComparaOPAComponent } from './comparativas/compara-OPA/compara-opa.component';
 import { ComparaProComponent } from './comparativas/compara-pro/compara-pro.component';
 import { ComparaOrgComponent } from './comparativas/compara-org/compara-org.component';
@@ -37,7 +36,6 @@ import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.comp
     IndiceComponent,
     IngresosComponent,
     HeaderAgGridComponent,
-    ComparaEcoComponent,
     ComparaOPAComponent,
     ComparaProComponent,
     ComparaOrgComponent,
