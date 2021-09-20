@@ -70,21 +70,41 @@ export class IndiceComponent implements OnInit {
     this.router.navigate(['/ComparaIng'])
   }
 
-  comparaOPA() {
-    this.router.navigate(['/ComparaOPA'])
-  }
-
-  comparaEco() {
-    this.router.navigate(['/ComparaEco'])
-  }
-
   comparaOrg() {
-    this.router.navigate(['/ComparaOrg'])
+    this.tipoclasificacionService.tipoClasificacion = 'org'
+    this.router.navigate(['/ComparaGas'])
   }
 
   comparaPro() {
-    this.router.navigate(['/ComparaPro'])
+    this.tipoclasificacionService.tipoClasificacion = 'pro'
+    this.router.navigate(['/ComparaGas'])
   }
+
+  comparaEco() {
+    this.tipoclasificacionService.tipoClasificacion = 'eco'
+    this.router.navigate(['/ComparaGas'])
+  }
+
+  // comparaOPA() {
+  //   this.tipoclasificacionService.tipoClasificacion = 'opa'
+  //   this.router.navigate(['/ComparaGas'])
+  // }
+
+  // comparaOPA() {
+  //   this.router.navigate(['/ComparaOPA'])
+  // }
+
+  // comparaEco() {
+  //   this.router.navigate(['/ComparaEco'])
+  // }
+
+  // comparaOrg() {
+  //   this.router.navigate(['/ComparaOrg'])
+  // }
+
+  // comparaPro() {
+  //   this.router.navigate(['/ComparaPro'])
+  // }
 
   getSelectedItem() {
     this.radioSel = AVALAIBLE_YEARS.find(Item => Item.year === this.radioSelected)!;

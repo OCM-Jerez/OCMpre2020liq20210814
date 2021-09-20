@@ -45,5 +45,18 @@ export class AvalaibleYearsService {
     })
   }
 
+  async getDataGas(year: string, result: any[], Cod: string, Des: string, obligaciones: string, opa: string, isGas: boolean) {
+    const data = await this.getYearDataJson(year, isGas).then(data => {
+      Object.entries(data).reduce((acumulator, currentValue) => {
+        result.push({
+          [Cod]: currentValue[1][Cod],
+          [Des]: currentValue[1][Des],
+          [obligaciones]: currentValue[1]['ObligacionesReconocidasNetas'],
+          [opa]: currentValue[1]['ObligacionesPendientePago'],
+        });
+        return acumulator;
+      }, []);
+    })
+  }
 
 }
