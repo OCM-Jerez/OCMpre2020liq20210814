@@ -112,15 +112,15 @@ export class ComparaIngComponent {
     this.gridColumnApi = params.columnApi;
     this.tipoClasificacion = this.tipoclasificacionService.getTipoClasificacion();
     if (this.tipoClasificacion === 'capítulo') {
-      await this.avalaibleYearsService.getData('2020', this.result2020, "CodCap", "DesCap", "DerechosReconocidosNetos2020", false)
-      await this.avalaibleYearsService.getData('2019', this.result2019, "CodCap", "DesCap", "DerechosReconocidosNetos2019", false)
-      await this.avalaibleYearsService.getData('2018', this.result2018, "CodCap", "DesCap", "DerechosReconocidosNetos2018", false)
-      await this.avalaibleYearsService.getData('2017', this.result2017, "CodCap", "DesCap", "DerechosReconocidosNetos2017", false)
+      await this.avalaibleYearsService.getDataIng('2020', this.result2020, "CodCap", "DesCap", "DerechosReconocidosNetos2020", false)
+      await this.avalaibleYearsService.getDataIng('2019', this.result2019, "CodCap", "DesCap", "DerechosReconocidosNetos2019", false)
+      await this.avalaibleYearsService.getDataIng('2018', this.result2018, "CodCap", "DesCap", "DerechosReconocidosNetos2018", false)
+      await this.avalaibleYearsService.getDataIng('2017', this.result2017, "CodCap", "DesCap", "DerechosReconocidosNetos2017", false)
     } else {
-      await this.avalaibleYearsService.getData('2020', this.result2020, "CodEco", "DesEco", "DerechosReconocidosNetos2020", false)
-      await this.avalaibleYearsService.getData('2019', this.result2019, "CodEco", "DesEco", "DerechosReconocidosNetos2019", false)
-      await this.avalaibleYearsService.getData('2018', this.result2018, "CodEco", "DesEco", "DerechosReconocidosNetos2018", false)
-      await this.avalaibleYearsService.getData('2017', this.result2017, "CodEco", "DesEco", "DerechosReconocidosNetos2017", false)
+      await this.avalaibleYearsService.getDataIng('2020', this.result2020, "CodEco", "DesEco", "DerechosReconocidosNetos2020", false)
+      await this.avalaibleYearsService.getDataIng('2019', this.result2019, "CodEco", "DesEco", "DerechosReconocidosNetos2019", false)
+      await this.avalaibleYearsService.getDataIng('2018', this.result2018, "CodEco", "DesEco", "DerechosReconocidosNetos2018", false)
+      await this.avalaibleYearsService.getDataIng('2017', this.result2017, "CodEco", "DesEco", "DerechosReconocidosNetos2017", false)
     }
     this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
   }

@@ -16,6 +16,7 @@ export class AvalaibleYearsService {
     return this.subject$.asObservable();
   }
 
+  // Seleciona datos del año seleccionado en los radioButtons.
   async getDataJson(isGas: boolean) {
     // throw new Error('Not implemented');
     const data = await import(`../../assets/data/${this.year}Liq${isGas ? 'Gas' : 'Ing'}.json`);
@@ -23,6 +24,7 @@ export class AvalaibleYearsService {
     return data.default;
   }
 
+  // Seleciona datos del año que se pasa como parametro.
   async getYearDataJson(year: string, isGas: boolean) {
     const data = await import(`../../assets/data/${year}Liq${isGas ? 'Gas' : 'Ing'}.json`);
     return data.default;
@@ -32,7 +34,8 @@ export class AvalaibleYearsService {
     return this.year
   }
 
-  async getData(year: string, result: any[], Cod: string, Des: string, derechos: string, isGas: boolean) {
+  // Selecciona datos de ingresos.
+  async getDataIng(year: string, result: any[], Cod: string, Des: string, derechos: string, isGas: boolean) {
     const data = await this.getYearDataJson(year, isGas).then(data => {
       Object.entries(data).reduce((acumulator, currentValue) => {
         result.push({
@@ -45,6 +48,7 @@ export class AvalaibleYearsService {
     })
   }
 
+  // Selecciona datos gastos.
   async getDataGas(year: string, result: any[], Cod: string, Des: string, obligaciones: string, opa: string, isGas: boolean) {
     const data = await this.getYearDataJson(year, isGas).then(data => {
       Object.entries(data).reduce((acumulator, currentValue) => {
