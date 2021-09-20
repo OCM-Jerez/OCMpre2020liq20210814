@@ -1,15 +1,24 @@
 <h2 align='center'> App desarrollada en Angular para la consulta de las liquidaciones de presupuesto del Ayuntamiento de Jerez</h2>
-<img src='https://res.cloudinary.com/dabrencx7/image/upload/v1629968791/Presupuestos/liquidacion_toc8gy.jpg'/>
+<img src='https://res.cloudinary.com/dabrencx7/image/upload/c_scale,h_900/v1632151143/Presupuestos/2021.09_Liquidaciones_tqiupj.jpg'/>
 
 # Motivación 💪
 <ul>
-  <li>Contar con una aplicación WEB que nos permita mostrar los datos de las liquidaciones de presupuestos municipales de una forma facil y eficaz</li>
+  <li>Contar con una aplicación WEB que nos permita mostrar los datos de las liquidaciones de presupuestos municipales de una forma facil y eficaz.</li>
   </li>
  </ul>
 
 # Caracteristicas ⭐
 <ul>
   <li>Permite listar los datos agrupados por diferentes conceptos.</li>
+  <ul>
+          <li>Por capítulos.</li>
+          <li>Por orgánico.</li>
+          <li>Por programa.</li>
+          <li>Por económico.</li>
+      </ul>
+    </ul>
+<ul>
+     <li>Permite compara liquidaciones años anteriores agrupados por diferentes conceptos.</li>
   <ul>
           <li>Por capítulos.</li>
           <li>Por orgánico.</li>
@@ -46,11 +55,12 @@
 - 
 # Framework desarrollo 🚀
 
-- [Angular](https://github.com/angular/angular) 
+- [Angular](https://angular.io) 
 
 # Librerias usadas 📖
 - <a href= 'https://www.ag-grid.com/' target="_blank"> AG Grid</a>
 - <a href= 'https://github.com/ng-select/ng-select' target="_blank"> Angular ng-select</a>
+- <a href= 'https://rxjs.dev/' target="_blank"> rxjs</a>
 
 # Licencia ⚖
 
