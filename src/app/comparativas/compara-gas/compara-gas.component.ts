@@ -10,7 +10,6 @@ import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.ser
 @Component({
   selector: 'app-compara-gas',
   templateUrl: './compara-gas.component.html',
-  styleUrls: ['./compara-gas.component.scss']
 })
 export class ComparaGasComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;

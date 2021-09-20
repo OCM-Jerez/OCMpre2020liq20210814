@@ -10,7 +10,6 @@ import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.ser
 @Component({
   selector: 'app-compara-ing',
   templateUrl: './compara-ing.component.html',
-  styleUrls: ['./compara-ing.component.scss']
 })
 export class ComparaIngComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
