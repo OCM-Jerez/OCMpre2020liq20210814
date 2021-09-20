@@ -30,6 +30,7 @@ export class ComparaIngComponent {
   result2019 = [];
   result2020 = [];
   private _headerName: string;
+  private _subHeaderName: string;
   private _codField: string;
   private _desField: string;
   private _width: number;
@@ -40,11 +41,13 @@ export class ComparaIngComponent {
 
     if (this.tipoClasificacion === 'capítulo') {
       this._headerName = 'Clasificado por capítulo';
+      this._subHeaderName = 'Capítulo';
       this._codField = 'CodCap';
       this._desField = 'DesCap';
       this._width = 250;
     } else {
       this._headerName = 'Clasificado por económico';
+      this._subHeaderName = 'Económico';
       this._codField = 'CodEco';
       this._desField = 'DesEco';
       this._width = 520;
@@ -55,7 +58,7 @@ export class ComparaIngComponent {
         headerName: this._headerName,
         children: [
           {
-            headerName: this._headerName,
+            headerName: this._subHeaderName,
             field: this._codField,
             cellClass: 'resaltado',
             width: this._width,

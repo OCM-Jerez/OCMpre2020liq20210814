@@ -34,7 +34,7 @@ body {
 .OCM-text {
   &--cabecera {
     margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-weight: 900;
     margin-top: 1rem;
     color: black;
@@ -44,6 +44,11 @@ body {
     // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
     text-align: center;
   }
+  &--subtitulo {
+    text-align: center;
+    font-size: clamp(1rem, -0.875rem + 8.333vw, 1.5rem);
+  }
+
   &--años {
     color: map-get($OCM-colors, claro);
     margin-bottom: 0.2rem;

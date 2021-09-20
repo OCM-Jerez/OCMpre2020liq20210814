@@ -30,6 +30,7 @@ export class ComparaGasComponent {
   result2019 = [];
   result2020 = [];
   private _headerName: string;
+  private _subHeaderName: string;
   private _codField: string;
   private _desField: string;
   private _width: number;
@@ -40,18 +41,21 @@ export class ComparaGasComponent {
     switch (this.tipoClasificacion) {
       case 'org':
         this._headerName = 'Clasificado por orgánico';
+        this._subHeaderName = 'Orgánico';
         this._codField = 'CodOrg';
         this._desField = 'DesOrg';
         this._width = 250;
         break;
       case 'pro':
         this._headerName = 'Clasificado por programa';
+        this._subHeaderName = 'Programa';
         this._codField = 'CodPro';
         this._desField = 'DesPro';
         this._width = 550;
         break;
       case 'eco':
         this._headerName = 'Clasificado por económico';
+        this._subHeaderName = 'Económico';
         this._codField = 'CodEco';
         this._desField = 'DesEco';
         this._width = 550;
@@ -69,7 +73,7 @@ export class ComparaGasComponent {
         headerName: this._headerName,
         children: [
           {
-            headerName: this._headerName,
+            headerName: this._subHeaderName,
             field: this._codField,
             cellClass: 'resaltado',
             width: this._width,
