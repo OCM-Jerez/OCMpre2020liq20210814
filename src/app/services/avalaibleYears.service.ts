@@ -49,18 +49,23 @@ export class AvalaibleYearsService {
   }
 
   // Selecciona datos gastos.
-  async getDataGas(year: string, result: any[], Cod: string, Des: string, obligaciones: string, opa: string, isGas: boolean) {
-    const data = await this.getYearDataJson(year, isGas).then(data => {
-      Object.entries(data).reduce((acumulator, currentValue) => {
+  async getDataGas(year: string, cla: string) {
+    const result = [];
+    const cod = `Cod${cla}`;
+    const des = `Des${cla}`;
+    const obligaciones = `ObligacionesReconocidasNetas${year}`;
+    const opa = `OPA${year}`;
+    const data = await this.getYearDataJson(year, true).then(data => {
+      Object.entries(data).forEach((currentValue) => {
         result.push({
-          [Cod]: currentValue[1][Cod],
-          [Des]: currentValue[1][Des],
+          [cod]: currentValue[1][cod],
+          [des]: currentValue[1][des],
           [obligaciones]: currentValue[1]['ObligacionesReconocidasNetas'],
           [opa]: currentValue[1]['ObligacionesPendientePago'],
         });
-        return acumulator;
-      }, []);
+      });
     })
+    return result;
   }
 
 }

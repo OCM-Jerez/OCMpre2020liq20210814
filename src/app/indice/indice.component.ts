@@ -71,22 +71,22 @@ export class IndiceComponent implements OnInit {
   }
 
   comparaCap() {
-    this.tipoclasificacionService.tipoClasificacion = 'cap'
+    this.tipoclasificacionService.tipoClasificacion = 'Cap'
     this.router.navigate(['/ComparaGas'])
   }
 
   comparaOrg() {
-    this.tipoclasificacionService.tipoClasificacion = 'org'
+    this.tipoclasificacionService.tipoClasificacion = 'Org'
     this.router.navigate(['/ComparaGas'])
   }
 
   comparaPro() {
-    this.tipoclasificacionService.tipoClasificacion = 'pro'
+    this.tipoclasificacionService.tipoClasificacion = 'Pro'
     this.router.navigate(['/ComparaGas'])
   }
 
   comparaEco() {
-    this.tipoclasificacionService.tipoClasificacion = 'eco'
+    this.tipoclasificacionService.tipoClasificacion = 'Eco'
     this.router.navigate(['/ComparaGas'])
   }
 

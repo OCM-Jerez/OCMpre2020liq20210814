@@ -23,7 +23,6 @@ export class ComparaGasComponent {
   public groupHeaderHeight = 25;
   public headerHeight = 25;
   public CreditosWidth?: number = 100;
-  public OPAWidth?: number = 90;
   public tipoClasificacion: string;
   result2017 = [];
   result2018 = [];
@@ -39,28 +38,28 @@ export class ComparaGasComponent {
     private tipoclasificacionService: TipoClasificacionService) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
     switch (this.tipoClasificacion) {
-      case 'cap':
+      case 'Cap':
         this._headerName = 'Clasificado por capítulo';
         this._subHeaderName = 'Capítulo';
         this._codField = 'CodCap';
         this._desField = 'DesCap';
         this._width = 250;
         break;
-      case 'org':
+      case 'Org':
         this._headerName = 'Clasificado por orgánico';
         this._subHeaderName = 'Orgánico';
         this._codField = 'CodOrg';
         this._desField = 'DesOrg';
         this._width = 250;
         break;
-      case 'pro':
+      case 'Pro':
         this._headerName = 'Clasificado por programa';
         this._subHeaderName = 'Programa';
         this._codField = 'CodPro';
         this._desField = 'DesPro';
         this._width = 550;
         break;
-      case 'eco':
+      case 'Eco':
         this._headerName = 'Clasificado por económico';
         this._subHeaderName = 'Económico';
         this._codField = 'CodEco';
@@ -105,20 +104,10 @@ export class ComparaGasComponent {
           {
             headerName: 'Pagos',
             field: 'ObligacionesReconocidasNetas2017',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
           },
           {
             headerName: 'OPA',
             field: 'OPA2017',
-            width: this.OPAWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
           },
         ]
       },
@@ -128,20 +117,10 @@ export class ComparaGasComponent {
           {
             headerName: 'Pagos',
             field: 'ObligacionesReconocidasNetas2018',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
           },
           {
             headerName: 'OPA',
             field: 'OPA2018',
-            width: this.OPAWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
           },
         ]
       },
@@ -151,20 +130,10 @@ export class ComparaGasComponent {
           {
             headerName: 'Pagos',
             field: 'ObligacionesReconocidasNetas2019',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
           },
           {
             headerName: 'OPA',
             field: 'OPA2019',
-            width: this.OPAWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
           },
         ]
       },
@@ -174,20 +143,10 @@ export class ComparaGasComponent {
           {
             headerName: 'Pagos',
             field: 'ObligacionesReconocidasNetas2020',
-            width: this.CreditosWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
           },
           {
             headerName: 'OPA',
             field: 'OPA2020',
-            width: this.OPAWidth,
-            resizable: true,
-            columnGroupShow: 'open',
-            aggFunc: 'sum',
-            cellRenderer: CellRendererOCM
           },
         ]
       },
@@ -208,40 +167,12 @@ export class ComparaGasComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.tipoClasificacion = this.tipoclasificacionService.getTipoClasificacion();
 
-    switch (this.tipoClasificacion) {
-      case 'cap':
-        await this.avalaibleYearsService.getDataGas('2020', this.result2020, "CodCap", "DesCap", "ObligacionesReconocidasNetas2020", "OPA2020", true)
-        await this.avalaibleYearsService.getDataGas('2019', this.result2019, "CodCap", "DesCap", "ObligacionesReconocidasNetas2019", "OPA2019", true)
-        await this.avalaibleYearsService.getDataGas('2018', this.result2018, "CodCap", "DesCap", "ObligacionesReconocidasNetas2018", "OPA2018", true)
-        await this.avalaibleYearsService.getDataGas('2017', this.result2017, "CodCap", "DesCap", "ObligacionesReconocidasNetas2017", "OPA2017", true)
-        break;
-      case 'org':
-        await this.avalaibleYearsService.getDataGas('2020', this.result2020, "CodOrg", "DesOrg", "ObligacionesReconocidasNetas2020", "OPA2020", true)
-        await this.avalaibleYearsService.getDataGas('2019', this.result2019, "CodOrg", "DesOrg", "ObligacionesReconocidasNetas2019", "OPA2019", true)
-        await this.avalaibleYearsService.getDataGas('2018', this.result2018, "CodOrg", "DesOrg", "ObligacionesReconocidasNetas2018", "OPA2018", true)
-        await this.avalaibleYearsService.getDataGas('2017', this.result2017, "CodOrg", "DesOrg", "ObligacionesReconocidasNetas2017", "OPA2017", true)
-        break;
-      case 'pro':
-        await this.avalaibleYearsService.getDataGas('2020', this.result2020, "CodPro", "DesPro", "ObligacionesReconocidasNetas2020", "OPA2020", true)
-        await this.avalaibleYearsService.getDataGas('2019', this.result2019, "CodPro", "DesPro", "ObligacionesReconocidasNetas2019", "OPA2019", true)
-        await this.avalaibleYearsService.getDataGas('2018', this.result2018, "CodPro", "DesPro", "ObligacionesReconocidasNetas2018", "OPA2018", true)
-        await this.avalaibleYearsService.getDataGas('2017', this.result2017, "CodPro", "DesPro", "ObligacionesReconocidasNetas2017", "OPA2017", true)
-        break;
-      case 'eco':
-        await this.avalaibleYearsService.getDataGas('2020', this.result2020, "CodEco", "DesEco", "ObligacionesReconocidasNetas2020", "OPA2020", true)
-        await this.avalaibleYearsService.getDataGas('2019', this.result2019, "CodEco", "DesEco", "ObligacionesReconocidasNetas2019", "OPA2019", true)
-        await this.avalaibleYearsService.getDataGas('2018', this.result2018, "CodEco", "DesEco", "ObligacionesReconocidasNetas2018", "OPA2018", true)
-        await this.avalaibleYearsService.getDataGas('2017', this.result2017, "CodEco", "DesEco", "ObligacionesReconocidasNetas2017", "OPA2017", true)
-        break;
-      // case 'OPA':
-      //   await this.avalaibleYearsService.getDataGas('2020', this.result2020, "CodEco", "DesEco", "ObligacionesReconocidasNetas2020", "OPA2020", true)
-      //   await this.avalaibleYearsService.getDataGas('2019', this.result2019, "CodEco", "DesEco", "ObligacionesReconocidasNetas2019", "OPA2019", true)
-      //   await this.avalaibleYearsService.getDataGas('2018', this.result2018, "CodEco", "DesEco", "ObligacionesReconocidasNetas2018", "OPA2018", true)
-      //   await this.avalaibleYearsService.getDataGas('2017', this.result2017, "CodEco", "DesEco", "ObligacionesReconocidasNetas2017", "OPA2017", true)
-      //   break;
-    }
+    this.result2020 = await this.avalaibleYearsService.getDataGas('2020', this.tipoClasificacion)
+    this.result2019 = await this.avalaibleYearsService.getDataGas('2019', this.tipoClasificacion)
+    this.result2018 = await this.avalaibleYearsService.getDataGas('2018', this.tipoClasificacion)
+    this.result2017 = await this.avalaibleYearsService.getDataGas('2017', this.tipoClasificacion)
+
     this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
   }
 
