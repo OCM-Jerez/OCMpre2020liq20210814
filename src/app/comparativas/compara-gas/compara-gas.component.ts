@@ -66,12 +66,6 @@ export class ComparaGasComponent {
         this._desField = 'DesEco';
         this._width = 550;
         break;
-      // case 'OPA':
-      //   this._headerName = 'Clasificado por OPA';
-      //   this._codField = 'CodEco';
-      //   this._desField = 'DesEco';
-      //   this._width = 550;
-      //   break;
     }
 
     this.columnDefs = [
