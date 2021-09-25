@@ -1,32 +1,56 @@
 @import "/src/app/scss/variables";
 
-.OCM-navBar {
-    height: 50px;
-    // margin-right: 10px;
-    // margin-left: 10px;
-    margin-top: 10px;
+.OCM-navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    // background-color: #515963;
     background-color: map-get($OCM-colors, navBarDarkBackground);
-
-    .OCM-headerCenter {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        top: 0;
-        text-align: center;
-        overflow: visible;
-        height: 0;
+    // margin-bottom: 40px;
+    &--brand {
+        display: flex;
+        justify-content: space-between;
+        &--logo {
+            height: 30px;
+            width: 30px;
+            vertical-align: middle;
+            background: url("../../../assets/img/logoOCMyellow.svg") no-repeat center center;
+            background-size: contain;
+            margin-left: 20px;
+            margin-right: 5px;
+            margin-top: 5px;
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+        &--text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
     }
-
-    .OCM-titulo {
-        margin-top: 20px;
-        color: #f3f4f5;
-        font-family: var($fuente-principal);
-        text-shadow: 2px 2px 2px rgb(10, 2, 2);
+    &--titulo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
     }
 }
 
-.OCM-home {
-    font-size: 32px;
-    color: white;
-    margin-right: 40px;
+.OCM-logoHome {
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url("../../../assets/img/home1.png") no-repeat center center;
+    background-size: contain;
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-top: 5px;
 }
