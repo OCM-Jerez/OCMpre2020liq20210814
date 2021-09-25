@@ -7,8 +7,8 @@
       "@presu/json/*": [
         "src/assets/data/*"
       ],
-      "@presu/shared/*": [
-        "src/app/shared/*"
+      "@presu/layouts/*": [
+        "src/app/layouts/*"
       ]
     },
     "outDir": "./dist/out-tsc",

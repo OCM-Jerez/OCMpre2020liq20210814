@@ -4,7 +4,7 @@ import { GridOptions } from 'ag-grid-community/main';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
-import { CellRendererOCM, CellRendererOCMtext } from '../../shared/utils/utils';
+import { CellRendererOCM, CellRendererOCMtext } from '../../layouts/utils/utils';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 
 @Component({

@@ -164,7 +164,7 @@ End Sub
 - Copiarlo a src/assets de la app
 - Cambiar nombres en :
 
-        ⋅⋅⋅..\src\app\shared\global-constants.ts
+        ⋅⋅⋅..\src\app\layouts\global-constants.ts
         ⋅⋅⋅public static jsonGastos = '../../../assets/data/20201215EjeGas.json';
         ⋅⋅⋅public static jsonIngresos = '../../../assets/data/20201215EjeIng.json';
 

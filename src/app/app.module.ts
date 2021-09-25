@@ -12,8 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FooterComponent } from './layouts/footer/footer.component';
+import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { IndiceComponent } from './indice/indice.component';
 import { IngresosComponent } from './ingresos/ingresos.component';
 import { GastosComponent } from './gastos/gastos.component';
@@ -22,7 +22,7 @@ import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.comp
 
 import { TipoClasificacionService } from './services/tipoClasificacion.service';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
-import { HeaderAgGridComponent } from './shared/header-ag-grid/header-ag-grid.component';
+import { HeaderAgGridComponent } from './layouts/header-ag-grid/header-ag-grid.component';
 
 @NgModule({
   declarations: [

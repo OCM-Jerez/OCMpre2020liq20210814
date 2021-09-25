@@ -6,7 +6,7 @@
 - Copiar y pegar carpeta src/app/indice
 - Copiar y pegar carpeta src/app/scss
 - Copiar y pegar carpeta src/app/services
-- Copiar y pegar carpeta src/app/shared
+- Copiar y pegar carpeta src/app/layouts
 - Copiar y pegar screen-size.enum.ts
 - Añadir carpeta data en src/assets
 - Copiar JSON
@@ -22,8 +22,8 @@
         ⋅⋅⋅    "@presu/json/*": [
         ⋅⋅⋅      "src/assets/data/*"
         ⋅⋅⋅    ],
-        ⋅⋅⋅    "@presu/shared/*": [
-        ⋅⋅⋅      "src/app/shared/*"
+        ⋅⋅⋅    "@presu/layouts/*": [
+        ⋅⋅⋅      "src/app/layouts/*"
         ⋅⋅⋅    ]
         ⋅⋅⋅  },
 
