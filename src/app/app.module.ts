@@ -22,7 +22,7 @@ import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.comp
 
 import { TipoClasificacionService } from './services/tipoClasificacion.service';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
-import { HeaderAgGridComponent } from './layouts/header-ag-grid/header-ag-grid.component';
+import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
 
 @NgModule({
   declarations: [

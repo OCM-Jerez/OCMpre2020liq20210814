@@ -7,7 +7,7 @@ import { GetScreenSizeService } from '../services/get-screen-size.service';
 
 import localeTextESPes from '@presu/json/localeTextESPes.json';
 import { SCREEN_SIZE } from 'src/app/screen-size.enum';
-import { CellRendererOCM } from '../layouts/utils/utils';
+import { CellRendererOCM } from '../ag-grid/CellRendererOCM';
 
 @Component({
   selector: 'app-ingresos',

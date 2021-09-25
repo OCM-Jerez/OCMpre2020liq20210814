@@ -8,8 +8,8 @@ import { SCREEN_SIZE } from 'src/app/screen-size.enum';
 import { GetScreenSizeService } from '../services/get-screen-size.service';
 
 import localeTextESPes from '../../assets/data/localeTextESPes.json';
-import { CellRendererOCM } from '../layouts/utils/utils';
-import { HeaderAgGridComponent } from '@presu/layouts/header-ag-grid/header-ag-grid.component';
+import { CellRendererOCM } from '../ag-grid/CellRendererOCM';
+import { HeaderAgGridComponent } from 'src/app/ag-grid/header-ag-grid/header-ag-grid.component';
 
 @Component({
   selector: 'app-gastos',
