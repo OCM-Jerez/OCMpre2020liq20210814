@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 import { AvalaibleYearsService } from 'src/app/services/avalaibleYears.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss']
 })
-export class HeaderComponent {
+export class NavbarComponent {
   public year: Observable<string>;
   constructor(
     public router: Router,
