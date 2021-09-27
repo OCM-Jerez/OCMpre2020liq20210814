@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { AVALAIBLE_YEARS } from '../avalaible-years-data'
+import { DatoGasto } from '../models/datoGasto';
+
 
 // https://stackoverflow.com/questions/54476526/how-to-reload-the-header-component-when-the-variable-value-changes-via-service/54476754
 import { BehaviorSubject, Subject } from 'rxjs';
@@ -49,7 +52,7 @@ export class AvalaibleYearsService {
   }
 
   // Selecciona datos gastos.
-  async getDataGas(year: string, cla: string) {
+  async getDataGas(year: string, cla: string): Promise<DatoGasto[]> {
     const result = [];
     const cod = `Cod${cla}`;
     const des = `Des${cla}`;
@@ -57,15 +60,29 @@ export class AvalaibleYearsService {
     const opa = `OPA${year}`;
     const data = await this.getYearDataJson(year, true).then(data => {
       Object.entries(data).forEach((currentValue) => {
-        result.push({
-          [cod]: currentValue[1][cod],
-          [des]: currentValue[1][des],
-          [obligaciones]: currentValue[1]['ObligacionesReconocidasNetas'],
-          [opa]: currentValue[1]['ObligacionesPendientePago'],
-        });
+        result.push(new DatoGasto(currentValue[1][cod],
+          currentValue[1][des],
+          currentValue[1]['ObligacionesReconocidasNetas'],
+          currentValue[1]['ObligacionesPendientePago'],
+          year));
       });
     })
     return result;
   }
 
+  async getDataYear(cla: string): Promise<DatoGasto[]> {
+    let rowData = [];
+    await asynForEach(AVALAIBLE_YEARS, async (year: string) => {
+      const dataGas = await this.getDataGas(year, cla);
+      rowData = rowData.concat(...dataGas);
+    });
+    console.log(rowData);
+    return rowData;
+  }
+
+}
+async function asynForEach(array: Array<String>, callback: Function) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
 }

@@ -6,6 +6,7 @@ import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
+import { DatoGasto } from '../../models/datoGasto';
 
 @Component({
   selector: 'app-compara-gas',
@@ -19,7 +20,7 @@ export class ComparaGasComponent {
   public defaultColDef;
   public gridOptions: GridOptions;
   public localeText;
-  public rowData: any;
+  public rowData: DatoGasto[];
   public groupHeaderHeight = 25;
   public headerHeight = 25;
   public CreditosWidth?: number = 100;
@@ -97,7 +98,7 @@ export class ComparaGasComponent {
         children: [
           {
             headerName: 'Pagos',
-            field: 'ObligacionesReconocidasNetas2017',
+            field: '2019',
           },
           {
             headerName: 'OPA',
@@ -162,12 +163,17 @@ export class ComparaGasComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
 
-    this.result2020 = await this.avalaibleYearsService.getDataGas('2020', this.tipoClasificacion)
-    this.result2019 = await this.avalaibleYearsService.getDataGas('2019', this.tipoClasificacion)
-    this.result2018 = await this.avalaibleYearsService.getDataGas('2018', this.tipoClasificacion)
-    this.result2017 = await this.avalaibleYearsService.getDataGas('2017', this.tipoClasificacion)
+    // this.result2020 = await this.avalaibleYearsService.getDataGas('2020', this.tipoClasificacion)
+    // this.result2019 = await this.avalaibleYearsService.getDataGas('2019', this.tipoClasificacion)
+    // this.result2018 = await this.avalaibleYearsService.getDataGas('2018', this.tipoClasificacion)
+    // this.result2017 = await this.avalaibleYearsService.getDataGas('2017', this.tipoClasificacion)
 
-    this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
+    const d = new DatoGasto("codigo", "descripcio", "", "", "")
+    console.log(d.getCodigo());
+
+    this.rowData = await this.avalaibleYearsService.getDataYear(this.tipoClasificacion);
+
+
   }
 
 }
