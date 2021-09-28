@@ -5,9 +5,8 @@
   <div class="OCM-row--add">
     <ul class="list-group list-group-horizontal">
       <li class="OCM-no-bullets" *ngFor="let item of yearsList">
-        <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{item.year}}"
-          (change)="onItemChange()" />
-        {{item.year}}
+        <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{item}}" (change)="onItemChange()" />
+        {{item}}
       </li>
     </ul>
   </div>
