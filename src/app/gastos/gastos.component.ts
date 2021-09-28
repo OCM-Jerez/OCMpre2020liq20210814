@@ -4,7 +4,7 @@ import { GridOptions } from 'ag-grid-community/main';
 
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
-import { SCREEN_SIZE } from 'src/app/screen-size.enum';
+import { SCREEN_SIZE } from 'src/app/enums/screen-size.enum';
 import { GetScreenSizeService } from '../services/get-screen-size.service';
 
 import localeTextESPes from '../../assets/data/localeTextESPes.json';
