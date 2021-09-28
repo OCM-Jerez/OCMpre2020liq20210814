@@ -61,6 +61,8 @@
 - <a href= 'https://www.ag-grid.com/' target="_blank"> AG Grid</a>
 - <a href= 'https://github.com/ng-select/ng-select' target="_blank"> Angular ng-select</a>
 - <a href= 'https://rxjs.dev/' target="_blank"> rxjs</a>
+- <a href= 'https://getbootstrap.com/' target="_blank"> Bootstrap 5.1.1</a>
+- <a href= 'https://jquery.com/' target="_blank"> jquery 3.2.1</a>
 
 # Licencia ⚖
 
