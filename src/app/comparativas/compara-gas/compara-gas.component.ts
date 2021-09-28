@@ -162,12 +162,7 @@ export class ComparaGasComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
 
-    this.result2020 = await this.avalaibleYearsService.getDataGas('2020', this.tipoClasificacion)
-    this.result2019 = await this.avalaibleYearsService.getDataGas('2019', this.tipoClasificacion)
-    this.result2018 = await this.avalaibleYearsService.getDataGas('2018', this.tipoClasificacion)
-    this.result2017 = await this.avalaibleYearsService.getDataGas('2017', this.tipoClasificacion)
-
-    this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
+    this.rowData = await this.avalaibleYearsService.getDataAllYear(this.tipoClasificacion);
   }
 
 }

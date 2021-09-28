@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 // https://stackoverflow.com/questions/54476526/how-to-reload-the-header-component-when-the-variable-value-changes-via-service/54476754
 import { BehaviorSubject, Subject } from 'rxjs';
+import { AVALAIBLE_YEARS } from '../avalaible-years-data';
 
 @Injectable()
 export class AvalaibleYearsService {
@@ -16,7 +17,7 @@ export class AvalaibleYearsService {
     return this.subject$.asObservable();
   }
 
-  // Seleciona datos del año seleccionado en los radioButtons.
+  // Seleciona datos del año seleccionado en los radioButtons
   async getDataJson(isGas: boolean) {
     // throw new Error('Not implemented');
     const data = await import(`../../assets/data/${this.year}Liq${isGas ? 'Gas' : 'Ing'}.json`);
@@ -24,7 +25,7 @@ export class AvalaibleYearsService {
     return data.default;
   }
 
-  // Seleciona datos del año que se pasa como parametro.
+  // Seleciona datos del año que se pasa como parametro
   async getYearDataJson(year: string, isGas: boolean) {
     const data = await import(`../../assets/data/${year}Liq${isGas ? 'Gas' : 'Ing'}.json`);
     return data.default;
@@ -48,8 +49,8 @@ export class AvalaibleYearsService {
     })
   }
 
-  // Selecciona datos gastos.
-  async getDataGas(year: string, cla: string) {
+  // Selecciona datos gastos de un año
+  async getDataYearGas(year: string, cla: string) {
     const result = [];
     const cod = `Cod${cla}`;
     const des = `Des${cla}`;
@@ -68,4 +69,19 @@ export class AvalaibleYearsService {
     return result;
   }
 
+  // Itera por cada uno de los años disponibles
+  async getDataAllYear(cla: string): Promise<any[]> {
+    let rowData = [];
+    await asynForEach(AVALAIBLE_YEARS, async (year: string) => {
+      const dataGas = await this.getDataYearGas(year, cla);
+      rowData = rowData.concat(...dataGas);
+    });
+    return rowData;
+  }
+
+}
+async function asynForEach(array: Array<String>, callback: Function) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
 }
