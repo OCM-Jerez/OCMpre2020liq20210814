@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 // https://stackoverflow.com/questions/54476526/how-to-reload-the-header-component-when-the-variable-value-changes-via-service/54476754
 import { BehaviorSubject, Subject } from 'rxjs';
-import { AVALAIBLE_YEARS } from '../avalaible-years-data';
+import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
 
 @Injectable()
 export class AvalaibleYearsService {

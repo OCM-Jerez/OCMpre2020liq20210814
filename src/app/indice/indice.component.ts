@@ -7,7 +7,7 @@ import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { GetScreenSizeService } from '../services/get-screen-size.service';
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
 
-import { AVALAIBLE_YEARS } from '../avalaible-years-data'
+import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data'
 
 @Component({
   selector: 'app-indice',
