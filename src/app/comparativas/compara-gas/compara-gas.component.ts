@@ -20,7 +20,7 @@ export class ComparaGasComponent {
   public defaultColDef;
   public gridOptions: GridOptions;
   public localeText;
-  public rowData: DatoGasto[];
+  public rowData: any[];
   public groupHeaderHeight = 25;
   public headerHeight = 25;
   public CreditosWidth?: number = 100;
@@ -98,7 +98,7 @@ export class ComparaGasComponent {
         children: [
           {
             headerName: 'Pagos',
-            field: '2019',
+            field: 'ObligacionesReconocidasNetas2017',
           },
           {
             headerName: 'OPA',
@@ -171,8 +171,8 @@ export class ComparaGasComponent {
     const d = new DatoGasto("codigo", "descripcio", "", "", "")
     console.log(d.getCodigo());
 
-    this.rowData = await this.avalaibleYearsService.getDataYear(this.tipoClasificacion);
-
+    const gastos = await this.avalaibleYearsService.getDataYear(this.tipoClasificacion);
+    this.rowData = gastos.map(gasto => { return gasto.format() });
 
   }
 
