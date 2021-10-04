@@ -163,14 +163,6 @@ export class ComparaGasComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
 
-    // this.result2020 = await this.avalaibleYearsService.getDataGas('2020', this.tipoClasificacion)
-    // this.result2019 = await this.avalaibleYearsService.getDataGas('2019', this.tipoClasificacion)
-    // this.result2018 = await this.avalaibleYearsService.getDataGas('2018', this.tipoClasificacion)
-    // this.result2017 = await this.avalaibleYearsService.getDataGas('2017', this.tipoClasificacion)
-
-    const d = new DatoGasto("codigo", "descripcio", "", "", "")
-    console.log(d.getCodigo());
-
     const gastos = await this.avalaibleYearsService.getDataYear(this.tipoClasificacion);
     this.rowData = gastos.map(gasto => { return gasto.format() });
 

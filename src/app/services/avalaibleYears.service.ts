@@ -64,7 +64,8 @@ export class AvalaibleYearsService {
           currentValue[1][des],
           currentValue[1]['ObligacionesReconocidasNetas'],
           currentValue[1]['ObligacionesPendientePago'],
-          year));
+          year,
+          cla));
       });
     })
     return result;
