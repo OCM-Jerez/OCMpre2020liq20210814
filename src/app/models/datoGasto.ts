@@ -18,16 +18,37 @@ export class DatoGasto {
     }
 
     format() {
-        return {
-            ObligacionesReconocidasNetas2017: this.year === "2017" ? this.obligaciones : undefined,
-            OPA2017: this.year === "2017" ? this.opa : undefined,
-            ObligacionesReconocidasNetas2018: this.year === "2018" ? this.obligaciones : undefined,
-            OPA2018: this.year === "2018" ? this.opa : undefined,
-            ObligacionesReconocidasNetas2019: this.year === "2019" ? this.obligaciones : undefined,
-            OPA2019: this.year === "2019" ? this.opa : undefined,
-            ObligacionesReconocidasNetas2020: this.year === "2020" ? this.obligaciones : undefined,
-            OPA2020: this.year === "2020" ? this.opa : undefined,
+        const formatoTabla = {
+            CodOrg: this.cod,
+            DesOrg: this.des,
         };
-
+        switch (this.year) {
+            case "2017":
+                return {
+                    ...formatoTabla,
+                    ObligacionesReconocidasNetas2017: this.obligaciones,
+                    OPA2017: this.opa
+                };
+            case "2018":
+                return {
+                    ...formatoTabla,
+                    ObligacionesReconocidasNetas2018: this.obligaciones,
+                    OPA2018: this.opa
+                };
+            case "2019":
+                return {
+                    ...formatoTabla,
+                    ObligacionesReconocidasNetas2019: this.obligaciones,
+                    OPA2019: this.opa
+                };
+            case "2020":
+                return {
+                    ...formatoTabla,
+                    ObligacionesReconocidasNetas2020: this.obligaciones,
+                    OPA2020: this.opa
+                };
+            default:
+                return {};
+        }
     }
 }
