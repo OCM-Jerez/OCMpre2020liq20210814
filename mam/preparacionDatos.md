@@ -2,7 +2,7 @@
 
 
 # Partiendo PDF publicado por el Ayuntamiento
-![alt text](https://res.cloudinary.com/dabrencx7/image/upload/v1628963150/Presupuestos/presupuestoPDF_g6uhql.png)
+![alt text](https://res.cloudinary.com/dabrencx7/image/upload/v1628963150/Presupuestos/gastosPDF_g6uhql.png)
 ![alt text](https://res.cloudinary.com/dabrencx7/image/upload/v1629010030/Presupuestos/ingresosPDF_i7wjvv.png)
 
 - Convertir a Excel con Foxit.
