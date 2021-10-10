@@ -8,11 +8,12 @@
       Observatorio Ciudadano Municipal de Jerez
     </div>
   </div>
+
   <div class="OCM-navbar--titulo">
     Liquidación presupuesto {{ year | async }}
   </div>
 
-  <div></div> <!-- Esto es para centrar el titulo -->
+  <div *ngIf="router.url === '/home'"></div> <!-- Esto es para centrar el titulo -->
 
   <div class="flex-shrink-1">
     <a routerLink="/" *ngIf="router.url !== '/home'">
