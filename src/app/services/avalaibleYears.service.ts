@@ -54,15 +54,28 @@ export class AvalaibleYearsService {
     const result = [];
     const cod = `Cod${cla}`;
     const des = `Des${cla}`;
-    const obligaciones = `ObligacionesReconocidasNetas${year}`;
-    const opa = `OPA${year}`;
+    const Iniciales = `Iniciales${year}`;
+    const Modificaciones = `Modificaciones${year}`;
+    const Definitivas = `Definitivas${year}`;
+    const GastosComprometidos = `GastosComprometidos${year}`;
+    const ObligacionesReconocidasNetas = `ObligacionesReconocidasNetas${year}`;
+    const Pagos = `Pagos${year}`;
+    const ObligacionesPendientePago = `ObligacionesPendientePago${year}`;
+    const RemanenteCredito = `RemanenteCredito${year}`;
+
     const data = await this.getYearDataJson(year, true).then(data => {
       Object.entries(data).forEach((currentValue) => {
         result.push({
           [cod]: currentValue[1][cod],
           [des]: currentValue[1][des],
-          [obligaciones]: currentValue[1]['ObligacionesReconocidasNetas'],
-          [opa]: currentValue[1]['ObligacionesPendientePago'],
+          [Iniciales]: currentValue[1]['Iniciales'],
+          [Modificaciones]: currentValue[1]['Modificaciones'],
+          [Definitivas]: currentValue[1]['Definitivas'],
+          [GastosComprometidos]: currentValue[1]['GastosComprometidos'],
+          [ObligacionesReconocidasNetas]: currentValue[1]['ObligacionesReconocidasNetas'],
+          [Pagos]: currentValue[1]['Pagos'],
+          [ObligacionesPendientePago]: currentValue[1]['ObligacionesPendientePago'],
+          [RemanenteCredito]: currentValue[1]['RemanenteCredito'],
         });
       });
     })

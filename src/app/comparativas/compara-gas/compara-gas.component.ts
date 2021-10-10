@@ -22,7 +22,7 @@ export class ComparaGasComponent {
   public rowData: any;
   public groupHeaderHeight = 25;
   public headerHeight = 25;
-  public CreditosWidth?: number = 100;
+  public CreditosWidth?: number = 110;
   public tipoClasificacion: string;
   result2017 = [];
   result2018 = [];
@@ -96,12 +96,41 @@ export class ComparaGasComponent {
         headerName: '2017',
         children: [
           {
-            headerName: 'Pagos',
+            headerName: 'Iniciales',
+            field: 'Iniciales2017',
+            hide: true,
+          },
+          {
+            headerName: 'Modificaciones',
+            field: 'Modificaciones2017',
+            hide: true,
+          },
+          {
+            headerName: 'Definitivas',
+            field: 'Definitivas2017',
+          },
+          {
+            headerName: 'GastosComprometidos',
+            field: 'GastosComprometidos2017',
+            hide: true,
+          },
+          {
+            headerName: 'O.Netas',
             field: 'ObligacionesReconocidasNetas2017',
           },
           {
+            headerName: 'Pagos',
+            field: 'Pagos2017',
+            hide: true,
+          },
+          {
             headerName: 'OPA',
-            field: 'OPA2017',
+            field: 'ObligacionesPendientePago2017',
+          },
+          {
+            headerName: 'RemanenteCredito',
+            field: 'RemanenteCredito2017',
+            hide: true,
           },
         ]
       },
@@ -109,12 +138,41 @@ export class ComparaGasComponent {
         headerName: '2018',
         children: [
           {
-            headerName: 'Pagos',
+            headerName: 'Iniciales',
+            field: 'Iniciales2018',
+            hide: true,
+          },
+          {
+            headerName: 'Modificaciones',
+            field: 'Modificaciones2018',
+            hide: true,
+          },
+          {
+            headerName: 'Definitivas',
+            field: 'Definitivas2018',
+          },
+          {
+            headerName: 'GastosComprometidos',
+            field: 'GastosComprometidos2018',
+            hide: true,
+          },
+          {
+            headerName: 'O.Netas',
             field: 'ObligacionesReconocidasNetas2018',
           },
           {
+            headerName: 'Pagos',
+            field: 'Pagos2018',
+            hide: true,
+          },
+          {
             headerName: 'OPA',
-            field: 'OPA2018',
+            field: 'ObligacionesPendientePago2018',
+          },
+          {
+            headerName: 'RemanenteCredito',
+            field: 'RemanenteCredito2018',
+            hide: true,
           },
         ]
       },
@@ -122,12 +180,41 @@ export class ComparaGasComponent {
         headerName: '2019',
         children: [
           {
-            headerName: 'Pagos',
+            headerName: 'Iniciales',
+            field: 'Iniciales2019',
+            hide: true,
+          },
+          {
+            headerName: 'Modificaciones',
+            field: 'Modificaciones2019',
+            hide: true,
+          },
+          {
+            headerName: 'Definitivas',
+            field: 'Definitivas2019',
+          },
+          {
+            headerName: 'GastosComprometidos',
+            field: 'GastosComprometidos2019',
+            hide: true,
+          },
+          {
+            headerName: 'O.Netas',
             field: 'ObligacionesReconocidasNetas2019',
           },
           {
+            headerName: 'Pagos',
+            field: 'Pagos2019',
+            hide: true,
+          },
+          {
             headerName: 'OPA',
-            field: 'OPA2019',
+            field: 'ObligacionesPendientePago2019',
+          },
+          {
+            headerName: 'RemanenteCredito',
+            field: 'RemanenteCredito2019',
+            hide: true,
           },
         ]
       },
@@ -135,15 +222,45 @@ export class ComparaGasComponent {
         headerName: '2020',
         children: [
           {
-            headerName: 'Pagos',
+            headerName: 'Iniciales',
+            field: 'Iniciales2020',
+            hide: true,
+          },
+          {
+            headerName: 'Modificaciones',
+            field: 'Modificaciones2020',
+            hide: true,
+          },
+          {
+            headerName: 'Definitivas',
+            field: 'Definitivas2020',
+          },
+          {
+            headerName: 'GastosComprometidos',
+            field: 'GastosComprometidos2020',
+            hide: true,
+          },
+          {
+            headerName: 'O.Netas',
             field: 'ObligacionesReconocidasNetas2020',
           },
           {
+            headerName: 'Pagos',
+            field: 'Pagos2020',
+            hide: true,
+          },
+          {
             headerName: 'OPA',
-            field: 'OPA2020',
+            field: 'ObligacionesPendientePago2020',
+          },
+          {
+            headerName: 'RemanenteCredito',
+            field: 'RemanenteCredito2020',
+            hide: true,
           },
         ]
       },
+
     ];
 
     this.defaultColDef = {
