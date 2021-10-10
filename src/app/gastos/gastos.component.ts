@@ -247,12 +247,12 @@ export class GastosComponent {
                 cellRenderer: CellRendererOCM
               },
               {
-                headerName: 'Obligaciones,reconocidas,netas',
+                headerName: 'Obligaciones reconocidas netas',
                 // headerComponentFramework: HeaderAgGridComponent,
                 field: 'ObligacionesReconocidasNetas',
                 width: 128,
                 resizable: true,
-                columnGroupShow: 'Closed',
+                columnGroupShow: 'Close',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
@@ -262,7 +262,7 @@ export class GastosComponent {
                 field: 'Pagos',
                 width: this.CreditosWidth,
                 resizable: true,
-                columnGroupShow: 'close',
+                columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
@@ -285,7 +285,7 @@ export class GastosComponent {
                 headerName: 'Disponibles',
                 field: 'RemanenteCredito',
                 width: 140,
-                resizable: true,
+                resizable: false,
                 columnGroupShow: 'close',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -492,7 +492,7 @@ export class GastosComponent {
                 field: 'ObligacionesReconocidasNetas',
                 width: 128,
                 resizable: true,
-                columnGroupShow: 'open',
+                columnGroupShow: 'Close',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
@@ -501,7 +501,7 @@ export class GastosComponent {
                 field: 'Pagos',
                 width: this.CreditosWidth,
                 resizable: true,
-                columnGroupShow: 'close',
+                columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
@@ -540,8 +540,23 @@ export class GastosComponent {
     this.defaultColDef = {
       sortable: true,
       resizable: true,
-      filter: true
+      filter: true,
+      headerComponentParams: {
+        template:
+          '<div class="ag-cell-label-container" role="presentation">' +
+          '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button"></span>' +
+          '  <div ref="eLabel" class="ag-header-cell-label" role="presentation">' +
+          '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+          '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+          '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+          '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+          '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+          '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+          '  </div>' +
+          '</div>',
+      },
     };
+
     this.gridOptions = {} as GridOptions;
     this.localeText = localeTextESPes;
   }
@@ -561,5 +576,24 @@ export class GastosComponent {
     this.gridApi.collapseAll();
     this.isExpanded = false;
   }
+
+  headerHeightSetter() {
+    var padding = 20;
+    var height = headerHeightGetter() + padding;
+    this.gridApi.setHeaderHeight(height);
+    this.gridApi.resetRowHeights();
+  }
+
+}
+
+function headerHeightGetter() {
+  var columnHeaderTexts = document.querySelectorAll('.ag-header-cell-text');
+  var columnHeaderTextsArray: Element[] = [];
+  columnHeaderTexts.forEach(node => columnHeaderTextsArray.push(node));
+  var clientHeights = columnHeaderTextsArray.map(
+    headerText => headerText.clientHeight
+  );
+  var tallestHeaderTextHeight = Math.max(...clientHeights);
+  return tallestHeaderTextHeight;
 }
 
