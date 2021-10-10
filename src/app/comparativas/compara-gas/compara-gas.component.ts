@@ -64,7 +64,7 @@ export class ComparaGasComponent {
         this._subHeaderName = 'Económico';
         this._codField = 'CodEco';
         this._desField = 'DesEco';
-        this._width = 550;
+        this._width = 300;
         break;
     }
 
@@ -106,7 +106,7 @@ export class ComparaGasComponent {
             hide: true,
           },
           {
-            headerName: 'Definitivas',
+            headerName: 'Creditos definitivos',
             field: 'Definitivas2017',
           },
           {
@@ -150,7 +150,7 @@ export class ComparaGasComponent {
             hide: true,
           },
           {
-            headerName: 'Definitivas',
+            headerName: 'Creditos definitivos',
             field: 'Definitivas2018',
           },
           {
@@ -194,7 +194,7 @@ export class ComparaGasComponent {
             hide: true,
           },
           {
-            headerName: 'Definitivas',
+            headerName: 'Creditos definitivos',
             field: 'Definitivas2019',
           },
           {
@@ -238,7 +238,7 @@ export class ComparaGasComponent {
             hide: true,
           },
           {
-            headerName: 'Definitivas',
+            headerName: 'Creditos definitivos',
             field: 'Definitivas2020',
           },
           {
