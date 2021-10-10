@@ -110,13 +110,15 @@ export class ComparaGasComponent {
             field: 'Definitivas2017',
           },
           {
-            headerName: 'GastosComprometidos',
+            headerName: 'Gastos Comprometidos',
             field: 'GastosComprometidos2017',
+            width: 140,
             hide: true,
           },
           {
-            headerName: 'O.Netas',
+            headerName: 'Obligaciones reconocidas netas',
             field: 'ObligacionesReconocidasNetas2017',
+            width: 120,
           },
           {
             headerName: 'Pagos',
@@ -128,7 +130,7 @@ export class ComparaGasComponent {
             field: 'ObligacionesPendientePago2017',
           },
           {
-            headerName: 'RemanenteCredito',
+            headerName: 'Remanente Credito',
             field: 'RemanenteCredito2017',
             hide: true,
           },
@@ -152,13 +154,15 @@ export class ComparaGasComponent {
             field: 'Definitivas2018',
           },
           {
-            headerName: 'GastosComprometidos',
+            headerName: 'Gastos Comprometidos',
             field: 'GastosComprometidos2018',
+            width: 140,
             hide: true,
           },
           {
-            headerName: 'O.Netas',
+            headerName: 'Obligaciones reconocidas netas',
             field: 'ObligacionesReconocidasNetas2018',
+            width: 120,
           },
           {
             headerName: 'Pagos',
@@ -170,7 +174,7 @@ export class ComparaGasComponent {
             field: 'ObligacionesPendientePago2018',
           },
           {
-            headerName: 'RemanenteCredito',
+            headerName: 'Remanente Credito',
             field: 'RemanenteCredito2018',
             hide: true,
           },
@@ -194,13 +198,15 @@ export class ComparaGasComponent {
             field: 'Definitivas2019',
           },
           {
-            headerName: 'GastosComprometidos',
+            headerName: 'Gastos Comprometidos',
             field: 'GastosComprometidos2019',
+            width: 140,
             hide: true,
           },
           {
-            headerName: 'O.Netas',
+            headerName: 'Obligaciones reconocidas netas',
             field: 'ObligacionesReconocidasNetas2019',
+            width: 120,
           },
           {
             headerName: 'Pagos',
@@ -212,7 +218,7 @@ export class ComparaGasComponent {
             field: 'ObligacionesPendientePago2019',
           },
           {
-            headerName: 'RemanenteCredito',
+            headerName: 'Remanente Credito',
             field: 'RemanenteCredito2019',
             hide: true,
           },
@@ -236,13 +242,15 @@ export class ComparaGasComponent {
             field: 'Definitivas2020',
           },
           {
-            headerName: 'GastosComprometidos',
+            headerName: 'Gastos Comprometidos',
             field: 'GastosComprometidos2020',
+            width: 140,
             hide: true,
           },
           {
-            headerName: 'O.Netas',
+            headerName: 'Obligaciones reconocidas netas',
             field: 'ObligacionesReconocidasNetas2020',
+            width: 120,
           },
           {
             headerName: 'Pagos',
@@ -254,7 +262,7 @@ export class ComparaGasComponent {
             field: 'ObligacionesPendientePago2020',
           },
           {
-            headerName: 'RemanenteCredito',
+            headerName: 'Remanente Credito',
             field: 'RemanenteCredito2020',
             hide: true,
           },
@@ -266,10 +274,24 @@ export class ComparaGasComponent {
     this.defaultColDef = {
       width: this.CreditosWidth,
       sortable: true,
-      resizable: true,
+      resizable: false,
       filter: true,
       aggFunc: 'sum',
-      cellRenderer: CellRendererOCM
+      cellRenderer: CellRendererOCM,
+      headerComponentParams: {
+        template:
+          '<div class="ag-cell-label-container" role="presentation">' +
+          '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+          '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+          '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+          '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+          '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+          '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+          '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+          '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+          '  </div>' +
+          '</div>',
+      },
     };
     this.gridOptions = {} as GridOptions;
     this.localeText = localeTextESPes;
@@ -281,5 +303,22 @@ export class ComparaGasComponent {
 
     this.rowData = await this.avalaibleYearsService.getDataAllYear(this.tipoClasificacion);
   }
+  headerHeightSetter() {
+    var padding = 20;
+    var height = headerHeightGetter() + padding;
+    this.gridApi.setHeaderHeight(height);
+    this.gridApi.resetRowHeights();
+  }
 
+}
+
+function headerHeightGetter() {
+  var columnHeaderTexts = document.querySelectorAll('.ag-header-cell-text');
+  var columnHeaderTextsArray: Element[] = [];
+  columnHeaderTexts.forEach(node => columnHeaderTextsArray.push(node));
+  var clientHeights = columnHeaderTextsArray.map(
+    headerText => headerText.clientHeight
+  );
+  var tallestHeaderTextHeight = Math.max(...clientHeights);
+  return tallestHeaderTextHeight;
 }
