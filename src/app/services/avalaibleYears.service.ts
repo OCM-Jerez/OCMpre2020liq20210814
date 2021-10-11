@@ -56,9 +56,7 @@ export class AvalaibleYearsService {
     const result = [];
     const cod = `Cod${cla}`;
     const des = `Des${cla}`;
-    const obligaciones = `ObligacionesReconocidasNetas${year}`;
-    const opa = `OPA${year}`;
-    const data = await this.getYearDataJson(year, true).then(data => {
+    await this.getYearDataJson(year, true).then(data => {
       Object.entries(data).forEach((currentValue) => {
         result.push(new DatoGasto(currentValue[1][cod],
           currentValue[1][des],
@@ -77,7 +75,6 @@ export class AvalaibleYearsService {
       const dataGas = await this.getDataGas(year, cla);
       rowData = rowData.concat(...dataGas);
     });
-    console.log(rowData);
     return rowData;
   }
 

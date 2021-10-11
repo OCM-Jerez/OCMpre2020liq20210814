@@ -1,4 +1,7 @@
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
+import pro_cod_des_map from '../../assets/data/pro_cod_des_map.json';
+import org_cod_des_map from '../../assets/data/org_cod_des_map.json';
+
 export class DatoGasto {
     cod: string;
     des: string;
@@ -30,12 +33,14 @@ export class DatoGasto {
 
             case 'Org':
                 formatoTabla["CodOrg"] = this.cod;
-                formatoTabla["DesOrg"] = this.des;
+                formatoTabla["DesOrgOld"] = this.des;
+                formatoTabla["DesOrg"] = org_cod_des_map[this.cod] !== undefined ? org_cod_des_map[this.cod].des : "Codigo no encontrado";
                 break;
 
             case 'Pro':
                 formatoTabla["CodPro"] = this.cod;
-                formatoTabla["DesPro"] = this.des;
+                formatoTabla["DesProOld"] = this.des;
+                formatoTabla["DesPro"] = pro_cod_des_map[this.cod] !== undefined ? pro_cod_des_map[this.cod].des : "Codigo no encontrado";
                 break;
 
             case 'Eco':

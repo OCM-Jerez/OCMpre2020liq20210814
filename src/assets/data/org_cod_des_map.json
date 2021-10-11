@@ -1,0 +1,81 @@
+{
+    "0": {
+        "cod": "0",
+        "des": "Servicios centrales"
+    },
+    "1": {
+        "des": "Presidencia"
+    },
+    "2": {
+        "des": "Empleo"
+    },
+    "3": {
+        "des": "Recursos humanos"
+    },
+    "4": {
+        "des": "Medio rural"
+    },
+    "5": {
+        "des": "Igualdad y salud"
+    },
+    "6": {
+        "des": "Deportes"
+    },
+    "7": {
+        "des": "Infraestructuras"
+    },
+    "8": {
+        "des": "Cultura "
+    },
+    "9": {
+        "des": "Medio ambiente"
+    },
+    "10": {
+        "des": "Urbanismo"
+    },
+    "11": {
+        "des": "Participacion ciudadana"
+    },
+    "12": {
+        "des": "Educación"
+    },
+    "13": {
+        "des": "Distritos"
+    },
+    "14": {
+        "des": "Gestión del patrimonio"
+    },
+    "15": {
+        "des": "Fiestas y festejos populares"
+    },
+    "16": {
+        "des": "Bienestar social y del mayor"
+    },
+    "17": {
+        "des": "Economía y hacienda"
+    },
+    "18": {
+        "des": "Juventud"
+    },
+    "19": {
+        "des": "Seguridad"
+    },
+    "20": {
+        "des": "Mercados"
+    },
+    "21": {
+        "des": "Movilidad"
+    },
+    "22": {
+        "des": "Turismo"
+    },
+    "23": {
+        "des": "Planes Especiales"
+    },
+    "24": {
+        "des": "Zoologico-Montes Propios"
+    },
+    "25": {
+        "des": "Promoción y gestión vivienda"
+    }
+}

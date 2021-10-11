@@ -85,12 +85,16 @@ export class ComparaGasComponent {
             cellRenderer: CellRendererOCMtext,
             valueGetter: params => {
               if (params.data) {
-                return params.data[this._codField] + ' - ' + params.data[this._desField];
+                return params.data[this._codField] + ' - ' + params.data[this._desField] + ' - ' + params.data.DesProOld;
               } else {
                 return null;
               }
             }
           },
+          // {
+          //   headerName: 'DesProOld',
+          //   field: 'DesProOld',
+          // },
         ]
       },
       {
@@ -165,7 +169,6 @@ export class ComparaGasComponent {
 
     const gastos = await this.avalaibleYearsService.getDataYear(this.tipoClasificacion);
     this.rowData = gastos.map(gasto => { return gasto.format() });
-
   }
 
 }

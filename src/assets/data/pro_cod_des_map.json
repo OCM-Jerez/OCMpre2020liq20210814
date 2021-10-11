@@ -1,0 +1,554 @@
+{
+    "1110": {
+        "des": "Deuda pública"
+    },
+    "13010": {
+        "des": "Administración general de la seguridad y protección civil"
+    },
+    "13210": {
+        "des": "Policía Local"
+    },
+    "13220": {
+        "des": "Academia de Policía"
+    },
+    "13310": {
+        "des": "Ordenación del tráfico y del estacionamiento"
+    },
+    "13311": {
+        "des": "Caminos escolares"
+    },
+    "13410": {
+        "des": "Movilidad urbana"
+    },
+    "13510": {
+        "des": "Servicios Generales de Protección Civil"
+    },
+    "15010": {
+        "des": "Servicios Generales de Urbanismo"
+    },
+    "15110": {
+        "des": "Planeamiento y Gestión Urbanística"
+    },
+    "15111": {
+        "des": "Planes Municipale de Ordenación Urbana"
+    },
+    "15120": {
+        "des": "Licencias urbanísticas"
+    },
+    "15130": {
+        "des": "Disciplina urbanística"
+    },
+    "15210": {
+        "des": "Promoción y gestión de vivienda de protección pública"
+    },
+    "15220": {
+        "des": "Edificaciones"
+    },
+    "15221": {
+        "des": "Fondo estatal para el empleo y sostenibilidad local."
+    },
+    "15310": {
+        "des": "Vías públicas rural"
+    },
+    "15320": {
+        "des": "Vías públicas"
+    },
+    "15321": {
+        "des": "Plan integral accesibilidad"
+    },
+    "16010": {
+        "des": "Alcantarillado rural"
+    },
+    "16110": {
+        "des": "Abastecimiento domicializado agua"
+    },
+    "16210": {
+        "des": "Recogida de residuos"
+    },
+    "16230": {
+        "des": "Tratamiento de residuos urbanos"
+    },
+    "16310": {
+        "des": "Limpieza viaria"
+    },
+    "16410": {
+        "des": "Cementerio"
+    },
+    "16510": {
+        "des": "Alumbrado público"
+    },
+    "16511": {
+        "des": "Otras inversiones nuevasen infraestructuras y bienes para u"
+    },
+    "17110": {
+        "des": "Conservación y diseño jardines urbanos y periurbanos"
+    },
+    "17111": {
+        "des": "Aparatos biosaludables parques urbanos"
+    },
+    "17210": {
+        "des": "Protección y mejora del medio ambiente"
+    },
+    "17211": {
+        "des": "Otras actuacines relacionadas con medio ambiente. Educación mediambiental"
+    },
+    "17212": {
+        "des": "Otras actuaciones relacionadas con medio ambiente. Prevención y calidad"
+    },
+    "17910": {
+        "des": "Servicio técnico municipal"
+    },
+    "22110": {
+        "des": "Otras prestaciones económicas a favor de empleados"
+    },
+    "23110": {
+        "des": "Servicios generales de Bienestar Social"
+    },
+    "23120": {
+        "des": "Primera atención (Plan Estrategico Servicios Sociales)"
+    },
+    "23121": {
+        "des": "Intervención en zona  (Plan Estrategico Servicios Sociales)"
+    },
+    "23122": {
+        "des": "Prestaciones complementarias  (Plan Estrategico Servicios Sociales)"
+    },
+    "23123": {
+        "des": "Inclusion social y Solidaridad (Plan Estrategico Servicios Sociales)"
+    },
+    "23124": {
+        "des": "Albergue Municipal  (Plan Estrategico Servicios Sociales)"
+    },
+    "23125": {
+        "des": "Igualdad y Salud (Plan Estrategico Servicios Sociales)"
+    },
+    "23127": {
+        "des": "Programa integral contra la póbreza"
+    },
+    "23128": {
+        "des": "Diversidad"
+    },
+    "23130": {
+        "des": "Mayores"
+    },
+    "23131": {
+        "des": "Centro Dia Mayores Zona Sur"
+    },
+    "23132": {
+        "des": "Centro Dia Mayores \"El Abuelo\""
+    },
+    "23133": {
+        "des": "Centro Dia Mayores Zona Norte"
+    },
+    "23140": {
+        "des": "Tratamiento a familias con menores"
+    },
+    "23141": {
+        "des": "Prevencion, promocion y reinsercion menores en riesgo social"
+    },
+    "23142": {
+        "des": "Servicio de atencion socioeducativa infancia y adolescencia"
+    },
+    "23150": {
+        "des": "Inmigracion  (Plan Estrategico Servicios Sociales)"
+    },
+    "23160": {
+        "des": "Plan contra la Exclusion Social"
+    },
+    "23170": {
+        "des": "Servicios Comunitarios de asistencia a personas dependientes"
+    },
+    "24120": {
+        "des": "Politicas activas de empleo"
+    },
+    "24121": {
+        "des": "Plan promocion empleo"
+    },
+    "24130": {
+        "des": "Formacion y proyectos"
+    },
+    "24131": {
+        "des": "Escuela de negocios"
+    },
+    "24140": {
+        "des": "Promocion de emprendedores"
+    },
+    "31110": {
+        "des": "Protección de la salubridad pública. Profilaxis vectoriales"
+    },
+    "31111": {
+        "des": "Otras actuaciones de protección de la salubridad pública"
+    },
+    "31112": {
+        "des": "Centro municipal protección animal"
+    },
+    "32010": {
+        "des": "Servicios generales de Educación"
+    },
+    "32310": {
+        "des": "Funcionamiento de centros docentes de enseñanza preescolar y "
+    },
+    "32311": {
+        "des": "Plan 50% 50%"
+    },
+    "32620": {
+        "des": "Mejoras nivel educacional estudiantes"
+    },
+    "32621": {
+        "des": "Escuela de musica"
+    },
+    "33010": {
+        "des": "Servicios Generales de Cultura"
+    },
+    "33210": {
+        "des": "Bibliotecas"
+    },
+    "33220": {
+        "des": "Archivo"
+    },
+    "33300": {
+        "des": "Equipamiento cultural ELAs"
+    },
+    "33310": {
+        "des": "Museo Arqueologico"
+    },
+    "34113": {
+        "des": "Juegos deportivos municipales"
+    },
+    "33410": {
+        "des": "Promoción cultural"
+    },
+    "33411": {
+        "des": "Organización de actividades culturales"
+    },
+    "33412": {
+        "des": "Banda de música"
+    },
+    "33413": {
+        "des": "Escuela de tauromaquia"
+    },
+    "33414": {
+        "des": "Promoción cultural"
+    },
+    "33416": {
+        "des": "Promoción cultural juventud"
+    },
+    "33417": {
+        "des": "Flamenco"
+    },
+    "33418": {
+        "des": "Cultura y fiestas "
+    },
+    "33419": {
+        "des": "Oficina de memoria demócratica"
+    },
+    "33420": {
+        "des": "Politicas de infancia"
+    },
+    "33610": {
+        "des": "Alcazar-Conjunto Monumental"
+    },
+    "33611": {
+        "des": "Los Claustros de Santo Domingo"
+    },
+    "33612": {
+        "des": "Nombre a determinar"
+    },
+    "33710": {
+        "des": "Parque zoológico"
+    },
+    "33711": {
+        "des": "Casa de la Juventud"
+    },
+    "33713": {
+        "des": "Plan de ocio juvenil"
+    },
+    "33714": {
+        "des": "E-Games"
+    },
+    "33810": {
+        "des": "Fiestas populares y festejos"
+    },
+    "33811": {
+        "des": "Fiestas populares y festejos Medio Rural"
+    },
+    "34010": {
+        "des": "Servicios Generales de Deportes"
+    },
+    "34110": {
+        "des": "Promocion y fomento del deporte"
+    },
+    "34111": {
+        "des": "Circuito de Jerez"
+    },
+    "34112": {
+        "des": "Consejo del motor"
+    },
+    "34210": {
+        "des": "Instalaciones y pistas deportivas"
+    },
+    "34211": {
+        "des": "Piscinas municipales"
+    },
+    "41910": {
+        "des": "Montes Propios"
+    },
+    "43012": {
+        "des": "Plan actuaciones comercio local"
+    },
+    "43120": {
+        "des": "Mercados"
+    },
+    "43130": {
+        "des": "Comercio ambulante"
+    },
+    "43210": {
+        "des": "Actividades y promoción turística"
+    },
+    "43211": {
+        "des": "Actividades y promoción turística externa"
+    },
+    "43212": {
+        "des": "Promoción turística Ciudad del Vino 2014"
+    },
+    "43213": {
+        "des": "Ciudad Europea del Caballo 2018"
+    },
+    "43214": {
+        "des": "Plan turístico Jerez grandes ciudades"
+    },
+    "43215": {
+        "des": "Destino turísticos inteligentes"
+    },
+    "43216": {
+        "des": "Jerez Ciudad Europea Cultural 2031"
+    },
+    "43217": {
+        "des": "Jerez film Office 2020"
+    },
+    "43311": {
+        "des": "Gestión administrativa impulso económico"
+    },
+    "43312": {
+        "des": "Oficina de proyectos"
+    },
+    "43313": {
+        "des": "Unidad de ventanilla empresarial"
+    },
+    "43314": {
+        "des": "Servicios centrales de Fomento"
+    },
+    "43315": {
+        "des": "Unidad de apoyo economia social"
+    },
+    "44110": {
+        "des": "Transporte colectivo urbano de viajeros"
+    },
+    "45010": {
+        "des": "Servicios generales de Infraestructura"
+    },
+    "45410": {
+        "des": "Caminos rurales"
+    },
+    "49110": {
+        "des": "Sociedad de la información"
+    },
+    "49111": {
+        "des": "Servicio de radio y TV municipal"
+    },
+    "49310": {
+        "des": "Servicio de consumo"
+    },
+    "91210": {
+        "des": "Servicios Centrales Gobierno de la Corporación (Organos de Gobierno)"
+    },
+    "91212": {
+        "des": "Servicios Generales Area de la Presidencia"
+    },
+    "91213": {
+        "des": "Grupos políticos"
+    },
+    "91214": {
+        "des": "Ayuda a grupos políticos"
+    },
+    "92010": {
+        "des": "Servicios Generales Administración Central"
+    },
+    "92011": {
+        "des": "Secretaría General"
+    },
+    "92012": {
+        "des": "Secretaría-Intervención ELA"
+    },
+    "92013": {
+        "des": "Asesoría Jurídica General"
+    },
+    "92014": {
+        "des": "Servicio de asistencia jurídica"
+    },
+    "92020": {
+        "des": "Servicios Generales de Administración de Personal"
+    },
+    "92021": {
+        "des": "Formación interna"
+    },
+    "92022": {
+        "des": "Prevención de riesgos laborales"
+    },
+    "92030": {
+        "des": "Servicios Informáticos Internos"
+    },
+    "92031": {
+        "des": "Coordinación de Entidades Municipales"
+    },
+    "92032": {
+        "des": "Gestión administrativa de pedanías"
+    },
+    "92033": {
+        "des": "Sistema Información Geográfica"
+    },
+    "92040": {
+        "des": "Administración medio rural"
+    },
+    "92041": {
+        "des": "Desarrollo del medio rural"
+    },
+    "92042": {
+        "des": "Distrito rural"
+    },
+    "92043": {
+        "des": "Actuaciones planes desarrollo rural"
+    },
+    "92044": {
+        "des": "OAC Cuartillos"
+    },
+    "92050": {
+        "des": "Coordinación de Distritos"
+    },
+    "92051": {
+        "des": "Distrito Centro"
+    },
+    "92052": {
+        "des": "Distrito Norte"
+    },
+    "92053": {
+        "des": "Distrito Sur"
+    },
+    "92054": {
+        "des": "Distrito Este"
+    },
+    "92055": {
+        "des": "Distrito Oeste"
+    },
+    "92056": {
+        "des": "Distrito Noroeste"
+    },
+    "92061": {
+        "des": "Imagen y diseño"
+    },
+    "92062": {
+        "des": "Almacén y talleres"
+    },
+    "92063": {
+        "des": "Mantenimiento de dependencias municipales"
+    },
+    "92064": {
+        "des": "Plan integral fuentes"
+    },
+    "92066": {
+        "des": "Iniciativa Urbana Jerez Sur"
+    },
+    "92067": {
+        "des": "Servicio de mayordomía"
+    },
+    "92069": {
+        "des": "Otros mantenimientos"
+    },
+    "92070": {
+        "des": "Parque Móvil"
+    },
+    "92071": {
+        "des": "Planes especiales"
+    },
+    "92072": {
+        "des": "Patrocinio"
+    },
+    "92081": {
+        "des": "Unidad de auditoria de la deuda"
+    },
+    "92082": {
+        "des": "Unidad de transparencia"
+    },
+    "92083": {
+        "des": "Unidad de evaluación y calidad"
+    },
+    "92410": {
+        "des": "Participación ciudadana"
+    },
+    "92411": {
+        "des": "Presupuestos participativos"
+    },
+    "92412": {
+        "des": "Consejo Económico y Social"
+    },
+    "92510": {
+        "des": "Atención a la ciudadanía y modernización administrativa"
+    },
+    "92511": {
+        "des": "Oficina del defensor de la ciudadanía"
+    },
+    "92512": {
+        "des": "Nombre a determinar"
+    },
+    "92612": {
+        "des": "Coordinación, imagén y protocolo"
+    },
+    "92910": {
+        "des": "Fondo de Contingencia de Ejecución Presupuestaria"
+    },
+    "92920": {
+        "des": "Imprevistos y funciones no clasificadas"
+    },
+    "92930": {
+        "des": "Indemnizaciones ERE"
+    },
+    "92940": {
+        "des": "Programa temporal paga extra 2012"
+    },
+    "93110": {
+        "des": "Administración General del Area Económica"
+    },
+    "93111": {
+        "des": "Servicio de Intervención"
+    },
+    "93210": {
+        "des": "Servicios Gestión Tributaria e Inspección Fiscal"
+    },
+    "93211": {
+        "des": "Servicio Reclamaciones Economico Administrativas"
+    },
+    "93310": {
+        "des": "Gestión del patrimonio"
+    },
+    "93311": {
+        "des": "Conservación de instalaciones municipales"
+    },
+    "93410": {
+        "des": "Servicio de Tesorería"
+    },
+    "93411": {
+        "des": "Servicio de Recaudación"
+    },
+    "94210": {
+        "des": "Transferencias a Entidades Locales territoriales"
+    },
+    "94310": {
+        "des": "Transferencias a Entidades Locales Autónomas"
+    },
+    "94320": {
+        "des": "Tranferencias a Mancomunidad Bahía de Cádiz"
+    },
+    "94330": {
+        "des": "Transferencias a Consorcios"
+    }
+}
