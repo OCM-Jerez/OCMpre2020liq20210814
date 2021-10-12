@@ -1,0 +1,455 @@
+{
+    "10000": {
+        "des": "Impuestos sobre la Renta de las Personas Físicas."
+    },
+    "11200": {
+        "des": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de Naturaleza Rústica."
+    },
+    "11300": {
+        "des": "Impuesto sobre Bienes Inmuebles. Bienes inmuebles de Naturaleza Urbana."
+    },
+    "11400": {
+        "des": "Impuesto sobre Bienes Inmuebles. Bienes Inmuebles de características especiales."
+    },
+    "11500": {
+        "des": "Impuesto sobre Vehículos de Tracción Mecánica."
+    },
+    "11600": {
+        "des": "Impuesto sobre Incremento del Valor de los Terrenos de Naturaleza Urbana."
+    },
+    "13000": {
+        "des": "Impuesto sobre Actividades Económicas."
+    },
+    "13001": {
+        "des": "Distribución cuotas nacionales IAE"
+    },
+    "13002": {
+        "des": "Distribución cuotas provinciales IAE"
+    },
+    "21000": {
+        "des": "Impuesto sobre el Valor Añadido"
+    },
+    "22000": {
+        "des": "Impuestos sobre el alcohol y bebidas derivadas"
+    },
+    "22001": {
+        "des": "Impuesto sobre la cerveza"
+    },
+    "22003": {
+        "des": "Impuestos sobre las labores del tabaco"
+    },
+    "22004": {
+        "des": "Impuestos sobre hidrocarburos"
+    },
+    "22006": {
+        "des": "Impuestos sobre productos intermedios"
+    },
+    "29000": {
+        "des": "Impuestos sobre construcciones, instalaciones y obras"
+    },
+    "29100": {
+        "des": "Impuestos sobre gastos suntuarios cotos de caza y pesca"
+    },
+    "30000": {
+        "des": "Tasas por servicio de"
+    },
+    "30001": {
+        "des": "Servicio de abastecimiento de agua ELA Torrecera"
+    },
+    "30100": {
+        "des": "Tasas por servicio de alcantarillado"
+    },
+    "30200": {
+        "des": "Tasas por servicio recogida de basura"
+    },
+    "30300": {
+        "des": "Tasas servicio de tratamiento de"
+    },
+    "30901": {
+        "des": "Tasas prestación servicios cementerio municipal"
+    },
+    "30902": {
+        "des": "Tasas extinción de incendios y salvamentos"
+    },
+    "30903": {
+        "des": "Tasas servicios especiales de vigilancia, control prot."
+    },
+    "32100": {
+        "des": "Tasas licencias urbanísticas"
+    },
+    "32201": {
+        "des": "Tasas licencias de aperturas"
+    },
+    "32500": {
+        "des": "Tasas por expedición de documentos"
+    },
+    "32600": {
+        "des": "Tasas retirada de vehículos"
+    },
+    "32901": {
+        "des": "Tasas por celebración de matrimonios civiles"
+    },
+    "33000": {
+        "des": "Tasas de estacionamiento de vehículos"
+    },
+    "33100": {
+        "des": "Tasa por entrada de vehículos"
+    },
+    "33204": {
+        "des": "Tasa utilización superficies y servicios estación autobús"
+    },
+    "33401": {
+        "des": "Ingresos por canalizaciones vía pública"
+    },
+    "34402": {
+        "des": "Taquillas fiestas bulerias"
+    },
+    "33501": {
+        "des": "Tasas ocupación vía pública gestionada por urbanismo"
+    },
+    "33601": {
+        "des": "Tasas por alteración o interrupción del tráfico"
+    },
+    "33701": {
+        "des": "Tasas ocupación suelo, vuelo o subsuelo por empresas"
+    },
+    "33800": {
+        "des": "Compensación de Telefónica de España S.A."
+    },
+    "33901": {
+        "des": "Tasas licencias autotaxi y vehículos de alquiler"
+    },
+    "33902": {
+        "des": "Tasas utilización puestos en mercado de abastos"
+    },
+    "33903": {
+        "des": "Tasas ocupación con mercancias, materiales de construcción"
+    },
+    "33904": {
+        "des": "Tasas ocupación con kioscos"
+    },
+    "33905": {
+        "des": "Tasas fijación anuncios y publicidad en el dominio público local"
+    },
+    "33906": {
+        "des": "Tasas por ocupación con puestos, barracas, etc."
+    },
+    "33907": {
+        "des": "Tasas por instalación fijas, puestos, espectáculos, etc."
+    },
+    "33908": {
+        "des": "Ocupación vía pública con mesas y sillas"
+    },
+    "34201": {
+        "des": "Precios públicos matrículas Escuela de música"
+    },
+    "34202": {
+        "des": "Servicios actividades de mayores"
+    },
+    "34301": {
+        "des": "Precios públicos utilización de instalaciones deportivas"
+    },
+    "34302": {
+        "des": "Precios públicos matrículas competiciones hípicas"
+    },
+    "34303": {
+        "des": "Inscripciones deportivas"
+    },
+    "34403": {
+        "des": "Precios públicos por ventas de entradas Museo Arqueológico"
+    },
+    "34404": {
+        "des": "Precios públicos por entradas al conjunto monumental El Alcázar"
+    },
+    "34405": {
+        "des": "Precios públicos venta de entradas pruebas hípicas"
+    },
+    "34410": {
+        "des": "Precios públicos venta de entradas Zoológico"
+    },
+    "34902": {
+        "des": "Serv. Inspección Sanitaria Análisis"
+    },
+    "34903": {
+        "des": "Precios públicos servicios de sanidad preventiva, desinfección, etc."
+    },
+    "34905": {
+        "des": "Celebración eventos privados Alcázar, P. Villavicencio, S. Com"
+    },
+    "34906": {
+        "des": "Centros Sociales"
+    },
+    "34907": {
+        "des": "Celebración eventos Claustros de Santo Domingo"
+    },
+    "34908": {
+        "des": "Precios públicos servicio mantenimiento animales incautados"
+    },
+    "34909": {
+        "des": "Precios públicos servicios informáticos y telecomunicaciones"
+    },
+    "34910": {
+        "des": "Prestación de servicio recaudación"
+    },
+    "34911": {
+        "des": "P.P. Servicio recogida animales"
+    },
+    "36001": {
+        "des": "Ventas de libros"
+    },
+    "36002": {
+        "des": "Fotocopias"
+    },
+    "36003": {
+        "des": "Ventas objetos Museo Arqueológico"
+    },
+    "36400": {
+        "des": "Venta por máquinas expendedoras"
+    },
+    "38000": {
+        "des": "Reintegro avales"
+    },
+    "38001": {
+        "des": "Ejecución de aval incumplimiento contrato obras"
+    },
+    "38900": {
+        "des": "Otros reintegros de operaciones corrientes"
+    },
+    "38901": {
+        "des": "Anuncios a cargo de particulares"
+    },
+    "38902": {
+        "des": "Obras e instalaciones a cargo de particulares"
+    },
+    "39100": {
+        "des": "Multas por infracciones urbanísticas"
+    },
+    "39110": {
+        "des": "Multas por infracciones tributarias y análogas"
+    },
+    "39120": {
+        "des": "Multas por infracciones de la Ordenanza de circulación"
+    },
+    "39190": {
+        "des": "Otras multas y sanciones"
+    },
+    "39191": {
+        "des": "Multas de ordenanzas municipales"
+    },
+    "39192": {
+        "des": "Sanción salud pública"
+    },
+    "39211": {
+        "des": "Recargo de apremio"
+    },
+    "39300": {
+        "des": "Intereses de demora"
+    },
+    "39610": {
+        "des": "Cuotas de urbanización"
+    },
+    "39690": {
+        "des": "Convenios urbanísticos"
+    },
+    "39710": {
+        "des": "Otros ingresos por aprovechamientos urbanísticos"
+    },
+    "39901": {
+        "des": "Ingresos diversos"
+    },
+    "39902": {
+        "des": "Imprevistos"
+    },
+    "39907": {
+        "des": "Ingresos de fincas no urbanizables"
+    },
+    "39911": {
+        "des": "Ingresos costas judiciales"
+    },
+    "39913": {
+        "des": "Ingresos por publicidad a cargo de particulares"
+    },
+    "39916": {
+        "des": "Aprovechamiento urbanístico PMS"
+    },
+    "39918": {
+        "des": "Ingresos por ejecución obras a cargo particulares"
+    },
+    "39919": {
+        "des": "Indemnizaciones en bienes y derechos"
+    },
+    "39920": {
+        "des": "Servicio recogida residuos"
+    },
+    "39921": {
+        "des": "Otros ingresos diversos AJEMSA"
+    },
+    "42001": {
+        "des": "Otras transferencias del Estado déficit autobuses"
+    },
+    "42007": {
+        "des": "Otros ingresos Administración General del Estado"
+    },
+    "42010": {
+        "des": "Fondo complementario de financiación"
+    },
+    "42020": {
+        "des": "Compensación por beneficios fiscales"
+    },
+    "42090": {
+        "des": "Otras transferencias corrientes de la Administración General"
+    },
+    "42094": {
+        "des": "Conv. prestaciones básicas servicios sociales comunitarios"
+    },
+    "42101": {
+        "des": "Transferencias Instituto Nacional de Estadística"
+    },
+    "42122": {
+        "des": "De Organismo Autónomo Programas Educativos Europeos"
+    },
+    "42190": {
+        "des": "De otros Organismos Autónomos y agencias"
+    },
+    "42201": {
+        "des": "De fundaciones estatales"
+    },
+    "44100": {
+        "des": "De sociedades mercantiles"
+    },
+    "45000": {
+        "des": "Participacion en los tributos de la Comunidad Autónoma"
+    },
+    "45002": {
+        "des": "Transferencias en materia de servicios sociales y políticas de igualdad"
+    },
+    "45030": {
+        "des": "Transferencias corrientes en cumplimiento de convenios suscritos"
+    },
+    "45060": {
+        "des": "Otras transferencias corrientes en cumplimiento de convenios"
+    },
+    "45080": {
+        "des": "Otras subvenciones corrientes de la Administración General del Estado"
+    },
+    "45100": {
+        "des": "Instituto Andaluz de la Mujer"
+    },
+    "45101": {
+        "des": "De FAISEM Fundación Andaluza"
+    },
+    "45103": {
+        "des": "De la Agencia Andaluza de Instituciones Culturales"
+    },
+    "45106": {
+        "des": "Subvenciones Instituto Andaluz de la Juventud"
+    },
+    "45107": {
+        "des": "Subvenciones Servicio Andaluz de Empleo"
+    },
+    "46117": {
+        "des": "Diputación Provincial de Cádiz"
+    },
+    "46600": {
+        "des": "De otras entidades que agrupen municipios"
+    },
+    "47000": {
+        "des": "De empresas privadas"
+    },
+    "51100": {
+        "des": "Intereses de préstamos concedios a Organ. Autónomos y a"
+    },
+    "51400": {
+        "des": "Intereses de préstamos concedidos a sociedades mercantiles,E"
+    },
+    "52000": {
+        "des": "Intereses de depósito"
+    },
+    "53410": {
+        "des": "De sociedades y entidades no dependientes de la entidades locales"
+    },
+    "54100": {
+        "des": "Arrendamientos de fincas urbanas"
+    },
+    "55000": {
+        "des": "Concesiones administrativas"
+    },
+    "55903": {
+        "des": "Vallas publicitarias"
+    },
+    "59000": {
+        "des": "Patrocinio y publicidad Deportes"
+    },
+    "59002": {
+        "des": "Patrocinio eventos de fiestas"
+    },
+    "59900": {
+        "des": "Otros ingresos patrimoniales"
+    },
+    "59901": {
+        "des": "Patrocinio actos culturales"
+    },
+    "59906": {
+        "des": "Sponsorización eventos de Fomento"
+    },
+    "59908": {
+        "des": "Ingresos publicidad TV y radio"
+    },
+    "60000": {
+        "des": "Venta de solares (No PMS)"
+    },
+    "60300": {
+        "des": "Enajenaciones PMS"
+    },
+    "72000": {
+        "des": "Transferencias capital Administración General del Estado"
+    },
+    "72112": {
+        "des": "Instituto de la Juventud"
+    },
+    "75030": {
+        "des": "Transferencias de capital en cumplimiento de convenios suscritos"
+    },
+    "75060": {
+        "des": "Otras transferencias de capital en cumplimiento de convenios"
+    },
+    "75080": {
+        "des": "Otras transferencias de capital de la Administración General del Estado"
+    },
+    "75100": {
+        "des": "Transferencias capital Organismos Autónomos y Agencias CCAA"
+    },
+    "76100": {
+        "des": "Transferencia de capital de Diputación Provincial de Cádiz"
+    },
+    "76800": {
+        "des": "De Entidades Locales Menores"
+    },
+    "77000": {
+        "des": "De empresas privadas"
+    },
+    "78001": {
+        "des": "De la Asociación para el desarrollo rural de la campiña de Jerez"
+    },
+    "82120": {
+        "des": "De Entidades locales"
+    },
+    "83001": {
+        "des": "Reintegro de anticipos al personal a corto plazo"
+    },
+    "83101": {
+        "des": "Reintegro de anticipos al personal a largo plazo"
+    },
+    "87010": {
+        "des": "Para gastos con financiación afectada"
+    },
+    "91100": {
+        "des": "Préstamos recibidos a largo plazo de entes del sector público"
+    },
+    "91101": {
+        "des": "Préstamo Fondo Ordenación sentencias judiciales firmes"
+    },
+    "91301": {
+        "des": "Prestamos recibidos a largo plazo de entes fuera del sector público"
+    }
+}

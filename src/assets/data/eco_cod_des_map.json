@@ -1,0 +1,1286 @@
+{
+    "6": {
+        "des": "Inversiones en Instalaciones y pistas"
+    },
+    "10000": {
+        "des": "Retribuciones básicas y otras remuneraciones "
+    },
+    "10001": {
+        "des": "Otras remuneraciones"
+    },
+    "11000": {
+        "des": "Retribuciones básicas personal eventual-Grupos Políticos"
+    },
+    "11001": {
+        "des": "Retribuciones complementarias-Grupos Políticos"
+    },
+    "11002": {
+        "des": "Otras remuneraciones personal eventual-Grupos Políticos"
+    },
+    "12000": {
+        "des": "Sueldos del grupo A1 personal funcionario"
+    },
+    "12001": {
+        "des": "Sueldos del grupo A2 personal funcionario"
+    },
+    "12003": {
+        "des": "Sueldos del Grupo C1"
+    },
+    "12004": {
+        "des": "Sueldos del grupo C2 personal funcionario"
+    },
+    "12005": {
+        "des": "Sueldos del Grupo E"
+    },
+    "12006": {
+        "des": "Trienios personal funcionario"
+    },
+    "12100": {
+        "des": "Complemento destino personal funcionario"
+    },
+    "12101": {
+        "des": "Complemento específico personal funcionario"
+    },
+    "12103": {
+        "des": "Otros complementos personal funcionario"
+    },
+    "12200": {
+        "des": "Retribuciones en especie"
+    },
+    "13000": {
+        "des": "Retribuciones básicas personal laboral fijo"
+    },
+    "13001": {
+        "des": "Horas extraordinarias personal laboral fijo"
+    },
+    "13002": {
+        "des": "Otras remuneraciones personal laboral fijo"
+    },
+    "13100": {
+        "des": "Retribuciones personal laboral eventual"
+    },
+    "13101": {
+        "des": "Indefinidos no fijos en plantilla"
+    },
+    "13102": {
+        "des": "Indemnizaciones ERE"
+    },
+    "14300": {
+        "des": "Retribuciones otro personal"
+    },
+    "15000": {
+        "des": "Productividad"
+    },
+    "15002": {
+        "des": "Productividad no disponible-Ser Grles"
+    },
+    "15100": {
+        "des": "Gratificaciones"
+    },
+    "16000": {
+        "des": "Seguridad Social"
+    },
+    "16009": {
+        "des": "Otras cuotas- Políticas activas empleo"
+    },
+    "16200": {
+        "des": "Formación y perfeccionamiento del personal"
+    },
+    "16204": {
+        "des": "Acción social"
+    },
+    "16205": {
+        "des": "Seguros-Otras prestaciones económicas a favor de empleados"
+    },
+    "20200": {
+        "des": "Arrendamientos edificios y otras construcciones"
+    },
+    "20300": {
+        "des": "Arrendamiento de maquinaria, instalaciones y utillaje"
+    },
+    "20400": {
+        "des": "Arrendamiento material transporte"
+    },
+    "20500": {
+        "des": "Arrendamientos de mobiliario y enseres"
+    },
+    "20600": {
+        "des": "Arrendamientos de equipos para proceso de informacion"
+    },
+    "20800": {
+        "des": "Arrendamiento otro inmovilizado material"
+    },
+    "20900": {
+        "des": "Cánones"
+    },
+    "21000": {
+        "des": "Reparación, mantenimiento y conservación infraestructura y bienes naturales"
+    },
+    "21001": {
+        "des": "Canalizaciones vía pública"
+    },
+    "21200": {
+        "des": "Reparación, mantenimiento y conservación edificios y otras construcciones"
+    },
+    "21204": {
+        "des": "Actuaciones inmediatas"
+    },
+    "21206": {
+        "des": "Reparación, mantenimiento y conservación elevadores"
+    },
+    "21207": {
+        "des": "Mantenimiento extintores"
+    },
+    "21208": {
+        "des": "Mantenimiento alarmas"
+    },
+    "21300": {
+        "des": "Reparación, mantenimiento y conservación maquinaria, instalaciones y utillaje"
+    },
+    "21302": {
+        "des": "Reparación, mantenimiento y conservación aparatos aire acondicionado"
+    },
+    "21303": {
+        "des": "Reparación, mantenimiento y conservación emisoras radio"
+    },
+    "21400": {
+        "des": "Reparación, mantenimiento y conservación elementos transporte"
+    },
+    "21500": {
+        "des": "Reparación, mantenimiento y conservación mobiliario y enseres"
+    },
+    "21600": {
+        "des": "Reparación, mantenimiento y conservación equipos proceso informático"
+    },
+    "21700": {
+        "des": "Reparación mantenimiento y conservación instrumentos municipales"
+    },
+    "21900": {
+        "des": "Reparación, mantenimiento y conservación otro inmovilizado material"
+    },
+    "22000": {
+        "des": "Ordinario no inventariable"
+    },
+    "22001": {
+        "des": "Prensa, revistas, libros y otras publicaciones"
+    },
+    "22002": {
+        "des": "Material informático no inventariable"
+    },
+    "22003": {
+        "des": "Ordinario no inventariable para almacen"
+    },
+    "22100": {
+        "des": "Energía eléctrica"
+    },
+    "22101": {
+        "des": "Agua"
+    },
+    "22102": {
+        "des": "Suministro de gas"
+    },
+    "22103": {
+        "des": "Combustibles y carburantes"
+    },
+    "22104": {
+        "des": "Suministro de vestuario."
+    },
+    "22105": {
+        "des": "Productos alimenticios"
+    },
+    "22106": {
+        "des": "Productos farmaceuticos y material sanitario"
+    },
+    "22107": {
+        "des": "Gestion ayudas sociales especie"
+    },
+    "22108": {
+        "des": "Suminist otro material para almacen central"
+    },
+    "22109": {
+        "des": "Suministro munición"
+    },
+    "22110": {
+        "des": "Productos de limpieza y aseo"
+    },
+    "22111": {
+        "des": "Suministro repuestos maquinaria, utillaje y elementos"
+    },
+    "22112": {
+        "des": "Suministro material electrónico, eléctrico y telecomunicaciones"
+    },
+    "22113": {
+        "des": "Manutención de animales"
+    },
+    "22199": {
+        "des": "Otros suministros"
+    },
+    "22200": {
+        "des": "Postales"
+    },
+    "22201": {
+        "des": "Postales otras"
+    },
+    "22202": {
+        "des": "Telegráficas"
+    },
+    "22203": {
+        "des": "Informáticas"
+    },
+    "22299": {
+        "des": "Otros gastos en comunicaciones"
+    },
+    "22300": {
+        "des": "Transportes de mercancías"
+    },
+    "22400": {
+        "des": "Primas de seguro"
+    },
+    "22401": {
+        "des": "Seguros voluntario PC"
+    },
+    "22500": {
+        "des": "Tributos Estatales"
+    },
+    "22501": {
+        "des": "Tributos Comunidades Autónomas"
+    },
+    "22502": {
+        "des": "Tributos Entidades locales"
+    },
+    "22601": {
+        "des": "Atenciones protocolarias y representativas"
+    },
+    "22602": {
+        "des": "Publicidad y propaganda"
+    },
+    "22603": {
+        "des": "Publicación en Diarios Oficiales"
+    },
+    "22604": {
+        "des": "Jurídicos, contenciosos"
+    },
+    "22606": {
+        "des": "Reuniones, conferencias y cursos"
+    },
+    "22607": {
+        "des": "Oposiciones y pruebas selectivas"
+    },
+    "22608": {
+        "des": "Comunidad de propietarios"
+    },
+    "22609": {
+        "des": "Actividades culturales y deportivas"
+    },
+    "22610": {
+        "des": "Festejos populares"
+    },
+    "22611": {
+        "des": "Indemnizaciones"
+    },
+    "22612": {
+        "des": "Actividades culturales en barriadas rurales"
+    },
+    "22613": {
+        "des": "Club Amigos del Zoo"
+    },
+    "22614": {
+        "des": "Otros gastos de promoción"
+    },
+    "22616": {
+        "des": "Publicidad, propaganda a cargo particulares"
+    },
+    "22623": {
+        "des": "Actividades complementarias"
+    },
+    "22625": {
+        "des": "Actividades de juventud"
+    },
+    "22626": {
+        "des": "Dinamización del ocio juvenil"
+    },
+    "22630": {
+        "des": "Actividades menores p. Infanc Fam."
+    },
+    "22633": {
+        "des": "Actividades programa prevención mendicidad infantil"
+    },
+    "22638": {
+        "des": "Actividades Día Mundial Discapacidad"
+    },
+    "22640": {
+        "des": "Programa transf. "
+    },
+    "22643": {
+        "des": "Gastos diversos"
+    },
+    "22654": {
+        "des": "Actividades convivencia intercultural"
+    },
+    "22655": {
+        "des": "Programa subvencionado zonas"
+    },
+    "22656": {
+        "des": "Programa plan zona sur no subvencionado"
+    },
+    "22657": {
+        "des": "Actividades programa participación y solidaridad"
+    },
+    "22659": {
+        "des": "Actividades Institucionales"
+    },
+    "22661": {
+        "des": "Programa voluntariado"
+    },
+    "22662": {
+        "des": "Por obras a cargo de terceros"
+    },
+    "22663": {
+        "des": "Gastos diversos proyecto casa mujeres"
+    },
+    "22664": {
+        "des": "Dinamización asociaciones"
+    },
+    "22665": {
+        "des": "Campaña contra la violencia de género"
+    },
+    "22666": {
+        "des": "Proyecto salud nuestra ciudad"
+    },
+    "22667": {
+        "des": "Programa municipal prevención acciones"
+    },
+    "22670": {
+        "des": "Programas actuacion en distritos"
+    },
+    "22672": {
+        "des": "Ecomercado"
+    },
+    "22673": {
+        "des": "Plan Especial San Juan de Dios"
+    },
+    "22674": {
+        "des": "Actividades de dinamización"
+    },
+    "22699": {
+        "des": "Otros gastos diversos"
+    },
+    "22700": {
+        "des": "Limpieza y aseo"
+    },
+    "22701": {
+        "des": "Seguridad"
+    },
+    "22702": {
+        "des": "Valoraciones y peritajes"
+    },
+    "22704": {
+        "des": "Custodia, depósito y almacenaje"
+    },
+    "22706": {
+        "des": "Estudios y trabajos técnicos"
+    },
+    "22707": {
+        "des": "Estudios y trabajos técnicos"
+    },
+    "22708": {
+        "des": "Servicios de recaudación a favor de la entidad"
+    },
+    "22709": {
+        "des": "Recogida de residuos urbanos"
+    },
+    "22710": {
+        "des": "Conservación y mantenimiento planta compostaje y reciclaje"
+    },
+    "22712": {
+        "des": "Limpieza dependencias municipales"
+    },
+    "22713": {
+        "des": "Mantenimiento alumbrado público"
+    },
+    "22714": {
+        "des": "Mantenimiento parques y jardines públicos"
+    },
+    "22715": {
+        "des": "Mantenimiento Red Semafórica"
+    },
+    "22716": {
+        "des": "Mantenimiento señalización horizontal"
+    },
+    "22717": {
+        "des": "Mantenimiento señalización vertical"
+    },
+    "22718": {
+        "des": "Control tarjetas O.R.A."
+    },
+    "22719": {
+        "des": "Conservación señalización horizontal, vertical y balizamiento"
+    },
+    "22720": {
+        "des": "Ayuda domiciliaria"
+    },
+    "22722": {
+        "des": "Limpieza colegios públicos"
+    },
+    "22723": {
+        "des": "Servicios técnicos (Veterinario, herrador,etc)"
+    },
+    "22726": {
+        "des": "Teleasistencia domiciliaria"
+    },
+    "22733": {
+        "des": "Servicio transporte autobuses a pedanias"
+    },
+    "22734": {
+        "des": "Servicio atención de día infantil y juvenil"
+    },
+    "22735": {
+        "des": "Alumbrado decorativo fiestas"
+    },
+    "22736": {
+        "des": "Alumbrado decorativo Navidad"
+    },
+    "22746": {
+        "des": "Balizamiento y B.R.V."
+    },
+    "22747": {
+        "des": "Mantenimiento de parques infantiles"
+    },
+    "22748": {
+        "des": "Mantenimiento y alquiler WC botellodromo"
+    },
+    "22749": {
+        "des": "Mantenimiento de fuentes ornamentales"
+    },
+    "22755": {
+        "des": "Programa individual atención"
+    },
+    "22760": {
+        "des": "Atencion a la ciudadania en distritos"
+    },
+    "22799": {
+        "des": "Otros trabajos realizados por otras empresas y profesionales"
+    },
+    "23000": {
+        "des": "Dietas miembros de los organos de gobierno"
+    },
+    "23010": {
+        "des": "Dietas del personal directivo"
+    },
+    "23020": {
+        "des": "Dietas del personal no directivo"
+    },
+    "23100": {
+        "des": "Locomocion de miembros organos gobierno"
+    },
+    "23110": {
+        "des": "Del personal directivo"
+    },
+    "23120": {
+        "des": "Del personal no directivo"
+    },
+    "23300": {
+        "des": "Otras indemnizaciones"
+    },
+    "30000": {
+        "des": "Intereses de obligaciones y bonos-Deuda"
+    },
+    "31000": {
+        "des": "Intereses préstamo interior"
+    },
+    "31100": {
+        "des": "Gastos formalización,modificación y cancelación operaciones en euros"
+    },
+    "35200": {
+        "des": "Intereses de demora"
+    },
+    "35201": {
+        "des": "Intereses de demora a acreedores públicos"
+    },
+    "35210": {
+        "des": "Intereses de demora a acreedores públicos otros"
+    },
+    "35300": {
+        "des": "Operaciones de intercambio financiero"
+    },
+    "35900": {
+        "des": "Otros gastos financieros"
+    },
+    "41001": {
+        "des": "Patronato Municipal Parque Zoológico"
+    },
+    "41003": {
+        "des": "Fundación Municipal de Formación y Empleo"
+    },
+    "44900": {
+        "des": "AJEMSA- Serv. agua, alcantarillado y recogida de residuos"
+    },
+    "44901": {
+        "des": "EMEMSA-Explotación de los Montes de Propio, S.A."
+    },
+    "44902": {
+        "des": "JECOMUSA-Servicio de radio y television Municipal"
+    },
+    "44903": {
+        "des": "JEREYSSA-Servicio de Recaudación"
+    },
+    "44904": {
+        "des": "COMUJESA"
+    },
+    "44905": {
+        "des": "EMUVIJESA "
+    },
+    "44906": {
+        "des": "CIRJESA-Circuito de Jerez, S.A."
+    },
+    "44910": {
+        "des": "JESYTEL-Servicios Informaticos Internos"
+    },
+    "44990": {
+        "des": "Otras subvenciones a entes públicos y sociedades mercantiles"
+    },
+    "46100": {
+        "des": "Transferencias a entidades"
+    },
+    "46200": {
+        "des": "Transferencias a Ayuntamientos"
+    },
+    "46600": {
+        "des": "A otras entidades agrupen municipios"
+    },
+    "46601": {
+        "des": "Mancomunidad municipios Bahía Cádiz"
+    },
+    "46700": {
+        "des": "Consorcio Bomberos Provincia Cádiz"
+    },
+    "46702": {
+        "des": "Consorcio Metropolitano Transporte Bahia Cádiz"
+    },
+    "46703": {
+        "des": "Consorcio de Aguas de la Zona Gaditana"
+    },
+    "46800": {
+        "des": "A Entidades Locales Autónomas"
+    },
+    "46801": {
+        "des": "Fondo compensación ELA por crecimiento habitantes desde convenio vigente"
+    },
+    "47000": {
+        "des": "Subvención empresas privadas para fomento empleo"
+    },
+    "47001": {
+        "des": "Prog. Mpal. apoyo emprendiemiento y la"
+    },
+    "47002": {
+        "des": "Plan Promoción de Empleo"
+    },
+    "47003": {
+        "des": "Ordenanzas Reg. Fomento desarrollo económico Jerez"
+    },
+    "47200": {
+        "des": "Subvección deficit transporte colectivo urbano"
+    },
+    "47900": {
+        "des": "Otras subvenciones a empresas privadas"
+    },
+    "47902": {
+        "des": "Escuela Negocios de Jerez"
+    },
+    "48000": {
+        "des": "Atenciones benéficiencia y asistencia"
+    },
+    "48003": {
+        "des": "Ayudas a Bono-Taxi"
+    },
+    "48004": {
+        "des": "Ayudas sociales alquiler"
+    },
+    "48100": {
+        "des": "Premios, becas y pensiones de estudio"
+    },
+    "48800": {
+        "des": "Cooperación internacional y ayuda a"
+    },
+    "48801": {
+        "des": "Coordinadora ONGDS de la provincia de Cádiz"
+    },
+    "48900": {
+        "des": "Otras transferencias"
+    },
+    "48901": {
+        "des": "Ayudas a banda de música"
+    },
+    "48902": {
+        "des": "Atencion sociales en interes de la ciudad"
+    },
+    "48903": {
+        "des": "Fundación Caballero Bonald"
+    },
+    "48904": {
+        "des": "Fundación Teatro Villamarta"
+    },
+    "48905": {
+        "des": "Fundación Andrés de Ribera"
+    },
+    "48906": {
+        "des": "Fundación Centro Acogida San José"
+    },
+    "48907": {
+        "des": "Consejo Económico y Social"
+    },
+    "48908": {
+        "des": "FUNDARTE"
+    },
+    "48911": {
+        "des": "Subvención al Taxi accesible"
+    },
+    "48917": {
+        "des": "Speed Festival"
+    },
+    "48918": {
+        "des": "Fundación Secretariado General Gitano"
+    },
+    "48921": {
+        "des": "Comedor El Salvador"
+    },
+    "48922": {
+        "des": "Cruz Roja Jerez (UMES)"
+    },
+    "48923": {
+        "des": "Colegio Oficial Veterinarios de Cádiz"
+    },
+    "48924": {
+        "des": "Cruz Roja -Transporte"
+    },
+    "48925": {
+        "des": "Convenio apoyo proceso"
+    },
+    "48926": {
+        "des": "Convenio APESORJE"
+    },
+    "48927": {
+        "des": "Convenio AFEMEN"
+    },
+    "48928": {
+        "des": "Centro de día Hogar San Juan"
+    },
+    "48929": {
+        "des": "Fundaciones"
+    },
+    "48930": {
+        "des": "Economato San Juan de Dios"
+    },
+    "48931": {
+        "des": "Banco de alimentos"
+    },
+    "48932": {
+        "des": "Centro acogida inmigrantes (CEAIN)"
+    },
+    "48933": {
+        "des": "Grupo desarrollo rural"
+    },
+    "48936": {
+        "des": "Convocatoria unica de subvenciones"
+    },
+    "48937": {
+        "des": "Proyecto Hombre"
+    },
+    "48938": {
+        "des": "Asociación de Ciudades Interculturales"
+    },
+    "48939": {
+        "des": "Todos con Casa"
+    },
+    "49000": {
+        "des": "Al exterior"
+    },
+    "50000": {
+        "des": "Fondo Contingencia de Ejecución Presupuestaria (Art.31 LOEPSF)"
+    },
+    "60000": {
+        "des": "Inversionse nuevas en terrenos destinados al"
+    },
+    "60201": {
+        "des": "Cargas urbanisticas"
+    },
+    "60216": {
+        "des": "Reurbanización C/Cantareria y C/Nueva (Actuaciones barrio Santiago)"
+    },
+    "60219": {
+        "des": "Reforma y ampliación Peña Los Juncales en"
+    },
+    "60222": {
+        "des": "Actuacionse resto Convenio"
+    },
+    "60227": {
+        "des": "Urbanización U.E. 4S2 San Jeronimo B - 1ª Fase"
+    },
+    "60230": {
+        "des": "Urbanización U.E. 1A18 Mreced"
+    },
+    "60231": {
+        "des": "Urbanización vial entre UE 2T1 Armas Santiago y 1A18 Merced"
+    },
+    "60234": {
+        "des": "Remodelacion vial glorieta Cuatro Caminos con nudo enlace N-"
+    },
+    "60235": {
+        "des": "Otras obras conexión norte"
+    },
+    "60236": {
+        "des": "Urbanización U.E. 4K1 Y 2M El Angel (C/Atlanta y eje)"
+    },
+    "60237": {
+        "des": "Construcción de glorieta en A-4 accesos al sector sup 34"
+    },
+    "60238": {
+        "des": "C onexión con sistema general viario U.E. 2Q1 Arroyo Membrillar"
+    },
+    "60239": {
+        "des": "Escultura rotonda de Cuatro Caminos"
+    },
+    "60302": {
+        "des": "Proyectos modificados y liquidaciones obras convenio educación"
+    },
+    "60303": {
+        "des": "Campo de futbol 7 barriada La Granja"
+    },
+    "60418": {
+        "des": "Instalacion maquinaria aire acondicionado Casa de la Mujer II fase"
+    },
+    "60420": {
+        "des": "Museo de la Ciudad de Jerez"
+    },
+    "60701": {
+        "des": "Obras accesibilidad 2005. Convenio IMSERSO Y ONCE"
+    },
+    "60702": {
+        "des": "Actuaciones en El Alcazar"
+    },
+    "60703": {
+        "des": "A/C restauración y rehabilitación sala Profundis Claustros de Santo Domingo"
+    },
+    "60704": {
+        "des": "Construccion de centro europeo de la musica andalusi"
+    },
+    "60711": {
+        "des": "Claustros de Santo Domingo"
+    },
+    "60900": {
+        "des": "Otras inversiones nuevas en infraestructuras y bienes para u"
+    },
+    "60902": {
+        "des": "Obras Plan Urban"
+    },
+    "60903": {
+        "des": "Obras Fondo Estatal de Inversión Local"
+    },
+    "60905": {
+        "des": "Fondo estatatal para el empleo y sostenibilidad local"
+    },
+    "60906": {
+        "des": "EDUSI"
+    },
+    "60907": {
+        "des": "Urbanizacion de parcela edificio Jefatura de Policia Local"
+    },
+    "60908": {
+        "des": "Urbanizacion de entorno de San Juan de los Caballeros"
+    },
+    "60910": {
+        "des": "Reordenación de Plaza Belén"
+    },
+    "60911": {
+        "des": "Adecuacion espacios libres calle Taxdirt"
+    },
+    "60913": {
+        "des": "Reurbanizacion parque forestal La Marquesa"
+    },
+    "60914": {
+        "des": "Instalación areas de recreo infantil en diferentes zonas de Jerez"
+    },
+    "60916": {
+        "des": "Instalacion de circuitos biosaludables en espacios públicos"
+    },
+    "60918": {
+        "des": "Adecuación espacios públicos entorno centro comercial Area Sur"
+    },
+    "60920": {
+        "des": "Otras inversiones financ.con ejecución avales"
+    },
+    "60922": {
+        "des": "Urbanización ARI F-05- La Hoyanca"
+    },
+    "60923": {
+        "des": "Urbanización Calle Varsovia"
+    },
+    "60925": {
+        "des": "Sector 30 San José Obrero"
+    },
+    "60926": {
+        "des": "U.E. 2.G.1 Pelirón-Planemiento y Gestión"
+    },
+    "60927": {
+        "des": "Expediente Reparcelación de la U.E. 4.S.2 \"San Jerónimo B\""
+    },
+    "60928": {
+        "des": "Expediente Reparcelación de la U.E. 4.S1 \"San Jerónimo A\""
+    },
+    "60929": {
+        "des": "Expediente Reparcelación de la U.E. 4.A.4 \"Entrevías\""
+    },
+    "60942": {
+        "des": "Urbanización UE 2T1 Armas de Santiago"
+    },
+    "60943": {
+        "des": "Expropiación forzosa Poligono 4 PAU 1 Fdo. Portillo"
+    },
+    "60945": {
+        "des": "Obras de urbanización calle C - UE 4Q1 \"El Portal\""
+    },
+    "60946": {
+        "des": "Ejecución aval UE 4G4B Pago Perceba"
+    },
+    "60947": {
+        "des": "Aparatos biosaludables parques urbanos"
+    },
+    "60948": {
+        "des": "Mant.conserv.espacios pbcos. y viario Bda. S.Juan de Dios"
+    },
+    "60949": {
+        "des": "Reurbanización de Plaza Vargas y adyacentes"
+    },
+    "60952": {
+        "des": "Sum.mobiliario parques y jardines - ELA La Barca Florida"
+    },
+    "60953": {
+        "des": "Sum.19 lumnarias led y valla perimetral - ELA Nueva Jarilla"
+    },
+    "60954": {
+        "des": "Sum.mobiliario, aparatos biosaludables-ELA S.Isidro G."
+    },
+    "60955": {
+        "des": "Adquisición mobiliario y enseres parques mpal.-ELA El Torno"
+    },
+    "60956": {
+        "des": "Adecentamiento, pavimentación,vallado calles ELA Estella Mar"
+    },
+    "60957": {
+        "des": "Mejora de viales públicos 3ª F-ELA Guadalcacín"
+    },
+    "60958": {
+        "des": "Cubierta Pque Mpal Francisco J Martínez Fdez ELA Nueva Jaril"
+    },
+    "60959": {
+        "des": "Cubierta En Parque Mpal Esperanza Román ELA S. Isidro G"
+    },
+    "60960": {
+        "des": "Sum. de Mobiliario y Carpa de Recinto Romería ELA N.Jarill"
+    },
+    "60961": {
+        "des": "Adq. de Caseta Prefab Aseos para P.Mpal E.Román ELA S.Isidro"
+    },
+    "60962": {
+        "des": "Juegos de Calistenia Parque Mpal En Plaza Pablo Ig ELA S. Is"
+    },
+    "60963": {
+        "des": "Adquisición de Elementos de Juegos Infantiles ELA Torrecera"
+    },
+    "60964": {
+        "des": "Adq. de Mobiliario de Parques y Jardines ELA Torrecera"
+    },
+    "60965": {
+        "des": "Adq. Losetas de Caucho para Suelo de Parques y Jar ELA Torre"
+    },
+    "60966": {
+        "des": "Obras de urbanización U.E. 8.E.2. Parque Empresarial 2"
+    },
+    "60975": {
+        "des": "POS 2006 Asfaltado varias calles en Nueva Jarilla"
+    },
+    "60998": {
+        "des": "Obras POS"
+    },
+    "61900": {
+        "des": "Otras inversiones en infraestructuras"
+    },
+    "61901": {
+        "des": "Reurbanización de Plaza Zahara- Vías"
+    },
+    "61902": {
+        "des": "Rehabilitacion techos de galeria soportales de Madre de Dios"
+    },
+    "61903": {
+        "des": "Refuerzo de firme varias calles"
+    },
+    "61904": {
+        "des": "Ordenación y modern mercadillo Parada y"
+    },
+    "61906": {
+        "des": "Reforma de infraestructuras en barriada ICOVESA"
+    },
+    "61909": {
+        "des": "Conservacion y mantenimiento en mercado central de abastos"
+    },
+    "61910": {
+        "des": "Adecentamiento de vías públicas ELA Estella del Marqués"
+    },
+    "61911": {
+        "des": "Mejoras alumbrado público ELA Estella del Marqués"
+    },
+    "61912": {
+        "des": "Reparación saneamiento vía pública ELA Guadalcacin"
+    },
+    "61913": {
+        "des": "Cambio luminaria pública a LED piscina municipal ELA El Torno"
+    },
+    "61914": {
+        "des": "Adaptación de viales públicos ELA Guadalcacín"
+    },
+    "61915": {
+        "des": "Asfaltado de viales públicos ELA La Barca de la Florida"
+    },
+    "61916": {
+        "des": "Dotación mobiliario infantil y urbano parques ELA Nueva Jarilla"
+    },
+    "61917": {
+        "des": "Sustitución de luminaria pública a LED ELA Estella Marqués"
+    },
+    "61918": {
+        "des": "Sum. de Césped Artificial para Zonas Ajardinadas ELA N. Jari"
+    },
+    "61970": {
+        "des": "Actuaciones varias"
+    },
+    "61971": {
+        "des": "Tu Barrio nuestro Centro - Organos de"
+    },
+    "62200": {
+        "des": "Edificios y otras construcciones"
+    },
+    "62202": {
+        "des": "Contrucción nave cobertizo instalaciones deportivas ELA San Isidro"
+    },
+    "62203": {
+        "des": "Construcción vestuarios adaptados instalaciones deportivas ELA San Isidro"
+    },
+    "62204": {
+        "des": "Construcción de Aseos y Almacén En Edificio Mpal ELA Torrecera"
+    },
+    "62205": {
+        "des": "Mejora de Escenario En Edificio Mpal ELA Torrecera"
+    },
+    "62206": {
+        "des": "Centro tecnológico del Motor"
+    },
+    "62207": {
+        "des": "Eje. de Aseos y Vestuarios Adaptados  Discapac. ELA S. Isidr"
+    },
+    "62237": {
+        "des": "Parque flotante desmontable"
+    },
+    "62246": {
+        "des": "Remodelacion edificio junto estacion tren (imprenta municipal)"
+    },
+    "62300": {
+        "des": "Maquinaria, instalaciones y utillaje"
+    },
+    "62302": {
+        "des": "Adquisición equipo de videoconferencia"
+    },
+    "62308": {
+        "des": "Adquisición máquina recogida residuos ELA Estella Marqués"
+    },
+    "62310": {
+        "des": "Adquisicion maquinaria, instalaciones y utillaje"
+    },
+    "62324": {
+        "des": "Adquisición maquinaria Imprenta"
+    },
+    "62348": {
+        "des": "Instalación cámara frigorífica Mdo"
+    },
+    "62367": {
+        "des": "Maquinaria de Impresión Offet Cuatro"
+    },
+    "62368": {
+        "des": "Fase de Manipulado para Imprenta"
+    },
+    "62369": {
+        "des": "Máquina numeradora de aspas Imprenta"
+    },
+    "62378": {
+        "des": "Biomaza en piscina Zona Sur-Piscinas"
+    },
+    "62400": {
+        "des": "Adquisición elementos de transporte"
+    },
+    "62420": {
+        "des": "Adquisicion material de transporte"
+    },
+    "62500": {
+        "des": "Mobiliario y enseres"
+    },
+    "62514": {
+        "des": "Climatizacion de instalaciones"
+    },
+    "62551": {
+        "des": "Equipamiento Centro de Día-Serv grales de"
+    },
+    "62565": {
+        "des": "Equipamiento C.Cívico La Granja-Serv Gles"
+    },
+    "62600": {
+        "des": "Equipos para procesos de información"
+    },
+    "62603": {
+        "des": "Adquisición equipo informatico"
+    },
+    "62752": {
+        "des": "Instalación cesped artifical campo futbol Picadueñas"
+    },
+    "62765": {
+        "des": "Centro de Formación Municipal-Formación"
+    },
+    "62775": {
+        "des": "Césped artificial cerramiento y vesturarios"
+    },
+    "62779": {
+        "des": "Equipamiento Sala Paúl"
+    },
+    "62785": {
+        "des": "Presupuestos participativos pendientes ejecución anterior"
+    },
+    "62787": {
+        "des": "Remod/adaptac Escuela Policía en Est."
+    },
+    "62788": {
+        "des": "Inst césped artif Campo Futbol San Ginés y"
+    },
+    "62790": {
+        "des": "Inversiones en instalaciones"
+    },
+    "62900": {
+        "des": "Otras inversiones nuevas asociadas funcionamiento operativo servicio"
+    },
+    "62902": {
+        "des": "Inversiones asociadas a actuaciones urbanísticas"
+    },
+    "62905": {
+        "des": "Equipos y materiales para serv prev riesgos"
+    },
+    "62907": {
+        "des": "Adquisición equipos análisis"
+    },
+    "62908": {
+        "des": "Sum.equipam.espacios deport. ELA La Barca de la Florida"
+    },
+    "62909": {
+        "des": "Sum.mobiliario para equip.cultural mpal. ELA El Torno"
+    },
+    "62910": {
+        "des": "Adquisición focos LED iluminación campo de fútbol Estella"
+    },
+    "62911": {
+        "des": "Adaptación piscina municiapal a  Normativa vigente ELA El Torno"
+    },
+    "62912": {
+        "des": "Suministro de gradas campo municipal futbol ELA San Isidro "
+    },
+    "62913": {
+        "des": "Suministro de equipamiento cultural ELA Torrecera"
+    },
+    "62914": {
+        "des": "Adq. de Mobiliario y Enseres  Instalaciones Depor ELA Torno"
+    },
+    "62915": {
+        "des": "Suministro mobiliario para pabellón deportivo municipal ELA Nueva Jarilla"
+    },
+    "62916": {
+        "des": "Sum. de Mobiliario para Instalaciones Deportivas ELA Torrecera"
+    },
+    "62917": {
+        "des": "Suministro proyectores LED campo de fútbol municipal ELA Nueva Jarilla"
+    },
+    "62918": {
+        "des": "Adaptación espacios complejo deportivo instalaciones municiapales ELA Torremelgarejo"
+    },
+    "62921": {
+        "des": "Equipo fotografico digital"
+    },
+    "63100": {
+        "des": "Terrenos y bienes naturales"
+    },
+    "63200": {
+        "des": "Inversión, reposición edificios y otras construcciones"
+    },
+    "63201": {
+        "des": "Plan de actuación en colegios pedanias"
+    },
+    "63202": {
+        "des": "Reparacion edificio gimnasio Campo de la Juventud"
+    },
+    "63207": {
+        "des": "Actuaciones consolidación Palacio Villapanes"
+    },
+    "63208": {
+        "des": "Actuaciones varias en Claustros de Santo Domingo"
+    },
+    "63214": {
+        "des": "Anctuaciones en aseos CEIP Guadalete ELA El Torno"
+    },
+    "63215": {
+        "des": "Actuaciones en piscina municipal ELA Torrecera"
+    },
+    "63216": {
+        "des": "Rehabilitacioón centro cultural ELA Estella del Marqués"
+    },
+    "63217": {
+        "des": "Reparación sistema electronio campo futbol ELA Guadalcacin"
+    },
+    "63218": {
+        "des": "Rehabilitacion y mejoras zonas deportivas ELA San Isidro"
+    },
+    "63219": {
+        "des": "Rehabilitación piscina municipal ELA Torrecera"
+    },
+    "63222": {
+        "des": "Rehabilitación oficinas para salud pca-Otras"
+    },
+    "63223": {
+        "des": "Actuaciones medioambientales Cementerio Municipal"
+    },
+    "63226": {
+        "des": "Centro de Arte Contemporáneo Callejón de los Bolos"
+    },
+    "63227": {
+        "des": "Puesta en valor del Cine Astoria"
+    },
+    "63228": {
+        "des": "Tabanco del Duque"
+    },
+    "63229": {
+        "des": "Rehabilitación antiguas escuelas de la ELA Torrecera"
+    },
+    "63230": {
+        "des": "Adecentamiento y reparación edificio consistorial ELA Estella Marques"
+    },
+    "63231": {
+        "des": "Adecuación infraestructuras CEIP Guadalete en ELA El Torno"
+    },
+    "63232": {
+        "des": "Rehabilitacion complejo Díez Mérito"
+    },
+    "63300": {
+        "des": "Inversión reposición maquinaria, instal utillaje-Instalaciones"
+    },
+    "63500": {
+        "des": "Inversión reposición mobiliario"
+    },
+    "63900": {
+        "des": "Otras inversiones de reposición asociadas al funcionamiento operativo"
+    },
+    "63903": {
+        "des": "Rehabilitacion y mejoras parque y pistal padel ELA La Barca"
+    },
+    "63904": {
+        "des": "Suministro de césped artificial campo de fútbol Guadalcacín"
+    },
+    "63905": {
+        "des": "Sustitución  cubierta pabellón polideportivo municipal Víctor Cor ELA La Barca"
+    },
+    "63906": {
+        "des": "Reforma y adecuación de piscinas municipales ELA Barca "
+    },
+    "63907": {
+        "des": "Reforma y adecuación de piscinas municipales ELA Nueva Jarilla "
+    },
+    "64100": {
+        "des": "Gastos en aplicaciones informáticas"
+    },
+    "68100": {
+        "des": "Terrenos y bienes naturales-Actuaciones PMS"
+    },
+    "68101": {
+        "des": "Adquisiciones en delimitaciones de areas"
+    },
+    "68104": {
+        "des": "Actuaciones PMS- Cerrofruto"
+    },
+    "68200": {
+        "des": "Gastos en inversiones de bienes patrimoniales"
+    },
+    "68200": {
+        "des": "Gastos en inv de bienes"
+    },
+    "72000": {
+        "des": "A la Administración General del Estado"
+    },
+    "74000": {
+        "des": "A EMUVIJESA-Gestión urbanistica"
+    },
+    "74007": {
+        "des": "A CIRJESA-Circuito de Jerez"
+    },
+    "74300": {
+        "des": "A entes públicos y soc mercantiles de la Entidad Local"
+    },
+    "75000": {
+        "des": "A la administracióngeneral de las Comunidades Autónomas"
+    },
+    "76100": {
+        "des": "A Diputaciones, Consejos y cabildos"
+    },
+    "76702": {
+        "des": "Consorcio Metropolitano Transporte Bahía Cádiz"
+    },
+    "77003": {
+        "des": "Resarcimiento esfuerzo electrico IKEA"
+    },
+    "78000": {
+        "des": "Transferencia de capital a familias e instituciones sin fines lucro"
+    },
+    "78900": {
+        "des": "Otras transferencias de capital"
+    },
+    "78904": {
+        "des": "Transferencia capital Archic. Stmo.Cristo Expiración Ermita San Telmo"
+    },
+    "78905": {
+        "des": "Transferencia capital Orden Padres Mercedarios Rehabilitación Basílica Merced"
+    },
+    "78906": {
+        "des": "Fundación Centro Acogida San José"
+    },
+    "78907": {
+        "des": "Transferencia capital Hermandad La Sentencia Rehabilitación Ermita La Yedra"
+    },
+    "78921": {
+        "des": "Obras rehabilitación Bda. Asunción-Edifif y"
+    },
+    "78923": {
+        "des": "Fundación Andrés de Ribera-Promoción"
+    },
+    "82190": {
+        "des": "A otros subsectores"
+    },
+    "83001": {
+        "des": "Anticipos reintegros al personal a largo plazo"
+    },
+    "83101": {
+        "des": "Anticipos reintegros al personal a largo plazo"
+    },
+    "85090": {
+        "des": "Resto de adquisiciones de acciones del sector publico"
+    },
+    "90100": {
+        "des": "Amortización de Deuda Pública en euros a"
+    },
+    "91100": {
+        "des": "Amortización prestamos largo plazo entes sector público"
+    },
+    "91300": {
+        "des": "Amortización prestamos a medio y largo entes fuera sector público"
+    }
+}

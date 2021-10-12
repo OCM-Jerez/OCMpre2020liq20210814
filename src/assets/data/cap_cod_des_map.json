@@ -1,0 +1,29 @@
+{
+    "1": {
+        "des": "Gastos de personal"
+    },
+    "2": {
+        "des": "Gastos en bienes corrientes y servicios"
+    },
+    "3": {
+        "des": "Gastos financieros"
+    },
+    "4": {
+        "des": "Transferencias corrientes"
+    },
+    "5": {
+        "des": "Fondo de contingencia"
+    },
+    "6": {
+        "des": "Inversiones reales"
+    },
+    "7": {
+        "des": "Transferencias de capital"
+    },
+    "8": {
+        "des": "Activos financieros"
+    },
+    "9": {
+        "des": "Pasivos financieros"
+    }
+}

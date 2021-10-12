@@ -1,6 +1,8 @@
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
+import cap_cod_des_map from '../../assets/data/cap_cod_des_map.json';
 import pro_cod_des_map from '../../assets/data/pro_cod_des_map.json';
 import org_cod_des_map from '../../assets/data/org_cod_des_map.json';
+import eco_cod_des_map from '../../assets/data/eco_cod_des_map.json';
 
 export class DatoGasto {
     cod: string;
@@ -28,7 +30,8 @@ export class DatoGasto {
         switch (this.tipoClasificacion) {
             case "Cap":
                 formatoTabla["CodCap"] = this.cod;
-                formatoTabla["DesCap"] = this.des;
+                formatoTabla["DesCapOld"] = this.des;
+                formatoTabla["DesCap"] = cap_cod_des_map[this.cod] !== undefined ? cap_cod_des_map[this.cod].des : "Codigo no encontrado";
                 break;
 
             case 'Org':
@@ -45,7 +48,8 @@ export class DatoGasto {
 
             case 'Eco':
                 formatoTabla["CodEco"] = this.cod;
-                formatoTabla["DesEco"] = this.des;
+                formatoTabla["DesEcoOld"] = this.des;
+                formatoTabla["DesEco"] = eco_cod_des_map[this.cod] !== undefined ? eco_cod_des_map[this.cod].des : "Codigo no encontrado";
                 break;
 
             default:
