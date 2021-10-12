@@ -304,9 +304,9 @@ export class ComparaGasComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-
     this.rowData = await this.avalaibleYearsService.getDataAllYear(this.tipoClasificacion);
   }
+
   headerHeightSetter() {
     var padding = 20;
     var height = headerHeightGetter() + padding;
