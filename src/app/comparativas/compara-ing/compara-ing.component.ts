@@ -21,8 +21,8 @@ export class ComparaIngComponent {
   public localeText;
   public rowData: any;
   public groupHeaderHeight = 25;
-  public headerHeight = 25;
-  public CreditosWidth?: number = 100;
+  public headerHeight = 36;
+  public CreditosWidth?: number = 130;
   public OPAWidth?: number = 90;
   public tipoClasificacion: string;
   result2017 = [];
@@ -39,7 +39,7 @@ export class ComparaIngComponent {
     private tipoclasificacionService: TipoClasificacionService) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
 
-    if (this.tipoClasificacion === 'capítulo') {
+    if (this.tipoClasificacion === 'Cap') {
       this._headerName = 'Clasificado por capítulo';
       this._subHeaderName = 'Capítulo';
       this._codField = 'CodCap';
@@ -79,21 +79,185 @@ export class ComparaIngComponent {
       },
       {
         headerName: '2017',
-        field: 'DerechosReconocidosNetos2017',
+        children: [
+          {
+            headerName: 'Previsiones Iniciales',
+            field: 'Iniciales2017',
+          },
+          {
+            headerName: 'Total Modificaciones',
+            field: 'Modificaciones2017',
+          },
+          {
+            headerName: 'Previsiones definitivas',
+            field: 'Definitivas2017',
+          },
+          {
+            headerName: 'Derechos Reconocidos',
+            field: 'DerechosReconocidos2017',
+          },
+          {
+            headerName: 'Derechos anulados',
+            field: 'DerechosAnulados2017',
+          },
+          {
+            headerName: 'Derechos cancelados',
+            field: 'DerechosCancelados2017',
+          },
+          {
+            headerName: 'Derechos Reconocidos Netos',
+            field: 'DerechosReconocidosNetos2017',
+          },
+          {
+            headerName: 'Recaudación neta',
+            field: 'RecaudacionNeta2017',
+          },
+          {
+            headerName: 'Derechos Pendientes de cobro al 31 diciembre',
+            field: 'DerechosPendienteCobro2017',
+          },
+          {
+            headerName: 'Exceso/defecto previsión',
+            field: 'DiferenciaPrevision2017',
+          },
+        ],
       },
       {
         headerName: '2018',
-        field: 'DerechosReconocidosNetos2018',
+        children: [
+          {
+            headerName: 'Previsiones Iniciales',
+            field: 'Iniciales2018',
+          },
+          {
+            headerName: 'Total Modificaciones',
+            field: 'Modificaciones2018',
+          },
+          {
+            headerName: 'Previsiones definitivas',
+            field: 'Definitivas2018',
+          },
+          {
+            headerName: 'Derechos Reconocidos',
+            field: 'DerechosReconocidos2018',
+          },
+          {
+            headerName: 'Derechos anulados',
+            field: 'DerechosAnulados2018',
+          },
+          {
+            headerName: 'Derechos cancelados',
+            field: 'DerechosCancelados2018',
+          },
+          {
+            headerName: 'Derechos Reconocidos Netos',
+            field: 'DerechosReconocidosNetos2018',
+          },
+          {
+            headerName: 'Recaudación neta',
+            field: 'RecaudacionNeta2018',
+          },
+          {
+            headerName: 'Derechos Pendientes de cobro al 31 diciembre',
+            field: 'DerechosPendienteCobro2018',
+          },
+          {
+            headerName: 'Exceso/defecto previsión',
+            field: 'DiferenciaPrevision2018',
+          },
+        ],
       },
       {
         headerName: '2019',
-        field: 'DerechosReconocidosNetos2019',
+        children: [
+          {
+            headerName: 'Previsiones Iniciales',
+            field: 'Iniciales2019',
+          },
+          {
+            headerName: 'Total Modificaciones',
+            field: 'Modificaciones2019',
+          },
+          {
+            headerName: 'Previsiones definitivas',
+            field: 'Definitivas2019',
+          },
+          {
+            headerName: 'Derechos Reconocidos',
+            field: 'DerechosReconocidos2019',
+          },
+          {
+            headerName: 'Derechos anulados',
+            field: 'DerechosAnulados2019',
+          },
+          {
+            headerName: 'Derechos cancelados',
+            field: 'DerechosCancelados2019',
+          },
+          {
+            headerName: 'Derechos Reconocidos Netos',
+            field: 'DerechosReconocidosNetos2019',
+          },
+          {
+            headerName: 'Recaudación neta',
+            field: 'RecaudacionNeta2019',
+          },
+          {
+            headerName: 'Derechos Pendientes de cobro al 31 diciembre',
+            field: 'DerechosPendienteCobro2019',
+          },
+          {
+            headerName: 'Exceso/defecto previsión',
+            field: 'DiferenciaPrevision2019',
+          },
+        ],
       },
       {
         headerName: '2020',
-        field: 'DerechosReconocidosNetos2020',
-      },
-    ];
+        children: [
+          {
+            headerName: 'Previsiones Iniciales',
+            field: 'Iniciales2020',
+          },
+          {
+            headerName: 'Total Modificaciones',
+            field: 'Modificaciones2020',
+          },
+          {
+            headerName: 'Previsiones definitivas',
+            field: 'Definitivas2020',
+          },
+          {
+            headerName: 'Derechos Reconocidos',
+            field: 'DerechosReconocidos2020',
+          },
+          {
+            headerName: 'Derechos anulados',
+            field: 'DerechosAnulados2020',
+          },
+          {
+            headerName: 'Derechos cancelados',
+            field: 'DerechosCancelados2020',
+          },
+          {
+            headerName: 'Derechos Reconocidos Netos',
+            field: 'DerechosReconocidosNetos2020',
+          },
+          {
+            headerName: 'Recaudación neta',
+            field: 'RecaudacionNeta2020',
+          },
+          {
+            headerName: 'Derechos Pendientes de cobro al 31 diciembre',
+            field: 'DerechosPendienteCobro2020',
+          },
+          {
+            headerName: 'Exceso/defecto previsión',
+            field: 'DiferenciaPrevision2020',
+          },
+        ],
+      }
+    ]
 
     this.defaultColDef = {
       width: this.CreditosWidth,
@@ -101,7 +265,21 @@ export class ComparaIngComponent {
       resizable: true,
       filter: true,
       aggFunc: 'sum',
-      cellRenderer: CellRendererOCM
+      cellRenderer: CellRendererOCM,
+      headerComponentParams: {
+        template:
+          '<div class="ag-cell-label-container" role="presentation">' +
+          '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+          '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+          '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+          '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+          '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+          '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+          '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+          '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+          '  </div>' +
+          '</div>',
+      },
     };
     this.gridOptions = {} as GridOptions;
     this.localeText = localeTextESPes;
@@ -110,19 +288,39 @@ export class ComparaIngComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.tipoClasificacion = this.tipoclasificacionService.getTipoClasificacion();
-    if (this.tipoClasificacion === 'capítulo') {
-      await this.avalaibleYearsService.getDataIng('2020', this.result2020, "CodCap", "DesCap", "DerechosReconocidosNetos2020", false)
-      await this.avalaibleYearsService.getDataIng('2019', this.result2019, "CodCap", "DesCap", "DerechosReconocidosNetos2019", false)
-      await this.avalaibleYearsService.getDataIng('2018', this.result2018, "CodCap", "DesCap", "DerechosReconocidosNetos2018", false)
-      await this.avalaibleYearsService.getDataIng('2017', this.result2017, "CodCap", "DesCap", "DerechosReconocidosNetos2017", false)
-    } else {
-      await this.avalaibleYearsService.getDataIng('2020', this.result2020, "CodEco", "DesEco", "DerechosReconocidosNetos2020", false)
-      await this.avalaibleYearsService.getDataIng('2019', this.result2019, "CodEco", "DesEco", "DerechosReconocidosNetos2019", false)
-      await this.avalaibleYearsService.getDataIng('2018', this.result2018, "CodEco", "DesEco", "DerechosReconocidosNetos2018", false)
-      await this.avalaibleYearsService.getDataIng('2017', this.result2017, "CodEco", "DesEco", "DerechosReconocidosNetos2017", false)
-    }
-    this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
+    this.rowData = await this.avalaibleYearsService.getDataAllYearIng(this.tipoClasificacion);
+
+    // this.tipoClasificacion = this.tipoclasificacionService.getTipoClasificacion();
+    // if (this.tipoClasificacion === 'capítulo') {
+    //   await this.avalaibleYearsService.getDataIng('2020', this.result2020, "CodCap", "DesCap", "DerechosReconocidosNetos2020", false)
+    //   await this.avalaibleYearsService.getDataIng('2019', this.result2019, "CodCap", "DesCap", "DerechosReconocidosNetos2019", false)
+    //   await this.avalaibleYearsService.getDataIng('2018', this.result2018, "CodCap", "DesCap", "DerechosReconocidosNetos2018", false)
+    //   await this.avalaibleYearsService.getDataIng('2017', this.result2017, "CodCap", "DesCap", "DerechosReconocidosNetos2017", false)
+    // } else {
+    //   await this.avalaibleYearsService.getDataIng('2020', this.result2020, "CodEco", "DesEco", "DerechosReconocidosNetos2020", false)
+    //   await this.avalaibleYearsService.getDataIng('2019', this.result2019, "CodEco", "DesEco", "DerechosReconocidosNetos2019", false)
+    //   await this.avalaibleYearsService.getDataIng('2018', this.result2018, "CodEco", "DesEco", "DerechosReconocidosNetos2018", false)
+    //   await this.avalaibleYearsService.getDataIng('2017', this.result2017, "CodEco", "DesEco", "DerechosReconocidosNetos2017", false)
+    // }
+    // this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
   }
 
+  headerHeightSetter() {
+    var padding = 20;
+    var height = headerHeightGetter() + padding;
+    this.gridApi.setHeaderHeight(height);
+    this.gridApi.resetRowHeights();
+  }
+
+}
+
+function headerHeightGetter() {
+  var columnHeaderTexts = document.querySelectorAll('.ag-header-cell-text');
+  var columnHeaderTextsArray: Element[] = [];
+  columnHeaderTexts.forEach(node => columnHeaderTextsArray.push(node));
+  var clientHeights = columnHeaderTextsArray.map(
+    headerText => headerText.clientHeight
+  );
+  var tallestHeaderTextHeight = Math.max(...clientHeights);
+  return tallestHeaderTextHeight;
 }

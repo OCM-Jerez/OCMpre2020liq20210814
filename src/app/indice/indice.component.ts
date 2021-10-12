@@ -61,12 +61,12 @@ export class IndiceComponent implements OnInit {
   }
 
   comparaIng() {
-    this.tipoclasificacionService.tipoClasificacion = 'capítulo'
+    this.tipoclasificacionService.tipoClasificacion = 'Cap'
     this.router.navigate(['/ComparaIng'])
   }
 
   comparaIngEco() {
-    this.tipoclasificacionService.tipoClasificacion = 'económico'
+    this.tipoclasificacionService.tipoClasificacion = 'Eco'
     this.router.navigate(['/ComparaIng'])
   }
 

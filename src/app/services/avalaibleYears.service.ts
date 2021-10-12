@@ -36,17 +36,64 @@ export class AvalaibleYearsService {
   }
 
   // Selecciona datos de ingresos.
-  async getDataIng(year: string, result: any[], Cod: string, Des: string, derechos: string, isGas: boolean) {
-    const data = await this.getYearDataJson(year, isGas).then(data => {
-      Object.entries(data).reduce((acumulator, currentValue) => {
+  // async getDataIng(year: string, result: any[], Cod: string, Des: string, derechos: string, isGas: boolean) {
+  //   const data = await this.getYearDataJson(year, isGas).then(data => {
+  //     Object.entries(data).reduce((acumulator, currentValue) => {
+  //       result.push({
+  //         [Cod]: currentValue[1][Cod],
+  //         [Des]: currentValue[1][Des],
+  //         [derechos]: currentValue[1]['DerechosReconocidosNetos'],
+  //       });
+  //       return acumulator;
+  //     }, []);
+  //   })
+  // }
+
+  // Selecciona datos ingresos de un año
+  async getDataYearIng(year: string, cla: string) {
+    const result = [];
+    const cod = `Cod${cla}`;
+    const des = `Des${cla}`;
+    const Iniciales = `Iniciales${year}`;
+    const Modificaciones = `Modificaciones${year}`;
+    const Definitivas = `Definitivas${year}`;
+    const DerechosReconocidos = `DerechosReconocidos${year}`;
+    const DerechosAnulados = `DerechosAnulados${year}`;
+    const DerechosCancelados = `DerechosCancelados${year}`;
+    const DerechosReconocidosNetos = `DerechosReconocidosNetos${year}`;
+    const RecaudacionNeta = `RecaudacionNeta${year}`;
+    const DerechosPendienteCobro = `DerechosPendienteCobro${year}`;
+    const DiferenciaPrevision = `DiferenciaPrevision${year}`;
+
+    const data = await this.getYearDataJson(year, false).then(data => {
+      Object.entries(data).forEach((currentValue) => {
         result.push({
-          [Cod]: currentValue[1][Cod],
-          [Des]: currentValue[1][Des],
-          [derechos]: currentValue[1]['DerechosReconocidosNetos'],
+          [cod]: currentValue[1][cod],
+          [des]: currentValue[1][des],
+          [Iniciales]: currentValue[1]['Iniciales'],
+          [Modificaciones]: currentValue[1]['Modificaciones'],
+          [Definitivas]: currentValue[1]['Definitivas'],
+          [DerechosReconocidos]: currentValue[1]['DerechosReconocidos'],
+          [DerechosAnulados]: currentValue[1]['DerechosAnulados'],
+          [DerechosCancelados]: currentValue[1]['DerechosCancelados'],
+          [DerechosReconocidosNetos]: currentValue[1]['DerechosReconocidosNetos'],
+          [RecaudacionNeta]: currentValue[1]['RecaudacionNeta'],
+          [DerechosPendienteCobro]: currentValue[1]['DerechosPendienteCobro'],
+          [DiferenciaPrevision]: currentValue[1]['DiferenciaPrevision'],
         });
-        return acumulator;
-      }, []);
+      });
     })
+    return result;
+  }
+
+  // Itera por cada uno de los años disponibles para ingresos
+  async getDataAllYearIng(cla: string): Promise<any[]> {
+    let rowData = [];
+    await asynForEach(AVALAIBLE_YEARS, async (year: string) => {
+      const dataIng = await this.getDataYearIng(year, cla);
+      rowData = rowData.concat(...dataIng);
+    });
+    return rowData;
   }
 
   // Selecciona datos gastos de un año
@@ -82,7 +129,7 @@ export class AvalaibleYearsService {
     return result;
   }
 
-  // Itera por cada uno de los años disponibles
+  // Itera por cada uno de los años disponibles para gastos
   async getDataAllYear(cla: string): Promise<any[]> {
     let rowData = [];
     await asynForEach(AVALAIBLE_YEARS, async (year: string) => {
