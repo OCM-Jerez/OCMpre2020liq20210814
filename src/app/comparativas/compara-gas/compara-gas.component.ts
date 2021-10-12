@@ -128,6 +128,7 @@ export class ComparaGasComponent {
           {
             headerName: 'Obligaciones pendientes de pago al 31 diciembre',
             field: 'ObligacionesPendientePago2017',
+            width: 120,
           },
           {
             headerName: 'Remanente Credito',
@@ -172,6 +173,7 @@ export class ComparaGasComponent {
           {
             headerName: 'Obligaciones pendientes de pago al 31 diciembre',
             field: 'ObligacionesPendientePago2018',
+            width: 120,
           },
           {
             headerName: 'Remanente Credito',
@@ -216,6 +218,7 @@ export class ComparaGasComponent {
           {
             headerName: 'Obligaciones pendientes de pago al 31 diciembre',
             field: 'ObligacionesPendientePago2019',
+            width: 120,
           },
           {
             headerName: 'Remanente Credito',
@@ -260,6 +263,7 @@ export class ComparaGasComponent {
           {
             headerName: 'Obligaciones pendientes de pago al 31 diciembre',
             field: 'ObligacionesPendientePago2020',
+            width: 120,
           },
           {
             headerName: 'Remanente Credito',
