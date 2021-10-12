@@ -85,7 +85,8 @@ export class ComparaGasComponent {
             cellRenderer: CellRendererOCMtext,
             valueGetter: params => {
               if (params.data) {
-                return params.data[this._codField] + ' - ' + params.data[this._desField] + ' - ' + params.data.DesProOld;
+                // return params.data[this._codField] + ' - ' + params.data[this._desField] + ' - ' + params.data.DesOrgOld;
+                return params.data[this._codField] + ' - ' + params.data[this._desField];
               } else {
                 return null;
               }
