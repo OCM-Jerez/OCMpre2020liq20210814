@@ -126,7 +126,7 @@ export class ComparaGasComponent {
             hide: true,
           },
           {
-            headerName: 'OPA',
+            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
             field: 'ObligacionesPendientePago2017',
           },
           {
@@ -170,7 +170,7 @@ export class ComparaGasComponent {
             hide: true,
           },
           {
-            headerName: 'OPA',
+            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
             field: 'ObligacionesPendientePago2018',
           },
           {
@@ -214,7 +214,7 @@ export class ComparaGasComponent {
             hide: true,
           },
           {
-            headerName: 'OPA',
+            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
             field: 'ObligacionesPendientePago2019',
           },
           {
@@ -258,7 +258,7 @@ export class ComparaGasComponent {
             hide: true,
           },
           {
-            headerName: 'OPA',
+            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
             field: 'ObligacionesPendientePago2020',
           },
           {

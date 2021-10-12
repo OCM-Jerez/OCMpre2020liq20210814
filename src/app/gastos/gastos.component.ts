@@ -207,7 +207,7 @@ export class GastosComponent {
                 headerName: 'Iniciales',
                 field: 'Iniciales',
                 width: this.CreditosWidth,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -216,7 +216,7 @@ export class GastosComponent {
                 headerName: 'Modificaciones',
                 field: 'Modificaciones',
                 width: 130,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -225,7 +225,7 @@ export class GastosComponent {
                 headerName: 'Totales',
                 field: 'Definitivas',
                 width: 123,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'close',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -233,7 +233,7 @@ export class GastosComponent {
             ]
           },
           {
-            headerName: 'Pagos',
+            headerName: 'Gastos',
             // headerComponentFramework: HeaderAgGridComponent,
             children: [
               {
@@ -241,7 +241,7 @@ export class GastosComponent {
                 // headerComponentFramework: HeaderAgGridComponent,
                 field: 'GastosComprometidos',
                 width: 138,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -251,27 +251,27 @@ export class GastosComponent {
                 // headerComponentFramework: HeaderAgGridComponent,
                 field: 'ObligacionesReconocidasNetas',
                 width: 128,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'Close',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
               {
-                headerName: 'Totales',
+                headerName: 'Pagos',
                 // headerComponentFramework: HeaderAgGridComponent,
                 field: 'Pagos',
                 width: this.CreditosWidth,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
               {
-                headerName: 'OPA',
+                headerName: 'Obligaciones pendientes de pago al 31 diciembre',
                 // headerComponentFramework: HeaderAgGridComponent,
                 field: 'ObligacionesPendientePago',
-                width: this.CreditosWidth,
-                resizable: true,
+                width: this.CreditosWidth + 20,
+                // resizable: true,
                 columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -282,10 +282,10 @@ export class GastosComponent {
             headerName: 'Créditos',
             children: [
               {
-                headerName: 'Disponibles',
+                headerName: 'Remanentes de crédito',
                 field: 'RemanenteCredito',
                 width: 140,
-                resizable: false,
+                // resizable: false,
                 columnGroupShow: 'close',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -450,7 +450,7 @@ export class GastosComponent {
                 headerName: 'Iniciales',
                 field: 'Iniciales',
                 width: this.CreditosWidth,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -459,7 +459,7 @@ export class GastosComponent {
                 headerName: 'Modificaciones',
                 field: 'Modificaciones',
                 width: 130,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -468,7 +468,7 @@ export class GastosComponent {
                 headerName: 'Totales',
                 field: 'Definitivas',
                 width: 123,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'close',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -476,13 +476,13 @@ export class GastosComponent {
             ]
           },
           {
-            headerName: 'Pagos',
+            headerName: 'Gastos',
             children: [
               {
                 headerName: 'Comprometidos',
                 field: 'GastosComprometidos',
                 width: 138,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -491,25 +491,25 @@ export class GastosComponent {
                 headerName: 'Obligaciones reconocidas netas',
                 field: 'ObligacionesReconocidasNetas',
                 width: 128,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'Close',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
               {
-                headerName: 'Totales',
+                headerName: 'Pagos',
                 field: 'Pagos',
                 width: this.CreditosWidth,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
               },
               {
-                headerName: 'OPA',
+                headerName: 'Obligaciones pendientes de pago al 31 diciembre',
                 field: 'ObligacionesPendientePago',
-                width: this.CreditosWidth,
-                resizable: true,
+                width: this.CreditosWidth + 20,
+                // resizable: true,
                 columnGroupShow: 'open',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -520,10 +520,10 @@ export class GastosComponent {
             headerName: 'Créditos',
             children: [
               {
-                headerName: 'Disponibles',
+                headerName: 'Remanentes de crédito',
                 field: 'RemanenteCredito',
                 width: 118,
-                resizable: true,
+                // resizable: true,
                 columnGroupShow: 'close',
                 aggFunc: 'sum',
                 cellRenderer: CellRendererOCM
@@ -539,7 +539,7 @@ export class GastosComponent {
 
     this.defaultColDef = {
       sortable: true,
-      resizable: true,
+      resizable: false,
       filter: true,
       headerComponentParams: {
         template:
