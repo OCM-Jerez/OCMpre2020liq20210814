@@ -1,4 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
+
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
@@ -29,9 +30,7 @@ export class IngresosComponent {
   public DesEcoWidth?: number;
   public CreditosWidth?: number;
   public screenSize?: any;
-
-  // width de todas las columnas con valores úmericos.
-  columnasWidth = 160;
+  columnasWidth = 130;
 
   constructor(private getScreenSizeService: GetScreenSizeService,
     private avalaibleYearsService: AvalaibleYearsService) {
@@ -83,7 +82,6 @@ export class IngresosComponent {
 
     this.columnDefs = [
       {
-        // headerName: 'Capitulo-Económico.',
         children: [
           {
             headerName: 'Capitulo',
@@ -104,7 +102,6 @@ export class IngresosComponent {
             cellRendererParams: {
               suppressCount: true,
               innerRenderer: params => {
-                // console.log('params', params);
                 if (params.node.group) {
                   return params.value;
                 } else {
@@ -145,96 +142,73 @@ export class IngresosComponent {
       {
         headerName: 'Previsiones Iniciales',
         field: 'Iniciales',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
       },
       {
         headerName: 'Total Modificaciones',
         field: 'Modificaciones',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
       },
       {
-        headerName: 'Previsiones totales',
+        headerName: 'Previsiones definitivas',
         field: 'Definitivas',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
       },
       {
         headerName: 'Derechos Reconocidos',
         field: 'DerechosReconocidos',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
       },
       {
         headerName: 'Derechos anulados',
         field: 'DerechosAnulados',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
       },
       {
         headerName: 'Derechos cancelados',
         field: 'DerechosCancelados',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
       },
       {
         headerName: 'Derechos Reconocidos Netos',
         field: 'DerechosReconocidosNetos',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
       },
       {
         headerName: 'Recaudación neta',
         field: 'RecaudacionNeta',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
       },
       {
-        headerName: 'Derechos Pendientes de Cobro',
+        headerName: 'Derechos Pendientes de cobro al 31 diciembre',
         field: 'DerechosPendienteCobro',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
       },
       {
         headerName: 'Exceso/defecto previsión',
         field: 'DiferenciaPrevision',
-        width: this.columnasWidth,
-        resizable: true,
-        aggFunc: 'sum',
-        cellRenderer: CellRendererOCM
       },
     ];
 
     this.defaultColDef = {
+      width: this.columnasWidth,
       sortable: true,
       resizable: true,
-      filter: true
+      filter: true,
+      aggFunc: 'sum',
+      cellRenderer: CellRendererOCM,
+      headerComponentParams: {
+        template:
+          '<div class="ag-cell-label-container" role="presentation">' +
+          '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+          '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+          '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+          '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+          '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+          '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+          '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+          '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+          '  </div>' +
+          '</div>',
+      },
+
     };
 
     // we pass an empty gridOptions in, so we can grab the api out
     this.gridOptions = {} as GridOptions;
     this.localeText = localeTextESPes;
   }
-
 
   async onGridReady(params) {
     this.gridApi = params.api;
@@ -252,7 +226,22 @@ export class IngresosComponent {
     this.isExpanded = false;
   }
 
+  headerHeightSetter() {
+    var padding = 20;
+    var height = headerHeightGetter() + padding;
+    this.gridApi.setHeaderHeight(height);
+    this.gridApi.resetRowHeights();
+  }
+
 }
 
-
-
+function headerHeightGetter() {
+  var columnHeaderTexts = document.querySelectorAll('.ag-header-cell-text');
+  var columnHeaderTextsArray: Element[] = [];
+  columnHeaderTexts.forEach(node => columnHeaderTextsArray.push(node));
+  var clientHeights = columnHeaderTextsArray.map(
+    headerText => headerText.clientHeight
+  );
+  var tallestHeaderTextHeight = Math.max(...clientHeights);
+  return tallestHeaderTextHeight;
+}
