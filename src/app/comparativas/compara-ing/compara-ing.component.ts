@@ -24,14 +24,12 @@ export class ComparaIngComponent {
   public groupHeaderHeight = 25;
   public headerHeight = 36;
   public CreditosWidth?: number = 130;
-  public OPAWidth?: number = 90;
   public tipoClasificacion: string;
   private _headerName: string;
   private _subHeaderName: string;
   private _codField: string;
   private _desField: string;
   private _width: number;
-
 
   constructor(private avalaibleYearsService: AvalaibleYearsService,
     private tipoclasificacionService: TipoClasificacionService) {
