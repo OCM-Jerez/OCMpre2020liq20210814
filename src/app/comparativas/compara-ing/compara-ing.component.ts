@@ -26,15 +26,12 @@ export class ComparaIngComponent {
   public CreditosWidth?: number = 130;
   public OPAWidth?: number = 90;
   public tipoClasificacion: string;
-  result2017 = [];
-  result2018 = [];
-  result2019 = [];
-  result2020 = [];
   private _headerName: string;
   private _subHeaderName: string;
   private _codField: string;
   private _desField: string;
   private _width: number;
+
 
   constructor(private avalaibleYearsService: AvalaibleYearsService,
     private tipoclasificacionService: TipoClasificacionService) {
@@ -80,183 +77,19 @@ export class ComparaIngComponent {
       },
       {
         headerName: '2017',
-        children: [
-          {
-            headerName: 'Previsiones Iniciales',
-            field: 'Iniciales2017',
-          },
-          {
-            headerName: 'Total Modificaciones',
-            field: 'Modificaciones2017',
-          },
-          {
-            headerName: 'Previsiones definitivas',
-            field: 'Definitivas2017',
-          },
-          {
-            headerName: 'Derechos Reconocidos',
-            field: 'DerechosReconocidos2017',
-          },
-          {
-            headerName: 'Derechos anulados',
-            field: 'DerechosAnulados2017',
-          },
-          {
-            headerName: 'Derechos cancelados',
-            field: 'DerechosCancelados2017',
-          },
-          {
-            headerName: 'Derechos Reconocidos Netos',
-            field: 'DerechosReconocidosNetos2017',
-          },
-          {
-            headerName: 'Recaudación neta',
-            field: 'RecaudacionNeta2017',
-          },
-          {
-            headerName: 'Derechos Pendientes de cobro al 31 diciembre',
-            field: 'DerechosPendienteCobro2017',
-          },
-          {
-            headerName: 'Exceso/defecto previsión',
-            field: 'DiferenciaPrevision2017',
-          },
-        ],
+        children: this.createColumnsChildren('2017'),
       },
       {
         headerName: '2018',
-        children: [
-          {
-            headerName: 'Previsiones Iniciales',
-            field: 'Iniciales2018',
-          },
-          {
-            headerName: 'Total Modificaciones',
-            field: 'Modificaciones2018',
-          },
-          {
-            headerName: 'Previsiones definitivas',
-            field: 'Definitivas2018',
-          },
-          {
-            headerName: 'Derechos Reconocidos',
-            field: 'DerechosReconocidos2018',
-          },
-          {
-            headerName: 'Derechos anulados',
-            field: 'DerechosAnulados2018',
-          },
-          {
-            headerName: 'Derechos cancelados',
-            field: 'DerechosCancelados2018',
-          },
-          {
-            headerName: 'Derechos Reconocidos Netos',
-            field: 'DerechosReconocidosNetos2018',
-          },
-          {
-            headerName: 'Recaudación neta',
-            field: 'RecaudacionNeta2018',
-          },
-          {
-            headerName: 'Derechos Pendientes de cobro al 31 diciembre',
-            field: 'DerechosPendienteCobro2018',
-          },
-          {
-            headerName: 'Exceso/defecto previsión',
-            field: 'DiferenciaPrevision2018',
-          },
-        ],
+        children: this.createColumnsChildren('2018'),
       },
       {
         headerName: '2019',
-        children: [
-          {
-            headerName: 'Previsiones Iniciales',
-            field: 'Iniciales2019',
-          },
-          {
-            headerName: 'Total Modificaciones',
-            field: 'Modificaciones2019',
-          },
-          {
-            headerName: 'Previsiones definitivas',
-            field: 'Definitivas2019',
-          },
-          {
-            headerName: 'Derechos Reconocidos',
-            field: 'DerechosReconocidos2019',
-          },
-          {
-            headerName: 'Derechos anulados',
-            field: 'DerechosAnulados2019',
-          },
-          {
-            headerName: 'Derechos cancelados',
-            field: 'DerechosCancelados2019',
-          },
-          {
-            headerName: 'Derechos Reconocidos Netos',
-            field: 'DerechosReconocidosNetos2019',
-          },
-          {
-            headerName: 'Recaudación neta',
-            field: 'RecaudacionNeta2019',
-          },
-          {
-            headerName: 'Derechos Pendientes de cobro al 31 diciembre',
-            field: 'DerechosPendienteCobro2019',
-          },
-          {
-            headerName: 'Exceso/defecto previsión',
-            field: 'DiferenciaPrevision2019',
-          },
-        ],
+        children: this.createColumnsChildren('2019'),
       },
       {
         headerName: '2020',
-        children: [
-          {
-            headerName: 'Previsiones Iniciales',
-            field: 'Iniciales2020',
-          },
-          {
-            headerName: 'Total Modificaciones',
-            field: 'Modificaciones2020',
-          },
-          {
-            headerName: 'Previsiones definitivas',
-            field: 'Definitivas2020',
-          },
-          {
-            headerName: 'Derechos Reconocidos',
-            field: 'DerechosReconocidos2020',
-          },
-          {
-            headerName: 'Derechos anulados',
-            field: 'DerechosAnulados2020',
-          },
-          {
-            headerName: 'Derechos cancelados',
-            field: 'DerechosCancelados2020',
-          },
-          {
-            headerName: 'Derechos Reconocidos Netos',
-            field: 'DerechosReconocidosNetos2020',
-          },
-          {
-            headerName: 'Recaudación neta',
-            field: 'RecaudacionNeta2020',
-          },
-          {
-            headerName: 'Derechos Pendientes de cobro al 31 diciembre',
-            field: 'DerechosPendienteCobro2020',
-          },
-          {
-            headerName: 'Exceso/defecto previsión',
-            field: 'DiferenciaPrevision2020',
-          },
-        ],
+        children: this.createColumnsChildren('2020'),
       }
     ]
 
@@ -297,6 +130,51 @@ export class ComparaIngComponent {
     var height = headerHeightGetter() + padding;
     this.gridApi.setHeaderHeight(height);
     this.gridApi.resetRowHeights();
+  }
+
+  createColumnsChildren(year: string) {
+    return [
+      {
+        headerName: 'Previsiones Iniciales',
+        field: `Iniciales${year}`,
+      },
+      {
+        headerName: 'Total Modificaciones',
+        field: `Modificaciones${year}`,
+      },
+      {
+        headerName: 'Previsiones definitivas',
+        field: `Definitivas${year}`,
+      },
+      {
+        headerName: 'Derechos Reconocidos',
+        field: `DerechosReconocidos${year}`,
+      },
+      {
+        headerName: 'Derechos anulados',
+        field: `DerechosAnulados${year}`,
+      },
+      {
+        headerName: 'Derechos cancelados',
+        field: `DerechosCancelados${year}`,
+      },
+      {
+        headerName: 'Derechos Reconocidos Netos',
+        field: `DerechosReconocidosNetos${year}`,
+      },
+      {
+        headerName: 'Recaudación neta',
+        field: `RecaudacionNeta${year}`,
+      },
+      {
+        headerName: 'Derechos Pendientes de cobro al 31 diciembre',
+        field: `DerechosPendienteCobro${year}`,
+      },
+      {
+        headerName: 'Exceso/defecto previsión',
+        field: `DiferenciaPrevision${year}`,
+      },
+    ];
   }
 
 }
