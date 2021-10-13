@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
@@ -289,20 +290,6 @@ export class ComparaIngComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.rowData = await this.avalaibleYearsService.getDataAllYearIng(this.tipoClasificacion);
-
-    // this.tipoClasificacion = this.tipoclasificacionService.getTipoClasificacion();
-    // if (this.tipoClasificacion === 'capítulo') {
-    //   await this.avalaibleYearsService.getDataIng('2020', this.result2020, "CodCap", "DesCap", "DerechosReconocidosNetos2020", false)
-    //   await this.avalaibleYearsService.getDataIng('2019', this.result2019, "CodCap", "DesCap", "DerechosReconocidosNetos2019", false)
-    //   await this.avalaibleYearsService.getDataIng('2018', this.result2018, "CodCap", "DesCap", "DerechosReconocidosNetos2018", false)
-    //   await this.avalaibleYearsService.getDataIng('2017', this.result2017, "CodCap", "DesCap", "DerechosReconocidosNetos2017", false)
-    // } else {
-    //   await this.avalaibleYearsService.getDataIng('2020', this.result2020, "CodEco", "DesEco", "DerechosReconocidosNetos2020", false)
-    //   await this.avalaibleYearsService.getDataIng('2019', this.result2019, "CodEco", "DesEco", "DerechosReconocidosNetos2019", false)
-    //   await this.avalaibleYearsService.getDataIng('2018', this.result2018, "CodEco", "DesEco", "DerechosReconocidosNetos2018", false)
-    //   await this.avalaibleYearsService.getDataIng('2017', this.result2017, "CodEco", "DesEco", "DerechosReconocidosNetos2017", false)
-    // }
-    // this.rowData = [...this.result2017, ...this.result2018, ...this.result2019, ...this.result2020];
   }
 
   headerHeightSetter() {
