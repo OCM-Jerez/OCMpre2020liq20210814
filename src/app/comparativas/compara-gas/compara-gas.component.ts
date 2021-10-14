@@ -25,10 +25,6 @@ export class ComparaGasComponent {
   public headerHeight = 25;
   public CreditosWidth?: number = 110;
   public tipoClasificacion: string;
-  result2017 = [];
-  result2018 = [];
-  result2019 = [];
-  result2020 = [];
   private _headerName: string;
   private _subHeaderName: string;
   private _codField: string;
