@@ -149,40 +149,58 @@ export class ComparaGasComponent {
   createColumnsChildren(year: string) {
     return [
       {
-        headerName: 'Previsiones Iniciales',
-        field: `Iniciales${year}`,
+        headerName: 'Créditos',
+        children: [
+          {
+            headerName: 'Previsiones Iniciales',
+            field: `Iniciales${year}`,
+            columnGroupShow: 'open'
+          },
+          {
+            headerName: 'Total Modificaciones',
+            field: `Modificaciones${year}`,
+            width: 140,
+            columnGroupShow: 'open'
+          },
+          {
+            headerName: 'Creditos definitivos',
+            field: `Definitivas${year}`,
+            width: 140,
+            columnGroupShow: 'close'
+          },
+        ]
       },
       {
-        headerName: 'Total Modificaciones',
-        field: `Modificaciones${year}`,
-        width: 140
-      },
-      {
-        headerName: 'Creditos definitivos',
-        field: `Definitivas${year}`,
-      },
-      {
-        headerName: 'Gastos Comprometidos',
-        field: 'GastosComprometidos2017',
-        width: 140,
-      },
-      {
-        headerName: 'Obligaciones reconocidas netas',
-        field: 'ObligacionesReconocidasNetas2017',
-        width: 120,
-      },
-      {
-        headerName: 'Pagos',
-        field: 'Pagos2017',
-      },
-      {
-        headerName: 'Obligaciones pendientes de pago al 31 diciembre',
-        field: 'ObligacionesPendientePago2017',
-        width: 120,
+        headerName: 'Gastos',
+        children: [
+          {
+            headerName: 'Gastos Comprometidos',
+            field: `GastosComprometidos${year}`,
+            width: 140,
+            columnGroupShow: 'open',
+          },
+          {
+            headerName: 'Obligaciones reconocidas netas',
+            field: `ObligacionesReconocidasNetas${year}`,
+            width: 120,
+            columnGroupShow: 'close'
+          },
+          {
+            headerName: 'Pagos',
+            field: `Pagos${year}`,
+            columnGroupShow: 'open'
+          },
+          {
+            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
+            field: `ObligacionesPendiente${year}`,
+            width: 120,
+            columnGroupShow: 'open'
+          },
+        ]
       },
       {
         headerName: 'Remanente Credito',
-        field: 'RemanenteCredito2017',
+        field: `RemanenteCredito${year}`,
         // hide: true,
       },
     ];
