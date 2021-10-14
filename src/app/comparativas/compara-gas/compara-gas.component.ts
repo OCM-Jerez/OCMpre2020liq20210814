@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
@@ -94,185 +95,20 @@ export class ComparaGasComponent {
       },
       {
         headerName: '2017',
-        children: [
-          {
-            headerName: 'Iniciales',
-            field: 'Iniciales2017',
-            hide: true,
-          },
-          {
-            headerName: 'Modificaciones',
-            field: 'Modificaciones2017',
-            hide: true,
-          },
-          {
-            headerName: 'Creditos definitivos',
-            field: 'Definitivas2017',
-          },
-          {
-            headerName: 'Gastos Comprometidos',
-            field: 'GastosComprometidos2017',
-            width: 140,
-            hide: true,
-          },
-          {
-            headerName: 'Obligaciones reconocidas netas',
-            field: 'ObligacionesReconocidasNetas2017',
-            width: 120,
-          },
-          {
-            headerName: 'Pagos',
-            field: 'Pagos2017',
-            hide: true,
-          },
-          {
-            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
-            field: 'ObligacionesPendientePago2017',
-            width: 120,
-          },
-          {
-            headerName: 'Remanente Credito',
-            field: 'RemanenteCredito2017',
-            hide: true,
-          },
-        ]
+        children: this.createColumnsChildren('2017'),
       },
       {
         headerName: '2018',
-        children: [
-          {
-            headerName: 'Iniciales',
-            field: 'Iniciales2018',
-            hide: true,
-          },
-          {
-            headerName: 'Modificaciones',
-            field: 'Modificaciones2018',
-            hide: true,
-          },
-          {
-            headerName: 'Creditos definitivos',
-            field: 'Definitivas2018',
-          },
-          {
-            headerName: 'Gastos Comprometidos',
-            field: 'GastosComprometidos2018',
-            width: 140,
-            hide: true,
-          },
-          {
-            headerName: 'Obligaciones reconocidas netas',
-            field: 'ObligacionesReconocidasNetas2018',
-            width: 120,
-          },
-          {
-            headerName: 'Pagos',
-            field: 'Pagos2018',
-            hide: true,
-          },
-          {
-            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
-            field: 'ObligacionesPendientePago2018',
-            width: 120,
-          },
-          {
-            headerName: 'Remanente Credito',
-            field: 'RemanenteCredito2018',
-            hide: true,
-          },
-        ]
+        children: this.createColumnsChildren('2018'),
       },
       {
         headerName: '2019',
-        children: [
-          {
-            headerName: 'Iniciales',
-            field: 'Iniciales2019',
-            hide: true,
-          },
-          {
-            headerName: 'Modificaciones',
-            field: 'Modificaciones2019',
-            hide: true,
-          },
-          {
-            headerName: 'Creditos definitivos',
-            field: 'Definitivas2019',
-          },
-          {
-            headerName: 'Gastos Comprometidos',
-            field: 'GastosComprometidos2019',
-            width: 140,
-            hide: true,
-          },
-          {
-            headerName: 'Obligaciones reconocidas netas',
-            field: 'ObligacionesReconocidasNetas2019',
-            width: 120,
-          },
-          {
-            headerName: 'Pagos',
-            field: 'Pagos2019',
-            hide: true,
-          },
-          {
-            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
-            field: 'ObligacionesPendientePago2019',
-            width: 120,
-          },
-          {
-            headerName: 'Remanente Credito',
-            field: 'RemanenteCredito2019',
-            hide: true,
-          },
-        ]
+        children: this.createColumnsChildren('2019'),
       },
       {
         headerName: '2020',
-        children: [
-          {
-            headerName: 'Iniciales',
-            field: 'Iniciales2020',
-            hide: true,
-          },
-          {
-            headerName: 'Modificaciones',
-            field: 'Modificaciones2020',
-            hide: true,
-          },
-          {
-            headerName: 'Creditos definitivos',
-            field: 'Definitivas2020',
-          },
-          {
-            headerName: 'Gastos Comprometidos',
-            field: 'GastosComprometidos2020',
-            width: 140,
-            hide: true,
-          },
-          {
-            headerName: 'Obligaciones reconocidas netas',
-            field: 'ObligacionesReconocidasNetas2020',
-            width: 120,
-          },
-          {
-            headerName: 'Pagos',
-            field: 'Pagos2020',
-            hide: true,
-          },
-          {
-            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
-            field: 'ObligacionesPendientePago2020',
-            width: 120,
-          },
-          {
-            headerName: 'Remanente Credito',
-            field: 'RemanenteCredito2020',
-            hide: true,
-          },
-        ]
-      },
-
+        children: this.createColumnsChildren('2020'),
+      }
     ];
 
     this.defaultColDef = {
@@ -312,6 +148,48 @@ export class ComparaGasComponent {
     var height = headerHeightGetter() + padding;
     this.gridApi.setHeaderHeight(height);
     this.gridApi.resetRowHeights();
+  }
+
+  createColumnsChildren(year: string) {
+    return [
+      {
+        headerName: 'Previsiones Iniciales',
+        field: `Iniciales${year}`,
+      },
+      {
+        headerName: 'Total Modificaciones',
+        field: `Modificaciones${year}`,
+        width: 140
+      },
+      {
+        headerName: 'Creditos definitivos',
+        field: `Definitivas${year}`,
+      },
+      {
+        headerName: 'Gastos Comprometidos',
+        field: 'GastosComprometidos2017',
+        width: 140,
+      },
+      {
+        headerName: 'Obligaciones reconocidas netas',
+        field: 'ObligacionesReconocidasNetas2017',
+        width: 120,
+      },
+      {
+        headerName: 'Pagos',
+        field: 'Pagos2017',
+      },
+      {
+        headerName: 'Obligaciones pendientes de pago al 31 diciembre',
+        field: 'ObligacionesPendientePago2017',
+        width: 120,
+      },
+      {
+        headerName: 'Remanente Credito',
+        field: 'RemanenteCredito2017',
+        // hide: true,
+      },
+    ];
   }
 
 }
