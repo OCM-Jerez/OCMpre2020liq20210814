@@ -135,21 +135,20 @@ export class ComparaIngComponent {
       {
         headerName: 'Créditos',
         children: [
-
           {
             headerName: 'Previsiones Iniciales',
             field: `Iniciales${year}`,
-            columnGroupShow: 'open',
+            columnGroupShow: 'open'
           },
           {
             headerName: 'Total Modificaciones',
             field: `Modificaciones${year}`,
-            columnGroupShow: 'open',
+            columnGroupShow: 'open'
           },
           {
             headerName: 'Previsiones definitivas',
             field: `Definitivas${year}`,
-            columnGroupShow: 'close',
+            columnGroupShow: 'close'
           },
         ]
       },
