@@ -133,40 +133,61 @@ export class ComparaIngComponent {
   createColumnsChildren(year: string) {
     return [
       {
-        headerName: 'Previsiones Iniciales',
-        field: `Iniciales${year}`,
+        headerName: 'Créditos',
+        children: [
+
+          {
+            headerName: 'Previsiones Iniciales',
+            field: `Iniciales${year}`,
+            columnGroupShow: 'open',
+          },
+          {
+            headerName: 'Total Modificaciones',
+            field: `Modificaciones${year}`,
+            columnGroupShow: 'open',
+          },
+          {
+            headerName: 'Previsiones definitivas',
+            field: `Definitivas${year}`,
+            columnGroupShow: 'close',
+          },
+        ]
       },
+
       {
-        headerName: 'Total Modificaciones',
-        field: `Modificaciones${year}`,
-      },
-      {
-        headerName: 'Previsiones definitivas',
-        field: `Definitivas${year}`,
-      },
-      {
-        headerName: 'Derechos Reconocidos',
-        field: `DerechosReconocidos${year}`,
-      },
-      {
-        headerName: 'Derechos anulados',
-        field: `DerechosAnulados${year}`,
-      },
-      {
-        headerName: 'Derechos cancelados',
-        field: `DerechosCancelados${year}`,
-      },
-      {
-        headerName: 'Derechos Reconocidos Netos',
-        field: `DerechosReconocidosNetos${year}`,
-      },
-      {
-        headerName: 'Recaudación neta',
-        field: `RecaudacionNeta${year}`,
-      },
-      {
-        headerName: 'Derechos Pendientes de cobro al 31 diciembre',
-        field: `DerechosPendienteCobro${year}`,
+        headerName: 'Derechos',
+        children: [
+          {
+            headerName: 'Derechos Reconocidos',
+            field: `DerechosReconocidos${year}`,
+            columnGroupShow: 'open'
+          },
+          {
+            headerName: 'Derechos anulados',
+            field: `DerechosAnulados${year}`,
+            columnGroupShow: 'open'
+          },
+          {
+            headerName: 'Derechos cancelados',
+            field: `DerechosCancelados${year}`,
+            columnGroupShow: 'open'
+          },
+          {
+            headerName: 'Derechos Reconocidos Netos',
+            field: `DerechosReconocidosNetos${year}`,
+            columnGroupShow: 'close'
+          },
+          {
+            headerName: 'Recaudación neta',
+            field: `RecaudacionNeta${year}`,
+            columnGroupShow: 'open'
+          },
+          {
+            headerName: 'Derechos Pendientes de cobro al 31 diciembre',
+            field: `DerechosPendienteCobro${year}`,
+            columnGroupShow: 'open'
+          },
+        ]
       },
       {
         headerName: 'Exceso/defecto previsión',
