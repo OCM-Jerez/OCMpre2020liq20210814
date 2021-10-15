@@ -2,8 +2,8 @@
 
 
 # Partiendo PDF publicado por el Ayuntamiento
-![alt text](https://res.cloudinary.com/dabrencx7/image/upload/v1628963150/Presupuestos/presupuestoPDF_g6uhql.png)
 ![alt text](https://res.cloudinary.com/dabrencx7/image/upload/v1629010030/Presupuestos/ingresosPDF_i7wjvv.png)
+![alt text]https://res.cloudinary.com/dabrencx7/image/upload/v1628963150/Presupuestos/gastosPDF_g6uhql.png)
 
 - Convertir a Excel con Foxit.
 - Utilizar conversor online. El ultimo utilizado es el de [Adobe](https://documentcloud.adobe.com/link/acrobat/pdf-to-excel?x_api_client_id=adobe_com&x_api_client_location=pdf_to_excel)
