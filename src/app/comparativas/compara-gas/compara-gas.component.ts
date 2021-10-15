@@ -61,7 +61,7 @@ export class ComparaGasComponent {
         this._subHeaderName = 'Económico';
         this._codField = 'CodEco';
         this._desField = 'DesEco';
-        this._width = 300;
+        this._width = 400;
         break;
     }
 
@@ -88,6 +88,10 @@ export class ComparaGasComponent {
             }
           },
         ]
+      },
+      {
+        headerName: '2016',
+        children: this.createColumnsChildren('2016'),
       },
       {
         headerName: '2017',
@@ -182,7 +186,7 @@ export class ComparaGasComponent {
           {
             headerName: 'Obligaciones reconocidas netas',
             field: `ObligacionesReconocidasNetas${year}`,
-            width: 120,
+            width: 135,
             columnGroupShow: 'close'
           },
           {
@@ -192,7 +196,7 @@ export class ComparaGasComponent {
           },
           {
             headerName: 'Obligaciones pendientes de pago al 31 diciembre',
-            field: `ObligacionesPendiente${year}`,
+            field: `ObligacionesPendientePago${year}`,
             width: 120,
             columnGroupShow: 'open'
           },
