@@ -8,6 +8,8 @@ import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 
+import { AVALAIBLE_YEARS } from '../../../assets/data/avalaible-years-data'
+
 @Component({
   selector: 'app-compara-gas',
   templateUrl: './compara-gas.component.html',
@@ -89,6 +91,16 @@ export class ComparaGasComponent {
           },
         ]
       },
+
+      // {
+      //   headerName: 'Año',
+      //   children: AVALAIBLE_YEARS.forEach(year => {
+      //     console.log(year);
+      //     this.createColumnsChildren(year)
+      //   }),
+      // }
+
+
       {
         headerName: '2016',
         children: this.createColumnsChildren('2016'),
