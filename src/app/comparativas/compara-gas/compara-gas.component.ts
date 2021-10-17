@@ -100,7 +100,10 @@ export class ComparaGasComponent {
       //   }),
       // }
 
-
+      {
+        headerName: '2015',
+        children: this.createColumnsChildren('2015'),
+      },
       {
         headerName: '2016',
         children: this.createColumnsChildren('2016'),
