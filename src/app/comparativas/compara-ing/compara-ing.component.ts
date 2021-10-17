@@ -74,6 +74,14 @@ export class ComparaIngComponent {
         ]
       },
       {
+        headerName: '2015',
+        children: this.createColumnsChildren('2015'),
+      },
+      {
+        headerName: '2016',
+        children: this.createColumnsChildren('2016'),
+      },
+      {
         headerName: '2017',
         children: this.createColumnsChildren('2017'),
       },
