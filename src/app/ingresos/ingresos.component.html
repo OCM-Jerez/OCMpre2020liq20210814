@@ -1,5 +1,5 @@
 <div>
-  <h4 class="OCM-text--cabecera"> Ingresos por capítulo y económico.</h4>
+  <h4 class="OCM-text--cabecera"> Ingresos por capítulo y económico año {{ year | async }}</h4>
 
   <button *ngIf="!isExpanded" type="button" class="btn OCM-btnExpand" (click)="expandAll()">Expandir todo</button>
   <button *ngIf="isExpanded" type="button" class="btn OCM-btnCollapse" (click)="collapseAll()">Colapsar todo</button>

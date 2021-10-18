@@ -1,4 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
@@ -31,10 +32,13 @@ export class IngresosComponent {
   public CreditosWidth?: number;
   public screenSize?: any;
   columnasWidth = 130;
+  public year: Observable<string>;
 
   constructor(private getScreenSizeService: GetScreenSizeService,
     private avalaibleYearsService: AvalaibleYearsService) {
     this.screenSize = this.getScreenSizeService.getIsMobileResolution();
+
+    this.year = avalaibleYearsService.getAvalaibleYear();
 
     switch (this.screenSize) {
       case (SCREEN_SIZE.XS1):
