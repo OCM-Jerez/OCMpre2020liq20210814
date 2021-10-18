@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-
-import { AvalaibleYearsService } from 'src/app/services/avalaibleYears.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,12 +7,9 @@ import { AvalaibleYearsService } from 'src/app/services/avalaibleYears.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  public year: Observable<string>;
   constructor(
-    public router: Router,
-    public avalaibleYearsService: AvalaibleYearsService
+    public router: Router
   ) {
 
-    this.year = avalaibleYearsService.getAvalaibleYear();
   }
 }
