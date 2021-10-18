@@ -1,4 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
@@ -38,12 +40,16 @@ export class GastosComponent {
   myField: string;
   columnsIzda: [];
   columnsDcha: [];
+  public year: Observable<string>;
 
   constructor(
     private getScreenSizeService: GetScreenSizeService,
     private avalaibleYearsService: AvalaibleYearsService,
     public tipoclasificacionService: TipoClasificacionService) {
     this.screenSize = this.getScreenSizeService.getIsMobileResolution();
+
+    this.year = avalaibleYearsService.getAvalaibleYear();
+
     switch (this.screenSize) {
       case (SCREEN_SIZE.XS1):
         // Xiaomi Redmi Note 6 Pro. Jose Luis Moreno 400
