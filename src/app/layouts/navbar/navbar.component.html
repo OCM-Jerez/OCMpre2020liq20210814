@@ -13,10 +13,10 @@
     Liquidación presupuesto
   </div>
 
-  <div *ngIf="router.url === '/home'"></div> <!-- Esto es para centrar el titulo -->
+  <div class="OCM-navbar--home" *ngIf="router.url === '/home'"></div> <!-- Esto es para centrar el titulo -->
 
-  <div class="flex-shrink-1">
-    <a routerLink="/" *ngIf="router.url !== '/home'">
+  <div class="OCM-navbar--home" *ngIf="router.url !== '/home'">
+    <a routerLink="/">
       <i class="OCM-logoHome" aria-hidden="true"></i>
     </a>
   </div>

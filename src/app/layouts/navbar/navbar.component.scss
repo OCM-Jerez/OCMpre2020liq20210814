@@ -11,9 +11,7 @@
     justify-content: space-between;
     width: 100%;
     height: 40px;
-    // background-color: #515963;
     background-color: map-get($OCM-colors, navBarDarkBackground);
-    // margin-bottom: 40px;
     &--brand {
         display: flex;
         justify-content: space-between;
@@ -48,6 +46,12 @@
         color: white;
         @include fluid-type($min_width, $max_width, $min_font, $max_font);
         font-weight: bold;
+    }
+    &--home {
+        display: flex;
+        justify-content: right;
+        color: white;
+        width: 280px;
     }
 }
 
