@@ -98,7 +98,8 @@ export class ComparaGasComponent {
           headerName: year,
           children: this.createColumnsChildren(year),
         }
-      }),
+      })
+
     ];
 
     this.defaultColDef = {
