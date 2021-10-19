@@ -12,6 +12,14 @@
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss";
 
 // #region OCM
+.OCM-app-root {
+  width: 98vw;
+  min-height: 96vh;
+  margin-left: 20px;
+  display: grid;
+  grid-template-rows: auto auto auto;
+}
+
 .OCM-text {
   &--cabecera {
     margin-top: 2rem;
