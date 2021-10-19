@@ -3,9 +3,9 @@
 @import "/src/app/scss/variables";
 
 .OCM-indice {
-  padding-top: 3rem;
-  height: 80vh;
-  background-color: #15202b;
+    padding-top: 3rem;
+    height: 80vh;
+    background-color: #15202b;
 }
 
 /* Como CSS no tiene la propiedad background.opacity
@@ -23,63 +23,61 @@ insertamo sun seudo elemento con el mismo tamaño. */
 // }
 
 .OCM-row {
-  &--add {
-    display: flex;
-    margin: 1rem;
-    justify-content: center;
-    text-align: center;
-  }
+    &--add {
+        display: flex;
+        margin: 1rem;
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 .OCM-no-bullets {
-  color: map-get($OCM-colors, claro);
-  list-style-type: none;
-  font-size: clamp(0.6rem, -1.275rem + 8.333vw, 2rem);
-  font-weight: 900;
-  margin-right: 2rem;
-  margin-bottom: 4rem;
+    color: map-get($OCM-colors, claro);
+    list-style-type: none;
+    font-size: clamp(0.6rem, -1.275rem + 8.333vw, 2rem);
+    font-weight: 900;
+    margin-right: 2rem;
+    margin-bottom: 4rem;
 }
 
 /* https://www.w3schools.com/bootstrap4/bootstrap_cards.asp */
 .OCM-card {
-  display: flex;
-  width: clamp(20rem, 20rem, 20rem);
-  height: clamp(5rem, 5rem, 5rem);
-  justify-content: space-around;
-  text-justify: auto;
-  margin-bottom: 0.3rem;
-  margin-top: 2rem;
-  border-radius: 0.6rem;
-  color: rgba(0, 0, 0, 0.87);
-  background: #262729;
-  box-shadow: 1rem 1rem 0.5rem 0px rgba(0, 0, 0, 0.75);
-  margin-left: 2rem;
-  margin-right: 2rem;
-  text-align: center;
-  transition: transform 0.5s ease-in-out;
-  transition: box-shadow 0.3s;
-
-  &__title {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
     width: clamp(20rem, 20rem, 20rem);
-
-    color: map-get($OCM-colors, claro);
-    font-weight: 700;
-    font-family: var(--fuente-principal);
-    font-size: 1.4rem;
-    // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+    height: clamp(5rem, 5rem, 5rem);
+    justify-content: space-around;
+    text-justify: auto;
+    margin-bottom: 0.3rem;
+    margin-top: 2rem;
+    border-radius: 0.6rem;
+    color: rgba(0, 0, 0, 0.87);
+    background: #262729;
+    box-shadow: 1rem 1rem 0.5rem 0px rgba(0, 0, 0, 0.75);
+    margin-left: 2rem;
+    margin-right: 2rem;
     text-align: center;
-  }
-
-  &--empty {
-    width: 100%;
-  }
-
-  &:hover {
-    cursor: grab;
-    transform: scale(1.2);
-    box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
-  }
+    transition: transform 0.5s ease-in-out;
+    transition: box-shadow 0.3s;
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: clamp(20rem, 20rem, 20rem);
+        color: map-get($OCM-colors, claro);
+        font-weight: 700;
+        font-family: var(--fuente-principal);
+        font-size: 1.4rem;
+        // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
+        text-align: center;
+    }
+    &--empty {
+        width: 100%;
+    }
+    &:hover {
+        cursor: grab;
+        transform: scale(1.2);
+        box-shadow: 0 5px 15px rgba(238, 5, 24, 0.932);
+    }
 }
