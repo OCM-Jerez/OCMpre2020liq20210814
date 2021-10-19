@@ -8,6 +8,8 @@ import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 
+import { AVALAIBLE_YEARS } from '../../../assets/data/avalaible-years-data'
+
 @Component({
   selector: 'app-compara-ing',
   templateUrl: './compara-ing.component.html',
@@ -73,30 +75,14 @@ export class ComparaIngComponent {
           },
         ]
       },
-      {
-        headerName: '2015',
-        children: this.createColumnsChildren('2015'),
-      },
-      {
-        headerName: '2016',
-        children: this.createColumnsChildren('2016'),
-      },
-      {
-        headerName: '2017',
-        children: this.createColumnsChildren('2017'),
-      },
-      {
-        headerName: '2018',
-        children: this.createColumnsChildren('2018'),
-      },
-      {
-        headerName: '2019',
-        children: this.createColumnsChildren('2019'),
-      },
-      {
-        headerName: '2020',
-        children: this.createColumnsChildren('2020'),
-      }
+
+      ...AVALAIBLE_YEARS.map(year => {
+        return {
+          headerName: year,
+          children: this.createColumnsChildren(year),
+        }
+      })
+
     ]
 
     this.defaultColDef = {
