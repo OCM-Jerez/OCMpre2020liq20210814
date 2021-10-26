@@ -53,6 +53,8 @@ End Sub
 - Ejecutar macro **borrarDescripcion** seleccionando la columna adecuada (la que contine la palabra DESCRIPCIÓN)  **columna D**.
 - Ejecutar macro **BorrarLineaVacia** seleccionando  **el rango que contiene texto** de la **columna B**. 
 
+.- Copiar formato correcto a columnas que tengas celdas combinadas.
+
 - Insertar 5 columna desde columna D
 - Abrir Excel año anterior
 - Copiar y pegar primera fila.
@@ -119,6 +121,7 @@ End Sub
 - Si no se hace como UTF-8 el json contendra simbolos extraños.  
 - Guardar como 2020LiqGas
 - En el CSV generado revisar todas las columnas numericas.
+- Revisar formato columna CodOrg debe ser numnerico sin decimales ni separación de miles.
 - 
 
 
