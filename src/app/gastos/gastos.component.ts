@@ -132,7 +132,12 @@ export class GastosComponent {
                 width: 550,
                 pinned: 'left',
                 columnGroupShow: 'close',
+                sortable: true,
                 cellRenderer: 'agGroupCellRenderer',
+                comparator: (a: number, b: number) => {
+                  if (Number(a) == Number(b)) return 0;
+                  return (Number(a) > Number(b)) ? 1 : -1;
+                },
                 valueGetter: params => {
                   switch (tipoclasificacionService.getTipoClasificacion()) {
                     case 'capítulo':
