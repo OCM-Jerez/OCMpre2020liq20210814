@@ -47,6 +47,83 @@ End If
 Next Fila
 End Sub
 
+
+
+
+Sub concatenar()
+For Each fila In Selection
+ fila.Activate
+If fila.Value = Empty Then
+    ActiveCell.Offset(0, 2).Activate
+    ActiveCell.Value = "=CONCAT(RC[-1],"" "",R[1]C[-1])"
+Else
+  ActiveCell.Offset(0, 1).Activate
+previo = ActiveCell.Value
+    ActiveCell.Offset(0, 1).Activate
+    ActiveCell.Value = previo
+End If
+Next fila
+End Sub
+
+
+Sub concatenarIzda()
+salto = 0
+For Each fila In Selection
+    'ActiveCell.Offset(salto, 0).Activate
+    'fila.Activate
+    ' MsgBox ActiveCell.Address
+    
+    'If Not IsEmpty(ActiveCell) Then
+    ActiveCell.Offset(0, -2).Activate
+    previo = CStr(ActiveCell.Value)
+    ActiveCell.Offset(0, 1).Activate
+    ActiveCell.Value = previo
+   ' MsgBox ActiveCell.Address
+    ActiveCell.Offset(1, 1).Activate
+    salto = salto + 1
+   ' End If
+         ' MsgBox ActiveCell.Address
+    
+    If ActiveCell.Value = Empty Then
+        ActiveCell.Offset(0, -2).Activate
+        previo1 = CStr(ActiveCell.Value)
+        'MsgBox ActiveCell.Address
+         ActiveCell.Offset(-1, 1).Activate
+         ActiveCell.Value = previo + " " + previo1
+        'MsgBox ActiveCell.Address
+         ActiveCell.Offset(2, 1).Activate
+          salto = salto + 1
+         'MsgBox ActiveCell.Address
+          
+          If ActiveCell.Value = Empty Then
+               ActiveCell.Offset(0, -2).Activate
+               previo2 = CStr(ActiveCell.Value)
+               'MsgBox ActiveCell.Address
+               ActiveCell.Offset(-2, 1).Activate
+               ActiveCell.Value = previo + " " + previo1 + " " + previo2
+               'MsgBox ActiveCell.Address
+               ActiveCell.Offset(3, 1).Activate
+                salto = salto + 1
+               'MsgBox ActiveCell.Address
+          End If
+          
+    End If
+ 
+Next fila
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
 - Grabar macros.
 - Ejecutar macro **borrarSuma** seleccionando la columna adecuada (la que contine la palabra Suma) **columna D**.
 - Ejecutar macro **borrarIniciales** seleccionando la columna adecuada (la que contine la palabra INICIALES)  **columna E**.
