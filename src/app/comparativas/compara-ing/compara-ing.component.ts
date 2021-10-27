@@ -168,12 +168,12 @@ export class ComparaIngComponent {
           {
             headerName: 'Derechos Reconocidos Netos',
             field: `DerechosReconocidosNetos${year}`,
-            columnGroupShow: 'close'
+            columnGroupShow: 'open'
           },
           {
             headerName: 'Recaudación neta',
             field: `RecaudacionNeta${year}`,
-            columnGroupShow: 'open'
+            columnGroupShow: 'close'
           },
           {
             headerName: 'Derechos Pendientes de cobro al 31 diciembre',
