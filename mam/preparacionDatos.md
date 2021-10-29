@@ -47,9 +47,6 @@ End If
 Next Fila
 End Sub
 
-
-
-
 Sub concatenar()
 For Each fila In Selection
  fila.Activate
