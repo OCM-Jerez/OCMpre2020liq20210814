@@ -427,10 +427,11 @@ export class GastosComponent {
                 headerName: 'Económico',
                 field: 'DesEco',
                 cellClass: 'resaltado',
-                width: 90,
+                width: 390,
                 pinned: 'left',
                 columnGroupShow: 'open',
                 filter: false,
+                resizable: true,
                 valueGetter: params => {
                   if (params.data) {
                     switch (this.screenSize) {
