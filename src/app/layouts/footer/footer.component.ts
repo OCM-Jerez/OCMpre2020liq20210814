@@ -2,21 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { GetScreenSizeService } from '../../services/get-screen-size.service';
 @Component({
   selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  templateUrl: './footer.component.html'
 })
 export class FooterComponent implements OnInit {
-screenSize!: string
-w!: number;
-anio: number = new Date().getFullYear();
+  screenSize!: string
+  w!: number;
+  anio: number = new Date().getFullYear();
 
-  constructor(public getScreenSizeService: GetScreenSizeService) {}
+  constructor(public getScreenSizeService: GetScreenSizeService) { }
 
   ngOnInit() {
     this.w = window.innerWidth;
     this.screenSize = this.getScreenSizeService.getIsMobileResolution();
-    window.addEventListener('orientationchange', function() {
-       window.location.reload();
+    window.addEventListener('orientationchange', function () {
+      window.location.reload();
     }, false);
   }
 
