@@ -14,10 +14,10 @@
 // #region OCM
 .OCM-app-root {
   width: 98vw;
-  min-height: 96vh;
+  min-height: 100vh;
   margin-left: 20px;
   display: grid;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: 40px auto 40px;
 }
 
 .OCM-navbarFooter {
