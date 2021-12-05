@@ -1,24 +1,16 @@
-<nav class="OCM-navbar">
+<nav class="OCM-navbarFooter">
 
-  <div class="OCM-navbar--brand">
-    <div class="OCM-navbar--brand--logo">
-      <a href="http://ocmjerez.org"></a>
-    </div>
-    <div class="OCM-navbar--brand--text">
-      Observatorio Ciudadano Municipal de Jerez
-    </div>
+  <div class="OCM-navbarFooter--brand">
+    <a href="https://ocmjerez.org" class="OCM-navbarFooter--brand--logo" target="_blank" rel="nofollow"></a>
+    <span class="OCM-navbarFooter--brand--text">Observatorio Ciudadano Municipal de Jerez</span>
   </div>
 
-  <div class="OCM-navbar--titulo">
-    Liquidación presupuesto
-  </div>
+  <div class="OCM-navbarFooter--title">Liquidación presupuesto </div>
 
-  <div class="OCM-navbar--home" *ngIf="router.url === '/home'"></div> <!-- Esto es para centrar el titulo -->
+  <div *ngIf="router.url === '/home'" class="OCM-navbarFooter--homeEmpty"></div>
+  <div *ngIf="router.url !== '/home'" class="OCM-navbarFooter--home">
+    <a routerLink="/" class="logoHome"></a>
 
-  <div class="OCM-navbar--home" *ngIf="router.url !== '/home'">
-    <a routerLink="/">
-      <i class="OCM-logoHome" aria-hidden="true"></i>
-    </a>
   </div>
 
 </nav>
