@@ -551,7 +551,7 @@ export class GastosComponent {
 
     this.defaultColDef = {
       sortable: true,
-      resizable: false,
+      resizable: true,
       filter: true,
       headerComponentParams: {
         template:
