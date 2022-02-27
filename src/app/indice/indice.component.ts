@@ -28,7 +28,7 @@ export class IndiceComponent implements OnInit {
     private avalaibleYearsService: AvalaibleYearsService
   ) {
     this.yearsList = AVALAIBLE_YEARS;
-    this.radioSelected = "2020";
+    this.radioSelected = "2021";
   }
 
   ngOnInit() {
@@ -39,6 +39,11 @@ export class IndiceComponent implements OnInit {
   porIngresos() {
     this.router.navigate(['/Ingresos'])
   }
+
+  grafico() {
+    this.router.navigate(['/Grafico'])
+  }
+
 
   porCapitulo() {
     this.tipoclasificacionService.tipoClasificacion = 'capítulo'

@@ -6,8 +6,8 @@ import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
 
 @Injectable()
 export class AvalaibleYearsService {
-  public subject$ = new BehaviorSubject<string>('2020');
-  private year = '2020'
+  public subject$ = new BehaviorSubject<string>('2021');
+  private year = '2021'
   public setAvalaibleYear(yearSelected: string): void {
     this.year = yearSelected;
     this.subject$.next(yearSelected);

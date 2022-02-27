@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AgGridModule } from 'ag-grid-angular';
+import { AgChartsAngularModule } from 'ag-charts-angular';
 import 'ag-grid-enterprise';
 
 // Rutas
@@ -23,6 +24,7 @@ import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.comp
 import { TipoClasificacionService } from './services/tipoClasificacion.service';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
+import { GraphComponent } from './comparativas/graph/graph.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.c
     HeaderAgGridComponent,
     ComparaIngComponent,
     ComparaGasComponent,
+    GraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.c
     FormsModule,
     NgSelectModule,
     AgGridModule.withComponents([
-    ])
+    ]),
+    AgChartsAngularModule
   ],
   providers: [
     TipoClasificacionService,

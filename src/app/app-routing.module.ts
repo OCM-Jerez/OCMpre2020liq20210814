@@ -6,10 +6,12 @@ import { IngresosComponent } from './ingresos/ingresos.component';
 import { GastosComponent } from './gastos/gastos.component';
 import { ComparaIngComponent } from './comparativas/compara-ing/compara-ing.component';
 import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.component';
+import { GraphComponent } from './comparativas/graph/graph.component';
 
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
   { path: 'Ingresos', component: IngresosComponent },
+  { path: 'Grafico', component: GraphComponent },
   { path: 'Gastos', component: GastosComponent },
   { path: 'ComparaIng', component: ComparaIngComponent },
   { path: 'ComparaGas', component: ComparaGasComponent },

@@ -169,6 +169,7 @@ End Sub
         ⋅⋅⋅DesEco
 
 - Cambiar a tipo numero, 0 decimales, sin separador de miles, las columnas:
+CodOrg hay que convertir a num ero evitando el doble caracter 00, 01, 02 ....   Multiplicar por 1 y copiar como valor.
 
         ⋅⋅⋅CodOrg
         ⋅⋅⋅CodPro
@@ -183,6 +184,24 @@ End Sub
 - Hacer lo mismo para DesCap, DesEco y DesPro abriendo sus correspondientes ficheros.
 
 - **HAY QUE UNIFICAR TODOS LOS NOMBRES IGUAL PARA PERMITIR UN SOLO PROYECTO DONDE SE SELECCIONE EL AÑO A MOSTRAR**.
+    "CodOrg"
+    "CodPro"
+    "CodEco"
+    "CodCap"
+    "DesCap"
+    "DesOrg"
+    "DesPro"
+    "DesEco"
+    "Descripcion"
+    "Iniciales"
+    "Modificaciones"
+    "Definitivas"
+    "GastosComprometidos"
+    "ObligacionesReconocidasNetas"
+    "Pagos"
+    "ObligacionesPendientePago"
+    "RemanenteCredito"
+
 - Cambiar nombres que contengan un . de lo contrario no se muestran los valores en ag-grid.
 - Saldo de Gastos Compromet. => Saldo de Gastos Comprometidos
 - Facturas consumen disp. Pend. Contabilizar => Facturas consumen disp Pend Contabilizar
@@ -208,9 +227,9 @@ End Sub
 - Copiar formulas 3 nuevas columnas a partir columna B.
 - Es importante que el ultimo valor sea 0 para que sea busqueda exacta y en caso de faltar algun valor en la tabla de #N/D
 - Comprobar #N/D.
-- Cambiar formato columnas F a O inclusive para que en aLINEACIÓN no haya nada combinado.
+- Cambiar formato columnas F a O inclusive para que en alineación no haya nada combinado.
 - Copiar Cabecera columnas F a O inclusive y pegar a partir de Q
-- Multiplicar + 1 columans F a O inclusive.
+- Multiplicar * 1 columnas F a O inclusive.
 - Copiar el rango y pegarlo como valor en F a O inclusive.
 - Borrar a partir de Q.
 - Cambiar formato a numerico sin decimales ni separador de miles columnas A y D
