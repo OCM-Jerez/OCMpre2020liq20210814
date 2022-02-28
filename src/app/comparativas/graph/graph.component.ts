@@ -8,71 +8,69 @@ import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
   styleUrls: ['./graph.component.scss']
 })
 export class GraphComponent implements OnInit {
-  public rowData: any;
-  public options: AgChartOptions;
+  options: AgChartOptions;
+  rowData: any;
   data: any;
 
   constructor(private avalaibleYearsService: AvalaibleYearsService) {
+    this.createData()
+  };
 
-
-
-
-
-
-
+  ngOnInit(): void {
+    console.log("Datos Tratados constructor: ", this.data);
     this.options = {
+      // theme: 'ag-default-dark',
       autoSize: true,
       title: {
-        text: '29000 Impuestos sobre construcciones, instalaciones y obras.',
+        // text: '91100 Préstamos recibidos a largo plazo de entes del sector público.',
         // text: this.data[0].CodEco + ' ' + this.data[0].DesEco,
+        text: `${this.data[0].CodEco} ${this.data[0].DesEco}`,
       },
-
-      data:
-        [
-          {
-            "year": "2015",
-            "CodEco": 29000,
-            "DesEco": "Impuestos sobre construcciones, instalaciones y obras",
-            "Definitivas": 1526000,
-            "RecaudacionNeta": 614704
-          },
-          {
-            "year": "2016",
-            "Definitivas": 1400000,
-            "RecaudacionNeta": 1067175
-          },
-          {
-            "year": "2017",
-            "Definitivas": 1705915,
-            "RecaudacionNeta": 1484441
-          },
-          {
-            "year": "2018",
-            "Definitivas": 2385700,
-            "RecaudacionNeta": 2053044
-          },
-          {
-            "year": "2019",
-            "Definitivas": 2385700,
-            "RecaudacionNeta": 1071387
-          },
-          {
-            "year": "2020",
-            "Definitivas": 7833340,
-            "RecaudacionNeta": 2997626
-          },
-          {
-            "year": "2021",
-            "Definitivas": 7833340,
-            "RecaudacionNeta": 2834948
-          },
-          {
-            "year": "2022",
-            "Definitivas": 4456200,
-            "RecaudacionNeta": 2834948
-          }
-        ],
-
+      data: this.data,
+      // [
+      //   {
+      //     "year": "2015",
+      //     "CodEco": 91100,
+      //     "DesEco": "Préstamos recibidos a largo plazo de entes del sector público",
+      //     "Definitivas": 0,
+      //     "RecaudacionNeta": 6225253
+      //   },
+      //   {
+      //     "year": "2016",
+      //     "Definitivas": 103019815,
+      //     "RecaudacionNeta": 124464826
+      //   },
+      //   {
+      //     "year": "2017",
+      //     "Definitivas": 62390906,
+      //     "RecaudacionNeta": 42158796
+      //   },
+      //   {
+      //     "year": "2018",
+      //     "Definitivas": 53022517,
+      //     "RecaudacionNeta": 28806221
+      //   },
+      //   {
+      //     "year": "2019",
+      //     "Definitivas": 54820854,
+      //     "RecaudacionNeta": 23603348
+      //   },
+      //   {
+      //     "year": "2020",
+      //     "Definitivas": 11726685,
+      //     "RecaudacionNeta": 10802881
+      //   },
+      //   {
+      //     "year": "2021",
+      //     "Definitivas": 64211663,
+      //     "RecaudacionNeta": 135377501
+      //   },
+      //   {
+      //     "year": "2022",
+      //     "Definitivas": 9231008,
+      //     "RecaudacionNeta": 0
+      //   }
+      // ],
       series: [
         {
           xKey: 'year',
@@ -83,31 +81,40 @@ export class GraphComponent implements OnInit {
           yKey: 'RecaudacionNeta',
         },
       ],
-
-      // axes: [
-      //   {
-      //     type: 'number',
-      //     position: 'left',
-      //     keys: ['Definitivas, RecaudacionNeta'],
-      //     // title: {
-      //     //   enabled: true,
-      //     //   text: 'Exports (tonnes)',
-      //     // },
-      //     label: {
-      //       formatter: function (params) {
-      //         return params.value / 1000 + 'k';
-      //       },
-      //     },
-      //   },
-      // ],
+      axes: [
+        {
+          type: 'category',
+          position: 'bottom',
+          title: {
+            text: 'Años',
+            enabled: true,
+          },
+        },
+        {
+          type: 'number',
+          position: 'left',
+          title: {
+            text: 'en millones de Euros',
+            enabled: true,
+          },
+          label: {
+            formatter: function (params) {
+              return params.value / 1000000 + '';
+            },
+          },
+        },
+      ],
+      legend: {
+        enabled: true,
+        position: 'bottom',
+      },
 
     }
+  }
 
-  };
-
-  async ngOnInit(): Promise<void> {
-    this.rowData = this.avalaibleYearsService.getDataAllYearIng('Eco');
-    const datos = this.getObjects(await this.rowData, 'CodEco', 29000);
+  async createData() {
+    this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Eco');
+    const datos = this.getObjects(await this.rowData, 'CodEco', 39120);
     console.log("Datos: ", datos);
 
     // Convierto los valores para que sirvan de data al grafico
@@ -170,7 +177,7 @@ export class GraphComponent implements OnInit {
     };
     this.data.push(a2022)
     console.log("Datos Tratados: ", this.data);
-
+    return this.data;
   }
 
   // https://gist.github.com/iwek/3924925#file-find-in-json-js
