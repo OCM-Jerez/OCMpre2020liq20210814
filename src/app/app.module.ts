@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AgGridModule } from 'ag-grid-angular';
@@ -25,6 +25,7 @@ import { TipoClasificacionService } from './services/tipoClasificacion.service';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
 import { GraphComponent } from './comparativas/graph/graph.component';
+import { SelectEconomicoIngresoComponent } from './comparativas/graph/select-economico-ingreso/select-economico-ingreso.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { GraphComponent } from './comparativas/graph/graph.component';
     ComparaIngComponent,
     ComparaGasComponent,
     GraphComponent,
+    SelectEconomicoIngresoComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import { GraphComponent } from './comparativas/graph/graph.component';
     AppRoutingModule,
     FormsModule,
     NgSelectModule,
+    ReactiveFormsModule,
     AgGridModule.withComponents([
     ]),
     AgChartsAngularModule

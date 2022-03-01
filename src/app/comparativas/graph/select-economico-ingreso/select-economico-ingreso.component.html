@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Selecciona económico de ingreso a graficar</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <!-- <label for="ecoIng">Económico:</label> -->
+            <select formControlName="ecoIng" class="form-control" (change)="changeEco($event)">
+                <!-- <option disabled>Select Website</option> -->
+                <option>Selecciona económico</option>
+                <option *ngFor="let eco of ecoArray">{{eco.Eco}} {{eco.DesEco}}</option>
+            </select>
+            <div *ngIf="f.ecoIng.touched && f.ecoIng.invalid" class="alert alert-danger">
+                <div *ngIf="f.ecoIng.errors.required">Es necesario seleccionar un económico.</div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Ver grafico</button>
+    </form>
+</div>
+
+<!-- 
+<div>
+    <select [(ngModel)]="ecoArray"> -->
+<!-- <option [ngValue]="null" selected disabled>Select User</option> -->
+<!-- <option *ngFor="let user of userArrayJSON | async" [ngValue]="user">{{user.Eco}}</option> -->
+<!-- <option *ngFor="let user of ecoArray" [ngValue]="user">{{user.Eco}} {{user.DesEco}}</option> -->
+<!-- </select>
+</div> -->

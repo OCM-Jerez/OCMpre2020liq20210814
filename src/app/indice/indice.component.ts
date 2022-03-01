@@ -41,7 +41,8 @@ export class IndiceComponent implements OnInit {
   }
 
   grafico() {
-    this.router.navigate(['/Grafico'])
+    // this.router.navigate(['/Grafico'])
+    this.router.navigate(['/SelectIngreso'])
   }
 
 

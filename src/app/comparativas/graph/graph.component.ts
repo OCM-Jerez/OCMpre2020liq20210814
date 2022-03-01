@@ -1,6 +1,7 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AgChartOptions } from 'ag-grid-community';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
+import { DataGraphIngresosService } from '../../services/data-graph-ingresos.service';
 
 @Component({
   selector: 'app-graph',
@@ -11,13 +12,19 @@ export class GraphComponent implements OnInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
-  @ViewChild('someInput') someInput: ElementRef;
 
-  constructor(private avalaibleYearsService: AvalaibleYearsService) {
-    this.createData(39120)
+  constructor(
+    private avalaibleYearsService: AvalaibleYearsService,
+    private dataGraphIngresosService: DataGraphIngresosService
+  ) {
+    this.createData(this.dataGraphIngresosService.getEcoIngreso().substring(0, 5))
   };
 
   ngOnInit(): void {
+    const ingreso = this.dataGraphIngresosService.getEcoIngreso().substring(0, 5);
+    console.log("Eco Ingreso: ", ingreso);
+
+
     // console.log("Económico:", this.someInput.nativeElement.value);
     console.log("Datos Tratados constructor: ", this.data);
     this.options = {
@@ -69,16 +76,8 @@ export class GraphComponent implements OnInit {
 
   }
 
-  ngAfterViewInit() {
-    console.log("Económico:", this.someInput.nativeElement.value);
-  }
-
-  async createData(eco: number) {
+  async createData(eco: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Eco');
-    // const eco = await this.someInput.nativeElement.value;
-    // console.log("valor de eco: ", this.someInput);
-
-
     const datos = this.getObjects(await this.rowData, 'CodEco', eco);
     console.log("Datos: ", datos);
 
