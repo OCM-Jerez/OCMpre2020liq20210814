@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { AgChartOptions } from 'ag-grid-community';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 
@@ -11,66 +11,22 @@ export class GraphComponent implements OnInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
+  @ViewChild('someInput') someInput: ElementRef;
 
   constructor(private avalaibleYearsService: AvalaibleYearsService) {
-    this.createData()
+    this.createData(39120)
   };
 
   ngOnInit(): void {
+    // console.log("Económico:", this.someInput.nativeElement.value);
     console.log("Datos Tratados constructor: ", this.data);
     this.options = {
       // theme: 'ag-default-dark',
       autoSize: true,
       title: {
-        // text: '91100 Préstamos recibidos a largo plazo de entes del sector público.',
-        // text: this.data[0].CodEco + ' ' + this.data[0].DesEco,
         text: `${this.data[0].CodEco} ${this.data[0].DesEco}`,
       },
       data: this.data,
-      // [
-      //   {
-      //     "year": "2015",
-      //     "CodEco": 91100,
-      //     "DesEco": "Préstamos recibidos a largo plazo de entes del sector público",
-      //     "Definitivas": 0,
-      //     "RecaudacionNeta": 6225253
-      //   },
-      //   {
-      //     "year": "2016",
-      //     "Definitivas": 103019815,
-      //     "RecaudacionNeta": 124464826
-      //   },
-      //   {
-      //     "year": "2017",
-      //     "Definitivas": 62390906,
-      //     "RecaudacionNeta": 42158796
-      //   },
-      //   {
-      //     "year": "2018",
-      //     "Definitivas": 53022517,
-      //     "RecaudacionNeta": 28806221
-      //   },
-      //   {
-      //     "year": "2019",
-      //     "Definitivas": 54820854,
-      //     "RecaudacionNeta": 23603348
-      //   },
-      //   {
-      //     "year": "2020",
-      //     "Definitivas": 11726685,
-      //     "RecaudacionNeta": 10802881
-      //   },
-      //   {
-      //     "year": "2021",
-      //     "Definitivas": 64211663,
-      //     "RecaudacionNeta": 135377501
-      //   },
-      //   {
-      //     "year": "2022",
-      //     "Definitivas": 9231008,
-      //     "RecaudacionNeta": 0
-      //   }
-      // ],
       series: [
         {
           xKey: 'year',
@@ -110,11 +66,20 @@ export class GraphComponent implements OnInit {
       },
 
     }
+
   }
 
-  async createData() {
+  ngAfterViewInit() {
+    console.log("Económico:", this.someInput.nativeElement.value);
+  }
+
+  async createData(eco: number) {
     this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Eco');
-    const datos = this.getObjects(await this.rowData, 'CodEco', 39120);
+    // const eco = await this.someInput.nativeElement.value;
+    // console.log("valor de eco: ", this.someInput);
+
+
+    const datos = this.getObjects(await this.rowData, 'CodEco', eco);
     console.log("Datos: ", datos);
 
     // Convierto los valores para que sirvan de data al grafico
@@ -203,6 +168,8 @@ export class GraphComponent implements OnInit {
     // console.log("Resultado: ", objects);
     return objects;
   }
+
+
 
 }
 
