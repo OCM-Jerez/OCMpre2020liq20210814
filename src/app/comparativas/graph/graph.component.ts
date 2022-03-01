@@ -33,6 +33,9 @@ export class GraphComponent implements OnInit {
       title: {
         text: `${this.data[0].CodEco} ${this.data[0].DesEco}`,
       },
+      subtitle: {
+        text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
+      },
       data: this.data,
       series: [
         {
