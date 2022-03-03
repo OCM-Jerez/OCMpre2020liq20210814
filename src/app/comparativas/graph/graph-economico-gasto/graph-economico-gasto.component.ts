@@ -22,7 +22,7 @@ export class GraphEconomicoGastoComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // console.log("Datos Tratados constructor: ", this.data);
+    // console.    log("Datos Tratados constructor: ", this.data);
     this.options = {
       // theme: 'ag-default-dark',
       autoSize: true,
