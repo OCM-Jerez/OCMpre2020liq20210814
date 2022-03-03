@@ -8,12 +8,16 @@ import { ComparaIngComponent } from './comparativas/compara-ing/compara-ing.comp
 import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.component';
 import { GraphComponent } from './comparativas/graph/graph.component';
 import { SelectEconomicoIngresoComponent } from './comparativas/graph/select-economico-ingreso/select-economico-ingreso.component';
+import { SelectEconomicoGastoComponent } from './comparativas/graph/select-economico-gasto/select-economico-gasto.component';
+import { GraphEconomicoGastoComponent } from './comparativas/graph/graph-economico-gasto/graph-economico-gasto.component';
 
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
   { path: 'Ingresos', component: IngresosComponent },
   { path: 'SelectIngreso', component: SelectEconomicoIngresoComponent },
+  { path: 'SelectGasto', component: SelectEconomicoGastoComponent },
   { path: 'Grafico', component: GraphComponent },
+  { path: 'GraficoEconomicoGasto', component: GraphEconomicoGastoComponent },
   { path: 'Gastos', component: GastosComponent },
   { path: 'ComparaIng', component: ComparaIngComponent },
   { path: 'ComparaGas', component: ComparaGasComponent },

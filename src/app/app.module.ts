@@ -26,6 +26,8 @@ import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
 import { GraphComponent } from './comparativas/graph/graph.component';
 import { SelectEconomicoIngresoComponent } from './comparativas/graph/select-economico-ingreso/select-economico-ingreso.component';
+import { SelectEconomicoGastoComponent } from './comparativas/graph/select-economico-gasto/select-economico-gasto.component';
+import { GraphEconomicoGastoComponent } from './comparativas/graph/graph-economico-gasto/graph-economico-gasto.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { SelectEconomicoIngresoComponent } from './comparativas/graph/select-eco
     ComparaGasComponent,
     GraphComponent,
     SelectEconomicoIngresoComponent,
+    SelectEconomicoGastoComponent,
+    GraphEconomicoGastoComponent,
   ],
   imports: [
     BrowserModule,

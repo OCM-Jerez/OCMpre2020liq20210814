@@ -21,8 +21,8 @@ export class GraphComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    const ingreso = this.dataGraphIngresosService.getEcoIngreso().substring(0, 5);
-    console.log("Eco Ingreso: ", ingreso);
+    // const ingreso = this.dataGraphIngresosService.getEcoIngreso().substring(0, 5);
+    // console.log("Eco Ingreso: ", ingreso);
 
 
     // console.log("Económico:", this.someInput.nativeElement.value);

@@ -45,6 +45,11 @@ export class IndiceComponent implements OnInit {
     this.router.navigate(['/SelectIngreso'])
   }
 
+  graficoGasto() {
+    // this.router.navigate(['/Grafico'])
+    this.router.navigate(['/SelectGasto'])
+  }
+
 
   porCapitulo() {
     this.tipoclasificacionService.tipoClasificacion = 'capítulo'

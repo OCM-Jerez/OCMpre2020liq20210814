@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>Selecciona económico de gasto a graficar</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <!-- <label for="ecoIng">Económico:</label> -->
+            <select formControlName="ecoGasto" class="form-control" (change)="changeEco($event)">
+                <!-- <option disabled>Select Website</option> -->
+                <option>Selecciona económico</option>
+                <option *ngFor="let eco of ecoArray">{{eco.CodEco}} {{eco.DesEco}}</option>
+            </select>
+            <div *ngIf="f.ecoGasto.touched && f.ecoGasto.invalid" class="alert alert-danger">
+                <div *ngIf="f.ecoGasto.errors.required">Es necesario seleccionar un económico.</div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Ver grafico</button>
+    </form>
+</div>
