@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AgChartOptions } from 'ag-grid-community';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AgGridAngular } from 'ag-grid-angular';
+import { AgChartOptions, GridOptions } from 'ag-grid-community';
+import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
 import { DataGraphGastosService } from '../../../services/data-graph-gastos.service';
 
@@ -13,13 +15,57 @@ export class GraphEconomicoGastoComponent implements OnInit {
   rowData: any;
   data: any;
 
+  @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  private gridApi;
+  public gridColumnApi;
+  public columnDefs;
+  public defaultColDef;
+  public gridOptions: GridOptions;
+  public localeText;
+  public rowDataTable: any;
+  public groupHeaderHeight = 25;
+  public headerHeight = 25;
+
   constructor(
     private avalaibleYearsService: AvalaibleYearsService,
     private dataGraphGastosService: DataGraphGastosService
   ) {
     this.createData(this.dataGraphGastosService.getEcoGasto().substring(0, 5))
-  }
 
+    this.columnDefs = [
+      {
+        headerName: 'Año',
+        field: 'year',
+        width: 70,
+      },
+      {
+        headerName: 'Previsiones definitivas',
+        field: 'Definitivas',
+        width: 180,
+        cellRenderer: CellRendererOCM,
+      },
+      {
+        headerName: 'ObligacionesReconocidasNetas',
+        field: 'ObligacionesReconocidasNetas',
+        width: 200,
+        cellRenderer: CellRendererOCM,
+      },
+      {
+        headerName: 'ObligacionesPendientes',
+        field: 'ObligacionesPendientes',
+        width: 180,
+        cellRenderer: CellRendererOCM,
+      }
+    ];
+
+    this.defaultColDef = {
+      sortable: true,
+      resizable: true,
+      filter: false,
+      aggFunc: 'sum',
+    };
+
+  }
 
   ngOnInit(): void {
     // console.    log("Datos Tratados constructor: ", this.data);
@@ -77,6 +123,14 @@ export class GraphEconomicoGastoComponent implements OnInit {
 
     }
   }
+
+  async onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    // this.rowDataTable = await this.avalaibleYearsService.getDataJson(true);
+    // this.rowDataTable = this.data;
+  }
+
 
   async createData(eco: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYear('Eco');
