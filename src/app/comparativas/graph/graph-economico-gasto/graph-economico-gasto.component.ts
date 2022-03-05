@@ -111,8 +111,17 @@ export class GraphEconomicoGastoComponent implements OnInit {
           },
           label: {
             formatter: function (params) {
-              return params.value / 1000000 + '';
-            },
+              switch (params.value) {
+                case params.value > 1000000:
+                  return params.value / 1000000 + '';
+                case params.value < 10000:
+                  console.log("< 10000: ", params);
+                  return params.value / 1 + '';
+                default:
+                  console.log("< 10000: ", params);
+                  return params.value / 1 + '';
+              }
+            }
           },
         },
       ],
@@ -130,7 +139,6 @@ export class GraphEconomicoGastoComponent implements OnInit {
     // this.rowDataTable = await this.avalaibleYearsService.getDataJson(true);
     // this.rowDataTable = this.data;
   }
-
 
   async createData(eco: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYear('Eco');

@@ -9,13 +9,13 @@ import { DataGraphGastosService } from '../../../services/data-graph-gastos.serv
   styleUrls: ['./select-economico-gasto.component.scss']
 })
 export class SelectEconomicoGastoComponent {
+  constructor(
+    private router: Router,
+    private dataGraphGastosService: DataGraphGastosService
+  ) { }
 
   ecoArray =
     [
-      {
-        "CodEco": 6,
-        "DesEco": "Inversiones en Instalaciones y pistas"
-      },
       {
         "CodEco": 10000,
         "DesEco": "Retribuciones básicas y otras remuneraciones"
@@ -1835,19 +1835,8 @@ export class SelectEconomicoGastoComponent {
   }
 
   submit() {
-    console.log(this.form.value);
     this.dataGraphGastosService.ecoGasto = this.form.value.ecoGasto;
     this.router.navigate(['/GraficoEconomicoGasto'])
-  }
-  changeEco(e) {
-    console.log(e.target.value);
-  }
-
-  constructor(
-    private router: Router,
-    private dataGraphGastosService: DataGraphGastosService
-  ) {
-    // cargaDatos();
   }
 
 }

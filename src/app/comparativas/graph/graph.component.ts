@@ -171,8 +171,6 @@ export class GraphComponent implements OnInit {
     return objects;
   }
 
-
-
 }
 
 
