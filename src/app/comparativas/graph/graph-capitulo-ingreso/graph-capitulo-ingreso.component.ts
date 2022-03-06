@@ -124,7 +124,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   async createData(cap: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Cap');
     const datos = this.getObjects(await this.rowData, 'CodCap', cap);
-    console.log("Datos: ", datos);
+    // console.log("Datos: ", datos);
 
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
@@ -277,7 +277,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
       "RecaudacionNeta": neta2021      // Se utiliza la recaudación neta del último año conocido para no desfigurar el grafico, ya que de lo contrario seria 0. 
     };
     this.data.push(a2022)
-    console.log("Datos Tratados: ", this.data);
+    // console.log("Datos Tratados: ", this.data);
     return this.data;
   }
 
