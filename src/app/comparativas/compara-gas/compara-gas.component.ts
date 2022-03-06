@@ -24,7 +24,7 @@ export class ComparaGasComponent {
   public localeText;
   public rowData: any;
   public groupHeaderHeight = 25;
-  public headerHeight = 25;
+  public headerHeight = 54;
   public CreditosWidth?: number = 110;
   public tipoClasificacion: string;
   private _headerName: string;
@@ -134,11 +134,12 @@ export class ComparaGasComponent {
     this.rowData = await this.avalaibleYearsService.getDataAllYear(this.tipoClasificacion);
   }
 
+  // TODO: Las colummnas disparan su altura
   headerHeightSetter() {
-    var padding = 20;
-    var height = headerHeightGetter() + padding;
-    this.gridApi.setHeaderHeight(height);
-    this.gridApi.resetRowHeights();
+    // var padding = 20;
+    // var height = headerHeightGetter() + padding;
+    // this.gridApi.setHeaderHeight(height);
+    // this.gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: string) {

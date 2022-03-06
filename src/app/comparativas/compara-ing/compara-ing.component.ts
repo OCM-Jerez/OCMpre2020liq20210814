@@ -117,11 +117,12 @@ export class ComparaIngComponent {
     this.rowData = await this.avalaibleYearsService.getDataAllYearIng(this.tipoClasificacion);
   }
 
+  // TODO: Las colummnas disparan su altura
   headerHeightSetter() {
-    var padding = 20;
-    var height = headerHeightGetter() + padding;
-    this.gridApi.setHeaderHeight(height);
-    this.gridApi.resetRowHeights();
+    // var padding = 20;
+    // var height = headerHeightGetter() + padding;
+    // this.gridApi.setHeaderHeight(height);
+    // this.gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: string) {

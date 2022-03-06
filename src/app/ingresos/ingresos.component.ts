@@ -25,7 +25,7 @@ export class IngresosComponent {
   public localeText;
   public rowData: any;
   public groupHeaderHeight = 25;
-  public headerHeight = 25;
+  public headerHeight = 54;
   public isExpanded = false;
   public DesCapWidth?: number;
   public DesEcoWidth?: number;
@@ -90,7 +90,7 @@ export class IngresosComponent {
           {
             headerName: 'Capitulo',
             field: 'DesCap',
-            width: 265,
+            width: 300,
             rowGroup: true,
             filter: false,
             pinned: 'left',
@@ -118,7 +118,7 @@ export class IngresosComponent {
                   case 0:  // Total capítulo.
                     return `<span style="color: red; font-size: 12px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
                   case -1: // Total general.
-                    return '';
+                    return `<span style="color: red; font-size: 16px;  font-weight: bold; margin-left: 0px;"> Total general</span>`;
                   default:
                     return 'SIN FORMATO';
                 }
@@ -135,7 +135,8 @@ export class IngresosComponent {
             filter: false,
             valueGetter: params => {
               if (params.data) {
-                return params.data.CodEco + ' - ' + params.data.DesEco;
+                return `<h5> ${params.data.CodEco + ' - ' + params.data.DesEco}</h5>`;
+                // return params.data.CodEco + ' - ' + params.data.DesEco;
               } else {
                 return null;
               }
@@ -230,11 +231,12 @@ export class IngresosComponent {
     this.isExpanded = false;
   }
 
+  // TODO: Las colummnas disparan su altura
   headerHeightSetter() {
-    var padding = 20;
-    var height = headerHeightGetter() + padding;
-    this.gridApi.setHeaderHeight(height);
-    this.gridApi.resetRowHeights();
+    // var padding = 20;
+    // var height = headerHeightGetter() + padding;
+    // this.gridApi.setHeaderHeight(height);
+    // this.gridApi.resetRowHeights();
   }
 
 }

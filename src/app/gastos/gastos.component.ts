@@ -28,7 +28,7 @@ export class GastosComponent {
   public localeText;
   public rowData: any;
   public groupHeaderHeight = 25;
-  public headerHeight = 25;
+  public headerHeight = 54;
   public isExpanded = false;
   public DesCapWidth?: number;
   public DesProWidth?: number;
@@ -589,11 +589,12 @@ export class GastosComponent {
     this.isExpanded = false;
   }
 
+  // TODO: Las colummnas disparan su altura
   headerHeightSetter() {
-    var padding = 20;
-    var height = headerHeightGetter() + padding;
-    this.gridApi.setHeaderHeight(height);
-    this.gridApi.resetRowHeights();
+    // var padding = 20;
+    // var height = headerHeightGetter() + padding;
+    // this.gridApi.setHeaderHeight(height);
+    // this.gridApi.resetRowHeights();
   }
 
 }
