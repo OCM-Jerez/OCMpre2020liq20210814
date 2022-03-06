@@ -1,5 +1,7 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { AgChartOptions } from 'ag-grid-community';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AgGridAngular } from 'ag-grid-angular';
+import { AgChartOptions, GridOptions } from 'ag-grid-community';
+import { CellRendererOCM } from '../../../app/ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataGraphIngresosService } from '../../services/data-graph-ingresos.service';
 
@@ -8,32 +10,59 @@ import { DataGraphIngresosService } from '../../services/data-graph-ingresos.ser
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss']
 })
-export class GraphComponent implements OnInit, AfterViewInit {
+export class GraphComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
+
+  @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  private gridApi;
+  public gridColumnApi;
+  public columnDefs;
+  public defaultColDef;
+  public gridOptions: GridOptions;
+  public localeText;
+  public rowDataTable: any;
+  public groupHeaderHeight = 25;
+  public headerHeight = 25;
 
   constructor(
     private avalaibleYearsService: AvalaibleYearsService,
     private dataGraphIngresosService: DataGraphIngresosService
   ) {
     this.createData(this.dataGraphIngresosService.getEcoIngreso().substring(0, 5))
-  }
 
+    this.columnDefs = [
+      {
+        headerName: 'Año',
+        field: 'year',
+        width: 70,
+      },
+      {
+        headerName: 'Previsiones definitivas',
+        field: 'Definitivas',
+        width: 180,
+        cellRenderer: CellRendererOCM,
+      },
+      {
+        headerName: 'RecaudacionNeta',
+        field: 'RecaudacionNeta',
+        width: 200,
+        cellRenderer: CellRendererOCM,
+      },
+    ];
 
-  ngOnInit(): void {
-    // const ingreso = this.dataGraphIngresosService.getEcoIngreso().substring(0, 5);
-    // console.log("Eco Ingreso: ", ingreso);
-
-
-    // console.log("Económico:", this.someInput.nativeElement.value);
-
-
+    this.defaultColDef = {
+      sortable: true,
+      resizable: true,
+      filter: false,
+      aggFunc: 'sum',
+    };
   }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      console.log("Datos ngAfterViewInit Tratados constructor: ", this.data);
+      // console.log("Datos ngAfterViewInit Tratados constructor: ", this.data);
       this.options = {
         // theme: 'ag-default-dark',
         autoSize: true,
@@ -67,12 +96,12 @@ export class GraphComponent implements OnInit, AfterViewInit {
             type: 'number',
             position: 'left',
             title: {
-              text: 'en millones de Euros',
+              text: 'en miles de Euros',
               enabled: true,
             },
             label: {
               formatter: function (params) {
-                return params.value / 1000000 + '';
+                return params.value / 1000 + '';
               },
             },
           },
@@ -84,6 +113,11 @@ export class GraphComponent implements OnInit, AfterViewInit {
 
       }
     }, 0);
+  }
+
+  async onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
   }
 
   async createData(eco: string) {

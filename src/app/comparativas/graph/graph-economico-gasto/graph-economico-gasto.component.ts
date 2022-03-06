@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
@@ -10,7 +10,7 @@ import { DataGraphGastosService } from '../../../services/data-graph-gastos.serv
   templateUrl: './graph-economico-gasto.component.html',
   styleUrls: ['./graph-economico-gasto.component.scss']
 })
-export class GraphEconomicoGastoComponent implements OnInit {
+export class GraphEconomicoGastoComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
@@ -66,81 +66,81 @@ export class GraphEconomicoGastoComponent implements OnInit {
     };
 
   }
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      // console.    log("Datos Tratados constructor: ", this.data);
+      this.options = {
+        // theme: 'ag-default-dark',
+        autoSize: true,
+        title: {
+          text: `${this.data[0].CodEco} ${this.data[0].DesEco}`,
+        },
+        subtitle: {
+          text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
+        },
+        data: this.data,
+        series: [
+          {
+            xKey: 'year',
+            yKey: 'Definitivas',
+          },
+          {
+            xKey: 'year',
+            yKey: 'ObligacionesReconocidasNetas',
+          },
+          {
+            xKey: 'year',
+            yKey: 'ObligacionesPendientes',
+          },
+        ],
+        axes: [
+          {
+            type: 'category',
+            position: 'bottom',
+            title: {
+              text: 'Años',
+              enabled: true,
+            },
+          },
+          {
+            type: 'number',
+            position: 'left',
+            title: {
+              text: 'en miles de Euros',
+              enabled: true,
+            },
+            label: {
+              formatter: function (params) {
+                // console.log("< 10000: ", params);
 
-  ngOnInit(): void {
-    // console.    log("Datos Tratados constructor: ", this.data);
-    this.options = {
-      // theme: 'ag-default-dark',
-      autoSize: true,
-      title: {
-        text: `${this.data[0].CodEco} ${this.data[0].DesEco}`,
-      },
-      subtitle: {
-        text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
-      },
-      data: this.data,
-      series: [
-        {
-          xKey: 'year',
-          yKey: 'Definitivas',
-        },
-        {
-          xKey: 'year',
-          yKey: 'ObligacionesReconocidasNetas',
-        },
-        {
-          xKey: 'year',
-          yKey: 'ObligacionesPendientes',
-        },
-      ],
-      axes: [
-        {
-          type: 'category',
+                // if (params.value > 999999) {
+                //   return params.value / 1000 + '';
+                // }
+
+                // if (params.value > 99999) {
+                //   return params.value / 1000 + '';
+                // }
+
+                // if (params.value > 9999) {
+                //   return params.value / 100 + '';
+                // }
+
+                // if (params.value > 999) {
+                //   return params.value / 10 + '';
+                // }
+
+                return params.value / 1000 + '';
+              }
+            },
+          },
+        ],
+        legend: {
+          enabled: true,
           position: 'bottom',
-          title: {
-            text: 'Años',
-            enabled: true,
-          },
         },
-        {
-          type: 'number',
-          position: 'left',
-          title: {
-            text: 'en miles de Euros',
-            enabled: true,
-          },
-          label: {
-            formatter: function (params) {
-              // console.log("< 10000: ", params);
 
-              // if (params.value > 999999) {
-              //   return params.value / 1000 + '';
-              // }
-
-              // if (params.value > 99999) {
-              //   return params.value / 1000 + '';
-              // }
-
-              // if (params.value > 9999) {
-              //   return params.value / 100 + '';
-              // }
-
-              // if (params.value > 999) {
-              //   return params.value / 10 + '';
-              // }
-
-              return params.value / 1000 + '';
-            }
-          },
-        },
-      ],
-      legend: {
-        enabled: true,
-        position: 'bottom',
-      },
-
-    }
-
+      }
+    }, 0);
   }
 
   async onGridReady(params) {
