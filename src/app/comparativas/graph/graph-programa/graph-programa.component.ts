@@ -73,7 +73,7 @@ export class GraphProgramaComponent implements AfterViewInit {
       this.options = {
         autoSize: true,
         title: {
-          text: `Progframa ${this.data[0].CodPro} ${this.data[0].DesPro}`,
+          text: `Programa ${this.data[0].CodPro} ${this.data[0].DesPro}`,
         },
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
@@ -122,7 +122,7 @@ export class GraphProgramaComponent implements AfterViewInit {
         },
 
       }
-    }, 0);
+    }, 500);
   }
 
   async onGridReady(params) {

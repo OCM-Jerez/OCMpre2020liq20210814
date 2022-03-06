@@ -4,7 +4,7 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div>
             <select formControlName="orgGasto" class="select">
-                <option>Selecciona económico</option>
+                <option>Selecciona orgánico</option>
                 <option *ngFor="let org of orgArray">{{org.CodOrg}} {{org.DesOrg}}</option>
             </select>
             <div *ngIf="f.orgGasto.touched && f.orgGasto.invalid" class="alert alert-danger">
