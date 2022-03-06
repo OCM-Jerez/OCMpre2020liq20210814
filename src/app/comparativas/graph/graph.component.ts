@@ -64,7 +64,6 @@ export class GraphComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      // console.log("Datos ngAfterViewInit Tratados constructor: ", this.data);
       this.options = {
         // theme: 'ag-default-dark',
         autoSize: true,
@@ -125,7 +124,7 @@ export class GraphComponent implements AfterViewInit {
   async createData(eco: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Eco');
     const datos = this.getObjects(await this.rowData, 'CodEco', eco);
-    console.log("Datos: ", datos);
+    // console.log("Datos: ", datos);
 
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
@@ -186,7 +185,7 @@ export class GraphComponent implements AfterViewInit {
       "RecaudacionNeta": datos[6].RecaudacionNeta2021      // Se utiliza la recaudación neta del último año conocido para no desfigurar el grafico, ya que de lo contrario seria 0. 
     };
     this.data.push(a2022)
-    console.log("Datos Tratados: ", this.data);
+    // console.log("Datos Tratados: ", this.data);
     return this.data;
   }
 
@@ -194,8 +193,6 @@ export class GraphComponent implements AfterViewInit {
   getObjects(obj, key, val) {
     var objects = [];
     for (var i in obj) {
-      // console.log("valor de i: ", i);
-
       if (!obj.hasOwnProperty(i)) continue;
       if (typeof obj[i] == 'object') {
         objects = objects.concat(this.getObjects(obj[i], key, val));
@@ -210,7 +207,6 @@ export class GraphComponent implements AfterViewInit {
           }
         }
     }
-    // console.log("Resultado: ", objects);
     return objects;
   }
 

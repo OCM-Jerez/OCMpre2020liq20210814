@@ -128,24 +128,14 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    // this.rowDataTable = await this.avalaibleYearsService.getDataJson(true);
-    // this.rowDataTable = this.data;
   }
 
   async createData(cap: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYear('Cap');
     const datos = this.getObjects(await this.rowData, 'CodCap', cap);
-
-    // this.rowData = await this.avalaibleYearsService.getDataAllYear('Cap');
-    // const datos = this.getObjects(await this.rowData, 'CodCap', 1);
-
-    console.log("Datos: ", datos);
-
+    // console.log("Datos: ", datos);
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
-    // const Definitivas2015 = 1000000;  // Hay que sumar todos los registros con el codigo y el año = 2015
-
-    // function sumEconomicos2015(eco: string) {
     let defini2015 = 0;
     let defini2016 = 0;
     let defini2017 = 0;
@@ -154,7 +144,6 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
     let defini2020 = 0;
     let defini2021 = 0;
     let defini2022 = 0;
-
 
     datos.forEach(item => {
       if (item.Definitivas2015 > 0) {
@@ -344,9 +333,8 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
       "ObligacionesPendientes": ObliPendientes2022
     };
     this.data.push(a2022)
-    console.log("Datos Tratados: ", this.data);
+    // console.log("Datos Tratados: ", this.data);
     return this.data;
-
 
   }
 
@@ -354,8 +342,6 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
   getObjects(obj, key, val) {
     var objects = [];
     for (var i in obj) {
-      // console.log("valor de i: ", i);
-
       if (!obj.hasOwnProperty(i)) continue;
       if (typeof obj[i] == 'object') {
         objects = objects.concat(this.getObjects(obj[i], key, val));
@@ -370,7 +356,6 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
           }
         }
     }
-    // console.log("Resultado: ", objects);
     return objects;
   }
 

@@ -30,7 +30,7 @@ export class SelectEconomicoGastoComponent {
 
   submit() {
     this.dataGraphGastosService.ecoGasto = this.form.value.ecoGasto;
-    this.router.navigate(['/GraficoEconomicoGasto'])
+    this.router.navigateByUrl('/GraficoEconomicoGasto')
   }
 
 }

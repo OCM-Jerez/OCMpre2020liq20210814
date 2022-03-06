@@ -70,7 +70,6 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
   }
   ngAfterViewInit(): void {
     setTimeout(() => {
-      // console.    log("Datos Tratados constructor: ", this.data);
       this.options = {
         // theme: 'ag-default-dark',
         autoSize: true,
@@ -113,24 +112,6 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
             },
             label: {
               formatter: function (params) {
-                // console.log("< 10000: ", params);
-
-                // if (params.value > 999999) {
-                //   return params.value / 1000 + '';
-                // }
-
-                // if (params.value > 99999) {
-                //   return params.value / 1000 + '';
-                // }
-
-                // if (params.value > 9999) {
-                //   return params.value / 100 + '';
-                // }
-
-                // if (params.value > 999) {
-                //   return params.value / 10 + '';
-                // }
-
                 return params.value / 1000 + '';
               }
             },
@@ -148,24 +129,14 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    // this.rowDataTable = await this.avalaibleYearsService.getDataJson(true);
-    // this.rowDataTable = this.data;
   }
 
   async createData(eco: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYear('Eco');
     const datos = this.getObjects(await this.rowData, 'CodEco', eco);
-
-    // this.rowData = await this.avalaibleYearsService.getDataAllYear('Cap');
-    // const datos = this.getObjects(await this.rowData, 'CodCap', 1);
-
-    console.log("Datos: ", datos);
-
+    // console.log("Datos: ", datos);
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
-    // const Definitivas2015 = 1000000;  // Hay que sumar todos los registros con el codigo y el año = 2015
-
-    // function sumEconomicos2015(eco: string) {
     let defini2015 = 0;
     let defini2016 = 0;
     let defini2017 = 0;
@@ -211,17 +182,6 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
 
     })
 
-    // console.log("Definitivas2015: ", defini2015);
-    // console.log("Definitivas2016: ", defini2016);
-    // console.log("Definitivas2017: ", defini2017);
-    // console.log("Definitivas2018: ", defini2018);
-    // console.log("Definitivas2019: ", defini2019);
-    // console.log("Definitivas2020: ", defini2020);
-    // console.log("Definitivas2021: ", defini2021);
-    // console.log("Definitivas2022: ", defini2022);
-    // }
-
-
     let ObliNetas2015 = 0;
     let ObliNetas2016 = 0;
     let ObliNetas2017 = 0;
@@ -266,16 +226,6 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
 
     })
 
-    // console.log("ObliNeta2015: ", ObliNetas2015);
-    // console.log("ObliNeta2016: ", ObliNetas2016);
-    // console.log("ObliNeta2017: ", ObliNetas2017);
-    // console.log("ObliNeta2018: ", ObliNetas2018);
-    // console.log("ObliNeta2019: ", ObliNetas2019);
-    // console.log("ObliNeta2020: ", ObliNetas2020);
-    // console.log("ObliNeta2021: ", ObliNetas2021);
-    // console.log("ObliNeta2022: ", ObliNetas2022);
-
-
     let ObliPendientes2015 = 0;
     let ObliPendientes2016 = 0;
     let ObliPendientes2017 = 0;
@@ -319,16 +269,6 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
       }
 
     })
-
-    // console.log("ObliPendientes2015: ", ObliPendientes2015);
-    // console.log("ObliPendientes2016: ", ObliPendientes2016);
-    // console.log("ObliPendientes2017: ", ObliPendientes2017);
-    // console.log("ObliPendientes2018: ", ObliPendientes2018);
-    // console.log("ObliPendientes2019: ", ObliPendientes2019);
-    // console.log("ObliPendientes2020: ", ObliPendientes2020);
-    // console.log("ObliPendientes2021: ", ObliPendientes2021);
-    // console.log("ObliPendientes2022: ", ObliPendientes2022);
-
 
     const a2015 = {
       "year": "2015",
@@ -395,9 +335,8 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
       "ObligacionesPendientes": ObliPendientes2022
     };
     this.data.push(a2022)
-    console.log("Datos Tratados: ", this.data);
+    // console.log("Datos Tratados: ", this.data);
     return this.data;
-
 
   }
 
@@ -405,8 +344,6 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
   getObjects(obj, key, val) {
     var objects = [];
     for (var i in obj) {
-      // console.log("valor de i: ", i);
-
       if (!obj.hasOwnProperty(i)) continue;
       if (typeof obj[i] == 'object') {
         objects = objects.concat(this.getObjects(obj[i], key, val));
@@ -421,7 +358,6 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
           }
         }
     }
-    // console.log("Resultado: ", objects);
     return objects;
   }
 

@@ -6,7 +6,6 @@ import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
 import { DataGraphGastosService } from '../../../services/data-graph-gastos.service';
 
-
 @Component({
   selector: 'app-graph-programa',
   templateUrl: './graph-programa.component.html',
@@ -129,24 +128,14 @@ export class GraphProgramaComponent implements AfterViewInit {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    // this.rowDataTable = await this.avalaibleYearsService.getDataJson(true);
-    // this.rowDataTable = this.data;
   }
 
   async createData(pro: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro');
     const datos = this.getObjects(await this.rowData, 'CodPro', pro);
-
-    // this.rowData = await this.avalaibleYearsService.getDataAllYear('Cap');
-    // const datos = this.getObjects(await this.rowData, 'CodCap', 1);
-
-    console.log("Datos: ", datos);
-
+    // console.log("Datos: ", datos);
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
-    // const Definitivas2015 = 1000000;  // Hay que sumar todos los registros con el codigo y el año = 2015
-
-    // function sumEconomicos2015(eco: string) {
     let defini2015 = 0;
     let defini2016 = 0;
     let defini2017 = 0;
@@ -280,16 +269,6 @@ export class GraphProgramaComponent implements AfterViewInit {
 
     })
 
-    // console.log("ObliPendientes2015: ", ObliPendientes2015);
-    // console.log("ObliPendientes2016: ", ObliPendientes2016);
-    // console.log("ObliPendientes2017: ", ObliPendientes2017);
-    // console.log("ObliPendientes2018: ", ObliPendientes2018);
-    // console.log("ObliPendientes2019: ", ObliPendientes2019);
-    // console.log("ObliPendientes2020: ", ObliPendientes2020);
-    // console.log("ObliPendientes2021: ", ObliPendientes2021);
-    // console.log("ObliPendientes2022: ", ObliPendientes2022);
-
-
     const a2015 = {
       "year": "2015",
       "CodPro": datos[0].CodPro,
@@ -355,9 +334,8 @@ export class GraphProgramaComponent implements AfterViewInit {
       "ObligacionesPendientes": ObliPendientes2022
     };
     this.data.push(a2022)
-    console.log("Datos Tratados: ", this.data);
+    // console.log("Datos Tratados: ", this.data);
     return this.data;
-
 
   }
 
@@ -365,8 +343,6 @@ export class GraphProgramaComponent implements AfterViewInit {
   getObjects(obj, key, val) {
     var objects = [];
     for (var i in obj) {
-      // console.log("valor de i: ", i);
-
       if (!obj.hasOwnProperty(i)) continue;
       if (typeof obj[i] == 'object') {
         objects = objects.concat(this.getObjects(obj[i], key, val));
@@ -381,7 +357,6 @@ export class GraphProgramaComponent implements AfterViewInit {
           }
         }
     }
-    // console.log("Resultado: ", objects);
     return objects;
   }
 

@@ -30,7 +30,7 @@ export class SelectProgramaComponent {
 
   submit() {
     this.dataGraphGastosService.programa = this.form.value.proGasto;
-    this.router.navigate(['/GraficoProgramaGasto'])
+    this.router.navigateByUrl('/GraficoProgramaGasto')
   }
 
 }

@@ -37,59 +37,58 @@ export class IndiceComponent implements OnInit {
   }
 
   porIngresos() {
-    this.router.navigate(['/Ingresos'])
+    this.router.navigateByUrl('/Ingresos')
   }
 
   grafico() {
-    this.router.navigate(['/SelectIngreso'])
+    this.router.navigateByUrl('/SelectIngreso')
   }
 
   graficoGastoOrganico() {
-    this.router.navigate(['/SelectGastoOrganico'])
+    this.router.navigateByUrl('/SelectGastoOrganico')
   }
 
   graficoGastoPrograma() {
-    this.router.navigate(['/SelectGastoPrograma'])
+    this.router.navigateByUrl('/SelectGastoPrograma')
   }
 
   graficoGastoEconomico() {
-    this.router.navigate(['/SelectGastoEconomico'])
+    this.router.navigateByUrl('/SelectGastoEconomico')
   }
-
 
   porCapitulo() {
     this.tipoclasificacionService.tipoClasificacion = 'capítulo'
-    this.router.navigate(['/Gastos'])
+    this.router.navigateByUrl('/Gastos')
   }
 
   porEconomico() {
     this.tipoclasificacionService.tipoClasificacion = 'económico'
-    this.router.navigate(['/Gastos'])
+    this.router.navigateByUrl('/Gastos')
   }
 
   porOrganico() {
     this.tipoclasificacionService.tipoClasificacion = 'orgánico'
-    this.router.navigate(['/Gastos'])
+    this.router.navigateByUrl('/Gastos')
   }
 
   porPrograma() {
     this.tipoclasificacionService.tipoClasificacion = 'programa'
-    this.router.navigate(['/Gastos'])
+    this.router.navigateByUrl('/Gastos')
   }
 
   comparaIng() {
     this.tipoclasificacionService.tipoClasificacion = 'Cap'
-    this.router.navigate(['/ComparaIng'])
+    this.router.navigateByUrl('/ComparaIng')
   }
 
   comparaIngEco() {
     this.tipoclasificacionService.tipoClasificacion = 'Eco'
-    this.router.navigate(['/ComparaIng'])
+    this.router.navigateByUrl('/ComparaIng')
   }
 
   comparaCap() {
     this.tipoclasificacionService.tipoClasificacion = 'Cap'
-    this.router.navigate(['/ComparaGas'])
+    this.router.navigateByUrl('/ComparaGas')
   }
   graficoGastoCapitulo() {
     this.router.navigateByUrl('/SelectGastoCapitulo')
@@ -97,17 +96,17 @@ export class IndiceComponent implements OnInit {
 
   comparaOrg() {
     this.tipoclasificacionService.tipoClasificacion = 'Org'
-    this.router.navigate(['/ComparaGas'])
+    this.router.navigateByUrl('/ComparaGas')
   }
 
   comparaPro() {
     this.tipoclasificacionService.tipoClasificacion = 'Pro'
-    this.router.navigate(['/ComparaGas'])
+    this.router.navigateByUrl('/ComparaGas')
   }
 
   comparaEco() {
     this.tipoclasificacionService.tipoClasificacion = 'Eco'
-    this.router.navigate(['/ComparaGas'])
+    this.router.navigateByUrl('/ComparaGas')
   }
 
   getSelectedItem() {

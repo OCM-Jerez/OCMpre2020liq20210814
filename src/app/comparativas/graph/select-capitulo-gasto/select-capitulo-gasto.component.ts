@@ -32,7 +32,7 @@ export class SelectCapituloGastoComponent {
     console.log(this.form.value.capGasto);
 
     this.dataGraphGastosService.capituloGasto = this.form.value.capGasto;
-    this.router.navigate(['/GraficoCapituloGasto'])
+    this.router.navigateByUrl('/GraficoCapituloGasto')
   }
 
 }
