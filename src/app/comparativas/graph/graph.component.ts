@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../app/ag-grid/CellRendererOCM';
@@ -28,7 +29,8 @@ export class GraphComponent implements AfterViewInit {
 
   constructor(
     private avalaibleYearsService: AvalaibleYearsService,
-    private dataGraphIngresosService: DataGraphIngresosService
+    private dataGraphIngresosService: DataGraphIngresosService,
+    private router: Router,
   ) {
     this.createData(this.dataGraphIngresosService.getEcoIngreso().substring(0, 5))
 
@@ -210,6 +212,10 @@ export class GraphComponent implements AfterViewInit {
     }
     // console.log("Resultado: ", objects);
     return objects;
+  }
+
+  volver() {
+    this.router.navigateByUrl('/SelectIngreso')
   }
 
 }

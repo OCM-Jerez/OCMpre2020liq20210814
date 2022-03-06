@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
@@ -28,7 +29,8 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
 
   constructor(
     private avalaibleYearsService: AvalaibleYearsService,
-    private dataGraphGastosService: DataGraphGastosService
+    private dataGraphGastosService: DataGraphGastosService,
+    private router: Router,
   ) {
     this.createData(this.dataGraphGastosService.getEcoGasto().substring(0, 5))
 
@@ -423,7 +425,8 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
     return objects;
   }
 
-
-
+  volver() {
+    this.router.navigateByUrl('/SelectGasto')
+  }
 
 }

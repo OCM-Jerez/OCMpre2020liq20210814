@@ -737,7 +737,7 @@ export class SelectEconomicoIngresoComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form.value);
+    // console.log(this.form.value);
     this.dataGraphIngresosService.ecoIngreso = this.form.value.ecoIng;
     // this.router.navigate(['/Grafico',{}])
     this.router.navigateByUrl('/Grafico')
