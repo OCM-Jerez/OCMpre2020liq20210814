@@ -14,15 +14,19 @@ import { SelectProgramaComponent } from './comparativas/graph/select-programa/se
 import { GraphProgramaComponent } from './comparativas/graph/graph-programa/graph-programa.component';
 import { SelectCapituloGastoComponent } from './comparativas/graph/select-capitulo-gasto/select-capitulo-gasto.component';
 import { GraphCapituloGastoComponent } from './comparativas/graph/graph-capitulo-gasto/graph-capitulo-gasto.component';
+import { SelectOrganicoGastoComponent } from './comparativas/graph/select-organico-gasto/select-organico-gasto.component';
+import { GraphOrganicoGastoComponent } from './comparativas/graph/graph-organico-gasto/graph-organico-gasto.component';
 
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
   { path: 'Ingresos', component: IngresosComponent },
   { path: 'SelectIngreso', component: SelectEconomicoIngresoComponent },
+  { path: 'SelectGastoOrganico', component: SelectOrganicoGastoComponent },
   { path: 'SelectGastoCapitulo', component: SelectCapituloGastoComponent },
   { path: 'SelectGastoPrograma', component: SelectProgramaComponent },
   { path: 'SelectGastoEconomico', component: SelectEconomicoGastoComponent },
   { path: 'Grafico', component: GraphComponent },
+  { path: 'GraficoOrganicoGasto', component: GraphOrganicoGastoComponent },
   { path: 'GraficoCapituloGasto', component: GraphCapituloGastoComponent },
   { path: 'GraficoEconomicoGasto', component: GraphEconomicoGastoComponent },
   { path: 'GraficoProgramaGasto', component: GraphProgramaComponent },

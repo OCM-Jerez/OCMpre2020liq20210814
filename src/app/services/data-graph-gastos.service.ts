@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class DataGraphGastosService {
   ecoGasto = "";
   programa = "";
+  organico = "";
   capituloGasto = "";
 
   public getEcoGasto(): string {
@@ -14,6 +15,10 @@ export class DataGraphGastosService {
 
   public getPrograma(): string {
     return this.programa;
+  }
+
+  public getOrganico(): string {
+    return this.organico;
   }
 
   public getCapituloGasto(): string {

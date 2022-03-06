@@ -32,6 +32,8 @@ import { SelectProgramaComponent } from './comparativas/graph/select-programa/se
 import { GraphProgramaComponent } from './comparativas/graph/graph-programa/graph-programa.component';
 import { GraphCapituloGastoComponent } from './comparativas/graph/graph-capitulo-gasto/graph-capitulo-gasto.component';
 import { SelectCapituloGastoComponent } from './comparativas/graph/select-capitulo-gasto/select-capitulo-gasto.component';
+import { SelectOrganicoGastoComponent } from './comparativas/graph/select-organico-gasto/select-organico-gasto.component';
+import { GraphOrganicoGastoComponent } from './comparativas/graph/graph-organico-gasto/graph-organico-gasto.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { SelectCapituloGastoComponent } from './comparativas/graph/select-capitu
     GraphProgramaComponent,
     GraphCapituloGastoComponent,
     SelectCapituloGastoComponent,
+    SelectOrganicoGastoComponent,
+    GraphOrganicoGastoComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,106 @@
+[
+  {
+    "CodOrg": 0,
+    "DesOrg": "Servicios centrales"
+  },
+  {
+    "CodOrg": 1,
+    "DesOrg": "Presidencia"
+  },
+  {
+    "CodOrg": 2,
+    "DesOrg": "Empleo"
+  },
+  {
+    "CodOrg": 3,
+    "DesOrg": "Recursos humanos"
+  },
+  {
+    "CodOrg": 4,
+    "DesOrg": "Medio rural"
+  },
+  {
+    "CodOrg": 5,
+    "DesOrg": "Igualdad y salud"
+  },
+  {
+    "CodOrg": 6,
+    "DesOrg": "Deportes"
+  },
+  {
+    "CodOrg": 7,
+    "DesOrg": "Infraestructuras"
+  },
+  {
+    "CodOrg": 8,
+    "DesOrg": "Cultura"
+  },
+  {
+    "CodOrg": 9,
+    "DesOrg": "Medio ambiente"
+  },
+  {
+    "CodOrg": 10,
+    "DesOrg": "Urbanismo"
+  },
+  {
+    "CodOrg": 11,
+    "DesOrg": "Participacion ciudadana"
+  },
+  {
+    "CodOrg": 12,
+    "DesOrg": "Educación"
+  },
+  {
+    "CodOrg": 13,
+    "DesOrg": "Distritos"
+  },
+  {
+    "CodOrg": 14,
+    "DesOrg": "Gestión del patrimonio"
+  },
+  {
+    "CodOrg": 15,
+    "DesOrg": "Fiestas y festejos populares"
+  },
+  {
+    "CodOrg": 16,
+    "DesOrg": "Bienestar social y del mayor"
+  },
+  {
+    "CodOrg": 17,
+    "DesOrg": "Economía y hacienda"
+  },
+  {
+    "CodOrg": 18,
+    "DesOrg": "Juventud"
+  },
+  {
+    "CodOrg": 19,
+    "DesOrg": "Seguridad"
+  },
+  {
+    "CodOrg": 20,
+    "DesOrg": "Mercados"
+  },
+  {
+    "CodOrg": 21,
+    "DesOrg": "Movilidad"
+  },
+  {
+    "CodOrg": 22,
+    "DesOrg": "Turismo"
+  },
+  {
+    "CodOrg": 23,
+    "DesOrg": "Planes Especiales"
+  },
+  {
+    "CodOrg": 24,
+    "DesOrg": "Zoologico-Montes Propios"
+  },
+  {
+    "CodOrg": 25,
+    "DesOrg": "Promoción y gestión vivienda"
+  }
+]
