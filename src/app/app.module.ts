@@ -28,6 +28,10 @@ import { GraphComponent } from './comparativas/graph/graph.component';
 import { SelectEconomicoIngresoComponent } from './comparativas/graph/select-economico-ingreso/select-economico-ingreso.component';
 import { SelectEconomicoGastoComponent } from './comparativas/graph/select-economico-gasto/select-economico-gasto.component';
 import { GraphEconomicoGastoComponent } from './comparativas/graph/graph-economico-gasto/graph-economico-gasto.component';
+import { SelectProgramaComponent } from './comparativas/graph/select-programa/select-programa.component';
+import { GraphProgramaComponent } from './comparativas/graph/graph-programa/graph-programa.component';
+import { GraphCapituloGastoComponent } from './comparativas/graph/graph-capitulo-gasto/graph-capitulo-gasto.component';
+import { SelectCapituloGastoComponent } from './comparativas/graph/select-capitulo-gasto/select-capitulo-gasto.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,10 @@ import { GraphEconomicoGastoComponent } from './comparativas/graph/graph-economi
     SelectEconomicoIngresoComponent,
     SelectEconomicoGastoComponent,
     GraphEconomicoGastoComponent,
+    SelectProgramaComponent,
+    GraphProgramaComponent,
+    GraphCapituloGastoComponent,
+    SelectCapituloGastoComponent,
   ],
   imports: [
     BrowserModule,

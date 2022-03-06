@@ -7,11 +7,11 @@ import { AvalaibleYearsService } from '../../../services/avalaibleYears.service'
 import { DataGraphGastosService } from '../../../services/data-graph-gastos.service';
 
 @Component({
-  selector: 'app-graph-economico-gasto',
-  templateUrl: './graph-economico-gasto.component.html',
-  styleUrls: ['./graph-economico-gasto.component.scss']
+  selector: 'app-graph-capitulo-gasto',
+  templateUrl: './graph-capitulo-gasto.component.html',
+  styleUrls: ['./graph-capitulo-gasto.component.scss']
 })
-export class GraphEconomicoGastoComponent implements AfterViewInit {
+export class GraphCapituloGastoComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
@@ -32,7 +32,7 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
     private dataGraphGastosService: DataGraphGastosService,
     private router: Router,
   ) {
-    this.createData(this.dataGraphGastosService.getEcoGasto().substring(0, 5))
+    this.createData(this.dataGraphGastosService.getCapituloGasto().substring(0, 1))
 
     this.columnDefs = [
       {
@@ -70,12 +70,10 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
   }
   ngAfterViewInit(): void {
     setTimeout(() => {
-      // console.    log("Datos Tratados constructor: ", this.data);
       this.options = {
-        // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: `${this.data[0].CodEco} ${this.data[0].DesEco}`,
+          text: `${this.data[0].CodCap} ${this.data[0].Capitulo}`,
         },
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
@@ -113,24 +111,6 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
             },
             label: {
               formatter: function (params) {
-                // console.log("< 10000: ", params);
-
-                // if (params.value > 999999) {
-                //   return params.value / 1000 + '';
-                // }
-
-                // if (params.value > 99999) {
-                //   return params.value / 1000 + '';
-                // }
-
-                // if (params.value > 9999) {
-                //   return params.value / 100 + '';
-                // }
-
-                // if (params.value > 999) {
-                //   return params.value / 10 + '';
-                // }
-
                 return params.value / 1000 + '';
               }
             },
@@ -152,9 +132,9 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
     // this.rowDataTable = this.data;
   }
 
-  async createData(eco: string) {
-    this.rowData = await this.avalaibleYearsService.getDataAllYear('Eco');
-    const datos = this.getObjects(await this.rowData, 'CodEco', eco);
+  async createData(cap: string) {
+    this.rowData = await this.avalaibleYearsService.getDataAllYear('Cap');
+    const datos = this.getObjects(await this.rowData, 'CodCap', cap);
 
     // this.rowData = await this.avalaibleYearsService.getDataAllYear('Cap');
     // const datos = this.getObjects(await this.rowData, 'CodCap', 1);
@@ -211,17 +191,6 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
 
     })
 
-    // console.log("Definitivas2015: ", defini2015);
-    // console.log("Definitivas2016: ", defini2016);
-    // console.log("Definitivas2017: ", defini2017);
-    // console.log("Definitivas2018: ", defini2018);
-    // console.log("Definitivas2019: ", defini2019);
-    // console.log("Definitivas2020: ", defini2020);
-    // console.log("Definitivas2021: ", defini2021);
-    // console.log("Definitivas2022: ", defini2022);
-    // }
-
-
     let ObliNetas2015 = 0;
     let ObliNetas2016 = 0;
     let ObliNetas2017 = 0;
@@ -265,16 +234,6 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
       }
 
     })
-
-    // console.log("ObliNeta2015: ", ObliNetas2015);
-    // console.log("ObliNeta2016: ", ObliNetas2016);
-    // console.log("ObliNeta2017: ", ObliNetas2017);
-    // console.log("ObliNeta2018: ", ObliNetas2018);
-    // console.log("ObliNeta2019: ", ObliNetas2019);
-    // console.log("ObliNeta2020: ", ObliNetas2020);
-    // console.log("ObliNeta2021: ", ObliNetas2021);
-    // console.log("ObliNeta2022: ", ObliNetas2022);
-
 
     let ObliPendientes2015 = 0;
     let ObliPendientes2016 = 0;
@@ -320,20 +279,10 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
 
     })
 
-    // console.log("ObliPendientes2015: ", ObliPendientes2015);
-    // console.log("ObliPendientes2016: ", ObliPendientes2016);
-    // console.log("ObliPendientes2017: ", ObliPendientes2017);
-    // console.log("ObliPendientes2018: ", ObliPendientes2018);
-    // console.log("ObliPendientes2019: ", ObliPendientes2019);
-    // console.log("ObliPendientes2020: ", ObliPendientes2020);
-    // console.log("ObliPendientes2021: ", ObliPendientes2021);
-    // console.log("ObliPendientes2022: ", ObliPendientes2022);
-
-
     const a2015 = {
       "year": "2015",
-      "CodEco": datos[0].CodEco,
-      "DesEco": datos[0].DesEco,
+      "CodCap": datos[0].CodCap,
+      "Capitulo": datos[0].DesCap,
       "Definitivas": defini2015,
       "ObligacionesReconocidasNetas": ObliNetas2015,
       "ObligacionesPendientes": ObliPendientes2015
@@ -426,7 +375,7 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
   }
 
   volver() {
-    this.router.navigateByUrl('/SelectGastoEconomico')
+    this.router.navigateByUrl('/SelectGastoCapitulo')
   }
 
 }

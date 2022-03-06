@@ -41,13 +41,19 @@ export class IndiceComponent implements OnInit {
   }
 
   grafico() {
-    // this.router.navigate(['/Grafico'])
     this.router.navigate(['/SelectIngreso'])
   }
 
-  graficoGasto() {
-    // this.router.navigate(['/Grafico'])
-    this.router.navigate(['/SelectGasto'])
+  graficoGastoOrganico() {
+    this.router.navigate(['/SelectGastoOrganico'])
+  }
+
+  graficoGastoPrograma() {
+    this.router.navigate(['/SelectGastoPrograma'])
+  }
+
+  graficoGastoEconomico() {
+    this.router.navigate(['/SelectGastoEconomico'])
   }
 
 
@@ -84,6 +90,9 @@ export class IndiceComponent implements OnInit {
   comparaCap() {
     this.tipoclasificacionService.tipoClasificacion = 'Cap'
     this.router.navigate(['/ComparaGas'])
+  }
+  graficoGastoCapitulo() {
+    this.router.navigateByUrl('/SelectGastoCapitulo')
   }
 
   comparaOrg() {

@@ -1,0 +1,754 @@
+[
+  {
+    "CodPro": 1110,
+    "DesPro": "Deuda pública"
+  },
+  {
+    "CodPro": 13010,
+    "DesPro": "Administración general de la seguridad y protección civil"
+  },
+  {
+    "CodPro": 13210,
+    "DesPro": "Policía Local"
+  },
+  {
+    "CodPro": 13220,
+    "DesPro": "Academia de Policía"
+  },
+  {
+    "CodPro": 13310,
+    "DesPro": "Ordenación del tráfico y del estacionamiento"
+  },
+  {
+    "CodPro": 13311,
+    "DesPro": "Caminos escolares"
+  },
+  {
+    "CodPro": 13410,
+    "DesPro": "Movilidad urbana"
+  },
+  {
+    "CodPro": 13510,
+    "DesPro": "Servicios Generales de Protección Civil"
+  },
+  {
+    "CodPro": 15010,
+    "DesPro": "Servicios Generales de Urbanismo"
+  },
+  {
+    "CodPro": 15110,
+    "DesPro": "Planeamiento y Gestión Urbanística"
+  },
+  {
+    "CodPro": 15111,
+    "DesPro": "Planes Municipale de Ordenación Urbana"
+  },
+  {
+    "CodPro": 15120,
+    "DesPro": "Licencias urbanísticas"
+  },
+  {
+    "CodPro": 15130,
+    "DesPro": "Disciplina urbanística"
+  },
+  {
+    "CodPro": 15210,
+    "DesPro": "Promoción y gestión de vivienda de protección pública"
+  },
+  {
+    "CodPro": 15220,
+    "DesPro": "Edificaciones"
+  },
+  {
+    "CodPro": 15221,
+    "DesPro": "Fondo estatal para el empleo y sostenibilidad local."
+  },
+  {
+    "CodPro": 15310,
+    "DesPro": "Vías públicas rural"
+  },
+  {
+    "CodPro": 15320,
+    "DesPro": "Vías públicas"
+  },
+  {
+    "CodPro": 15321,
+    "DesPro": "Plan integral accesibilidad"
+  },
+  {
+    "CodPro": 16010,
+    "DesPro": "Alcantarillado rural"
+  },
+  {
+    "CodPro": 16110,
+    "DesPro": "Abastecimiento domicializado agua"
+  },
+  {
+    "CodPro": 16210,
+    "DesPro": "Recogida de residuos"
+  },
+  {
+    "CodPro": 16230,
+    "DesPro": "Tratamiento de residuos urbanos"
+  },
+  {
+    "CodPro": 16310,
+    "DesPro": "Limpieza viaria"
+  },
+  {
+    "CodPro": 16410,
+    "DesPro": "Cementerio"
+  },
+  {
+    "CodPro": 16510,
+    "DesPro": "Alumbrado público"
+  },
+  {
+    "CodPro": 16511,
+    "DesPro": "Otras inversiones nuevasen infraestructuras y bienes para u"
+  },
+  {
+    "CodPro": 17110,
+    "DesPro": "Conservación y diseño jardines urbanos y periurbanos"
+  },
+  {
+    "CodPro": 17111,
+    "DesPro": "Aparatos biosaludables parques urbanos"
+  },
+  {
+    "CodPro": 17112,
+    "DesPro": "Otras inversiones en infraestructuras"
+  },
+  {
+    "CodPro": 17210,
+    "DesPro": "Protección y mejora del medio ambiente"
+  },
+  {
+    "CodPro": 17211,
+    "DesPro": "Otras actuacines relacionadas con medio ambiente. Educación mediambiental"
+  },
+  {
+    "CodPro": 17212,
+    "DesPro": "Otras actuaciones relacionadas con medio ambiente. Prevención y calidad"
+  },
+  {
+    "CodPro": 17910,
+    "DesPro": "Servicio técnico municipal"
+  },
+  {
+    "CodPro": 22110,
+    "DesPro": "Otras prestaciones económicas a favor de empleados"
+  },
+  {
+    "CodPro": 23110,
+    "DesPro": "Servicios generales de Bienestar Social"
+  },
+  {
+    "CodPro": 23120,
+    "DesPro": "Primera atención (Plan Estrategico Servicios Sociales)"
+  },
+  {
+    "CodPro": 23121,
+    "DesPro": "Intervención en zona  (Plan Estrategico Servicios Sociales)"
+  },
+  {
+    "CodPro": 23122,
+    "DesPro": "Prestaciones complementarias  (Plan Estrategico Servicios Sociales)"
+  },
+  {
+    "CodPro": 23123,
+    "DesPro": "Inclusion social y Solidaridad (Plan Estrategico Servicios Sociales)"
+  },
+  {
+    "CodPro": 23124,
+    "DesPro": "Albergue Municipal  (Plan Estrategico Servicios Sociales)"
+  },
+  {
+    "CodPro": 23125,
+    "DesPro": "Igualdad y Salud (Plan Estrategico Servicios Sociales)"
+  },
+  {
+    "CodPro": 23127,
+    "DesPro": "Programa integral contra la póbreza"
+  },
+  {
+    "CodPro": 23128,
+    "DesPro": "Diversidad"
+  },
+  {
+    "CodPro": 23130,
+    "DesPro": "Mayores"
+  },
+  {
+    "CodPro": 23131,
+    "DesPro": "Centro Dia Mayores Zona Sur"
+  },
+  {
+    "CodPro": 23132,
+    "DesPro": "Centro Dia Mayores \"El Abuelo"
+  },
+  {
+    "CodPro": 23133,
+    "DesPro": "Centro Dia Mayores Zona Norte"
+  },
+  {
+    "CodPro": 23140,
+    "DesPro": "Tratamiento a familias con menores"
+  },
+  {
+    "CodPro": 23141,
+    "DesPro": "Prevencion, promocion y reinsercion menores en riesgo social"
+  },
+  {
+    "CodPro": 23142,
+    "DesPro": "Servicio de atencion socioeducativa infancia y adolescencia"
+  },
+  {
+    "CodPro": 23150,
+    "DesPro": "Inmigracion  (Plan Estrategico Servicios Sociales)"
+  },
+  {
+    "CodPro": 23160,
+    "DesPro": "Plan contra la Exclusion Social"
+  },
+  {
+    "CodPro": 23170,
+    "DesPro": "Servicios Comunitarios de asistencia a personas dependientes"
+  },
+  {
+    "CodPro": 24120,
+    "DesPro": "Politicas activas de empleo"
+  },
+  {
+    "CodPro": 24121,
+    "DesPro": "Plan promocion empleo"
+  },
+  {
+    "CodPro": 24130,
+    "DesPro": "Formacion y proyectos"
+  },
+  {
+    "CodPro": 24131,
+    "DesPro": "Escuela de negocios"
+  },
+  {
+    "CodPro": 24140,
+    "DesPro": "Promocion de emprendedores"
+  },
+  {
+    "CodPro": 31110,
+    "DesPro": "Protección de la salubridad pública. Profilaxis vectoriales"
+  },
+  {
+    "CodPro": 31111,
+    "DesPro": "Otras actuaciones de protección de la salubridad pública"
+  },
+  {
+    "CodPro": 31112,
+    "DesPro": "Centro municipal protección animal"
+  },
+  {
+    "CodPro": 32010,
+    "DesPro": "Servicios generales de Educación"
+  },
+  {
+    "CodPro": 32310,
+    "DesPro": "Funcionamiento de centros docentes de enseñanza preescolar, infantil de 2º ciclo, primaria y educación especial"
+  },
+  {
+    "CodPro": 32311,
+    "DesPro": "Plan 50% 50%"
+  },
+  {
+    "CodPro": 32620,
+    "DesPro": "Mejoras nivel educacional estudiantes"
+  },
+  {
+    "CodPro": 32621,
+    "DesPro": "Escuela de musica"
+  },
+  {
+    "CodPro": 33010,
+    "DesPro": "Servicios Generales de Cultura"
+  },
+  {
+    "CodPro": 33210,
+    "DesPro": "Bibliotecas"
+  },
+  {
+    "CodPro": 33220,
+    "DesPro": "Archivo"
+  },
+  {
+    "CodPro": 33300,
+    "DesPro": "Equipamiento cultural ELAs"
+  },
+  {
+    "CodPro": 33310,
+    "DesPro": "Museo Arqueologico"
+  },
+  {
+    "CodPro": 34113,
+    "DesPro": "Juegos deportivos municipales"
+  },
+  {
+    "CodPro": 33410,
+    "DesPro": "Promoción cultural"
+  },
+  {
+    "CodPro": 33411,
+    "DesPro": "Organización de actividades culturales"
+  },
+  {
+    "CodPro": 33412,
+    "DesPro": "Banda de música"
+  },
+  {
+    "CodPro": 33413,
+    "DesPro": "Escuela de tauromaquia"
+  },
+  {
+    "CodPro": 33414,
+    "DesPro": "Promoción cultural"
+  },
+  {
+    "CodPro": 33416,
+    "DesPro": "Promoción cultural juventud"
+  },
+  {
+    "CodPro": 33417,
+    "DesPro": "Flamenco"
+  },
+  {
+    "CodPro": 33418,
+    "DesPro": "Cultura y fiestas"
+  },
+  {
+    "CodPro": 33419,
+    "DesPro": "Oficina de memoria demócratica"
+  },
+  {
+    "CodPro": 33420,
+    "DesPro": "Politicas de infancia"
+  },
+  {
+    "CodPro": 33610,
+    "DesPro": "Alcazar-Conjunto Monumental"
+  },
+  {
+    "CodPro": 33611,
+    "DesPro": "Los Claustros de Santo Domingo"
+  },
+  {
+    "CodPro": 33710,
+    "DesPro": "Parque zoológico"
+  },
+  {
+    "CodPro": 33711,
+    "DesPro": "Casa de la Juventud"
+  },
+  {
+    "CodPro": 33712,
+    "DesPro": "Parques infantiles medio rural"
+  },
+  {
+    "CodPro": 33713,
+    "DesPro": "Plan de ocio juvenil"
+  },
+  {
+    "CodPro": 33714,
+    "DesPro": "E-Games"
+  },
+  {
+    "CodPro": 33810,
+    "DesPro": "Fiestas populares y festejos"
+  },
+  {
+    "CodPro": 33811,
+    "DesPro": "Fiestas populares y festejos Medio Rural"
+  },
+  {
+    "CodPro": 34010,
+    "DesPro": "Servicios Generales de Deportes"
+  },
+  {
+    "CodPro": 34110,
+    "DesPro": "Promocion y fomento del deporte"
+  },
+  {
+    "CodPro": 34111,
+    "DesPro": "Circuito de Jerez"
+  },
+  {
+    "CodPro": 34112,
+    "DesPro": "Consejo del motor"
+  },
+  {
+    "CodPro": 34210,
+    "DesPro": "Instalaciones y pistas deportivas"
+  },
+  {
+    "CodPro": 34211,
+    "DesPro": "Piscinas municipales"
+  },
+  {
+    "CodPro": 41910,
+    "DesPro": "Montes Propios"
+  },
+  {
+    "CodPro": 43012,
+    "DesPro": "Plan actuaciones comercio local"
+  },
+  {
+    "CodPro": 43120,
+    "DesPro": "Mercados"
+  },
+  {
+    "CodPro": 43130,
+    "DesPro": "Comercio ambulante"
+  },
+  {
+    "CodPro": 43210,
+    "DesPro": "Actividades y promoción turística"
+  },
+  {
+    "CodPro": 43211,
+    "DesPro": "Actividades y promoción turística externa"
+  },
+  {
+    "CodPro": 43212,
+    "DesPro": "Promoción turística Ciudad del Vino 2014"
+  },
+  {
+    "CodPro": 43213,
+    "DesPro": "Ciudad Europea del Caballo 2018"
+  },
+  {
+    "CodPro": 43214,
+    "DesPro": "Plan turístico Jerez grandes ciudades"
+  },
+  {
+    "CodPro": 43215,
+    "DesPro": "Destino turísticos inteligentes"
+  },
+  {
+    "CodPro": 43216,
+    "DesPro": "Jerez Ciudad Europea Cultural 2031"
+  },
+  {
+    "CodPro": 43217,
+    "DesPro": "Jerez film Office 2020"
+  },
+  {
+    "CodPro": 43311,
+    "DesPro": "Gestión administrativa impulso económico"
+  },
+  {
+    "CodPro": 43312,
+    "DesPro": "Oficina de proyectos"
+  },
+  {
+    "CodPro": 43313,
+    "DesPro": "Unidad de ventanilla empresarial"
+  },
+  {
+    "CodPro": 43314,
+    "DesPro": "Servicios centrales de Fomento"
+  },
+  {
+    "CodPro": 43315,
+    "DesPro": "Unidad de apoyo economia social"
+  },
+  {
+    "CodPro": 44110,
+    "DesPro": "Transporte colectivo urbano de viajeros"
+  },
+  {
+    "CodPro": 45010,
+    "DesPro": "Servicios generales de Infraestructura"
+  },
+  {
+    "CodPro": 45410,
+    "DesPro": "Caminos rurales"
+  },
+  {
+    "CodPro": 49110,
+    "DesPro": "Sociedad de la información"
+  },
+  {
+    "CodPro": 49111,
+    "DesPro": "Servicio de radio y TV municipal"
+  },
+  {
+    "CodPro": 49310,
+    "DesPro": "Servicio de consumo"
+  },
+  {
+    "CodPro": 91210,
+    "DesPro": "Servicios Centrales Gobierno de la Corporación (Organos de Gobierno)"
+  },
+  {
+    "CodPro": 91212,
+    "DesPro": "Servicios Generales Area de la Presidencia"
+  },
+  {
+    "CodPro": 91213,
+    "DesPro": "Grupos políticos"
+  },
+  {
+    "CodPro": 91214,
+    "DesPro": "Ayuda a grupos políticos"
+  },
+  {
+    "CodPro": 92010,
+    "DesPro": "Servicios Generales Administración Central"
+  },
+  {
+    "CodPro": 92011,
+    "DesPro": "Secretaría General"
+  },
+  {
+    "CodPro": 92012,
+    "DesPro": "Secretaría-Intervención ELA"
+  },
+  {
+    "CodPro": 92013,
+    "DesPro": "Asesoría Jurídica General"
+  },
+  {
+    "CodPro": 92014,
+    "DesPro": "Servicio de asistencia jurídica"
+  },
+  {
+    "CodPro": 92015,
+    "DesPro": "Gestión del Plan"
+  },
+  {
+    "CodPro": 92020,
+    "DesPro": "Servicios Generales de Administración de Personal"
+  },
+  {
+    "CodPro": 92021,
+    "DesPro": "Formación interna"
+  },
+  {
+    "CodPro": 92022,
+    "DesPro": "Prevención de riesgos laborales"
+  },
+  {
+    "CodPro": 92030,
+    "DesPro": "Servicios Informáticos Internos"
+  },
+  {
+    "CodPro": 92031,
+    "DesPro": "Coordinación de Entidades Municipales"
+  },
+  {
+    "CodPro": 92032,
+    "DesPro": "Gestión administrativa de pedanías"
+  },
+  {
+    "CodPro": 92033,
+    "DesPro": "Sistema Información Geográfica"
+  },
+  {
+    "CodPro": 92034,
+    "DesPro": "Servicio contratación"
+  },
+  {
+    "CodPro": 92040,
+    "DesPro": "Administración medio rural"
+  },
+  {
+    "CodPro": 92041,
+    "DesPro": "Desarrollo del medio rural"
+  },
+  {
+    "CodPro": 92042,
+    "DesPro": "Distrito rural"
+  },
+  {
+    "CodPro": 92043,
+    "DesPro": "Actuaciones planes desarrollo rural"
+  },
+  {
+    "CodPro": 92044,
+    "DesPro": "OAC Cuartillos"
+  },
+  {
+    "CodPro": 92050,
+    "DesPro": "Coordinación de Distritos"
+  },
+  {
+    "CodPro": 92051,
+    "DesPro": "Distrito Centro"
+  },
+  {
+    "CodPro": 92052,
+    "DesPro": "Distrito Norte"
+  },
+  {
+    "CodPro": 92053,
+    "DesPro": "Distrito Sur"
+  },
+  {
+    "CodPro": 92054,
+    "DesPro": "Distrito Este"
+  },
+  {
+    "CodPro": 92055,
+    "DesPro": "Distrito Oeste"
+  },
+  {
+    "CodPro": 92056,
+    "DesPro": "Distrito Noroeste"
+  },
+  {
+    "CodPro": 92061,
+    "DesPro": "Imagen y diseño"
+  },
+  {
+    "CodPro": 92062,
+    "DesPro": "Almacén y talleres"
+  },
+  {
+    "CodPro": 92063,
+    "DesPro": "Mantenimiento de dependencias municipales"
+  },
+  {
+    "CodPro": 92064,
+    "DesPro": "Plan integral fuentes"
+  },
+  {
+    "CodPro": 92066,
+    "DesPro": "Iniciativa Urbana Jerez Sur"
+  },
+  {
+    "CodPro": 92067,
+    "DesPro": "Servicio de mayordomía"
+  },
+  {
+    "CodPro": 92068,
+    "DesPro": "Juventud. Gastos de personal"
+  },
+  {
+    "CodPro": 92069,
+    "DesPro": "Otros mantenimientos"
+  },
+  {
+    "CodPro": 92070,
+    "DesPro": "Parque Móvil"
+  },
+  {
+    "CodPro": 92071,
+    "DesPro": "Planes especiales"
+  },
+  {
+    "CodPro": 92072,
+    "DesPro": "Patrocinio"
+  },
+  {
+    "CodPro": 92081,
+    "DesPro": "Unidad de auditoria de la deuda"
+  },
+  {
+    "CodPro": 92082,
+    "DesPro": "Unidad de transparencia"
+  },
+  {
+    "CodPro": 92083,
+    "DesPro": "Unidad de evaluación y calidad"
+  },
+  {
+    "CodPro": 92410,
+    "DesPro": "Participación ciudadana"
+  },
+  {
+    "CodPro": 92411,
+    "DesPro": "Presupuestos participativos"
+  },
+  {
+    "CodPro": 92412,
+    "DesPro": "Consejo Económico y Social"
+  },
+  {
+    "CodPro": 92510,
+    "DesPro": "Atención a la ciudadanía y modernización administrativa"
+  },
+  {
+    "CodPro": 92511,
+    "DesPro": "Oficina del defensor de la ciudadanía"
+  },
+  {
+    "CodPro": 92512,
+    "DesPro": "Retirbuciones  Auditoria Ciudadana"
+  },
+  {
+    "CodPro": 92612,
+    "DesPro": "Coordinación, imagén y protocolo"
+  },
+  {
+    "CodPro": 92910,
+    "DesPro": "Fondo de Contingencia de Ejecución Presupuestaria"
+  },
+  {
+    "CodPro": 92920,
+    "DesPro": "Imprevistos y funciones no clasificadas"
+  },
+  {
+    "CodPro": 92930,
+    "DesPro": "Indemnizaciones ERE"
+  },
+  {
+    "CodPro": 92940,
+    "DesPro": "Programa temporal paga extra 2012"
+  },
+  {
+    "CodPro": 93110,
+    "DesPro": "Administración General del Area Económica"
+  },
+  {
+    "CodPro": 93111,
+    "DesPro": "Servicio de Intervención"
+  },
+  {
+    "CodPro": 93210,
+    "DesPro": "Servicios Gestión Tributaria e Inspección Fiscal"
+  },
+  {
+    "CodPro": 93211,
+    "DesPro": "Servicio Reclamaciones Economico Administrativas"
+  },
+  {
+    "CodPro": 93310,
+    "DesPro": "Gestión del patrimonio"
+  },
+  {
+    "CodPro": 93311,
+    "DesPro": "Conservación de instalaciones municipales"
+  },
+  {
+    "CodPro": 93410,
+    "DesPro": "Servicio de Tesorería"
+  },
+  {
+    "CodPro": 93411,
+    "DesPro": "Servicio de Recaudación"
+  },
+  {
+    "CodPro": 94210,
+    "DesPro": "Transferencias a Entidades Locales territoriales"
+  },
+  {
+    "CodPro": 94310,
+    "DesPro": "Transferencias a Entidades Locales Autónomas"
+  },
+  {
+    "CodPro": 94320,
+    "DesPro": "Tranferencias a Mancomunidad Bahía de Cádiz"
+  },
+  {
+    "CodPro": 94330,
+    "DesPro": "Transferencias a Consorcios"
+  }
+]
