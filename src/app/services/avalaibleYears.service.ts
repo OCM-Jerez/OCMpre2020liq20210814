@@ -4,6 +4,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
 
+
+import gastos2015 from '../../assets/data/2015LiqGas.json';
+import gastos2016 from '../../assets/data/2016LiqGas.json';
+
 @Injectable()
 export class AvalaibleYearsService {
   public subject$ = new BehaviorSubject<string>('2021');
@@ -98,6 +102,18 @@ export class AvalaibleYearsService {
 
   // Selecciona datos gastos de un año
   async getDataYearGas(year: string, cla: string) {
+
+    // const array = gastos2015.concat(gastos2016);
+    // if (year === '2015') {
+    //   const arrayYear = gastos2015.map(item => {
+
+    //     return {
+    //       cod2015: item.CodCap
+    //     }
+    //   });
+
+    // }
+
     const result = [];
     const cod = `Cod${cla}`;
     const des = `Des${cla}`;
@@ -131,6 +147,8 @@ export class AvalaibleYearsService {
 
   // Itera por cada uno de los años disponibles para gastos
   async getDataAllYear(cla: string): Promise<any[]> {
+
+
     let rowData = [];
     await asynForEach(AVALAIBLE_YEARS, async (year: string) => {
       const dataGas = await this.getDataYearGas(year, cla);

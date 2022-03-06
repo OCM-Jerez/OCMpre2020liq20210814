@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AgChartOptions } from 'ag-grid-community';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataGraphIngresosService } from '../../services/data-graph-ingresos.service';
@@ -8,7 +8,7 @@ import { DataGraphIngresosService } from '../../services/data-graph-ingresos.ser
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss']
 })
-export class GraphComponent implements OnInit {
+export class GraphComponent implements OnInit, AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
@@ -18,7 +18,8 @@ export class GraphComponent implements OnInit {
     private dataGraphIngresosService: DataGraphIngresosService
   ) {
     this.createData(this.dataGraphIngresosService.getEcoIngreso().substring(0, 5))
-  };
+  }
+
 
   ngOnInit(): void {
     // const ingreso = this.dataGraphIngresosService.getEcoIngreso().substring(0, 5);
@@ -26,57 +27,63 @@ export class GraphComponent implements OnInit {
 
 
     // console.log("Económico:", this.someInput.nativeElement.value);
-    console.log("Datos Tratados constructor: ", this.data);
-    this.options = {
-      // theme: 'ag-default-dark',
-      autoSize: true,
-      title: {
-        text: `${this.data[0].CodEco} ${this.data[0].DesEco}`,
-      },
-      subtitle: {
-        text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
-      },
-      data: this.data,
-      series: [
-        {
-          xKey: 'year',
-          yKey: 'Definitivas',
+
+
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      console.log("Datos ngAfterViewInit Tratados constructor: ", this.data);
+      this.options = {
+        // theme: 'ag-default-dark',
+        autoSize: true,
+        title: {
+          text: `${this.data[0].CodEco} ${this.data[0].DesEco}`,
         },
-        {
-          xKey: 'year',
-          yKey: 'RecaudacionNeta',
+        subtitle: {
+          text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
         },
-      ],
-      axes: [
-        {
-          type: 'category',
-          position: 'bottom',
-          title: {
-            text: 'Años',
-            enabled: true,
+        data: this.data,
+        series: [
+          {
+            xKey: 'year',
+            yKey: 'Definitivas',
           },
-        },
-        {
-          type: 'number',
-          position: 'left',
-          title: {
-            text: 'en millones de Euros',
-            enabled: true,
+          {
+            xKey: 'year',
+            yKey: 'RecaudacionNeta',
           },
-          label: {
-            formatter: function (params) {
-              return params.value / 1000000 + '';
+        ],
+        axes: [
+          {
+            type: 'category',
+            position: 'bottom',
+            title: {
+              text: 'Años',
+              enabled: true,
             },
           },
+          {
+            type: 'number',
+            position: 'left',
+            title: {
+              text: 'en millones de Euros',
+              enabled: true,
+            },
+            label: {
+              formatter: function (params) {
+                return params.value / 1000000 + '';
+              },
+            },
+          },
+        ],
+        legend: {
+          enabled: true,
+          position: 'bottom',
         },
-      ],
-      legend: {
-        enabled: true,
-        position: 'bottom',
-      },
 
-    }
-
+      }
+    }, 0);
   }
 
   async createData(eco: string) {

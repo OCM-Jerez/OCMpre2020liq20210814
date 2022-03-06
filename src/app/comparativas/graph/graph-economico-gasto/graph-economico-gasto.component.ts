@@ -106,21 +106,30 @@ export class GraphEconomicoGastoComponent implements OnInit {
           type: 'number',
           position: 'left',
           title: {
-            text: 'en millones de Euros',
+            text: 'en miles de Euros',
             enabled: true,
           },
           label: {
             formatter: function (params) {
-              switch (params.value) {
-                case params.value > 1000000:
-                  return params.value / 1000000 + '';
-                case params.value < 10000:
-                  console.log("< 10000: ", params);
-                  return params.value / 1 + '';
-                default:
-                  console.log("< 10000: ", params);
-                  return params.value / 1 + '';
-              }
+              // console.log("< 10000: ", params);
+
+              // if (params.value > 999999) {
+              //   return params.value / 1000 + '';
+              // }
+
+              // if (params.value > 99999) {
+              //   return params.value / 1000 + '';
+              // }
+
+              // if (params.value > 9999) {
+              //   return params.value / 100 + '';
+              // }
+
+              // if (params.value > 999) {
+              //   return params.value / 10 + '';
+              // }
+
+              return params.value / 1000 + '';
             }
           },
         },
@@ -131,6 +140,7 @@ export class GraphEconomicoGastoComponent implements OnInit {
       },
 
     }
+
   }
 
   async onGridReady(params) {
@@ -143,6 +153,10 @@ export class GraphEconomicoGastoComponent implements OnInit {
   async createData(eco: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYear('Eco');
     const datos = this.getObjects(await this.rowData, 'CodEco', eco);
+
+    // this.rowData = await this.avalaibleYearsService.getDataAllYear('Cap');
+    // const datos = this.getObjects(await this.rowData, 'CodCap', 1);
+
     console.log("Datos: ", datos);
 
     // Convierto los valores para que sirvan de data al grafico
