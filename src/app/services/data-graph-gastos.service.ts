@@ -8,6 +8,7 @@ export class DataGraphGastosService {
   programa = "";
   organico = "";
   capituloGasto = "";
+  capituloIngreso = "";
 
   public getEcoGasto(): string {
     return this.ecoGasto;
@@ -23,6 +24,10 @@ export class DataGraphGastosService {
 
   public getCapituloGasto(): string {
     return this.capituloGasto;
+  }
+
+  public getCapituloIngreso(): string {
+    return this.capituloIngreso;
   }
 
   constructor() { }

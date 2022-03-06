@@ -73,7 +73,7 @@ export class GraphProgramaComponent implements AfterViewInit {
       this.options = {
         autoSize: true,
         title: {
-          text: `${this.data[0].CodPro} ${this.data[0].DesPro}`,
+          text: `Progframa ${this.data[0].CodPro} ${this.data[0].DesPro}`,
         },
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'

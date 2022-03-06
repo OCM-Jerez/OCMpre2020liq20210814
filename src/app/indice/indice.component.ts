@@ -40,6 +40,10 @@ export class IndiceComponent implements OnInit {
     this.router.navigateByUrl('/Ingresos')
   }
 
+  graficoIngresoCapitulo() {
+    this.router.navigateByUrl('/SelectIngresoCapitulo')
+  }
+
   grafico() {
     this.router.navigateByUrl('/SelectIngreso')
   }

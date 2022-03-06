@@ -16,10 +16,14 @@ import { SelectCapituloGastoComponent } from './comparativas/graph/select-capitu
 import { GraphCapituloGastoComponent } from './comparativas/graph/graph-capitulo-gasto/graph-capitulo-gasto.component';
 import { SelectOrganicoGastoComponent } from './comparativas/graph/select-organico-gasto/select-organico-gasto.component';
 import { GraphOrganicoGastoComponent } from './comparativas/graph/graph-organico-gasto/graph-organico-gasto.component';
+import { SelectCapituloIngresoComponent } from './comparativas/graph/select-capitulo-ingreso/select-capitulo-ingreso.component';
+import { GraphCapituloIngresoComponent } from './comparativas/graph/graph-capitulo-ingreso/graph-capitulo-ingreso.component';
 
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
   { path: 'Ingresos', component: IngresosComponent },
+  { path: 'GraficoCapituloIngreso', component: GraphCapituloIngresoComponent },
+  { path: 'SelectIngresoCapitulo', component: SelectCapituloIngresoComponent },
   { path: 'SelectIngreso', component: SelectEconomicoIngresoComponent },
   { path: 'SelectGastoOrganico', component: SelectOrganicoGastoComponent },
   { path: 'SelectGastoCapitulo', component: SelectCapituloGastoComponent },

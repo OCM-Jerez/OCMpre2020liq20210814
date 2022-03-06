@@ -73,7 +73,7 @@ export class GraphOrganicoGastoComponent implements AfterViewInit {
       this.options = {
         autoSize: true,
         title: {
-          text: `${this.data[0].CodOrg} ${this.data[0].DesOrg}`,
+          text: `Orgánico ${this.data[0].CodOrg} ${this.data[0].DesOrg}`,
         },
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'

@@ -74,7 +74,7 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
         // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: `${this.data[0].CodEco} ${this.data[0].DesEco}`,
+          text: `Económico gasto ${this.data[0].CodEco} ${this.data[0].DesEco}`,
         },
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'

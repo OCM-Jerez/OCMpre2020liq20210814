@@ -1,0 +1,38 @@
+[
+  {
+    "Cap": 1,
+    "DesCap": "Impuestos directos"
+  },
+  {
+    "Cap": 2,
+    "DesCap": "Impuestos indirectos"
+  },
+  {
+    "Cap": 3,
+    "DesCap": "Tasas, precios públicos y otros ingresos"
+  },
+  {
+    "Cap": 4,
+    "DesCap": "Transferencias corrientes"
+  },
+  {
+    "Cap": 5,
+    "DesCap": "Ingresos patrimoniales"
+  },
+  {
+    "Cap": 6,
+    "DesCap": "Enajenación de inversiones"
+  },
+  {
+    "Cap": 7,
+    "DesCap": "Transferencias de capital"
+  },
+  {
+    "Cap": 8,
+    "DesCap": "Activos financieros"
+  },
+  {
+    "Cap": 9,
+    "DesCap": "Pasivos financieros"
+  }
+]

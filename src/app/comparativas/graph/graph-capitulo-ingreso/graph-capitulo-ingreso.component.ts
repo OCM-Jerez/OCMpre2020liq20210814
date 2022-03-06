@@ -7,11 +7,11 @@ import { AvalaibleYearsService } from '../../../services/avalaibleYears.service'
 import { DataGraphGastosService } from '../../../services/data-graph-gastos.service';
 
 @Component({
-  selector: 'app-graph-capitulo-gasto',
-  templateUrl: './graph-capitulo-gasto.component.html',
-  styleUrls: ['./graph-capitulo-gasto.component.scss']
+  selector: 'app-graph-capitulo-ingreso',
+  templateUrl: './graph-capitulo-ingreso.component.html',
+  styleUrls: ['./graph-capitulo-ingreso.component.scss']
 })
-export class GraphCapituloGastoComponent implements AfterViewInit {
+export class GraphCapituloIngresoComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
@@ -32,7 +32,7 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
     private dataGraphGastosService: DataGraphGastosService,
     private router: Router,
   ) {
-    this.createData(this.dataGraphGastosService.getCapituloGasto().substring(0, 1))
+    this.createData(this.dataGraphGastosService.getCapituloIngreso().substring(0, 1))
 
     this.columnDefs = [
       {
@@ -47,17 +47,11 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
         cellRenderer: CellRendererOCM,
       },
       {
-        headerName: 'ObligacionesReconocidasNetas',
-        field: 'ObligacionesReconocidasNetas',
+        headerName: 'RecaudacionNeta',
+        field: 'RecaudacionNeta',
         width: 200,
         cellRenderer: CellRendererOCM,
       },
-      {
-        headerName: 'ObligacionesPendientes',
-        field: 'ObligacionesPendientes',
-        width: 180,
-        cellRenderer: CellRendererOCM,
-      }
     ];
 
     this.defaultColDef = {
@@ -66,14 +60,15 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
       filter: false,
       aggFunc: 'sum',
     };
-
   }
+
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.options = {
+        // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: `Capítulo gastos ${this.data[0].CodCap} ${this.data[0].Capitulo}`,
+          text: `Capítulo ingresos ${this.data[0].CodCap} ${this.data[0].DesCap}`,
         },
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
@@ -86,11 +81,7 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
           },
           {
             xKey: 'year',
-            yKey: 'ObligacionesReconocidasNetas',
-          },
-          {
-            xKey: 'year',
-            yKey: 'ObligacionesPendientes',
+            yKey: 'RecaudacionNeta',
           },
         ],
         axes: [
@@ -112,7 +103,7 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
             label: {
               formatter: function (params) {
                 return params.value / 1000 + '';
-              }
+              },
             },
           },
         ],
@@ -131,11 +122,13 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
   }
 
   async createData(cap: string) {
-    this.rowData = await this.avalaibleYearsService.getDataAllYear('Cap');
+    this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Cap');
     const datos = this.getObjects(await this.rowData, 'CodCap', cap);
-    // console.log("Datos: ", datos);
+    console.log("Datos: ", datos);
+
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
+
     let defini2015 = 0;
     let defini2016 = 0;
     let defini2017 = 0;
@@ -144,6 +137,7 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
     let defini2020 = 0;
     let defini2021 = 0;
     let defini2022 = 0;
+
 
     datos.forEach(item => {
       if (item.Definitivas2015 > 0) {
@@ -180,90 +174,48 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
 
     })
 
-    let ObliNetas2015 = 0;
-    let ObliNetas2016 = 0;
-    let ObliNetas2017 = 0;
-    let ObliNetas2018 = 0;
-    let ObliNetas2019 = 0;
-    let ObliNetas2020 = 0;
-    let ObliNetas2021 = 0;
-    let ObliNetas2022 = 0;
+
+    let neta2015 = 0;
+    let neta2016 = 0;
+    let neta2017 = 0;
+    let neta2018 = 0;
+    let neta2019 = 0;
+    let neta2020 = 0;
+    let neta2021 = 0;
+    let neta2022 = 0;
+
 
     datos.forEach(item => {
-      if (item.ObligacionesReconocidasNetas2015 > 0) {
-        ObliNetas2015 += item.ObligacionesReconocidasNetas2015;
+      if (item.RecaudacionNeta2015 > 0) {
+        neta2015 += item.RecaudacionNeta2015;
       }
 
-      if (item.ObligacionesReconocidasNetas2016 > 0) {
-        ObliNetas2016 += item.ObligacionesReconocidasNetas2016;
+      if (item.RecaudacionNeta2016 > 0) {
+        neta2016 += item.RecaudacionNeta2016;
       }
 
-      if (item.ObligacionesReconocidasNetas2017 > 0) {
-        ObliNetas2017 += item.ObligacionesReconocidasNetas2017;
+      if (item.RecaudacionNeta2017 > 0) {
+        neta2017 += item.RecaudacionNeta2017;
       }
 
-      if (item.ObligacionesReconocidasNetas2018 > 0) {
-        ObliNetas2018 += item.ObligacionesReconocidasNetas2018;
+      if (item.RecaudacionNeta2018 > 0) {
+        neta2018 += item.RecaudacionNeta2018;
       }
 
-      if (item.ObligacionesReconocidasNetas2019 > 0) {
-        ObliNetas2019 += item.ObligacionesReconocidasNetas2019;
+      if (item.RecaudacionNeta2019 > 0) {
+        neta2019 += item.RecaudacionNeta2019;
       }
 
-      if (item.ObligacionesReconocidasNetas2020 > 0) {
-        ObliNetas2020 += item.ObligacionesReconocidasNetas2020;
+      if (item.RecaudacionNeta2020 > 0) {
+        neta2020 += item.RecaudacionNeta2020;
       }
 
-      if (item.ObligacionesReconocidasNetas2021 > 0) {
-        ObliNetas2021 += item.ObligacionesReconocidasNetas2021;
+      if (item.RecaudacionNeta2021 > 0) {
+        neta2021 += item.RecaudacionNeta2021;
       }
 
-      if (item.ObligacionesReconocidasNetas2021 > 0) {
-        ObliNetas2022 += item.ObligacionesReconocidasNetas2021;
-      }
-
-    })
-
-    let ObliPendientes2015 = 0;
-    let ObliPendientes2016 = 0;
-    let ObliPendientes2017 = 0;
-    let ObliPendientes2018 = 0;
-    let ObliPendientes2019 = 0;
-    let ObliPendientes2020 = 0;
-    let ObliPendientes2021 = 0;
-    let ObliPendientes2022 = 0;
-
-    datos.forEach(item => {
-      if (item.ObligacionesPendientePago2015 > 0) {
-        ObliPendientes2015 += item.ObligacionesPendientePago2015;
-      }
-
-      if (item.ObligacionesPendientePago2016 > 0) {
-        ObliPendientes2016 += item.ObligacionesPendientePago2016;
-      }
-
-      if (item.ObligacionesPendientePago2017 > 0) {
-        ObliPendientes2017 += item.ObligacionesPendientePago2017;
-      }
-
-      if (item.ObligacionesPendientePago2018 > 0) {
-        ObliPendientes2018 += item.ObligacionesPendientePago2018;
-      }
-
-      if (item.ObligacionesPendientePago2019 > 0) {
-        ObliPendientes2019 += item.ObligacionesPendientePago2019;
-      }
-
-      if (item.ObligacionesPendientePago2020 > 0) {
-        ObliPendientes2020 += item.ObligacionesPendientePago2020;
-      }
-
-      if (item.ObligacionesPendientePago2021 > 0) {
-        ObliPendientes2021 += item.ObligacionesPendientePago2021;
-      }
-
-      if (item.ObligacionesPendientePago2022 > 0) {
-        ObliPendientes2015 += item.ObligacionesPendientePago2022;
+      if (item.RecaudacionNeta2022 > 0) {
+        neta2022 += item.Iniciales2022;
       }
 
     })
@@ -271,71 +223,62 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
     const a2015 = {
       "year": "2015",
       "CodCap": datos[0].CodCap,
-      "Capitulo": datos[0].DesCap,
+      "DesCap": datos[0].DesCap,
       "Definitivas": defini2015,
-      "ObligacionesReconocidasNetas": ObliNetas2015,
-      "ObligacionesPendientes": ObliPendientes2015
+      "RecaudacionNeta": neta2015
     };
     this.data.push(a2015)
 
     const a2016 = {
       "year": "2016",
       "Definitivas": defini2016,
-      "ObligacionesReconocidasNetas": ObliNetas2016,
-      "ObligacionesPendientes": ObliPendientes2016
+      "RecaudacionNeta": neta2016
     };
     this.data.push(a2016)
 
     const a2017 = {
       "year": "2017",
       "Definitivas": defini2017,
-      "ObligacionesReconocidasNetas": ObliNetas2017,
-      "ObligacionesPendientes": ObliPendientes2017
+      "RecaudacionNeta": neta2017
     };
     this.data.push(a2017)
 
     const a2018 = {
       "year": "2018",
       "Definitivas": defini2018,
-      "ObligacionesReconocidasNetas": ObliNetas2018,
-      "ObligacionesPendientes": ObliPendientes2018
+      "RecaudacionNeta": neta2018
     };
     this.data.push(a2018)
 
     const a2019 = {
       "year": "2019",
       "Definitivas": defini2019,
-      "ObligacionesReconocidasNetas": ObliNetas2019,
-      "ObligacionesPendientes": ObliPendientes2019
+      "RecaudacionNeta": neta2019
     };
     this.data.push(a2019)
 
     const a2020 = {
       "year": "2020",
       "Definitivas": defini2020,
-      "ObligacionesReconocidasNetas": ObliNetas2020,
-      "ObligacionesPendientes": ObliPendientes2020
+      "RecaudacionNeta": neta2020
     };
     this.data.push(a2020)
 
     const a2021 = {
       "year": "2021",
       "Definitivas": defini2021,
-      "ObligacionesReconocidasNetas": ObliNetas2021,
-      "ObligacionesPendientes": ObliPendientes2021
+      "RecaudacionNeta": neta2021
     };
     this.data.push(a2021)
 
     const a2022 = {
       "year": "2022",
-      "Definitivas": defini2022,                        // Se usan las iniciales ya que es el unico dato que existe-
-      "ObligacionesReconocidasNetas": ObliNetas2022,   // Se utiliza la recaudación neta del último año conocido para no desfigurar el grafico, ya que de lo contrario seria 0.
-      "ObligacionesPendientes": ObliPendientes2022
+      "Definitivas": defini2022,               // Se usan las iniciales ya que es el unico dato que existe-
+      "RecaudacionNeta": neta2021      // Se utiliza la recaudación neta del último año conocido para no desfigurar el grafico, ya que de lo contrario seria 0. 
     };
     this.data.push(a2022)
-    // console.log("Datos Tratados: ", this.data);
+    console.log("Datos Tratados: ", this.data);
     return this.data;
-
   }
 
   // https://gist.github.com/iwek/3924925#file-find-in-json-js
@@ -360,7 +303,9 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
   }
 
   volver() {
-    this.router.navigateByUrl('/SelectGastoCapitulo')
+    this.router.navigateByUrl('/SelectIngresoCapitulo')
   }
 
 }
+
+
