@@ -21,11 +21,6 @@
       <span class="OCM-card__title">Por capítulos</span>
     </div>
 
-
-    <div (click)="grafico()" class="OCM-card">
-      <span class="OCM-card__title">Grafico</span>
-    </div>
-
     <div class="OCM-card--empty">
     </div>
 
@@ -83,6 +78,17 @@
     </div>
 
   </div>
+
+  <div class="OCM-row--add">
+
+    <div (click)="comparaIng()" class="OCM-card">
+      <span class="OCM-card__title">Grafico por capítulos</span>
+    </div>
+    <div (click)="grafico()" class="OCM-card">
+      <span class="OCM-card__title">Grafico por económico</span>
+    </div>
+
+  </div>
   <br>
 
   <h3 class="OCM-text--cabecera OCM-text--gastos">Gastos.</h3>
@@ -95,6 +101,13 @@
     <div (click)="comparaCap()" class="OCM-card">
       <span class="OCM-card__title">Por capítulos</span>
     </div>
+
+  </div>
+
+  <div class="OCM-row--add">
+
+    <!-- <div class="OCM-card--empty">
+    </div> -->
 
     <div (click)="graficoGastoCapitulo()" class="OCM-card">
       <span class="OCM-card__title">Grafico por capítulos</span>
