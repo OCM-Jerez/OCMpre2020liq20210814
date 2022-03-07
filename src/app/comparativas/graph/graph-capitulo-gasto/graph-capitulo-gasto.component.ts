@@ -122,7 +122,7 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
         },
 
       }
-    }, 500);
+    }, 225);
   }
 
   async onGridReady(params) {

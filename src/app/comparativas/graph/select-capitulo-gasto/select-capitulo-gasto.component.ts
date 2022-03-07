@@ -15,9 +15,9 @@ export class SelectCapituloGastoComponent {
     private dataGraphGastosService: DataGraphGastosService
   ) { }
 
-  capArray: { CodCap: number, Capitulo: string }[] = []
+  datosSelect: { CodCap: number, Capitulo: string }[] = []
   form = new FormGroup({
-    capGasto: new FormControl('', Validators.required)
+    seleccion: new FormControl('', Validators.required)
   });
 
   get f() {
@@ -25,13 +25,11 @@ export class SelectCapituloGastoComponent {
   }
 
   ngOnInit(): void {
-    this.capArray = capitulosGastos;
+    this.datosSelect = capitulosGastos;
   }
 
   submit() {
-    console.log(this.form.value.capGasto);
-
-    this.dataGraphGastosService.capituloGasto = this.form.value.capGasto;
+    this.dataGraphGastosService.capituloGasto = this.form.value.seleccion;
     this.router.navigateByUrl('/GraficoCapituloGasto')
   }
 

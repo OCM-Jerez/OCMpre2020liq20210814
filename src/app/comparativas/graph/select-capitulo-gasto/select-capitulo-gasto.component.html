@@ -1,17 +1,17 @@
 <div class="selectBox">
-    <h1>Selecciona cápitulo de gasto a graficar</h1>
+    <h1>Selecciona capítulo de gasto a graficar</h1>
 
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div>
-            <select formControlName="capGasto" class="select">
-                <option>Selecciona cápitulo</option>
-                <option *ngFor="let cap of capArray">{{cap.CodCap}} {{cap.Capitulo}}</option>
+            <select formControlName="seleccion" class="select">
+                <option>Selecciona capítulo</option>
+                <option *ngFor="let rowSelect of datosSelect">{{rowSelect.CodCap}} {{rowSelect.Capitulo}}</option>
             </select>
-            <div *ngIf="f.capGasto.touched && f.capGasto.invalid" class="alert alert-danger">
-                <div *ngIf="f.capGasto.errors.required">Es necesario seleccionar un económico.</div>
+            <div *ngIf="f.seleccion.touched && f.seleccion.invalid" class="alert alert-danger">
+                <div *ngIf="f.seleccion.errors.required">Es necesario seleccionar un capítulo.</div>
             </div>
         </div>
 
-        <button class="btn btn-primary mt-4" type="submit" [disabled]="!form.valid">Ver grafico</button>
+        <button class="btn btn-primary mt-4" type="submit" [disabled]="!form.valid">Ver gráfico</button>
     </form>
 </div>
