@@ -2,16 +2,16 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
-import { CellRendererOCM } from '../../../app/ag-grid/CellRendererOCM';
-import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { DataGraphIngresosService } from '../../services/data-graph-ingresos.service';
+import { CellRendererOCM } from '../../../../app/ag-grid/CellRendererOCM';
+import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
+import { DataGraphIngresosService } from '../../../services/data-graph-ingresos.service';
 
 @Component({
-  selector: 'app-graph',
-  templateUrl: './graph.component.html',
-  styleUrls: ['./graph.component.scss']
+  selector: 'app-graph-economico-ingreso',
+  templateUrl: './graph-economico-ingreso.component.html',
+  styleUrls: ['./graph-economico-ingreso.component.scss']
 })
-export class GraphComponent implements AfterViewInit {
+export class GraphEconomicoIngresoComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;

@@ -22,7 +22,7 @@ export class SelectEconomicoIngresoComponent implements OnInit {
   submit() {
     this.dataGraphIngresosService.ecoIngreso = this.form.value.ecoIng;
     // this.router.navigate(['/Grafico',{}])
-    this.router.navigateByUrl('/Grafico')
+    this.router.navigateByUrl('/GraficoEconomicoIngreso')
   }
 
   // changeEco(e) {

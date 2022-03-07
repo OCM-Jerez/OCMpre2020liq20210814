@@ -6,7 +6,6 @@ import { IngresosComponent } from './ingresos/ingresos.component';
 import { GastosComponent } from './gastos/gastos.component';
 import { ComparaIngComponent } from './comparativas/compara-ing/compara-ing.component';
 import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.component';
-import { GraphComponent } from './comparativas/graph/graph.component';
 import { SelectEconomicoIngresoComponent } from './comparativas/graph/select-economico-ingreso/select-economico-ingreso.component';
 import { SelectEconomicoGastoComponent } from './comparativas/graph/select-economico-gasto/select-economico-gasto.component';
 import { GraphEconomicoGastoComponent } from './comparativas/graph/graph-economico-gasto/graph-economico-gasto.component';
@@ -18,25 +17,29 @@ import { SelectOrganicoGastoComponent } from './comparativas/graph/select-organi
 import { GraphOrganicoGastoComponent } from './comparativas/graph/graph-organico-gasto/graph-organico-gasto.component';
 import { SelectCapituloIngresoComponent } from './comparativas/graph/select-capitulo-ingreso/select-capitulo-ingreso.component';
 import { GraphCapituloIngresoComponent } from './comparativas/graph/graph-capitulo-ingreso/graph-capitulo-ingreso.component';
+import { GraphEconomicoIngresoComponent } from './comparativas/graph/graph-economico-ingreso/graph-economico-ingreso.component';
 
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
   { path: 'Ingresos', component: IngresosComponent },
-  { path: 'GraficoCapituloIngreso', component: GraphCapituloIngresoComponent },
-  { path: 'SelectIngresoCapitulo', component: SelectCapituloIngresoComponent },
-  { path: 'SelectIngreso', component: SelectEconomicoIngresoComponent },
-  { path: 'SelectGastoOrganico', component: SelectOrganicoGastoComponent },
-  { path: 'SelectGastoCapitulo', component: SelectCapituloGastoComponent },
-  { path: 'SelectGastoPrograma', component: SelectProgramaComponent },
-  { path: 'SelectGastoEconomico', component: SelectEconomicoGastoComponent },
-  { path: 'Grafico', component: GraphComponent },
-  { path: 'GraficoOrganicoGasto', component: GraphOrganicoGastoComponent },
-  { path: 'GraficoCapituloGasto', component: GraphCapituloGastoComponent },
-  { path: 'GraficoEconomicoGasto', component: GraphEconomicoGastoComponent },
-  { path: 'GraficoProgramaGasto', component: GraphProgramaComponent },
   { path: 'Gastos', component: GastosComponent },
   { path: 'ComparaIng', component: ComparaIngComponent },
   { path: 'ComparaGas', component: ComparaGasComponent },
+
+  { path: 'GraficoCapituloIngreso', component: GraphCapituloIngresoComponent },
+  { path: 'GraficoEconomicoIngreso', component: GraphEconomicoIngresoComponent },
+  { path: 'GraficoCapituloGasto', component: GraphCapituloGastoComponent },
+  { path: 'GraficoOrganicoGasto', component: GraphOrganicoGastoComponent },
+  { path: 'GraficoEconomicoGasto', component: GraphEconomicoGastoComponent },
+  { path: 'GraficoProgramaGasto', component: GraphProgramaComponent },
+
+  { path: 'SelectIngresoCapitulo', component: SelectCapituloIngresoComponent },
+  { path: 'SelectGastoCapitulo', component: SelectCapituloGastoComponent },
+  { path: 'SelectIngresoEconomico', component: SelectEconomicoIngresoComponent },
+  { path: 'SelectGastoOrganico', component: SelectOrganicoGastoComponent },
+  { path: 'SelectGastoEconomico', component: SelectEconomicoGastoComponent },
+  { path: 'SelectGastoPrograma', component: SelectProgramaComponent },
+
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 @NgModule({
