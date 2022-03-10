@@ -8,6 +8,7 @@ import { GetScreenSizeService } from '../services/get-screen-size.service';
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
 
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data'
+import { DataGraphService } from '../services/data-graph.service';
 
 @Component({
   selector: 'app-indice',
@@ -25,7 +26,8 @@ export class IndiceComponent implements OnInit {
     private router: Router,
     private getScreenSizeService: GetScreenSizeService,
     private tipoclasificacionService: TipoClasificacionService,
-    private avalaibleYearsService: AvalaibleYearsService
+    private avalaibleYearsService: AvalaibleYearsService,
+    private dataGraphService: DataGraphService
   ) {
     this.yearsList = AVALAIBLE_YEARS;
     this.radioSelected = "2021";
@@ -41,27 +43,57 @@ export class IndiceComponent implements OnInit {
   }
 
   graficoIngresoCapitulo() {
-    this.router.navigateByUrl('/SelectIngresoCapitulo')
+    this.dataGraphService.data = "ingresoCapitulo";
+    this.dataGraphService.titleSelect = "Selección capítulo de ingresos";
+    this.dataGraphService.optionSelect = "Selecciona capítulo de ingresos";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un capítulo de ingresos";
+    this.dataGraphService.URLSelect = "/GraficoCapituloIngreso";
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
-  // grafico() {
-  //   this.router.navigateByUrl('/SelectIngreso')
-  // }
-
   graficoIngresoEconomico() {
-    this.router.navigateByUrl('/SelectIngresoEconomico')
+    this.dataGraphService.data = "ingresoEconomico";
+    this.dataGraphService.titleSelect = "Selecciona económico de ingreso";
+    this.dataGraphService.optionSelect = "Selecciona económico de ingreso";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un económico ingreso";
+    this.dataGraphService.URLSelect = "/GraficoEconomicoIngreso";
+    this.router.navigateByUrl('/SelectCodigo')
+  }
+
+  graficoGastoCapitulo() {
+    this.dataGraphService.data = "gastoCapitulo";
+    this.dataGraphService.titleSelect = "Selecciona capítulo de gasto";
+    this.dataGraphService.optionSelect = "Selecciona capítulo de gasto";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un capítulo de gasto";
+    this.dataGraphService.URLSelect = "/GraficoCapituloGasto";
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
   graficoGastoOrganico() {
-    this.router.navigateByUrl('/SelectGastoOrganico')
+    this.dataGraphService.data = "Organico";
+    this.dataGraphService.titleSelect = "Selecciona orgánico";
+    this.dataGraphService.optionSelect = "Selecciona orgánico";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un orgánico";
+    this.dataGraphService.URLSelect = "/GraficoOrganicoGasto";
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
   graficoGastoPrograma() {
-    this.router.navigateByUrl('/SelectGastoPrograma')
+    this.dataGraphService.data = "Programa";
+    this.dataGraphService.titleSelect = "Selecciona programa";
+    this.dataGraphService.optionSelect = "Selecciona programa";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un programa";
+    this.dataGraphService.URLSelect = "/GraficoProgramaGasto";
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
   graficoGastoEconomico() {
-    this.router.navigateByUrl('/SelectGastoEconomico')
+    this.dataGraphService.data = "gastoEconomico";
+    this.dataGraphService.titleSelect = "Selecciona económico de gasto";
+    this.dataGraphService.optionSelect = "Selecciona económico de gasto";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un económico de gasto";
+    this.dataGraphService.URLSelect = "/GraficoEconomicoGasto";
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
   porCapitulo() {
@@ -97,9 +129,6 @@ export class IndiceComponent implements OnInit {
   comparaCap() {
     this.tipoclasificacionService.tipoClasificacion = 'Cap'
     this.router.navigateByUrl('/ComparaGas')
-  }
-  graficoGastoCapitulo() {
-    this.router.navigateByUrl('/SelectGastoCapitulo')
   }
 
   comparaOrg() {

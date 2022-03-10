@@ -1,14 +1,15 @@
 <div class="selectBox">
-    <h1>Selecciona capítulo de gasto a graficar</h1>
+    <h1>{{title}}</h1>
 
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div>
             <select formControlName="seleccion" class="select">
-                <option>Selecciona capítulo</option>
-                <option *ngFor="let rowSelect of datosSelect">{{rowSelect.CodCap}} {{rowSelect.Capitulo}}</option>
+                <option>{{option}}</option>
+                <!-- <option *ngFor="let rowSelect of datosSelect">{{rowSelect.Cap}} {{rowSelect.DesCap}}</option> -->
+                <option *ngFor="let rowSelect of datosSelect">{{rowSelect.codigo}} {{rowSelect.descripcion}}</option>
             </select>
             <div *ngIf="f.seleccion.touched && f.seleccion.invalid" class="alert alert-danger">
-                <div *ngIf="f.seleccion.errors.required">Es necesario seleccionar un capítulo.</div>
+                <div *ngIf="f.seleccion.errors.required">{{error}}</div>
             </div>
         </div>
 

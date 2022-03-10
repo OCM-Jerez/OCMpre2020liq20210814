@@ -24,18 +24,13 @@ import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.comp
 import { TipoClasificacionService } from './services/tipoClasificacion.service';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
-import { SelectEconomicoIngresoComponent } from './comparativas/graph/select-economico-ingreso/select-economico-ingreso.component';
-import { SelectEconomicoGastoComponent } from './comparativas/graph/select-economico-gasto/select-economico-gasto.component';
 import { GraphEconomicoGastoComponent } from './comparativas/graph/graph-economico-gasto/graph-economico-gasto.component';
-import { SelectProgramaComponent } from './comparativas/graph/select-programa/select-programa.component';
 import { GraphProgramaComponent } from './comparativas/graph/graph-programa/graph-programa.component';
 import { GraphCapituloGastoComponent } from './comparativas/graph/graph-capitulo-gasto/graph-capitulo-gasto.component';
-import { SelectCapituloGastoComponent } from './comparativas/graph/select-capitulo-gasto/select-capitulo-gasto.component';
-import { SelectOrganicoGastoComponent } from './comparativas/graph/select-organico-gasto/select-organico-gasto.component';
 import { GraphOrganicoGastoComponent } from './comparativas/graph/graph-organico-gasto/graph-organico-gasto.component';
 import { GraphCapituloIngresoComponent } from './comparativas/graph/graph-capitulo-ingreso/graph-capitulo-ingreso.component';
-import { SelectCapituloIngresoComponent } from './comparativas/graph/select-capitulo-ingreso/select-capitulo-ingreso.component';
 import { GraphEconomicoIngresoComponent } from './comparativas/graph/graph-economico-ingreso/graph-economico-ingreso.component';
+import { SelectCodigoComponent } from './comparativas/graph/select-codigo/select-codigo.component';
 
 @NgModule({
   declarations: [
@@ -48,18 +43,13 @@ import { GraphEconomicoIngresoComponent } from './comparativas/graph/graph-econo
     HeaderAgGridComponent,
     ComparaIngComponent,
     ComparaGasComponent,
-    SelectEconomicoIngresoComponent,
-    SelectEconomicoGastoComponent,
     GraphEconomicoGastoComponent,
-    SelectProgramaComponent,
     GraphProgramaComponent,
     GraphCapituloGastoComponent,
-    SelectCapituloGastoComponent,
-    SelectOrganicoGastoComponent,
     GraphOrganicoGastoComponent,
     GraphCapituloIngresoComponent,
-    SelectCapituloIngresoComponent,
     GraphEconomicoIngresoComponent,
+    SelectCodigoComponent,
   ],
   imports: [
     BrowserModule,

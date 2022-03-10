@@ -1,38 +1,38 @@
 [
   {
-    "CodCap": 1,
-    "Capitulo": "Gastos de personal"
+    "codigo": 1,
+    "descripcion": "Gastos de personal"
   },
   {
-    "CodCap": 2,
-    "Capitulo": "Gastos en bienes corrientes y servicios"
+    "codigo": 2,
+    "descripcion": "Gastos en bienes corrientes y servicios"
   },
   {
-    "CodCap": 3,
-    "Capitulo": "Gastos financieros"
+    "codigo": 3,
+    "descripcion": "Gastos financieros"
   },
   {
-    "CodCap": 4,
-    "Capitulo": "Transferencias corrientes"
+    "codigo": 4,
+    "descripcion": "Transferencias corrientes"
   },
   {
-    "CodCap": 5,
-    "Capitulo": "Fondo de contingencia"
+    "codigo": 5,
+    "descripcion": "Fondo de contingencia"
   },
   {
-    "CodCap": 6,
-    "Capitulo": "Inversiones reales"
+    "codigo": 6,
+    "descripcion": "Inversiones reales"
   },
   {
-    "CodCap": 7,
-    "Capitulo": "Transferencias de capital"
+    "codigo": 7,
+    "descripcion": "Transferencias de capital"
   },
   {
-    "CodCap": 8,
-    "Capitulo": "Activos financieros"
+    "codigo": 8,
+    "descripcion": "Activos financieros"
   },
   {
-    "CodCap": 9,
-    "Capitulo": "Pasivos financieros"
+    "codigo": 9,
+    "descripcion": "Pasivos financieros"
   }
 ]

@@ -1,38 +1,38 @@
 [
   {
-    "Cap": 1,
-    "DesCap": "Impuestos directos"
+    "codigo": 1,
+    "descripcion": "Impuestos directos"
   },
   {
-    "Cap": 2,
-    "DesCap": "Impuestos indirectos"
+    "codigo": 2,
+    "descripcion": "Impuestos indirectos"
   },
   {
-    "Cap": 3,
-    "DesCap": "Tasas, precios públicos y otros ingresos"
+    "codigo": 3,
+    "descripcion": "Tasas, precios públicos y otros ingresos"
   },
   {
-    "Cap": 4,
-    "DesCap": "Transferencias corrientes"
+    "codigo": 4,
+    "descripcion": "Transferencias corrientes"
   },
   {
-    "Cap": 5,
-    "DesCap": "Ingresos patrimoniales"
+    "codigo": 5,
+    "descripcion": "Ingresos patrimoniales"
   },
   {
-    "Cap": 6,
-    "DesCap": "Enajenación de inversiones"
+    "codigo": 6,
+    "descripcion": "Enajenación de inversiones"
   },
   {
-    "Cap": 7,
-    "DesCap": "Transferencias de capital"
+    "codigo": 7,
+    "descripcion": "Transferencias de capital"
   },
   {
-    "Cap": 8,
-    "DesCap": "Activos financieros"
+    "codigo": 8,
+    "descripcion": "Activos financieros"
   },
   {
-    "Cap": 9,
-    "DesCap": "Pasivos financieros"
+    "codigo": 9,
+    "descripcion": "Pasivos financieros"
   }
 ]

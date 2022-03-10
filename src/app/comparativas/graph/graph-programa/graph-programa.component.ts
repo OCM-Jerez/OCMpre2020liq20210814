@@ -4,7 +4,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
-import { DataGraphGastosService } from '../../../services/data-graph-gastos.service';
+import { DataGraphService } from '../../../services/data-graph.service';
 
 @Component({
   selector: 'app-graph-programa',
@@ -29,10 +29,10 @@ export class GraphProgramaComponent implements AfterViewInit {
 
   constructor(
     private avalaibleYearsService: AvalaibleYearsService,
-    private dataGraphGastosService: DataGraphGastosService,
+    private dataGraphService: DataGraphService,
     private router: Router,
   ) {
-    this.createData(this.dataGraphGastosService.getPrograma().substring(0, 5))
+    this.createData(this.dataGraphService.getPrograma().substring(0, 5))
 
     this.columnDefs = [
       {
@@ -361,7 +361,7 @@ export class GraphProgramaComponent implements AfterViewInit {
   }
 
   volver() {
-    this.router.navigateByUrl('/SelectGastoPrograma')
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
 }

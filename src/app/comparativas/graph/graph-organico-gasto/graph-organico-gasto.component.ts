@@ -4,7 +4,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
-import { DataGraphGastosService } from '../../../services/data-graph-gastos.service';
+import { DataGraphService } from '../../../services/data-graph.service';
 
 @Component({
   selector: 'app-graph-organico-gasto',
@@ -29,10 +29,10 @@ export class GraphOrganicoGastoComponent implements AfterViewInit {
 
   constructor(
     private avalaibleYearsService: AvalaibleYearsService,
-    private dataGraphGastosService: DataGraphGastosService,
+    private dataGraphService: DataGraphService,
     private router: Router,
   ) {
-    this.createData(this.dataGraphGastosService.getOrganico().substring(0, 2))
+    this.createData(this.dataGraphService.getOrganico().substring(0, 2))
 
     this.columnDefs = [
       {
@@ -361,7 +361,7 @@ export class GraphOrganicoGastoComponent implements AfterViewInit {
   }
 
   volver() {
-    this.router.navigateByUrl('/SelectGastoOrganico')
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
 }

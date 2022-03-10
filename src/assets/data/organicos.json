@@ -1,106 +1,106 @@
 [
   {
-    "CodOrg": 0,
-    "DesOrg": "Servicios centrales"
+    "codigo": 0,
+    "descripcion": "Servicios centrales"
   },
   {
-    "CodOrg": 1,
-    "DesOrg": "Presidencia"
+    "codigo": 1,
+    "descripcion": "Presidencia"
   },
   {
-    "CodOrg": 2,
-    "DesOrg": "Empleo"
+    "codigo": 2,
+    "descripcion": "Empleo"
   },
   {
-    "CodOrg": 3,
-    "DesOrg": "Recursos humanos"
+    "codigo": 3,
+    "descripcion": "Recursos humanos"
   },
   {
-    "CodOrg": 4,
-    "DesOrg": "Medio rural"
+    "codigo": 4,
+    "descripcion": "Medio rural"
   },
   {
-    "CodOrg": 5,
-    "DesOrg": "Igualdad y salud"
+    "codigo": 5,
+    "descripcion": "Igualdad y salud"
   },
   {
-    "CodOrg": 6,
-    "DesOrg": "Deportes"
+    "codigo": 6,
+    "descripcion": "Deportes"
   },
   {
-    "CodOrg": 7,
-    "DesOrg": "Infraestructuras"
+    "codigo": 7,
+    "descripcion": "Infraestructuras"
   },
   {
-    "CodOrg": 8,
-    "DesOrg": "Cultura"
+    "codigo": 8,
+    "descripcion": "Cultura"
   },
   {
-    "CodOrg": 9,
-    "DesOrg": "Medio ambiente"
+    "codigo": 9,
+    "descripcion": "Medio ambiente"
   },
   {
-    "CodOrg": 10,
-    "DesOrg": "Urbanismo"
+    "codigo": 10,
+    "descripcion": "Urbanismo"
   },
   {
-    "CodOrg": 11,
-    "DesOrg": "Participacion ciudadana"
+    "codigo": 11,
+    "descripcion": "Participacion ciudadana"
   },
   {
-    "CodOrg": 12,
-    "DesOrg": "Educación"
+    "codigo": 12,
+    "descripcion": "Educación"
   },
   {
-    "CodOrg": 13,
-    "DesOrg": "Distritos"
+    "codigo": 13,
+    "descripcion": "Distritos"
   },
   {
-    "CodOrg": 14,
-    "DesOrg": "Gestión del patrimonio"
+    "codigo": 14,
+    "descripcion": "Gestión del patrimonio"
   },
   {
-    "CodOrg": 15,
-    "DesOrg": "Fiestas y festejos populares"
+    "codigo": 15,
+    "descripcion": "Fiestas y festejos populares"
   },
   {
-    "CodOrg": 16,
-    "DesOrg": "Bienestar social y del mayor"
+    "codigo": 16,
+    "descripcion": "Bienestar social y del mayor"
   },
   {
-    "CodOrg": 17,
-    "DesOrg": "Economía y hacienda"
+    "codigo": 17,
+    "descripcion": "Economía y hacienda"
   },
   {
-    "CodOrg": 18,
-    "DesOrg": "Juventud"
+    "codigo": 18,
+    "descripcion": "Juventud"
   },
   {
-    "CodOrg": 19,
-    "DesOrg": "Seguridad"
+    "codigo": 19,
+    "descripcion": "Seguridad"
   },
   {
-    "CodOrg": 20,
-    "DesOrg": "Mercados"
+    "codigo": 20,
+    "descripcion": "Mercados"
   },
   {
-    "CodOrg": 21,
-    "DesOrg": "Movilidad"
+    "codigo": 21,
+    "descripcion": "Movilidad"
   },
   {
-    "CodOrg": 22,
-    "DesOrg": "Turismo"
+    "codigo": 22,
+    "descripcion": "Turismo"
   },
   {
-    "CodOrg": 23,
-    "DesOrg": "Planes Especiales"
+    "codigo": 23,
+    "descripcion": "Planes Especiales"
   },
   {
-    "CodOrg": 24,
-    "DesOrg": "Zoologico-Montes Propios"
+    "codigo": 24,
+    "descripcion": "Zoologico-Montes Propios"
   },
   {
-    "CodOrg": 25,
-    "DesOrg": "Promoción y gestión vivienda"
+    "codigo": 25,
+    "descripcion": "Promoción y gestión vivienda"
   }
 ]

@@ -4,7 +4,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../../app/ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
-import { DataGraphIngresosService } from '../../../services/data-graph-ingresos.service';
+import { DataGraphService } from '../../../services/data-graph.service';
 
 @Component({
   selector: 'app-graph-economico-ingreso',
@@ -29,10 +29,10 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
 
   constructor(
     private avalaibleYearsService: AvalaibleYearsService,
-    private dataGraphIngresosService: DataGraphIngresosService,
+    private dataGraphService: DataGraphService,
     private router: Router,
   ) {
-    this.createData(this.dataGraphIngresosService.getEcoIngreso().substring(0, 5))
+    this.createData(this.dataGraphService.getEcoIngreso().substring(0, 5))
 
     this.columnDefs = [
       {
@@ -211,7 +211,7 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
   }
 
   volver() {
-    this.router.navigateByUrl('/SelectIngreso')
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
 }

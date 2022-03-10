@@ -4,7 +4,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
 import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
-import { DataGraphGastosService } from '../../../services/data-graph-gastos.service';
+import { DataGraphService } from '../../../services/data-graph.service';
 
 @Component({
   selector: 'app-graph-capitulo-ingreso',
@@ -29,10 +29,10 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
 
   constructor(
     private avalaibleYearsService: AvalaibleYearsService,
-    private dataGraphGastosService: DataGraphGastosService,
+    private dataGraphService: DataGraphService,
     private router: Router,
   ) {
-    this.createData(this.dataGraphGastosService.getCapituloIngreso().substring(0, 1))
+    this.createData(this.dataGraphService.getCapituloIngreso().substring(0, 1))
 
     this.columnDefs = [
       {
@@ -303,7 +303,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   }
 
   volver() {
-    this.router.navigateByUrl('/SelectIngresoCapitulo')
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
 }
