@@ -223,7 +223,6 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
       if (item.ObligacionesReconocidasNetas2021 > 0) {
         ObliNetas2022 += item.ObligacionesReconocidasNetas2021;
       }
-
     })
 
     let ObliPendientes2015 = 0;

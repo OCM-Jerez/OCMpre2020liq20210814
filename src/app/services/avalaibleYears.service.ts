@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
 
-
 import gastos2015 from '../../assets/data/2015LiqGas.json';
 import gastos2016 from '../../assets/data/2016LiqGas.json';
 
@@ -23,7 +22,6 @@ export class AvalaibleYearsService {
 
   // Seleciona datos del año seleccionado en los radioButtons
   async getDataJson(isGas: boolean) {
-    // throw new Error('Not implemented');
     const data = await import(`../../assets/data/${this.year}Liq${isGas ? 'Gas' : 'Ing'}.json`);
     // const result: any = (data as any).default;
     return data.default;
@@ -87,8 +85,6 @@ export class AvalaibleYearsService {
         });
       });
     })
-
-
     return result;
   }
 
@@ -104,7 +100,6 @@ export class AvalaibleYearsService {
 
   // Selecciona datos gastos de un año
   async getDataYearGas(year: string, cla: string) {
-
     // const array = gastos2015.concat(gastos2016);
     // if (year === '2015') {
     //   const arrayYear = gastos2015.map(item => {
@@ -113,7 +108,6 @@ export class AvalaibleYearsService {
     //       cod2015: item.CodCap
     //     }
     //   });
-
     // }
 
     const result = [];
@@ -127,7 +121,6 @@ export class AvalaibleYearsService {
     const Pagos = `Pagos${year}`;
     const ObligacionesPendientePago = `ObligacionesPendientePago${year}`;
     const RemanenteCredito = `RemanenteCredito${year}`;
-
     const data = await this.getYearDataJson(year, true).then(data => {
       Object.entries(data).forEach((currentValue) => {
         result.push({
@@ -149,8 +142,6 @@ export class AvalaibleYearsService {
 
   // Itera por cada uno de los años disponibles para gastos
   async getDataAllYear(cla: string): Promise<any[]> {
-
-
     let rowData = [];
     await asynForEach(AVALAIBLE_YEARS, async (year: string) => {
       const dataGas = await this.getDataYearGas(year, cla);
@@ -160,6 +151,7 @@ export class AvalaibleYearsService {
   }
 
 }
+
 async function asynForEach(array: Array<String>, callback: Function) {
   for (let index = 0; index < array.length; index++) {
     await callback(array[index], index, array);
