@@ -7,8 +7,8 @@ import capitulosIngresos from '../../../../assets/data/capitulosIngresos.json';
 import economicosIngresos from '../../../../assets/data/EconomicosIngresos2022.json';
 import capitulosGastos from '../../../../assets/data/capitulosGastos.json'
 import organicos from '../../../../assets/data/organicos.json';
-import economicosGastos from '../../../../assets/data/Economicos2022.json';
 import programas from '../../../../assets/data/programas2022.json';
+import economicosGastos from '../../../../assets/data/Economicos2022.json';
 
 @Component({
   selector: 'app-select-codigo',

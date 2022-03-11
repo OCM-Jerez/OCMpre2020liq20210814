@@ -123,7 +123,7 @@ export class GraphEconomicoGastoComponent implements AfterViewInit {
         },
 
       }
-    }, 500);
+    }, 225);
   }
 
   async onGridReady(params) {
