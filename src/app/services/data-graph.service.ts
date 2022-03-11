@@ -62,8 +62,5 @@ export class DataGraphService {
     return this.capituloGasto;
   }
 
-
-
-
   constructor() { }
 }

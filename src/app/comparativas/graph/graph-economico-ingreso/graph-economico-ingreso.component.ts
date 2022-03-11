@@ -33,37 +33,11 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
     private router: Router,
   ) {
     this.createData(this.dataGraphService.getEcoIngreso().substring(0, 5))
-
-    this.columnDefs = [
-      {
-        headerName: 'Año',
-        field: 'year',
-        width: 70,
-      },
-      {
-        headerName: 'Previsiones definitivas',
-        field: 'Definitivas',
-        width: 180,
-        cellRenderer: CellRendererOCM,
-      },
-      {
-        headerName: 'RecaudacionNeta',
-        field: 'RecaudacionNeta',
-        width: 200,
-        cellRenderer: CellRendererOCM,
-      },
-    ];
-
-    this.defaultColDef = {
-      sortable: true,
-      resizable: true,
-      filter: false,
-      aggFunc: 'sum',
-    };
   }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
+      // grafico
       this.options = {
         // theme: 'ag-default-dark',
         autoSize: true,
@@ -111,9 +85,36 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
           enabled: true,
           position: 'bottom',
         },
-
       }
-    }, 500);
+
+      // tabla
+      this.columnDefs = [
+        {
+          headerName: 'Año',
+          field: 'year',
+          width: 70,
+        },
+        {
+          headerName: 'Previsiones definitivas',
+          field: 'Definitivas',
+          width: 180,
+          cellRenderer: CellRendererOCM,
+        },
+        {
+          headerName: 'RecaudacionNeta',
+          field: 'RecaudacionNeta',
+          width: 200,
+          cellRenderer: CellRendererOCM,
+        },
+      ];
+
+      this.defaultColDef = {
+        sortable: true,
+        resizable: true,
+        filter: false,
+        aggFunc: 'sum',
+      };
+    }, 225);
   }
 
   async onGridReady(params) {
@@ -125,7 +126,6 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
     this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Eco');
     const datos = this.getObjects(await this.rowData, 'CodEco', eco);
     // console.log("Datos: ", datos);
-
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
     const a2015 = {

@@ -33,37 +33,11 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
     private router: Router,
   ) {
     this.createData(this.dataGraphService.getCapituloIngreso().substring(0, 1))
-
-    this.columnDefs = [
-      {
-        headerName: 'Año',
-        field: 'year',
-        width: 70,
-      },
-      {
-        headerName: 'Previsiones definitivas',
-        field: 'Definitivas',
-        width: 180,
-        cellRenderer: CellRendererOCM,
-      },
-      {
-        headerName: 'RecaudacionNeta',
-        field: 'RecaudacionNeta',
-        width: 200,
-        cellRenderer: CellRendererOCM,
-      },
-    ];
-
-    this.defaultColDef = {
-      sortable: true,
-      resizable: true,
-      filter: false,
-      aggFunc: 'sum',
-    };
   }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
+      // grafico
       this.options = {
         // theme: 'ag-default-dark',
         autoSize: true,
@@ -111,9 +85,36 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
           enabled: true,
           position: 'bottom',
         },
-
       }
-    }, 500);
+
+      // tabla
+      this.columnDefs = [
+        {
+          headerName: 'Año',
+          field: 'year',
+          width: 70,
+        },
+        {
+          headerName: 'Previsiones definitivas',
+          field: 'Definitivas',
+          width: 180,
+          cellRenderer: CellRendererOCM,
+        },
+        {
+          headerName: 'RecaudacionNeta',
+          field: 'RecaudacionNeta',
+          width: 200,
+          cellRenderer: CellRendererOCM,
+        },
+      ];
+
+      this.defaultColDef = {
+        sortable: true,
+        resizable: true,
+        filter: false,
+        aggFunc: 'sum',
+      };
+    }, 225);
   }
 
   async onGridReady(params) {
@@ -125,7 +126,6 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
     this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Cap');
     const datos = this.getObjects(await this.rowData, 'CodCap', cap);
     // console.log("Datos: ", datos);
-
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
 
@@ -137,7 +137,6 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
     let defini2020 = 0;
     let defini2021 = 0;
     let defini2022 = 0;
-
 
     datos.forEach(item => {
       if (item.Definitivas2015 > 0) {
@@ -171,9 +170,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
       if (item.Iniciales2022 > 0) {
         defini2022 += item.Iniciales2022;
       }
-
     })
-
 
     let neta2015 = 0;
     let neta2016 = 0;
@@ -183,7 +180,6 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
     let neta2020 = 0;
     let neta2021 = 0;
     let neta2022 = 0;
-
 
     datos.forEach(item => {
       if (item.RecaudacionNeta2015 > 0) {
@@ -217,9 +213,10 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
       if (item.RecaudacionNeta2022 > 0) {
         neta2022 += item.Iniciales2022;
       }
-
     })
 
+    // Convierto los valores para que sirvan de data al grafico
+    this.data = [];
     const a2015 = {
       "year": "2015",
       "CodCap": datos[0].CodCap,
@@ -299,6 +296,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
           }
         }
     }
+    // console.log({ objects });
     return objects;
   }
 
