@@ -32,8 +32,7 @@ export class GraphOrganicoGastoComponent implements AfterViewInit {
     private dataGraphService: DataGraphService,
     private router: Router,
   ) {
-    this.createData(this.dataGraphService.getOrganico().substring(0, 2))
-
+    this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
     this.columnDefs = [
       {
         headerName: 'Año',
@@ -73,7 +72,7 @@ export class GraphOrganicoGastoComponent implements AfterViewInit {
       this.options = {
         autoSize: true,
         title: {
-          text: `Orgánico ${this.data[0].CodOrg} ${this.data[0].DesOrg}`,
+          text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
         },
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
@@ -122,7 +121,7 @@ export class GraphOrganicoGastoComponent implements AfterViewInit {
         },
 
       }
-    }, 225);
+    }, 500);
   }
 
   async onGridReady(params) {
@@ -271,8 +270,6 @@ export class GraphOrganicoGastoComponent implements AfterViewInit {
 
     const a2015 = {
       "year": "2015",
-      "CodOrg": datos[0].CodOrg,
-      "DesOrg": datos[0].DesOrg,
       "Definitivas": defini2015,
       "ObligacionesReconocidasNetas": ObliNetas2015,
       "ObligacionesPendientes": ObliPendientes2015
@@ -329,7 +326,7 @@ export class GraphOrganicoGastoComponent implements AfterViewInit {
 
     const a2022 = {
       "year": "2022",
-      "Definitivas": defini2022,                        // Se usan las iniciales ya que es el unico dato que existe-
+      "Definitivas": defini2022,                       // Se usan las iniciales ya que es el unico dato que existe-
       "ObligacionesReconocidasNetas": ObliNetas2022,   // Se utiliza la recaudación neta del último año conocido para no desfigurar el grafico, ya que de lo contrario seria 0.
       "ObligacionesPendientes": ObliPendientes2022
     };
@@ -340,7 +337,7 @@ export class GraphOrganicoGastoComponent implements AfterViewInit {
   }
 
   // https://gist.github.com/iwek/3924925#file-find-in-json-js
-  getObjects(obj, key, val) {
+  getObjects(obj: any, key: string, val: string) {
     var objects = [];
     for (var i in obj) {
       if (!obj.hasOwnProperty(i)) continue;

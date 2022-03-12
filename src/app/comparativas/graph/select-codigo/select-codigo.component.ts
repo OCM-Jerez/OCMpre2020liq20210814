@@ -21,6 +21,7 @@ export class SelectCodigoComponent {
   error = "";
   data = "";
   URL = "";
+
   datosSelect: { codigo: number, descripcion: string }[] = []
 
   constructor(
@@ -46,21 +47,27 @@ export class SelectCodigoComponent {
     switch (this.data) {
       case "ingresoCapitulo":
         this.datosSelect = capitulosIngresos;
+        this.dataGraphService.tipoSelect = "Capítulo ingresos";
         break;
       case "ingresoEconomico":
         this.datosSelect = economicosIngresos;
+        this.dataGraphService.tipoSelect = "Económico ingresos";
         break;
       case "gastoCapitulo":
         this.datosSelect = capitulosGastos;
+        this.dataGraphService.tipoSelect = "Capítulo gastos";
         break;
       case "Organico":
         this.datosSelect = organicos;
+        this.dataGraphService.tipoSelect = "Orgánico";
         break;
       case "Programa":
         this.datosSelect = programas;
+        this.dataGraphService.tipoSelect = "Programa";
         break;
       case "gastoEconomico":
         this.datosSelect = economicosGastos;
+        this.dataGraphService.tipoSelect = "Económico gastos";
         break;
       default:
         break;
@@ -68,29 +75,7 @@ export class SelectCodigoComponent {
   }
 
   submit() {
-    switch (this.data) {
-      case "ingresoCapitulo":
-        this.dataGraphService.capituloIngreso = this.form.value.seleccion;
-        break;
-      case "ingresoEconomico":
-        this.dataGraphService.ecoIngreso = this.form.value.seleccion;
-        break;
-      case "gastoCapitulo":
-        this.dataGraphService.capituloGasto = this.form.value.seleccion;
-        break;
-      case "Organico":
-        this.dataGraphService.organico = this.form.value.seleccion;
-        break;
-      case "Programa":
-        this.dataGraphService.programa = this.form.value.seleccion;
-        break;
-      case "gastoEconomico":
-        this.dataGraphService.ecoGasto = this.form.value.seleccion;
-        break;
-      default:
-        break;
-    }
-
+    this.dataGraphService.codigoSelect = this.form.value.seleccion;
     this.router.navigateByUrl(this.URL)
   }
 

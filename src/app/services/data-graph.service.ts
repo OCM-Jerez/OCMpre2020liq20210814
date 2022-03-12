@@ -30,37 +30,15 @@ export class DataGraphService {
     return this.URLSelect;
   }
 
-  capituloIngreso = "";
-  ecoIngreso = "";
+  tipoSelect = "";
+  codigoSelect = "";
 
-  ecoGasto = "";
-  programa = "";
-  organico = "";
-  capituloGasto = "";
-
-  public getCapituloIngreso(): string {
-    return this.capituloIngreso;
+  public getTipoSelect(): string {
+    return this.tipoSelect;
   }
 
-  public getEcoIngreso(): string {
-    return this.ecoIngreso;
+  public getCodigoSelect(): string {
+    return this.codigoSelect;
   }
 
-  public getEcoGasto(): string {
-    return this.ecoGasto;
-  }
-
-  public getPrograma(): string {
-    return this.programa;
-  }
-
-  public getOrganico(): string {
-    return this.organico;
-  }
-
-  public getCapituloGasto(): string {
-    return this.capituloGasto;
-  }
-
-  constructor() { }
 }

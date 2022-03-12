@@ -42,7 +42,7 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
         // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: `Económico ingreso ${this.dataGraphService.getCodigoSelect()}`,
+          text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
         },
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
@@ -114,7 +114,7 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
         filter: false,
         aggFunc: 'sum',
       };
-    }, 225);
+    }, 500);
   }
 
   async onGridReady(params) {
