@@ -32,7 +32,7 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
     private dataGraphService: DataGraphService,
     private router: Router,
   ) {
-    this.createData(this.dataGraphService.getEcoIngreso().substring(0, 5))
+    this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
   }
 
   ngAfterViewInit(): void {
@@ -42,7 +42,7 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
         // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: `Económico ingreso ${this.data[0].CodEco} ${this.data[0].DesEco}`,
+          text: `Económico ingreso ${this.dataGraphService.getCodigoSelect()}`,
         },
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
@@ -130,8 +130,6 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
     this.data = [];
     const a2015 = {
       "year": "2015",
-      "CodEco": datos[0].CodEco,
-      "DesEco": datos[0].DesEco,
       "Definitivas": datos[0].Definitivas2015,
       "RecaudacionNeta": datos[0].RecaudacionNeta2015
     };
@@ -190,7 +188,7 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
   }
 
   // https://gist.github.com/iwek/3924925#file-find-in-json-js
-  getObjects(obj, key, val) {
+  getObjects(obj: any, key: string, val: string) {
     var objects = [];
     for (var i in obj) {
       if (!obj.hasOwnProperty(i)) continue;

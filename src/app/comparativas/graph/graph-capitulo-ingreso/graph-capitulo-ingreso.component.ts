@@ -32,7 +32,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
     private dataGraphService: DataGraphService,
     private router: Router,
   ) {
-    this.createData(this.dataGraphService.getCapituloIngreso().substring(0, 1))
+    this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
   }
 
   ngAfterViewInit(): void {
@@ -42,7 +42,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
         // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: `Capítulo ingresos ${this.data[0].CodCap} ${this.data[0].DesCap}`,
+          text: `Capítulo ingreso ${this.dataGraphService.getCodigoSelect()}`,
         },
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
@@ -126,7 +126,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
     this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Cap');
     const datos = this.getObjects(await this.rowData, 'CodCap', cap);
     // console.log("Datos: ", datos);
-    // Convierto los valores para que sirvan de data al grafico
+    // Sumo todos los economicos de cada capítulo
     this.data = [];
 
     let defini2015 = 0;
@@ -219,8 +219,6 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
     this.data = [];
     const a2015 = {
       "year": "2015",
-      "CodCap": datos[0].CodCap,
-      "DesCap": datos[0].DesCap,
       "Definitivas": defini2015,
       "RecaudacionNeta": neta2015
     };
@@ -270,7 +268,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
 
     const a2022 = {
       "year": "2022",
-      "Definitivas": defini2022,               // Se usan las iniciales ya que es el unico dato que existe-
+      "Definitivas": defini2022,       // Se usan las iniciales ya que es el unico dato que existe-
       "RecaudacionNeta": neta2021      // Se utiliza la recaudación neta del último año conocido para no desfigurar el grafico, ya que de lo contrario seria 0. 
     };
     this.data.push(a2022)
@@ -279,7 +277,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   }
 
   // https://gist.github.com/iwek/3924925#file-find-in-json-js
-  getObjects(obj, key, val) {
+  getObjects(obj: any, key: string, val: string) {
     var objects = [];
     for (var i in obj) {
       if (!obj.hasOwnProperty(i)) continue;
@@ -296,7 +294,6 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
           }
         }
     }
-    // console.log({ objects });
     return objects;
   }
 
