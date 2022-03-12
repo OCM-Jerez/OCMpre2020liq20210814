@@ -1,15 +1,15 @@
-<div class="selectBox">
-    <h1>{{title}}</h1>
+<div class="selectBox" *ngIf="dataIndice">
+    <h1>{{dataIndice.titleSelect}}</h1>
 
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div>
             <select formControlName="seleccion" class="select">
-                <option>{{option}}</option>
+                <option>{{dataIndice.optionSelect}}</option>
                 <!-- <option *ngFor="let rowSelect of datosSelect">{{rowSelect.Cap}} {{rowSelect.DesCap}}</option> -->
                 <option *ngFor="let rowSelect of datosSelect">{{rowSelect.codigo}} {{rowSelect.descripcion}}</option>
             </select>
             <div *ngIf="f.seleccion.touched && f.seleccion.invalid" class="alert alert-danger">
-                <div *ngIf="f.seleccion.errors.required">{{error}}</div>
+                <div *ngIf="f.seleccion.errors.required">{{dataIndice.errorSelect}}</div>
             </div>
         </div>
 

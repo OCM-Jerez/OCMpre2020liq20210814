@@ -9,6 +9,7 @@ import capitulosGastos from '../../../../assets/data/capitulosGastos.json'
 import organicos from '../../../../assets/data/organicos.json';
 import programas from '../../../../assets/data/programas2022.json';
 import economicosGastos from '../../../../assets/data/Economicos2022.json';
+import { IData } from '../../../indice/indice.component';
 
 @Component({
   selector: 'app-select-codigo',
@@ -23,17 +24,22 @@ export class SelectCodigoComponent {
   URL = "";
 
   datosSelect: { codigo: number, descripcion: string }[] = []
+  dataIndice: IData;
 
   constructor(
     private router: Router,
     private dataGraphService: DataGraphService,
   ) {
-    this.data = this.dataGraphService.getData();
-    this.title = this.dataGraphService.getTitleSelect();
-    this.option = this.dataGraphService.getOptionSelect();
-    this.error = this.dataGraphService.getErrorSelect();
-    this.URL = this.dataGraphService.getURLSelect();
+    // this.data = this.dataGraphService.getData();
+    // this.title = this.dataGraphService.getTitleSelect();
+    // this.option = this.dataGraphService.getOptionSelect();
+    // this.error = this.dataGraphService.getErrorSelect();
+    // this.URL = this.dataGraphService.getURLSelect();
+    this.dataIndice = router.getCurrentNavigation().extras.state.data
   }
+  // array = [{ key: 'ingresoCapitulo', data: { title: 'Capítulo ingresos', data: capitulosIngresos } }]
+
+  tipoSelect = '';
 
   form = new FormGroup({
     seleccion: new FormControl('', Validators.required)
@@ -44,39 +50,45 @@ export class SelectCodigoComponent {
   }
 
   ngOnInit(): void {
-    switch (this.data) {
+
+    // const value = this.array.find((item) => item.key === this.dataIndice.data);
+    // this.datosSelect = value.data.data;
+    // this.tipoSelect = value.data.title;
+
+    switch (this.dataIndice.data) {
       case "ingresoCapitulo":
         this.datosSelect = capitulosIngresos;
-        this.dataGraphService.tipoSelect = "Capítulo ingresos";
+        this.tipoSelect = "Capítulo ingresos";
         break;
       case "ingresoEconomico":
         this.datosSelect = economicosIngresos;
-        this.dataGraphService.tipoSelect = "Económico ingresos";
+        this.tipoSelect = "Económico ingresos";
         break;
       case "gastoCapitulo":
         this.datosSelect = capitulosGastos;
-        this.dataGraphService.tipoSelect = "Capítulo gastos";
+        this.tipoSelect = "Capítulo gastos";
         break;
       case "Organico":
         this.datosSelect = organicos;
-        this.dataGraphService.tipoSelect = "Orgánico";
+        this.tipoSelect = "Orgánico";
         break;
       case "Programa":
         this.datosSelect = programas;
-        this.dataGraphService.tipoSelect = "Programa";
+        this.tipoSelect = "Programa";
         break;
       case "gastoEconomico":
         this.datosSelect = economicosGastos;
-        this.dataGraphService.tipoSelect = "Económico gastos";
-        break;
-      default:
+        this.tipoSelect = "Económico gastos";
         break;
     }
   }
 
   submit() {
     this.dataGraphService.codigoSelect = this.form.value.seleccion;
-    this.router.navigateByUrl(this.URL)
+
+    //this.router.navigateByUrl(this.dataIndice.URLSelect)
+    this.router.navigate([this.dataIndice.URLSelect], { state: { data: { tipo: this.tipoSelect, codigo: this.form.value.seleccion } } });
+
   }
 
 }

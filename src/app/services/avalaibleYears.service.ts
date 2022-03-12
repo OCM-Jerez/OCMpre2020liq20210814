@@ -67,7 +67,7 @@ export class AvalaibleYearsService {
     const DerechosPendienteCobro = `DerechosPendienteCobro${year}`;
     const DiferenciaPrevision = `DiferenciaPrevision${year}`;
 
-    const data = await this.getYearDataJson(year, false).then(data => {
+    await this.getYearDataJson(year, false).then(data => {
       Object.entries(data).forEach((currentValue) => {
         result.push({
           [cod]: currentValue[1][cod],
