@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataGraphService } from '../../../services/data-graph.service';
+import { IDataGraph } from '../../../commons/interfaces/dataGraph.interface';
 
-// Con import unicamente se cra un enlace, no siginifica que cargue los datos.
+// Con import unicamente se crea un enlace, no siginifica que cargue los datos.
 // Por tanto es una forma eficiente de preparar importación de datos
 import capitulosIngresos from '../../../../assets/data/capitulosIngresos.json';
 import economicosIngresos from '../../../../assets/data/EconomicosIngresos2022.json';
@@ -11,7 +12,6 @@ import capitulosGastos from '../../../../assets/data/capitulosGastos.json'
 import organicos from '../../../../assets/data/organicos.json';
 import programas from '../../../../assets/data/programas2022.json';
 import economicosGastos from '../../../../assets/data/Economicos2022.json';
-import { IDataGraph } from '../../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-select-codigo',
@@ -56,34 +56,6 @@ export class SelectCodigoComponent {
     const value = this.array.find((item) => item.key === this.sendData.data);
     this.datosSelect = value.data.dataJSON;
     this.tipoSelect = value.data.tipoSelect;
-
-    // switch (this.dataIndice.data) {
-    // switch (this.data) {
-    //   case "ingresoCapitulo":
-    //     this.datosSelect = capitulosIngresos;
-    //     this.tipoSelect = "Capítulo ingresos";
-    //     break;
-    //   case "ingresoEconomico":
-    //     this.datosSelect = economicosIngresos;
-    //     this.tipoSelect = "Económico ingresos";
-    //     break;
-    //   case "gastoCapitulo":
-    //     this.datosSelect = capitulosGastos;
-    //     this.tipoSelect = "Capítulo gastos";
-    //     break;
-    //   case "Organico":
-    //     this.datosSelect = organicos;
-    //     this.tipoSelect = "Orgánico";
-    //     break;
-    //   case "Programa":
-    //     this.datosSelect = programas;
-    //     this.tipoSelect = "Programa";
-    //     break;
-    //   case "gastoEconomico":
-    //     this.datosSelect = economicosGastos;
-    //     this.tipoSelect = "Económico gastos";
-    //     break;
-    // }
   }
 
   submit() {
