@@ -52,18 +52,6 @@ export class IndiceComponent implements OnInit {
       URLSelect: "/GraficoCapituloIngreso"
     };
     this.dataGraphService.sendData = this.sendData;
-
-    // this.sendData.data = "ingresoCapitulo";
-    // this.sendData.titleSelect = "Selección capítulo de ingresos";
-    // this.sendData.optionSelect = "Selecciona capítulo de ingresos";
-    // this.sendData.errorSelect = "Error debes seleccionar un capítulo de ingresos";
-    // this.sendData.URLSelect = "/GraficoCapituloIngreso";
-
-    // this.dataGraphService.sendData.data = "ingresoCapitulo";
-    // this.dataGraphService.sendData.titleSelect = "Selección capítulo de ingresos";
-    // this.dataGraphService.sendData.optionSelect = "Selecciona capítulo de ingresos";
-    // this.dataGraphService.sendData.errorSelect = "Error debes seleccionar un capítulo de ingresos";
-    // this.dataGraphService.sendData.URLSelect = "/GraficoCapituloIngreso";
     this.router.navigateByUrl('/SelectCodigo')
 
     // Es posible pasar parametros a traves de la ruta.
@@ -72,11 +60,6 @@ export class IndiceComponent implements OnInit {
     // El problema es cuando estos mismos datos hay que pasarlos a una segund ruta.
     // Por ejemplo al volver desde una seleccion habria que incluir los datos en la rutay.
 
-    // this.sendData.data = "ingresoCapitulo";
-    // this.sendData.titleSelect = "Selección capítulo de ingresos";
-    // this.sendData.optionSelect = "Selecciona capítulo de ingresos";
-    // this.sendData.errorSelect = "Error debes seleccionar un capítulo de ingresos";
-    // this.sendData.URLSelect = "/GraficoCapituloIngreso";
     // this.router.navigate(['/SelectCodigo'], { state: { 'data': this.sendData } })
   }
 
