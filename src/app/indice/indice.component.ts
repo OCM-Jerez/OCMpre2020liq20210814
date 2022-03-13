@@ -21,6 +21,7 @@ export class IndiceComponent implements OnInit {
   radioSel!: any;
   radioSelected?: string;
   yearsList: any[];
+  sendData: IDataGraph = <IDataGraph>{};
 
   constructor(
     private router: Router,
@@ -33,8 +34,6 @@ export class IndiceComponent implements OnInit {
     this.radioSelected = "2021";
   }
 
-  sendData: IDataGraph = <IDataGraph>{};
-
   ngOnInit() {
     this.pantallaSize = this.getScreenSizeService.getIsMobileResolution();
     this.radioSelected = this.avalaibleYearsService.getCurrentYear();
@@ -45,11 +44,26 @@ export class IndiceComponent implements OnInit {
   }
 
   graficoIngresoCapitulo() {
-    this.dataGraphService.sendData.data = "ingresoCapitulo";
-    this.dataGraphService.sendData.titleSelect = "Selección capítulo de ingresos";
-    this.dataGraphService.sendData.optionSelect = "Selecciona capítulo de ingresos";
-    this.dataGraphService.sendData.errorSelect = "Error debes seleccionar un capítulo de ingresos";
-    this.dataGraphService.sendData.URLSelect = "/GraficoCapituloIngreso";
+    this.sendData = <IDataGraph>{
+      data: "ingresoCapitulo",
+      titleSelect: "Selección capítulo de ingreso",
+      optionSelect: "Selecciona capítulo de ingreso",
+      errorSelect: "Error debes seleccionar un capítulo de ingreso",
+      URLSelect: "/GraficoCapituloIngreso"
+    };
+    this.dataGraphService.sendData = this.sendData;
+
+    // this.sendData.data = "ingresoCapitulo";
+    // this.sendData.titleSelect = "Selección capítulo de ingresos";
+    // this.sendData.optionSelect = "Selecciona capítulo de ingresos";
+    // this.sendData.errorSelect = "Error debes seleccionar un capítulo de ingresos";
+    // this.sendData.URLSelect = "/GraficoCapituloIngreso";
+
+    // this.dataGraphService.sendData.data = "ingresoCapitulo";
+    // this.dataGraphService.sendData.titleSelect = "Selección capítulo de ingresos";
+    // this.dataGraphService.sendData.optionSelect = "Selecciona capítulo de ingresos";
+    // this.dataGraphService.sendData.errorSelect = "Error debes seleccionar un capítulo de ingresos";
+    // this.dataGraphService.sendData.URLSelect = "/GraficoCapituloIngreso";
     this.router.navigateByUrl('/SelectCodigo')
 
     // Es posible pasar parametros a traves de la ruta.
@@ -67,47 +81,62 @@ export class IndiceComponent implements OnInit {
   }
 
   graficoIngresoEconomico() {
-    this.dataGraphService.sendData.data = "ingresoEconomico";
-    this.dataGraphService.sendData.titleSelect = "Selecciona económico de ingreso";
-    this.dataGraphService.sendData.optionSelect = "Selecciona económico de ingreso";
-    this.dataGraphService.sendData.errorSelect = "Error debes seleccionar un económico ingreso";
-    this.dataGraphService.sendData.URLSelect = "/GraficoEconomicoIngreso";
+    this.sendData = <IDataGraph>{
+      data: "ingresoEconomico",
+      titleSelect: "Selección económico de ingreso",
+      optionSelect: "Selecciona económico de ingreso",
+      errorSelect: "Error debes seleccionar un económico de ingreso",
+      URLSelect: "/GraficoEconomicoIngreso"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/SelectCodigo')
   }
 
   graficoGastoCapitulo() {
-    this.dataGraphService.sendData.data = "gastoCapitulo";
-    this.dataGraphService.sendData.titleSelect = "Selecciona capítulo de gasto";
-    this.dataGraphService.sendData.optionSelect = "Selecciona capítulo de gasto";
-    this.dataGraphService.sendData.errorSelect = "Error debes seleccionar un capítulo de gasto";
-    this.dataGraphService.sendData.URLSelect = "/GraficoCapituloGasto";
+    this.sendData = <IDataGraph>{
+      data: "gastoCapitulo",
+      titleSelect: "Selección capítulo de gasto",
+      optionSelect: "Selecciona capítulo de gasto",
+      errorSelect: "Error debes seleccionar un capítulo de gasto",
+      URLSelect: "/GraficoCapituloGasto"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/SelectCodigo')
   }
 
   graficoGastoOrganico() {
-    this.dataGraphService.sendData.data = "Organico";
-    this.dataGraphService.sendData.titleSelect = "Selecciona orgánico";
-    this.dataGraphService.sendData.optionSelect = "Selecciona orgánico";
-    this.dataGraphService.sendData.errorSelect = "Error debes seleccionar un orgánico";
-    this.dataGraphService.sendData.URLSelect = "/GraficoOrganicoGasto";
+    this.sendData = <IDataGraph>{
+      data: "Organico",
+      titleSelect: "Selección orgánico",
+      optionSelect: "Selecciona orgánico",
+      errorSelect: "Error debes seleccionar un orgánico",
+      URLSelect: "/GraficoOrganicoGasto"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/SelectCodigo')
   }
 
   graficoGastoPrograma() {
-    this.dataGraphService.sendData.data = "Programa";
-    this.dataGraphService.sendData.titleSelect = "Selecciona programa";
-    this.dataGraphService.sendData.optionSelect = "Selecciona programa";
-    this.dataGraphService.sendData.errorSelect = "Error debes seleccionar un programa";
-    this.dataGraphService.sendData.URLSelect = "/GraficoProgramaGasto";
+    this.sendData = <IDataGraph>{
+      data: "Programa",
+      titleSelect: "Selección programa",
+      optionSelect: "Selecciona programa",
+      errorSelect: "Error debes seleccionar un programa",
+      URLSelect: "/GraficoProgramaGasto"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/SelectCodigo')
   }
 
   graficoGastoEconomico() {
-    this.dataGraphService.sendData.data = "gastoEconomico";
-    this.dataGraphService.sendData.titleSelect = "Selecciona económico de gasto";
-    this.dataGraphService.sendData.optionSelect = "Selecciona económico de gasto";
-    this.dataGraphService.sendData.errorSelect = "Error debes seleccionar un económico de gasto";
-    this.dataGraphService.sendData.URLSelect = "/GraficoEconomicoGasto";
+    this.sendData = <IDataGraph>{
+      data: "gastoEconomico",
+      titleSelect: "Selección económico de gasto",
+      optionSelect: "Selecciona económico de gasto",
+      errorSelect: "Error debes seleccionar un económico de gasto",
+      URLSelect: "/GraficoEconomicoGasto"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/SelectCodigo')
   }
 
