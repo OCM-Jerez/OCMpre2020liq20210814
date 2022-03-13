@@ -85,7 +85,6 @@ export class SelectCodigoComponent {
 
   submit() {
     this.dataGraphService.codigoSelect = this.form.value.seleccion;
-
     //this.router.navigateByUrl(this.dataIndice.URLSelect)
     this.router.navigate([this.dataIndice.URLSelect], { state: { data: { tipo: this.tipoSelect, codigo: this.form.value.seleccion } } });
 
