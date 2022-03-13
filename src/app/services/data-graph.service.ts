@@ -1,33 +1,43 @@
 import { Injectable } from '@angular/core';
+import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataGraphService {
-  data = "";
-  titleSelect = "";
-  optionSelect = "";
-  errorSelect = "";
-  URLSelect = "";
+  sendData: IDataGraph = <IDataGraph>
+    {
+      data: '',
+      titleSelect: '',
+      optionSelect: '',
+      errorSelect: '',
+      URLSelect: '',
+    };
+
+  // data = "";
+  // titleSelect = "";
+  // optionSelect = "";
+  // errorSelect = "";
+  // URLSelect = "";
 
   getData(): string {
-    return this.data;
+    return this.sendData.data;
   }
 
   getTitleSelect(): string {
-    return this.titleSelect;
+    return this.sendData.titleSelect;
   }
 
   getOptionSelect(): string {
-    return this.optionSelect;
+    return this.sendData.optionSelect;
   }
 
   getErrorSelect(): string {
-    return this.errorSelect;
+    return this.sendData.errorSelect;
   }
 
   getURLSelect(): string {
-    return this.URLSelect;
+    return this.sendData.URLSelect;
   }
 
   tipoSelect = "";
