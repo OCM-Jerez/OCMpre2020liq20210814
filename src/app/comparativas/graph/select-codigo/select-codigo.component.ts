@@ -11,7 +11,7 @@ import capitulosGastos from '../../../../assets/data/capitulosGastos.json'
 import organicos from '../../../../assets/data/organicos.json';
 import programas from '../../../../assets/data/programas2022.json';
 import economicosGastos from '../../../../assets/data/Economicos2022.json';
-// import { IData } from '../../../indice/indice.component';
+import { IDataGraph } from '../../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-select-codigo',
@@ -19,25 +19,19 @@ import economicosGastos from '../../../../assets/data/Economicos2022.json';
   styleUrls: ['./select-codigo.component.scss']
 })
 export class SelectCodigoComponent {
-  title = "";
-  option = "";
-  error = "";
-  data = "";
-  URL = "";
+  sendData: IDataGraph = <IDataGraph>{};
   tipoSelect = '';
-
   datosSelect: { codigo: number, descripcion: string }[] = []
-  // dataIndice: IData;
 
   constructor(
     private router: Router,
     private dataGraphService: DataGraphService,
   ) {
-    this.data = this.dataGraphService.getData();
-    this.title = this.dataGraphService.getTitleSelect();
-    this.option = this.dataGraphService.getOptionSelect();
-    this.error = this.dataGraphService.getErrorSelect();
-    this.URL = this.dataGraphService.getURLSelect();
+    this.sendData.data = this.dataGraphService.getData();
+    this.sendData.titleSelect = this.dataGraphService.getTitleSelect();
+    this.sendData.optionSelect = this.dataGraphService.getOptionSelect();
+    this.sendData.errorSelect = this.dataGraphService.getErrorSelect();
+    this.sendData.URLSelect = this.dataGraphService.getURLSelect();
 
     // this.dataIndice = router.getCurrentNavigation().extras.state.data
   }
@@ -59,7 +53,7 @@ export class SelectCodigoComponent {
   }
 
   ngOnInit(): void {
-    const value = this.array.find((item) => item.key === this.data);
+    const value = this.array.find((item) => item.key === this.sendData.data);
     this.datosSelect = value.data.dataJSON;
     this.tipoSelect = value.data.tipoSelect;
 
@@ -95,7 +89,7 @@ export class SelectCodigoComponent {
   submit() {
     this.dataGraphService.codigoSelect = this.form.value.seleccion;
     this.dataGraphService.tipoSelect = this.tipoSelect
-    this.router.navigateByUrl(this.URL)
+    this.router.navigateByUrl(this.sendData.URLSelect)
     // this.router.navigate([this.dataIndice.URLSelect], { state: { data: { tipo: this.tipoSelect, codigo: this.form.value.seleccion } } });
   }
 
