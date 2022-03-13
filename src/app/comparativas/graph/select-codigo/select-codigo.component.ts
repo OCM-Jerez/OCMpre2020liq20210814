@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataGraphService } from '../../../services/data-graph.service';
 
+// Con import unicamente se cra un enlace, no siginifica que cargue los datos.
+// Por tanto es una forma eficiente de preparar importación de datos
 import capitulosIngresos from '../../../../assets/data/capitulosIngresos.json';
 import economicosIngresos from '../../../../assets/data/EconomicosIngresos2022.json';
 import capitulosGastos from '../../../../assets/data/capitulosGastos.json'
@@ -22,6 +24,7 @@ export class SelectCodigoComponent {
   error = "";
   data = "";
   URL = "";
+  tipoSelect = '';
 
   datosSelect: { codigo: number, descripcion: string }[] = []
   // dataIndice: IData;
@@ -38,9 +41,14 @@ export class SelectCodigoComponent {
 
     // this.dataIndice = router.getCurrentNavigation().extras.state.data
   }
-  // array = [{ key: 'ingresoCapitulo', data: { title: 'Capítulo ingresos', data: capitulosIngresos } }]
-
-  tipoSelect = '';
+  array = [
+    { key: 'ingresoCapitulo', data: { tipoSelect: 'Capítulo ingresos', dataJSON: capitulosIngresos } },
+    { key: 'ingresoEconomico', data: { tipoSelect: 'Económico ingresos', dataJSON: economicosIngresos } },
+    { key: 'gastoCapitulo', data: { tipoSelect: 'Capítulo gastos', dataJSON: capitulosGastos } },
+    { key: 'Organico', data: { tipoSelect: 'Orgánico', dataJSON: organicos } },
+    { key: 'Programa', data: { tipoSelect: 'Programa', dataJSON: programas } },
+    { key: 'gastoEconomico', data: { tipoSelect: 'Económico gastos', dataJSON: economicosGastos } }
+  ]
 
   form = new FormGroup({
     seleccion: new FormControl('', Validators.required)
@@ -51,38 +59,37 @@ export class SelectCodigoComponent {
   }
 
   ngOnInit(): void {
-
-    // const value = this.array.find((item) => item.key === this.dataIndice.data);
-    // this.datosSelect = value.data.data;
-    // this.tipoSelect = value.data.title;
+    const value = this.array.find((item) => item.key === this.data);
+    this.datosSelect = value.data.dataJSON;
+    this.tipoSelect = value.data.tipoSelect;
 
     // switch (this.dataIndice.data) {
-    switch (this.data) {
-      case "ingresoCapitulo":
-        this.datosSelect = capitulosIngresos;
-        this.tipoSelect = "Capítulo ingresos";
-        break;
-      case "ingresoEconomico":
-        this.datosSelect = economicosIngresos;
-        this.tipoSelect = "Económico ingresos";
-        break;
-      case "gastoCapitulo":
-        this.datosSelect = capitulosGastos;
-        this.tipoSelect = "Capítulo gastos";
-        break;
-      case "Organico":
-        this.datosSelect = organicos;
-        this.tipoSelect = "Orgánico";
-        break;
-      case "Programa":
-        this.datosSelect = programas;
-        this.tipoSelect = "Programa";
-        break;
-      case "gastoEconomico":
-        this.datosSelect = economicosGastos;
-        this.tipoSelect = "Económico gastos";
-        break;
-    }
+    // switch (this.data) {
+    //   case "ingresoCapitulo":
+    //     this.datosSelect = capitulosIngresos;
+    //     this.tipoSelect = "Capítulo ingresos";
+    //     break;
+    //   case "ingresoEconomico":
+    //     this.datosSelect = economicosIngresos;
+    //     this.tipoSelect = "Económico ingresos";
+    //     break;
+    //   case "gastoCapitulo":
+    //     this.datosSelect = capitulosGastos;
+    //     this.tipoSelect = "Capítulo gastos";
+    //     break;
+    //   case "Organico":
+    //     this.datosSelect = organicos;
+    //     this.tipoSelect = "Orgánico";
+    //     break;
+    //   case "Programa":
+    //     this.datosSelect = programas;
+    //     this.tipoSelect = "Programa";
+    //     break;
+    //   case "gastoEconomico":
+    //     this.datosSelect = economicosGastos;
+    //     this.tipoSelect = "Económico gastos";
+    //     break;
+    // }
   }
 
   submit() {
