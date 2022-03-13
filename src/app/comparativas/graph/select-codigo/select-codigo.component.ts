@@ -19,8 +19,8 @@ import economicosGastos from '../../../../assets/data/Economicos2022.json';
   styleUrls: ['./select-codigo.component.scss']
 })
 export class SelectCodigoComponent {
+  private tipoSelect = '';
   sendData: IDataGraph = <IDataGraph>{};
-  tipoSelect = '';
   datosSelect: { codigo: number, descripcion: string }[] = []
 
   constructor(

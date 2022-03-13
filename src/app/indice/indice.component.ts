@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
-import { GetScreenSizeService } from '../services/get-screen-size.service';
+// import { GetScreenSizeService } from '../services/get-screen-size.service';
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
 
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data'
@@ -17,15 +17,15 @@ import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
   styleUrls: ['./indice.component.scss']
 })
 export class IndiceComponent implements OnInit {
-  pantallaSize!: string;
-  radioSel!: any;
+  // pantallaSize!: string;
+  private radioSel!: any;
   radioSelected?: string;
   yearsList: any[];
   sendData: IDataGraph = <IDataGraph>{};
 
   constructor(
     private router: Router,
-    private getScreenSizeService: GetScreenSizeService,
+    // private getScreenSizeService: GetScreenSizeService,
     private tipoclasificacionService: TipoClasificacionService,
     private avalaibleYearsService: AvalaibleYearsService,
     private dataGraphService: DataGraphService
@@ -35,7 +35,7 @@ export class IndiceComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pantallaSize = this.getScreenSizeService.getIsMobileResolution();
+    // this.pantallaSize = this.getScreenSizeService.getIsMobileResolution();
     this.radioSelected = this.avalaibleYearsService.getCurrentYear();
   }
 
