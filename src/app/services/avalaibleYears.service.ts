@@ -3,11 +3,14 @@ import { Injectable } from '@angular/core';
 // https://stackoverflow.com/questions/54476526/how-to-reload-the-header-component-when-the-variable-value-changes-via-service/54476754
 import { BehaviorSubject, Subject } from 'rxjs';
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
+import { IDataIngreso } from '../commons/interfaces/dataIngreso.interface';
 
 @Injectable()
 export class AvalaibleYearsService {
   public subject$ = new BehaviorSubject<string>('2021');
   private year = '2021'
+  private dataIngreso: IDataIngreso = <IDataIngreso>{};
+
   public setAvalaibleYear(yearSelected: string): void {
     this.year = yearSelected;
     this.subject$.next(yearSelected);
@@ -45,37 +48,67 @@ export class AvalaibleYearsService {
   // Selecciona datos ingresos de un año
   async getDataYearIng(year: string, cla: string) {
     const result = [];
-    const cod = `Cod${cla}`;
-    const des = `Des${cla}`;
-    const Iniciales = `Iniciales${year}`;
-    const Modificaciones = `Modificaciones${year}`;
-    const Definitivas = `Definitivas${year}`;
-    const DerechosReconocidos = `DerechosReconocidos${year}`;
-    const DerechosAnulados = `DerechosAnulados${year}`;
-    const DerechosCancelados = `DerechosCancelados${year}`;
-    const DerechosReconocidosNetos = `DerechosReconocidosNetos${year}`;
-    const RecaudacionNeta = `RecaudacionNeta${year}`;
-    const DerechosPendienteCobro = `DerechosPendienteCobro${year}`;
-    const DiferenciaPrevision = `DiferenciaPrevision${year}`;
+
+    this.dataIngreso = {
+      cod: `Cod${cla}`,
+      des: `Des${cla}`,
+      Iniciales: `Iniciales${year}`,
+      Modificaciones: `Modificaciones${year}`,
+      Definitivas: `Definitivas${year}`,
+      DerechosReconocidos: `DerechosReconocidos${year}`,
+      DerechosAnulados: `DerechosAnulados${year}`,
+      DerechosCancelados: `DerechosCancelados${year}`,
+      DerechosReconocidosNetos: `DerechosReconocidosNetos${year}`,
+      RecaudacionNeta: `RecaudacionNeta${year}`,
+      DerechosPendienteCobro: `DerechosPendienteCobro${year}`,
+      DiferenciaPrevision: `DiferenciaPrevision${year}`,
+    };
+
+    // const cod = `Cod${cla}`;
+    // const des = `Des${cla}`;
+    // const Iniciales = `Iniciales${year}`;
+    // const Modificaciones = `Modificaciones${year}`;
+    // const Definitivas = `Definitivas${year}`;
+    // const DerechosReconocidos = `DerechosReconocidos${year}`;
+    // const DerechosAnulados = `DerechosAnulados${year}`;
+    // const DerechosCancelados = `DerechosCancelados${year}`;
+    // const DerechosReconocidosNetos = `DerechosReconocidosNetos${year}`;
+    // const RecaudacionNeta = `RecaudacionNeta${year}`;
+    // const DerechosPendienteCobro = `DerechosPendienteCobro${year}`;
+    // const DiferenciaPrevision = `DiferenciaPrevision${year}`;
 
     await this.getYearDataJson(year, false).then(data => {
       Object.entries(data).forEach((currentValue) => {
         result.push({
-          [cod]: currentValue[1][cod],
-          [des]: currentValue[1][des],
-          [Iniciales]: currentValue[1]['Iniciales'],
-          [Modificaciones]: currentValue[1]['Modificaciones'],
-          [Definitivas]: currentValue[1]['Definitivas'],
-          [DerechosReconocidos]: currentValue[1]['DerechosReconocidos'],
-          [DerechosAnulados]: currentValue[1]['DerechosAnulados'],
-          [DerechosCancelados]: currentValue[1]['DerechosCancelados'],
-          [DerechosReconocidosNetos]: currentValue[1]['DerechosReconocidosNetos'],
-          [RecaudacionNeta]: currentValue[1]['RecaudacionNeta'],
-          [DerechosPendienteCobro]: currentValue[1]['DerechosPendienteCobro'],
-          [DiferenciaPrevision]: currentValue[1]['DiferenciaPrevision'],
+          [this.dataIngreso.cod]: currentValue[1][this.dataIngreso.cod],
+          [this.dataIngreso.des]: currentValue[1][this.dataIngreso.des],
+          [this.dataIngreso.Iniciales]: currentValue[1]['Iniciales'],
+          [this.dataIngreso.Modificaciones]: currentValue[1]['Modificaciones'],
+          [this.dataIngreso.Definitivas]: currentValue[1]['Definitivas'],
+          [this.dataIngreso.DerechosReconocidos]: currentValue[1]['DerechosReconocidos'],
+          [this.dataIngreso.DerechosAnulados]: currentValue[1]['DerechosAnulados'],
+          [this.dataIngreso.DerechosCancelados]: currentValue[1]['DerechosCancelados'],
+          [this.dataIngreso.DerechosReconocidosNetos]: currentValue[1]['DerechosReconocidosNetos'],
+          [this.dataIngreso.RecaudacionNeta]: currentValue[1]['RecaudacionNeta'],
+          [this.dataIngreso.DerechosPendienteCobro]: currentValue[1]['DerechosPendienteCobro'],
+          [this.dataIngreso.DiferenciaPrevision]: currentValue[1]['DiferenciaPrevision'],
+
+          // [cod]: currentValue[1][cod],
+          // [des]: currentValue[1][des],
+          // [Iniciales]: currentValue[1]['Iniciales'],
+          // [Modificaciones]: currentValue[1]['Modificaciones'],
+          // [Definitivas]: currentValue[1]['Definitivas'],
+          // [DerechosReconocidos]: currentValue[1]['DerechosReconocidos'],
+          // [DerechosAnulados]: currentValue[1]['DerechosAnulados'],
+          // [DerechosCancelados]: currentValue[1]['DerechosCancelados'],
+          // [DerechosReconocidosNetos]: currentValue[1]['DerechosReconocidosNetos'],
+          // [RecaudacionNeta]: currentValue[1]['RecaudacionNeta'],
+          // [DerechosPendienteCobro]: currentValue[1]['DerechosPendienteCobro'],
+          // [DiferenciaPrevision]: currentValue[1]['DiferenciaPrevision'],
         });
       });
     })
+    console.log({ result });
     return result;
   }
 
