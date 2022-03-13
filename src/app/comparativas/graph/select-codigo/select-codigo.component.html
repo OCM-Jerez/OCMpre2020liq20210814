@@ -1,11 +1,30 @@
-<div class="selectBox" *ngIf="dataIndice">
+<div class="selectBox">
+    <h1>{{title}}</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div>
+            <select formControlName="seleccion" class="select">
+                <option>{{option}}</option>
+                <!-- <option *ngFor="let rowSelect of datosSelect">{{rowSelect.Cap}} {{rowSelect.DesCap}}</option> -->
+                <option *ngFor="let rowSelect of datosSelect">{{rowSelect.codigo}} {{rowSelect.descripcion}}</option>
+            </select>
+            <div *ngIf="f.seleccion.touched && f.seleccion.invalid" class="alert alert-danger">
+                <div *ngIf="f.seleccion.errors.required">{{error}}</div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary mt-4" type="submit" [disabled]="!form.valid">Ver gráfico</button>
+    </form>
+</div>
+
+
+<!-- <div class="selectBox" *ngIf="dataIndice">
     <h1>{{dataIndice.titleSelect}}</h1>
 
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div>
             <select formControlName="seleccion" class="select">
                 <option>{{dataIndice.optionSelect}}</option>
-                <!-- <option *ngFor="let rowSelect of datosSelect">{{rowSelect.Cap}} {{rowSelect.DesCap}}</option> -->
                 <option *ngFor="let rowSelect of datosSelect">{{rowSelect.codigo}} {{rowSelect.descripcion}}</option>
             </select>
             <div *ngIf="f.seleccion.touched && f.seleccion.invalid" class="alert alert-danger">
@@ -15,4 +34,4 @@
 
         <button class="btn btn-primary mt-4" type="submit" [disabled]="!form.valid">Ver gráfico</button>
     </form>
-</div>
+</div> -->

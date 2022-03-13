@@ -47,8 +47,8 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
     private router: Router,
   ) {
     this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
-    this.text = router.getCurrentNavigation().extras.state.data.tipo;
-    this.codigo = router.getCurrentNavigation().extras.state.data.codigo;
+    // this.text = router.getCurrentNavigation().extras.state.data.tipo;
+    // this.codigo = router.getCurrentNavigation().extras.state.data.codigo;
   }
 
   ngAfterViewInit(): void {
@@ -58,7 +58,8 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
         // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: `${this.text} ${this.codigo}`,
+          text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
+          // text: `${this.text} ${this.codigo}`,
         },
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'

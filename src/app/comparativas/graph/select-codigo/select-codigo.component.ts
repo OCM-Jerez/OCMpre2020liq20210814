@@ -9,7 +9,7 @@ import capitulosGastos from '../../../../assets/data/capitulosGastos.json'
 import organicos from '../../../../assets/data/organicos.json';
 import programas from '../../../../assets/data/programas2022.json';
 import economicosGastos from '../../../../assets/data/Economicos2022.json';
-import { IData } from '../../../indice/indice.component';
+// import { IData } from '../../../indice/indice.component';
 
 @Component({
   selector: 'app-select-codigo',
@@ -24,18 +24,19 @@ export class SelectCodigoComponent {
   URL = "";
 
   datosSelect: { codigo: number, descripcion: string }[] = []
-  dataIndice: IData;
+  // dataIndice: IData;
 
   constructor(
     private router: Router,
     private dataGraphService: DataGraphService,
   ) {
-    // this.data = this.dataGraphService.getData();
-    // this.title = this.dataGraphService.getTitleSelect();
-    // this.option = this.dataGraphService.getOptionSelect();
-    // this.error = this.dataGraphService.getErrorSelect();
-    // this.URL = this.dataGraphService.getURLSelect();
-    this.dataIndice = router.getCurrentNavigation().extras.state.data
+    this.data = this.dataGraphService.getData();
+    this.title = this.dataGraphService.getTitleSelect();
+    this.option = this.dataGraphService.getOptionSelect();
+    this.error = this.dataGraphService.getErrorSelect();
+    this.URL = this.dataGraphService.getURLSelect();
+
+    // this.dataIndice = router.getCurrentNavigation().extras.state.data
   }
   // array = [{ key: 'ingresoCapitulo', data: { title: 'Capítulo ingresos', data: capitulosIngresos } }]
 
@@ -55,7 +56,8 @@ export class SelectCodigoComponent {
     // this.datosSelect = value.data.data;
     // this.tipoSelect = value.data.title;
 
-    switch (this.dataIndice.data) {
+    // switch (this.dataIndice.data) {
+    switch (this.data) {
       case "ingresoCapitulo":
         this.datosSelect = capitulosIngresos;
         this.tipoSelect = "Capítulo ingresos";
@@ -85,9 +87,9 @@ export class SelectCodigoComponent {
 
   submit() {
     this.dataGraphService.codigoSelect = this.form.value.seleccion;
-    //this.router.navigateByUrl(this.dataIndice.URLSelect)
-    this.router.navigate([this.dataIndice.URLSelect], { state: { data: { tipo: this.tipoSelect, codigo: this.form.value.seleccion } } });
-
+    this.dataGraphService.tipoSelect = this.tipoSelect
+    this.router.navigateByUrl(this.URL)
+    // this.router.navigate([this.dataIndice.URLSelect], { state: { data: { tipo: this.tipoSelect, codigo: this.form.value.seleccion } } });
   }
 
 }

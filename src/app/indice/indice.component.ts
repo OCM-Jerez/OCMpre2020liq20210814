@@ -10,14 +10,13 @@ import { TipoClasificacionService } from '../services/tipoClasificacion.service'
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data'
 import { DataGraphService } from '../services/data-graph.service';
 
-
-export interface IData {
-  data: string;
-  titleSelect: string;
-  optionSelect: string;
-  errorSelect: string;
-  URLSelect: string;
-}
+// export interface IData {
+//   data: string;
+//   titleSelect: string;
+//   optionSelect: string;
+//   errorSelect: string;
+//   URLSelect: string;
+// }
 
 @Component({
   selector: 'app-indice',
@@ -26,7 +25,6 @@ export interface IData {
 })
 export class IndiceComponent implements OnInit {
   pantallaSize!: string;
-
   radioSel!: any;
   radioSelected?: string;
   yearsList: any[];
@@ -42,7 +40,7 @@ export class IndiceComponent implements OnInit {
     this.radioSelected = "2021";
   }
 
-  sendData: IData = <IData>{};
+  // sendData: IData = <IData>{};
 
   ngOnInit() {
     this.pantallaSize = this.getScreenSizeService.getIsMobileResolution();
@@ -54,59 +52,70 @@ export class IndiceComponent implements OnInit {
   }
 
   graficoIngresoCapitulo() {
-    this.sendData.data = "ingresoCapitulo";
-    this.sendData.titleSelect = "Selección capítulo de ingresos";
-    this.sendData.optionSelect = "Selecciona capítulo de ingresos";
-    this.sendData.errorSelect = "Error debes seleccionar un capítulo de ingresos";
-    this.sendData.URLSelect = "/GraficoCapituloIngreso";
-    //this.router.navigateByUrl('/SelectCodigo')
-    this.router.navigate(['/SelectCodigo'], { state: { 'data': this.sendData } })
+    this.dataGraphService.data = "ingresoCapitulo";
+    this.dataGraphService.titleSelect = "Selección capítulo de ingresos";
+    this.dataGraphService.optionSelect = "Selecciona capítulo de ingresos";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un capítulo de ingresos";
+    this.dataGraphService.URLSelect = "/GraficoCapituloIngreso";
+    this.router.navigateByUrl('/SelectCodigo')
 
+    // Es posible pasar parametros a traves de la ruta.
+    // Para ello se cre una interfaz IData y se le asigna un objeto sendData con los datos.
+    // Con este metodo no hace falta crear un service.
+    // El problema es cuando estos mismos datos hay que pasarlos a una segund ruta.
+    // Por ejemplo al volver desde una seleccion habria que incluir los datos en la rutay.
+
+    // this.sendData.data = "ingresoCapitulo";
+    // this.sendData.titleSelect = "Selección capítulo de ingresos";
+    // this.sendData.optionSelect = "Selecciona capítulo de ingresos";
+    // this.sendData.errorSelect = "Error debes seleccionar un capítulo de ingresos";
+    // this.sendData.URLSelect = "/GraficoCapituloIngreso";
+    // this.router.navigate(['/SelectCodigo'], { state: { 'data': this.sendData } })
   }
 
   graficoIngresoEconomico() {
-    // this.dataGraphService.data = "ingresoEconomico";
-    // this.dataGraphService.titleSelect = "Selecciona económico de ingreso";
-    // this.dataGraphService.optionSelect = "Selecciona económico de ingreso";
-    // this.dataGraphService.errorSelect = "Error debes seleccionar un económico ingreso";
-    // this.dataGraphService.URLSelect = "/GraficoEconomicoIngreso";
-    // this.router.navigateByUrl('/SelectCodigo')
+    this.dataGraphService.data = "ingresoEconomico";
+    this.dataGraphService.titleSelect = "Selecciona económico de ingreso";
+    this.dataGraphService.optionSelect = "Selecciona económico de ingreso";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un económico ingreso";
+    this.dataGraphService.URLSelect = "/GraficoEconomicoIngreso";
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
   graficoGastoCapitulo() {
-    // this.dataGraphService.data = "gastoCapitulo";
-    // this.dataGraphService.titleSelect = "Selecciona capítulo de gasto";
-    // this.dataGraphService.optionSelect = "Selecciona capítulo de gasto";
-    // this.dataGraphService.errorSelect = "Error debes seleccionar un capítulo de gasto";
-    // this.dataGraphService.URLSelect = "/GraficoCapituloGasto";
-    // this.router.navigateByUrl('/SelectCodigo')
+    this.dataGraphService.data = "gastoCapitulo";
+    this.dataGraphService.titleSelect = "Selecciona capítulo de gasto";
+    this.dataGraphService.optionSelect = "Selecciona capítulo de gasto";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un capítulo de gasto";
+    this.dataGraphService.URLSelect = "/GraficoCapituloGasto";
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
   graficoGastoOrganico() {
-    // this.dataGraphService.data = "Organico";
-    // this.dataGraphService.titleSelect = "Selecciona orgánico";
-    // this.dataGraphService.optionSelect = "Selecciona orgánico";
-    // this.dataGraphService.errorSelect = "Error debes seleccionar un orgánico";
-    // this.dataGraphService.URLSelect = "/GraficoOrganicoGasto";
-    // this.router.navigateByUrl('/SelectCodigo')
+    this.dataGraphService.data = "Organico";
+    this.dataGraphService.titleSelect = "Selecciona orgánico";
+    this.dataGraphService.optionSelect = "Selecciona orgánico";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un orgánico";
+    this.dataGraphService.URLSelect = "/GraficoOrganicoGasto";
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
   graficoGastoPrograma() {
-    // this.dataGraphService.data = "Programa";
-    // this.dataGraphService.titleSelect = "Selecciona programa";
-    // this.dataGraphService.optionSelect = "Selecciona programa";
-    // this.dataGraphService.errorSelect = "Error debes seleccionar un programa";
-    // this.dataGraphService.URLSelect = "/GraficoProgramaGasto";
-    // this.router.navigateByUrl('/SelectCodigo')
+    this.dataGraphService.data = "Programa";
+    this.dataGraphService.titleSelect = "Selecciona programa";
+    this.dataGraphService.optionSelect = "Selecciona programa";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un programa";
+    this.dataGraphService.URLSelect = "/GraficoProgramaGasto";
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
   graficoGastoEconomico() {
-    // this.dataGraphService.data = "gastoEconomico";
-    // this.dataGraphService.titleSelect = "Selecciona económico de gasto";
-    // this.dataGraphService.optionSelect = "Selecciona económico de gasto";
-    // this.dataGraphService.errorSelect = "Error debes seleccionar un económico de gasto";
-    // this.dataGraphService.URLSelect = "/GraficoEconomicoGasto";
-    // this.router.navigateByUrl('/SelectCodigo')
+    this.dataGraphService.data = "gastoEconomico";
+    this.dataGraphService.titleSelect = "Selecciona económico de gasto";
+    this.dataGraphService.optionSelect = "Selecciona económico de gasto";
+    this.dataGraphService.errorSelect = "Error debes seleccionar un económico de gasto";
+    this.dataGraphService.URLSelect = "/GraficoEconomicoGasto";
+    this.router.navigateByUrl('/SelectCodigo')
   }
 
   porCapitulo() {
