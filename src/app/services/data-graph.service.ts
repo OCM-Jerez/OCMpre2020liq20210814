@@ -12,6 +12,9 @@ export class DataGraphService {
       optionSelect: '',
       errorSelect: '',
       URLSelect: '',
+      get getData(): string {
+        return this.data;
+      }
     };
 
   // data = "";
@@ -21,7 +24,8 @@ export class DataGraphService {
   // URLSelect = "";
 
   getData(): string {
-    return this.sendData.data;
+    return this.sendData.
+      data;
   }
 
   getTitleSelect(): string {
