@@ -11,7 +11,7 @@ import capitulosIngresos from '../../../../assets/data/capitulosIngresos.json';
 import economicosIngresos from '../../../../assets/data/economicosIngresos.json';
 import capitulosGastos from '../../../../assets/data/capitulosGastos.json'
 import organicos from '../../../../assets/data/organicos.json';
-import programas from '../../../../assets/data/programasGasto.json';
+import programas from '../../../../assets/data/programasGastos.json';
 import economicosGastos from '../../../../assets/data/economicosGastos.json';
 
 @Component({
