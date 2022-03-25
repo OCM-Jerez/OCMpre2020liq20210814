@@ -6,6 +6,7 @@ import { IDataGraph } from '../../../commons/interfaces/dataGraph.interface';
 
 // Con import unicamente se crea un enlace, no siginifica que cargue los datos.
 // Por tanto es una forma eficiente de preparar importación de datos
+// https://medium.com/codeptivesolutions/how-to-import-json-file-in-angular-a2e012948479
 import capitulosIngresos from '../../../../assets/data/capitulosIngresos.json';
 import economicosIngresos from '../../../../assets/data/EconomicosIngresos2022.json';
 import capitulosGastos from '../../../../assets/data/capitulosGastos.json'
