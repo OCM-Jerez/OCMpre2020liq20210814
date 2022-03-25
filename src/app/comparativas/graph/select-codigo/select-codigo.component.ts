@@ -8,11 +8,11 @@ import { IDataGraph } from '../../../commons/interfaces/dataGraph.interface';
 // Por tanto es una forma eficiente de preparar importación de datos
 // https://medium.com/codeptivesolutions/how-to-import-json-file-in-angular-a2e012948479
 import capitulosIngresos from '../../../../assets/data/capitulosIngresos.json';
-import economicosIngresos from '../../../../assets/data/EconomicosIngresos2022.json';
+import economicosIngresos from '../../../../assets/data/economicosIngresos.json';
 import capitulosGastos from '../../../../assets/data/capitulosGastos.json'
 import organicos from '../../../../assets/data/organicos.json';
-import programas from '../../../../assets/data/programas2022.json';
-import economicosGastos from '../../../../assets/data/Economicos2022.json';
+import programas from '../../../../assets/data/programasGasto.json';
+import economicosGastos from '../../../../assets/data/economicosGastos.json';
 
 @Component({
   selector: 'app-select-codigo',
