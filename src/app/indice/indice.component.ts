@@ -126,7 +126,7 @@ export class IndiceComponent implements OnInit {
 
   graficoGastoGruposProgramas() {
     this.sendData = <IDataGraph>{
-      data: "grupoProgramas",
+      data: "gruposProgramas",
       titleSelect: "Selección grupo programas",
       optionSelect: "Selecciona grupo de programas",
       errorSelect: "Error debes seleccionar un grupo de programas",

@@ -45,7 +45,7 @@ export class SelectCodigoComponent {
     { key: 'Organico', data: { tipoSelect: 'Orgánico', dataJSON: organicos } },
     { key: 'Programa', data: { tipoSelect: 'Programa', dataJSON: programas } },
     { key: 'gastoEconomico', data: { tipoSelect: 'Económico gastos', dataJSON: economicosGastos } },
-    { key: 'grupoProgramas', data: { tipoSelect: 'Grupo programas', dataJSON: gruposProgramas } }
+    { key: 'gruposProgramas', data: { tipoSelect: 'Grupo programas', dataJSON: gruposProgramas } }
   ]
 
   form = new FormGroup({
