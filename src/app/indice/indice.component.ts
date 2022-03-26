@@ -136,6 +136,19 @@ export class IndiceComponent implements OnInit {
     this.router.navigateByUrl('/SelectCodigo')
   }
 
+  graficoGastoPoliticas() {
+    this.sendData = <IDataGraph>{
+      data: "politicasGastos",
+      titleSelect: "Selección política gasto",
+      optionSelect: "Selecciona política de gasto",
+      errorSelect: "Error debes seleccionar una política de gasto",
+      URLSelect: "/GraficoPoliticasGastos"
+    };
+    this.dataGraphService.sendData = this.sendData;
+    this.router.navigateByUrl('/SelectCodigo')
+  }
+
+
   porCapitulo() {
     this.tipoclasificacionService.tipoClasificacion = 'capítulo'
     this.router.navigateByUrl('/Gastos')

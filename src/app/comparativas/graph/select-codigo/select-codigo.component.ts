@@ -14,6 +14,7 @@ import organicos from '../../../../assets/data/organicos.json';
 import programas from '../../../../assets/data/programasGastos.json';
 import economicosGastos from '../../../../assets/data/economicosGastos.json';
 import gruposProgramas from '../../../../assets/data/gruposProgramasGastos.json';
+import politicasGastos from '../../../../assets/data/politicasGastos.json';
 
 
 @Component({
@@ -45,7 +46,8 @@ export class SelectCodigoComponent {
     { key: 'Organico', data: { tipoSelect: 'Orgánico', dataJSON: organicos } },
     { key: 'Programa', data: { tipoSelect: 'Programa', dataJSON: programas } },
     { key: 'gastoEconomico', data: { tipoSelect: 'Económico gastos', dataJSON: economicosGastos } },
-    { key: 'gruposProgramas', data: { tipoSelect: 'Grupo programas', dataJSON: gruposProgramas } }
+    { key: 'gruposProgramas', data: { tipoSelect: 'Grupo programas', dataJSON: gruposProgramas } },
+    { key: 'politicasGastos', data: { tipoSelect: 'Política de gasto', dataJSON: politicasGastos } }
   ]
 
   form = new FormGroup({

@@ -14,6 +14,7 @@ import { GraphCapituloIngresoComponent } from './comparativas/graph/graph-capitu
 import { GraphEconomicoIngresoComponent } from './comparativas/graph/graph-economico-ingreso/graph-economico-ingreso.component';
 import { SelectCodigoComponent } from './comparativas/graph/select-codigo/select-codigo.component';
 import { GraphGrupoProgramasComponent } from './comparativas/graph/graph-grupo-programas/graph-grupo-programas.component';
+import { GraphPoliticasProgramasComponent } from './comparativas/graph/graph-politicas-programas/graph-politicas-programas.component';
 
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'GraficoEconomicoGasto', component: GraphEconomicoGastoComponent },
   { path: 'GraficoProgramaGasto', component: GraphProgramaComponent },
   { path: 'GraficoGruposProgramas', component: GraphGrupoProgramasComponent },
+  { path: 'GraficoPoliticasGastos', component: GraphPoliticasProgramasComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
