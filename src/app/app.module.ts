@@ -33,6 +33,7 @@ import { GraphEconomicoIngresoComponent } from './comparativas/graph/graph-econo
 import { SelectCodigoComponent } from './comparativas/graph/select-codigo/select-codigo.component';
 import { GraphGrupoProgramasComponent } from './comparativas/graph/graph-grupo-programas/graph-grupo-programas.component';
 import { GraphPoliticasProgramasComponent } from './comparativas/graph/graph-politicas-programas/graph-politicas-programas.component';
+import { GraphAreasGastosComponent } from './comparativas/graph/graph-areas-gastos/graph-areas-gastos.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { GraphPoliticasProgramasComponent } from './comparativas/graph/graph-pol
     SelectCodigoComponent,
     GraphGrupoProgramasComponent,
     GraphPoliticasProgramasComponent,
+    GraphAreasGastosComponent,
   ],
   imports: [
     BrowserModule,
