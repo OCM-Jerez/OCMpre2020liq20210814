@@ -123,6 +123,19 @@ export class IndiceComponent implements OnInit {
     this.router.navigateByUrl('/SelectCodigo')
   }
 
+
+  graficoGastoGruposProgramas() {
+    this.sendData = <IDataGraph>{
+      data: "grupoProgramas",
+      titleSelect: "Selección grupo programas",
+      optionSelect: "Selecciona grupo de programas",
+      errorSelect: "Error debes seleccionar un grupo de programas",
+      URLSelect: "/GraficoGruposProgramas"
+    };
+    this.dataGraphService.sendData = this.sendData;
+    this.router.navigateByUrl('/SelectCodigo')
+  }
+
   porCapitulo() {
     this.tipoclasificacionService.tipoClasificacion = 'capítulo'
     this.router.navigateByUrl('/Gastos')
