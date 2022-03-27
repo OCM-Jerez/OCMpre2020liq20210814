@@ -134,20 +134,8 @@ export class GraphGrupoProgramasComponent implements AfterViewInit {
 
   async createData(pro: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro');
-    console.log(this.rowData);
+    const datos = this.rowData.filter(x => Math.round(x.CodPro / 100) === parseInt(pro, 10));
 
-    // const datos = this.rowData.filter(x => x.CodPro === 15220);
-    const datos = this.rowData.filter(x => {
-      if (Math.round(x.CodPro / 100) === parseInt(pro, 10)) {
-        // if (x.CodPro.slice(0, -2) === 152) {
-        return x;
-      }
-    });
-    console.log(datos);
-
-
-    // const datos = this.getObjects(await this.rowData, 'CodPro', pro);
-    // console.log("Datos: ", datos);
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
     let defini2015 = 0;
@@ -349,27 +337,6 @@ export class GraphGrupoProgramasComponent implements AfterViewInit {
     console.log("Datos Tratados: ", this.data);
     return this.data;
 
-  }
-
-  // https://gist.github.com/iwek/3924925#file-find-in-json-js
-  getObjects(obj: any, key: string, val: string) {
-    var objects = [];
-    for (var i in obj) {
-      if (!obj.hasOwnProperty(i)) continue;
-      if (typeof obj[i] == 'object') {
-        objects = objects.concat(this.getObjects(obj[i], key, val));
-      } else
-        //if key matches and value matches or if key matches and value is not passed (eliminating the case where key matches but passed value does not)
-        if (i == key && obj[i] == val || i == key && val == '') { //
-          objects.push(obj);
-        } else if (obj[i] == val && key == '') {
-          //only add if the object is not already in the array
-          if (objects.lastIndexOf(obj) == -1) {
-            objects.push(obj);
-          }
-        }
-    }
-    return objects;
   }
 
   volver() {

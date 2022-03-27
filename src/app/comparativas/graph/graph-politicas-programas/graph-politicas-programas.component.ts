@@ -134,16 +134,8 @@ export class GraphPoliticasProgramasComponent implements AfterViewInit {
 
   async createData(pro: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro');
-    const datos = this.rowData.filter(x => {
-      if (Math.round(x.CodPro / 1000) === parseInt(pro, 10)) {
-        return x;
-      }
-    });
-    console.log(datos);
+    const datos = this.rowData.filter(x => Math.round(x.CodPro / 1000) === parseInt(pro, 10));
 
-
-    // const datos = this.getObjects(await this.rowData, 'CodPro', pro);
-    // console.log("Datos: ", datos);
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
     let defini2015 = 0;

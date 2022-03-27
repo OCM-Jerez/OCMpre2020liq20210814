@@ -135,12 +135,14 @@ export class GraphAreasGastosComponent implements AfterViewInit {
 
   async createData(pro: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro');
-    const datos = this.rowData.filter(x => {
-      if (Math.round(x.CodPro / 10000) === parseInt(pro, 10)) {
-        return x;
-      }
-    });
-    console.log(datos);
+    const datos = this.rowData.filter(x => Math.round(x.CodPro / 10000) === parseInt(pro, 10));
+
+    // const datos = this.rowData.filter(x => {
+    //   if (Math.round(x.CodPro / 10000) === parseInt(pro, 10)) {
+    //     return x;
+    //   }
+    // });
+    // console.log(datos);
 
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];

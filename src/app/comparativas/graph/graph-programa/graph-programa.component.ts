@@ -131,11 +131,13 @@ export class GraphProgramaComponent implements AfterViewInit {
 
   async createData(pro: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro');
-    const datos = this.rowData.filter(x => {
-      if (x.CodPro == pro) {
-        return x;
-      }
-    });
+    const datos = this.rowData.filter(x => x.CodPro == pro);
+
+    // const datos = this.rowData.filter(x => {
+    //   if (x.CodPro == pro) {
+    //     return x;
+    //   }
+    // });
 
     // const datos = this.getObjects(await this.rowData, 'CodPro', pro);
     // console.log("Datos: ", datos);
