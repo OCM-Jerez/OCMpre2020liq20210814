@@ -5,7 +5,6 @@ export const initYears = (): IYears => {
 }
 
 export const accumulate = (identity: string, datos: any[], years = initYears()): IYears => {
-
     Object.keys(years).forEach((key) => {
         const sum = datos.filter((item) => item[identity + key]).reduce((prev, current) => prev + current[identity + key], 0);
         years[key] = sum;

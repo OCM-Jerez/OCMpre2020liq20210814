@@ -57,7 +57,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
         subtitle: {
           text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
         },
-        data: this.data,
+        data: [...this.data],
         series: [
           {
             xKey: 'year',
