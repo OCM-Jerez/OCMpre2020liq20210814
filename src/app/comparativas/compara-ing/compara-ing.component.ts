@@ -9,6 +9,7 @@ import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRenderer
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 
 import { AVALAIBLE_YEARS } from '../../../assets/data/avalaible-years-data'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-compara-ing',
@@ -32,10 +33,13 @@ export class ComparaIngComponent {
   private _codField: string;
   private _desField: string;
   private _width: number;
+  public year: Observable<string>;
 
   constructor(private avalaibleYearsService: AvalaibleYearsService,
     private tipoclasificacionService: TipoClasificacionService) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
+
+    this.year = avalaibleYearsService.getAvalaibleYear();
 
     if (this.tipoClasificacion === 'Cap') {
       this._headerName = 'Clasificado por capítulo';
@@ -76,7 +80,7 @@ export class ComparaIngComponent {
         ]
       },
 
-      ...AVALAIBLE_YEARS.map(year => {
+      ...avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
           children: this.createColumnsChildren(year),
@@ -112,6 +116,8 @@ export class ComparaIngComponent {
   }
 
   async onGridReady(params) {
+
+
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.rowData = await this.avalaibleYearsService.getDataAllYearIng(this.tipoClasificacion);
@@ -125,7 +131,7 @@ export class ComparaIngComponent {
     // this.gridApi.resetRowHeights();
   }
 
-  createColumnsChildren(year: string) {
+  createColumnsChildren(year: number) {
     return [
       {
         headerName: 'Créditos',

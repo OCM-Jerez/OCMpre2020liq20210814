@@ -3,19 +3,12 @@ import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
+import { IYears } from '../../../commons/interfaces/components.interface';
+import { accumulate, initYears } from '../../../commons/util/util';
 import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
 import { DataGraphService } from '../../../services/data-graph.service';
 
-interface IYears {
-  2015: number;
-  2016: number;
-  2017: number;
-  2018: number;
-  2019: number;
-  2020: number;
-  2021: number;
-  2022: number;
-}
+
 
 @Component({
   selector: 'app-graph-capitulo-ingreso',
@@ -146,15 +139,21 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
     // Sumo todos los economicos por año de cada capítulo
     // this.data = [];
 
-    const yearsDefinitivas: IYears = { 2015: 0, 2016: 0, 2017: 0, 2018: 0, 2019: 0, 2020: 0, 2021: 0, 2022: 0, }
-    this.getAccumulate(yearsDefinitivas, 'Definitivas', datos)
-    // console.log(yearsDefinitivas);
+    // const yearsDefinitivas: IYears = { 2015: 0, 2016: 0, 2017: 0, 2018: 0, 2019: 0, 2020: 0, 2021: 0, 2022: 0, }
+    //this.getAccumulate(yearsDefinitivas, 'Definitivas', datos)
 
-    const yearsIniciales: IYears = <IYears>{ 2022: 0 };
-    this.getAccumulate(yearsIniciales, 'Iniciales', datos)
 
-    const yearsNetas: IYears = { 2015: 0, 2016: 0, 2017: 0, 2018: 0, 2019: 0, 2020: 0, 2021: 0, 2022: 0, }
-    this.getAccumulate(yearsNetas, 'RecaudacionNeta', datos)
+
+    const yearsDefinitivas = accumulate('Definitivas', datos);
+    const yearsIniciales = accumulate('Iniciales', datos, <IYears>{ 2022: 0 });
+    const yearsNetas = accumulate('RecaudacionNeta', datos);
+
+
+    // const yearsIniciales: IYears = <IYears>{ 2022: 0 };
+    // this.getAccumulate(yearsIniciales, 'Iniciales', datos)
+
+    // const yearsNetas: IYears = { 2015: 0, 2016: 0, 2017: 0, 2018: 0, 2019: 0, 2020: 0, 2021: 0, 2022: 0, }
+    // this.getAccumulate(yearsNetas, 'RecaudacionNeta', datos)
 
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];

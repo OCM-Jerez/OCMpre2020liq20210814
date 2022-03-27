@@ -1,10 +1,7 @@
-// TODO:Cambiar ProgramasOCM en angular.json para que no aparezca como nombre de carpeta en dist.
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
-// import { GetScreenSizeService } from '../services/get-screen-size.service';
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
 
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data'
@@ -17,15 +14,15 @@ import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
   styleUrls: ['./indice.component.scss']
 })
 export class IndiceComponent implements OnInit {
-  // pantallaSize!: string;
   private radioSel!: any;
+  private sendData: IDataGraph = <IDataGraph>{};
+
   radioSelected?: string;
   yearsList: any[];
-  sendData: IDataGraph = <IDataGraph>{};
+  list: any[] = [];
 
   constructor(
     private router: Router,
-    // private getScreenSizeService: GetScreenSizeService,
     private tipoclasificacionService: TipoClasificacionService,
     private avalaibleYearsService: AvalaibleYearsService,
     private dataGraphService: DataGraphService
@@ -35,10 +32,43 @@ export class IndiceComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.pantallaSize = this.getScreenSizeService.getIsMobileResolution();
     this.radioSelected = this.avalaibleYearsService.getCurrentYear();
+    this.list = [
+      {
+        year: 2015,
+        checked: false,
+      },
+      {
+        year: 2016,
+        checked: false,
+      }, {
+        year: 2017,
+        checked: false,
+      }, {
+        year: 2018,
+        checked: false,
+      },
+      {
+        year: 2019,
+        checked: false,
+      }, {
+        year: 2020,
+        checked: false,
+      }, {
+        year: 2021,
+        checked: true,
+      }, {
+        year: 2022,
+        checked: false,
+      },
+      // {
+      //   year: "Todos",
+      //   checked: false,
+      // }
+    ]
   }
 
+  // #region routes 
   porIngresos() {
     this.router.navigateByUrl('/Ingresos')
   }
@@ -52,6 +82,11 @@ export class IndiceComponent implements OnInit {
       URLSelect: "/GraficoCapituloIngreso"
     };
     this.dataGraphService.sendData = this.sendData;
+
+    const years = this.result.map((year) => year.year);
+
+    this.avalaibleYearsService.setAvalaibleYear(years);
+
     this.router.navigateByUrl('/SelectCodigo')
 
     // Es posible pasar parametros a traves de la ruta.
@@ -84,6 +119,11 @@ export class IndiceComponent implements OnInit {
       URLSelect: "/GraficoCapituloGasto"
     };
     this.dataGraphService.sendData = this.sendData;
+
+    const years = this.result.map((year) => year.year);
+
+    this.avalaibleYearsService.setAvalaibleYear(years);
+
     this.router.navigateByUrl('/SelectCodigo')
   }
 
@@ -182,6 +222,7 @@ export class IndiceComponent implements OnInit {
 
   comparaIng() {
     this.tipoclasificacionService.tipoClasificacion = 'Cap'
+    this.getSelectedItem();
     this.router.navigateByUrl('/ComparaIng')
   }
 
@@ -209,14 +250,32 @@ export class IndiceComponent implements OnInit {
     this.tipoclasificacionService.tipoClasificacion = 'Eco'
     this.router.navigateByUrl('/ComparaGas')
   }
+  // #endregion routes
 
-  getSelectedItem() {
-    this.radioSel = AVALAIBLE_YEARS.find(Item => Item === this.radioSelected)!;
-    this.avalaibleYearsService.setAvalaibleYear(this.radioSel);
+  private getSelectedItem() {
+    // this.radioSel = AVALAIBLE_YEARS.find(Item => Item === this.radioSelected)!;
+    console.log([this.result]);
+    //this.radioSel = this.result[0].year;
+    console.log(this.radioSel);
+    const years = this.result.map((year) => year.year);
+
+    this.avalaibleYearsService.setAvalaibleYear(years);
   }
 
   onItemChange() {
     this.getSelectedItem();
+  }
+
+  get result(): {
+    year: number,
+    checked: boolean,
+  }[] {
+    return this.list.filter(item => item.checked);
+  }
+
+  changeCheckbox(event: Event) {
+    this.getSelectedItem();
+    // console.log(event.target);
   }
 
 }

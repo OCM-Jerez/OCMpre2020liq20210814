@@ -142,7 +142,7 @@ export class ComparaGasComponent {
     // this.gridApi.resetRowHeights();
   }
 
-  createColumnsChildren(year: string) {
+  createColumnsChildren(year: number) {
     return [
       {
         headerName: 'Créditos',
