@@ -80,6 +80,14 @@
     "descripcion": "Órganos de gobierno."
   },
   {
+    "codigo": 92,
+    "descripcion": "Servicios de carácter general."
+  },
+  {
+    "codigo": 93,
+    "descripcion": "Administración financiera y tributaria."
+  },
+  {
     "codigo": 94,
     "descripcion": "Transferencias a otras Administraciones Públicas."
   },
