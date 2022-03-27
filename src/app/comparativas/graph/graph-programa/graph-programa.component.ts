@@ -131,7 +131,13 @@ export class GraphProgramaComponent implements AfterViewInit {
 
   async createData(pro: string) {
     this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro');
-    const datos = this.getObjects(await this.rowData, 'CodPro', pro);
+    const datos = this.rowData.filter(x => {
+      if (x.CodPro == pro) {
+        return x;
+      }
+    });
+
+    // const datos = this.getObjects(await this.rowData, 'CodPro', pro);
     // console.log("Datos: ", datos);
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
@@ -337,25 +343,25 @@ export class GraphProgramaComponent implements AfterViewInit {
   }
 
   // https://gist.github.com/iwek/3924925#file-find-in-json-js
-  getObjects(obj: any, key: string, val: string) {
-    var objects = [];
-    for (var i in obj) {
-      if (!obj.hasOwnProperty(i)) continue;
-      if (typeof obj[i] == 'object') {
-        objects = objects.concat(this.getObjects(obj[i], key, val));
-      } else
-        //if key matches and value matches or if key matches and value is not passed (eliminating the case where key matches but passed value does not)
-        if (i == key && obj[i] == val || i == key && val == '') { //
-          objects.push(obj);
-        } else if (obj[i] == val && key == '') {
-          //only add if the object is not already in the array
-          if (objects.lastIndexOf(obj) == -1) {
-            objects.push(obj);
-          }
-        }
-    }
-    return objects;
-  }
+  // getObjects(obj: any, key: string, val: string) {
+  //   var objects = [];
+  //   for (var i in obj) {
+  //     if (!obj.hasOwnProperty(i)) continue;
+  //     if (typeof obj[i] == 'object') {
+  //       objects = objects.concat(this.getObjects(obj[i], key, val));
+  //     } else
+  //       //if key matches and value matches or if key matches and value is not passed (eliminating the case where key matches but passed value does not)
+  //       if (i == key && obj[i] == val || i == key && val == '') { //
+  //         objects.push(obj);
+  //       } else if (obj[i] == val && key == '') {
+  //         //only add if the object is not already in the array
+  //         if (objects.lastIndexOf(obj) == -1) {
+  //           objects.push(obj);
+  //         }
+  //       }
+  //   }
+  //   return objects;
+  // }
 
   volver() {
     this.router.navigateByUrl('/SelectCodigo')
