@@ -123,7 +123,7 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
   }
 
   async createData(eco: string) {
-    this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Eco');
+    this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Eco', true);
     const datos = this.getObjects(await this.rowData, 'CodEco', eco);
     // console.log("Datos: ", datos);
     // Convierto los valores para que sirvan de data al grafico
