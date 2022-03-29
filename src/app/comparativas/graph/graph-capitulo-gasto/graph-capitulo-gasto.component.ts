@@ -16,7 +16,6 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
-
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
   public gridColumnApi;
@@ -70,6 +69,7 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
     };
 
   }
+
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.options = {

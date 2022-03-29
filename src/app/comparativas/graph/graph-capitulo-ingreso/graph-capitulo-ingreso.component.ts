@@ -8,8 +8,6 @@ import { accumulate, initYears } from '../../../commons/util/util';
 import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
 import { DataGraphService } from '../../../services/data-graph.service';
 
-
-
 @Component({
   selector: 'app-graph-capitulo-ingreso',
   templateUrl: './graph-capitulo-ingreso.component.html',
@@ -19,7 +17,6 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
-
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
   public gridColumnApi;

@@ -16,7 +16,6 @@ export class GraphGrupoProgramasComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
-
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
   public gridColumnApi;
@@ -70,6 +69,7 @@ export class GraphGrupoProgramasComponent implements AfterViewInit {
     };
 
   }
+
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.options = {
@@ -150,11 +150,11 @@ export class GraphGrupoProgramasComponent implements AfterViewInit {
         "ObligacionesPendientes": yearsObligacionesPendientes[index]
       }
       if (index === 2022) {
-        value.Definitivas = yearsIniciales[index]  // Se usan las iniciales ya que es el unico dato que existe-
+        value.Definitivas = yearsIniciales[index]  // Se usan las iniciales ya que es el unico dato que existe.
       }
       this.data.push(value)
     }
-    console.log("Datos Tratados: ", this.data);
+    // console.log("Datos Tratados: ", this.data);
     return this.data;
   }
 
