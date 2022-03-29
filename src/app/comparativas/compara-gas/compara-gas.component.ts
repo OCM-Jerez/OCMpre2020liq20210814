@@ -93,7 +93,8 @@ export class ComparaGasComponent {
         ]
       },
 
-      ...AVALAIBLE_YEARS.map(year => {
+      // ...AVALAIBLE_YEARS.map(year => {
+      ...avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
           children: this.createColumnsChildren(year),
@@ -131,7 +132,7 @@ export class ComparaGasComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = await this.avalaibleYearsService.getDataAllYear(this.tipoClasificacion);
+    this.rowData = await this.avalaibleYearsService.getDataAllYear(this.tipoClasificacion, false);
   }
 
   // TODO: Las colummnas disparan su altura
