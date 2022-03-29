@@ -105,12 +105,14 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
           headerName: 'Previsiones definitivas',
           field: 'Definitivas',
           width: 180,
+          aggFunc: 'sum',
           cellRenderer: CellRendererOCM,
         },
         {
           headerName: 'RecaudacionNeta',
           field: 'RecaudacionNeta',
           width: 200,
+          aggFunc: 'sum',
           cellRenderer: CellRendererOCM,
         },
       ];
@@ -119,7 +121,6 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
         sortable: true,
         resizable: true,
         filter: false,
-        aggFunc: 'sum',
       };
     }, 500);
   }
@@ -130,27 +131,12 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   }
 
   async createData(cap: string) {
-    this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Cap');
-    const datos = this.getObjects(await this.rowData, 'CodCap', cap);
-    // console.log("Datos: ", datos);
-    // Sumo todos los economicos por año de cada capítulo
-    // this.data = [];
-
-    // const yearsDefinitivas: IYears = { 2015: 0, 2016: 0, 2017: 0, 2018: 0, 2019: 0, 2020: 0, 2021: 0, 2022: 0, }
-    //this.getAccumulate(yearsDefinitivas, 'Definitivas', datos)
-
-
+    this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Cap', true);
+    const datos = this.rowData.filter(x => x.CodCap == cap);
 
     const yearsDefinitivas = accumulate('Definitivas', datos);
-    const yearsIniciales = accumulate('Iniciales', datos, <IYears>{ 2022: 0 });
+    const yearsIniciales = accumulate('Iniciales', datos);
     const yearsNetas = accumulate('RecaudacionNeta', datos);
-
-
-    // const yearsIniciales: IYears = <IYears>{ 2022: 0 };
-    // this.getAccumulate(yearsIniciales, 'Iniciales', datos)
-
-    // const yearsNetas: IYears = { 2015: 0, 2016: 0, 2017: 0, 2018: 0, 2019: 0, 2020: 0, 2021: 0, 2022: 0, }
-    // this.getAccumulate(yearsNetas, 'RecaudacionNeta', datos)
 
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
@@ -168,35 +154,6 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
     }
     // console.log("Datos Tratados: ", this.data);
     return this.data;
-  }
-
-  private getAccumulate(years: IYears, identity: string, datos: any[]): IYears {
-    Object.keys(years).forEach((key) => {
-      const sum = datos.filter((item) => item[identity + key]).reduce((prev, current) => prev + current[identity + key], 0);
-      years[key] = sum;
-    })
-    return years;
-  }
-
-  // https://gist.github.com/iwek/3924925#file-find-in-json-js
-  private getObjects(obj: any, key: string, val: string) {
-    var objects = [];
-    for (var i in obj) {
-      if (!obj.hasOwnProperty(i)) continue;
-      if (typeof obj[i] == 'object') {
-        objects = objects.concat(this.getObjects(obj[i], key, val));
-      } else
-        //if key matches and value matches or if key matches and value is not passed (eliminating the case where key matches but passed value does not)
-        if (i == key && obj[i] == val || i == key && val == '') { //
-          objects.push(obj);
-        } else if (obj[i] == val && key == '') {
-          //only add if the object is not already in the array
-          if (objects.lastIndexOf(obj) == -1) {
-            objects.push(obj);
-          }
-        }
-    }
-    return objects;
   }
 
   volver() {
