@@ -49,13 +49,14 @@ export class AvalaibleYearsService {
   }
 
   // Itera por cada uno de los años disponibles para ingresos
-  async getDataAllYearIng(cla: string): Promise<any[]> {
+  async getDataAllYearIng(cla: string, isGraph?: boolean): Promise<any[]> {
     let rowData = [];
-    await asynForEach(this.yearsSelected, async (year: number) => {
+    const years = isGraph ? AVALAIBLE_YEARS : this.yearsSelected;
+    // await asynForEach(this.yearsSelected, async (year: number) => {
+    await asynForEach(years, async (year: number) => {
       const dataIng = await this.getDataYearIng(year, cla);
       rowData = rowData.concat(...dataIng);
     });
-
     return rowData;
   }
 
@@ -96,7 +97,7 @@ export class AvalaibleYearsService {
         });
       });
     })
-    console.log({ result });
+    // console.log({ result });
     return result;
   }
 
