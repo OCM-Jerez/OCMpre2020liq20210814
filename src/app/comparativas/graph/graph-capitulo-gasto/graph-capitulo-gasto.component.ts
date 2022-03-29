@@ -44,18 +44,21 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
         headerName: 'Previsiones definitivas',
         field: 'Definitivas',
         width: 180,
+        aggFunc: 'sum',
         cellRenderer: CellRendererOCM,
       },
       {
         headerName: 'ObligacionesReconocidasNetas',
         field: 'ObligacionesReconocidasNetas',
         width: 200,
+        aggFunc: 'sum',
         cellRenderer: CellRendererOCM,
       },
       {
         headerName: 'ObligacionesPendientes',
         field: 'ObligacionesPendientes',
         width: 180,
+        aggFunc: 'sum',
         cellRenderer: CellRendererOCM,
       }
     ];
@@ -64,7 +67,6 @@ export class GraphCapituloGastoComponent implements AfterViewInit {
       sortable: true,
       resizable: true,
       filter: false,
-      aggFunc: 'sum',
     };
 
   }
