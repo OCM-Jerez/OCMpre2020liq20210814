@@ -72,9 +72,7 @@ export class GraphProgramaComponent implements AfterViewInit {
 
   }
   ngAfterViewInit(): void {
-
     setTimeout(() => {
-      // console.log(this.data);
       this.options = {
         autoSize: true,
         title: {
