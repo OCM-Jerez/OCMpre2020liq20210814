@@ -116,11 +116,9 @@ export class ComparaIngComponent {
   }
 
   async onGridReady(params) {
-
-
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = await this.avalaibleYearsService.getDataAllYearIng(this.tipoClasificacion);
+    this.rowData = await this.avalaibleYearsService.getDataAllYearIng(this.tipoClasificacion, true);
   }
 
   // TODO: Las colummnas disparan su altura
