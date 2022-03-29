@@ -34,7 +34,6 @@ export class GraphAreasGastosComponent implements AfterViewInit {
     private router: Router,
   ) {
     this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
-    // console.log(this.dataGraphService.getCodigoSelect().split(" ")[0]);
     this.columnDefs = [
       {
         headerName: 'Año',
