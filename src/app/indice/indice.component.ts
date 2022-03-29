@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
 
-import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data'
+// import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data'
 import { DataGraphService } from '../services/data-graph.service';
 import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
 
@@ -14,11 +14,11 @@ import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
   styleUrls: ['./indice.component.scss']
 })
 export class IndiceComponent implements OnInit {
-  private radioSel!: any;
+  // private radioSel!: any;
   private sendData: IDataGraph = <IDataGraph>{};
 
   radioSelected?: string;
-  yearsList: any[];
+  // yearsList: any[];
   list: any[] = [];
 
   constructor(
@@ -27,8 +27,8 @@ export class IndiceComponent implements OnInit {
     private avalaibleYearsService: AvalaibleYearsService,
     private dataGraphService: DataGraphService
   ) {
-    this.yearsList = AVALAIBLE_YEARS;
-    this.radioSelected = "2021";
+    // this.yearsList = AVALAIBLE_YEARS;
+    // this.radioSelected = "2021";
   }
 
   ngOnInit() {
@@ -68,10 +68,10 @@ export class IndiceComponent implements OnInit {
     ]
   }
 
-  // #region routes 
-  porIngresos() {
-    this.router.navigateByUrl('/Ingresos')
-  }
+  // #region routes; 
+  // porIngresos() {
+  //   this.router.navigateByUrl('/Ingresos')
+  // }
 
   graficoIngresoCapitulo() {
     this.sendData = <IDataGraph>{
@@ -200,25 +200,25 @@ export class IndiceComponent implements OnInit {
     this.router.navigateByUrl('/SelectCodigo')
   }
 
-  porCapitulo() {
-    this.tipoclasificacionService.tipoClasificacion = 'capítulo'
-    this.router.navigateByUrl('/Gastos')
-  }
+  // porCapitulo() {
+  //   this.tipoclasificacionService.tipoClasificacion = 'capítulo'
+  //   this.router.navigateByUrl('/Gastos')
+  // }
 
-  porEconomico() {
-    this.tipoclasificacionService.tipoClasificacion = 'económico'
-    this.router.navigateByUrl('/Gastos')
-  }
+  // porEconomico() {
+  //   this.tipoclasificacionService.tipoClasificacion = 'económico'
+  //   this.router.navigateByUrl('/Gastos')
+  // }
 
-  porOrganico() {
-    this.tipoclasificacionService.tipoClasificacion = 'orgánico'
-    this.router.navigateByUrl('/Gastos')
-  }
+  // porOrganico() {
+  //   this.tipoclasificacionService.tipoClasificacion = 'orgánico'
+  //   this.router.navigateByUrl('/Gastos')
+  // }
 
-  porPrograma() {
-    this.tipoclasificacionService.tipoClasificacion = 'programa'
-    this.router.navigateByUrl('/Gastos')
-  }
+  // porPrograma() {
+  //   this.tipoclasificacionService.tipoClasificacion = 'programa'
+  //   this.router.navigateByUrl('/Gastos')
+  // }
 
   comparaIng() {
     this.tipoclasificacionService.tipoClasificacion = 'Cap'
@@ -254,11 +254,10 @@ export class IndiceComponent implements OnInit {
 
   private getSelectedItem() {
     // this.radioSel = AVALAIBLE_YEARS.find(Item => Item === this.radioSelected)!;
-    console.log([this.result]);
+    // console.log([this.result]);
     //this.radioSel = this.result[0].year;
-    console.log(this.radioSel);
+    // console.log(this.radioSel);
     const years = this.result.map((year) => year.year);
-
     this.avalaibleYearsService.setAvalaibleYear(years);
   }
 
