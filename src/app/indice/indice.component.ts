@@ -250,6 +250,69 @@ export class IndiceComponent implements OnInit {
     this.tipoclasificacionService.tipoClasificacion = 'Eco'
     this.router.navigateByUrl('/ComparaGas')
   }
+
+  graphIngresosEconomicaArticulos() {
+    this.sendData = <IDataGraph>{
+      data: "ingresosEconomicaArticulos",
+      titleSelect: "Selección articulo ingreso",
+      optionSelect: "Selecciona articulo de ingreso",
+      errorSelect: "Error debes seleccionar un articulo de ingreso",
+      URLSelect: "/ingresosEconomicaArticulos"
+    };
+    this.dataGraphService.sendData = this.sendData;
+    this.router.navigateByUrl('/SelectCodigo')
+  }
+
+  graphIngresosEconomicaConceptos() {
+    this.sendData = <IDataGraph>{
+      data: "ingresosEconomicaConceptos",
+      titleSelect: "Selección concepto ingreso",
+      optionSelect: "Selecciona concepto de ingreso",
+      errorSelect: "Error debes seleccionar un concepto de ingreso",
+      URLSelect: "/ingresosEconomicaConceptos"
+    };
+    this.dataGraphService.sendData = this.sendData;
+    this.router.navigateByUrl('/SelectCodigo')
+  }
+
+  graphGastosEconomicaArticulos() {
+    this.sendData = <IDataGraph>{
+      data: "gastosEconomicaArticulos",
+      titleSelect: "Selección articulo gasto",
+      optionSelect: "Selecciona articulo de gasto",
+      errorSelect: "Error debes seleccionar un articulo de gasto",
+      URLSelect: "/gastosEconomicaArticulos"
+    };
+    this.dataGraphService.sendData = this.sendData;
+    this.router.navigateByUrl('/SelectCodigo')
+  }
+
+  graphGastosEconomicaConceptos() {
+    this.sendData = <IDataGraph>{
+      data: "gastosEconomicaConceptos",
+      titleSelect: "Selección concepto gasto",
+      optionSelect: "Selecciona concepto de gasto",
+      errorSelect: "Error debes seleccionar un concepto de gasto",
+      URLSelect: "/gastosEconomicaConceptos"
+    };
+    this.dataGraphService.sendData = this.sendData;
+    this.router.navigateByUrl('/SelectCodigo')
+  }
+
+  // graphGastosEconomicaEconomicos() {
+  //   this.sendData = <IDataGraph>{
+  //     data: "gastosEconomicaEconomicos",
+  //     titleSelect: "Selección económico gasto",
+  //     optionSelect: "Selecciona económico de gasto",
+  //     errorSelect: "Error debes seleccionar un económico de gasto",
+  //     URLSelect: "/gastosEconomicaEconomicos"
+  //   };
+  //   this.dataGraphService.sendData = this.sendData;
+  //   this.router.navigateByUrl('/SelectCodigo')
+  // }
+
+
+
   // #endregion routes
 
   private getSelectedItem() {

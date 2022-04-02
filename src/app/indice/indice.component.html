@@ -97,6 +97,12 @@
     <div (click)="graficoIngresoCapitulo()" class="OCM-card">
       <span class="OCM-card__title">Grafico por capítulos</span>
     </div>
+    <div (click)="graphIngresosEconomicaArticulos()" class="OCM-card">
+      <span class="OCM-card__title"> Graph ingresosEconomicaArticulos</span>
+    </div>
+    <div (click)="graphIngresosEconomicaConceptos()" class="OCM-card">
+      <span class="OCM-card__title">Graph ingresosEconomicaConceptos</span>
+    </div>
     <div (click)="graficoIngresoEconomico()" class="OCM-card">
       <span class="OCM-card__title">Grafico por económico</span>
     </div>
@@ -107,29 +113,36 @@
   <h3 class="OCM-text--cabecera OCM-text--gastos">Gastos.</h3>
 
   <div class="OCM-row--add">
-
     <!-- <div class="OCM-card--empty">
     </div> -->
-
     <div (click)="comparaCap()" class="OCM-card">
       <span class="OCM-card__title">Por capítulos</span>
     </div>
-
   </div>
 
   <div class="OCM-row--add">
+    <div (click)="graphGastosEconomicaArticulos()" class="OCM-card">
+      <span class="OCM-card__title">Graph gastosEconomicaArticulos</span>
+    </div>
 
+    <div (click)="graphGastosEconomicaConceptos()" class="OCM-card">
+      <span class="OCM-card__title">Graph gastosEconomicaConceptos</span>
+    </div>
+
+    <!-- <div (click)="graphGastosEconomicaEconomicos()" class="OCM-card">
+      <span class="OCM-card__title">Graph gastosEconomicaEconomicos</span>
+    </div> -->
+  </div>
+
+  <div class="OCM-row--add">
     <!-- <div class="OCM-card--empty">
     </div> -->
-
     <div (click)="graficoGastoCapitulo()" class="OCM-card">
       <span class="OCM-card__title">Grafico por capítulos</span>
     </div>
-
   </div>
 
   <div class="OCM-row--add">
-
     <div (click)="comparaOrg()" class="OCM-card">
       <span class="OCM-card__title">Por organico</span>
     </div>
@@ -141,9 +154,6 @@
     <div (click)="comparaEco()" class="OCM-card">
       <span class="OCM-card__title">Por económico</span>
     </div>
-
-
-
   </div>
 
   <div class="OCM-row--add">

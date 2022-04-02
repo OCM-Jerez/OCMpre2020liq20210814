@@ -35,6 +35,10 @@ import { GraphGrupoProgramasComponent } from './comparativas/graph/graph-grupo-p
 import { GraphPoliticasProgramasComponent } from './comparativas/graph/graph-politicas-programas/graph-politicas-programas.component';
 import { GraphAreasGastosComponent } from './comparativas/graph/graph-areas-gastos/graph-areas-gastos.component';
 import { IndiceNewComponent } from './indice-new/indice-new.component';
+import { GraphGastosEconomicaArticulosComponent } from './comparativas/graph/graph-gastos-economica-articulos/graph-gastos-economica-articulos.component';
+import { GraphGastosEconomicaConceptosComponent } from './comparativas/graph/graph-gastos-economica-conceptos/graph-gastos-economica-conceptos.component';
+import { GraphIngresosEconomicaArticulosComponent } from './comparativas/graph/graph-ingresos-economica-articulos/graph-ingresos-economica-articulos.component';
+import { GraphIngresosEconomicaConceptosComponent } from './comparativas/graph/graph-ingresos-economica-conceptos/graph-ingresos-economica-conceptos.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,10 @@ import { IndiceNewComponent } from './indice-new/indice-new.component';
     GraphPoliticasProgramasComponent,
     GraphAreasGastosComponent,
     IndiceNewComponent,
+    GraphGastosEconomicaArticulosComponent,
+    GraphGastosEconomicaConceptosComponent,
+    GraphIngresosEconomicaArticulosComponent,
+    GraphIngresosEconomicaConceptosComponent,
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,12 @@ import { GraphPoliticasProgramasComponent } from './comparativas/graph/graph-pol
 import { GraphAreasGastosComponent } from './comparativas/graph/graph-areas-gastos/graph-areas-gastos.component';
 import { IndiceNewComponent } from './indice-new/indice-new.component';
 
+import { GraphGastosEconomicaArticulosComponent } from './comparativas/graph/graph-gastos-economica-articulos/graph-gastos-economica-articulos.component';
+import { GraphGastosEconomicaConceptosComponent } from './comparativas/graph/graph-gastos-economica-conceptos/graph-gastos-economica-conceptos.component';
+
+import { GraphIngresosEconomicaArticulosComponent } from './comparativas/graph/graph-ingresos-economica-articulos/graph-ingresos-economica-articulos.component';
+import { GraphIngresosEconomicaConceptosComponent } from './comparativas/graph/graph-ingresos-economica-conceptos/graph-ingresos-economica-conceptos.component';
+
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
   // { path: 'home', component: IndiceNewComponent },
@@ -31,6 +37,7 @@ const routes: Routes = [
 
   { path: 'GraficoCapituloIngreso', component: GraphCapituloIngresoComponent },
   { path: 'GraficoEconomicoIngreso', component: GraphEconomicoIngresoComponent },
+
   { path: 'GraficoCapituloGasto', component: GraphCapituloGastoComponent },
   { path: 'GraficoOrganicoGasto', component: GraphOrganicoGastoComponent },
   { path: 'GraficoEconomicoGasto', component: GraphEconomicoGastoComponent },
@@ -38,6 +45,12 @@ const routes: Routes = [
   { path: 'GraficoGruposProgramas', component: GraphGrupoProgramasComponent },
   { path: 'GraficoPoliticasGastos', component: GraphPoliticasProgramasComponent },
   { path: 'GraficoAreasGastos', component: GraphAreasGastosComponent },
+
+  { path: 'ingresosEconomicaArticulos', component: GraphIngresosEconomicaArticulosComponent },
+  { path: 'ingresosEconomicaConceptos', component: GraphIngresosEconomicaConceptosComponent },
+
+  { path: 'gastosEconomicaArticulos', component: GraphGastosEconomicaArticulosComponent },
+  { path: 'gastosEconomicaConceptos', component: GraphGastosEconomicaConceptosComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];

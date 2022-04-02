@@ -49,13 +49,23 @@ export class SelectCodigoComponent {
   array = [
     { key: 'ingresoCapitulo', data: { tipoSelect: 'Capítulo ingresos', dataJSON: ingresosEconomicaCapitulos } },
     { key: 'ingresoEconomico', data: { tipoSelect: 'Económico ingresos', dataJSON: ingresosEconomicaEconomicos } },
-    { key: 'gastoCapitulo', data: { tipoSelect: 'Capítulo gastos', dataJSON: gastosEconomicaCapitulos } },
+
+    { key: 'ingresosEconomicaArticulos', data: { tipoSelect: 'Articulos ingresos', dataJSON: ingresosEconomicaArticulos } },
+    { key: 'ingresosEconomicaConceptos', data: { tipoSelect: 'Caonceptos ingresos', dataJSON: ingresosEconomicaConceptos } },
+
     { key: 'Organico', data: { tipoSelect: 'Orgánico', dataJSON: gastosOrganicaOrganicos } },
-    { key: 'Programa', data: { tipoSelect: 'Programa', dataJSON: gastosProgramaProgramas } },
-    { key: 'gastoEconomico', data: { tipoSelect: 'Económico gastos', dataJSON: gastosEconomicaEconomicos } },
-    { key: 'gruposProgramas', data: { tipoSelect: 'Grupo programas', dataJSON: gastosProgramaGruposProgramas } },
+
+    { key: 'areasGastos', data: { tipoSelect: 'Area de gasto', dataJSON: gastosProgramaAreas } },
     { key: 'politicasGastos', data: { tipoSelect: 'Política de gasto', dataJSON: gastosProgramaPoliticas } },
-    { key: 'areasGastos', data: { tipoSelect: 'Area de gasto', dataJSON: gastosProgramaAreas } }
+    { key: 'gruposProgramas', data: { tipoSelect: 'Grupo programas', dataJSON: gastosProgramaGruposProgramas } },
+    { key: 'Programa', data: { tipoSelect: 'Programa', dataJSON: gastosProgramaProgramas } },
+    { key: 'gastoCapitulo', data: { tipoSelect: 'Capítulo gastos', dataJSON: gastosEconomicaCapitulos } },
+
+    { key: 'gastosEconomicaArticulos', data: { tipoSelect: 'Articulos ingresos', dataJSON: gastosEconomicaArticulos } },
+    { key: 'gastosEconomicaConceptos', data: { tipoSelect: 'Conceptos ingresos', dataJSON: gastosEconomicaConceptos } },
+    { key: 'gastosEconomicaEconomicos', data: { tipoSelect: 'Económico ingresos', dataJSON: gastosEconomicaEconomicos } },
+
+    { key: 'gastoEconomico', data: { tipoSelect: 'Económico gastos', dataJSON: gastosEconomicaEconomicos } },
   ]
 
   form = new FormGroup({
