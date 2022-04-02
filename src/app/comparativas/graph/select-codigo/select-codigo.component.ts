@@ -19,7 +19,9 @@ import gastosProgramaPoliticas from '../../../../assets/data/gastosProgramaPolit
 import gastosProgramaGruposProgramas from '../../../../assets/data/gastosProgramaGruposProgramas.json';
 import gastosProgramaProgramas from '../../../../assets/data/gastosProgramaProgramas.json';
 
-import gastosEconomicaCapitulos from '../../../../assets/data/gastosEconomicaCapitulos.json'
+import gastosEconomicaCapitulos from '../../../../assets/data/gastosEconomicaCapitulos.json';
+import gastosEconomicaArticulos from '../../../../assets/data/gastosEconomicaArticulos.json';
+import gastosEconomicaConceptos from '../../../../assets/data/gastosEconomicaConceptos.json';
 import gastosEconomicaEconomicos from '../../../../assets/data/gastosEconomicaEconomicos.json';
 
 @Component({
