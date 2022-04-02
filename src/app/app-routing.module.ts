@@ -27,9 +27,9 @@ import { GraphIngresosEconomicaConceptosComponent } from './comparativas/graph/g
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
   // { path: 'home', component: IndiceNewComponent },
-  { path: 'Ingresos', component: IngresosComponent },
-  { path: 'Ingresos', component: IndiceNewComponent },
-  { path: 'Gastos', component: GastosComponent },
+  // { path: 'Ingresos', component: IngresosComponent },
+  // { path: 'Ingresos', component: IndiceNewComponent },
+  // { path: 'Gastos', component: GastosComponent },
   { path: 'ComparaIng', component: ComparaIngComponent },
   { path: 'ComparaGas', component: ComparaGasComponent },
 
