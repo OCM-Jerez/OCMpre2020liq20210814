@@ -73,9 +73,9 @@ export class IndiceComponent implements OnInit {
   //   this.router.navigateByUrl('/Ingresos')
   // }
 
-  graficoIngresoCapitulo() {
+  graphIngresosEconomicaCapitulos() {
     this.sendData = <IDataGraph>{
-      data: "ingresoCapitulo",
+      data: "ingresosEconomicaCapitulos",
       titleSelect: "Selección capítulo de ingreso",
       optionSelect: "Selecciona capítulo de ingreso",
       errorSelect: "Error debes seleccionar un capítulo de ingreso",
@@ -98,9 +98,9 @@ export class IndiceComponent implements OnInit {
     // this.router.navigate(['/SelectCodigo'], { state: { 'data': this.sendData } })
   }
 
-  graficoIngresoEconomico() {
+  graphIngresosEconomicaEconomicos() {
     this.sendData = <IDataGraph>{
-      data: "ingresoEconomico",
+      data: "ingresosEconomicaEconomicos",
       titleSelect: "Selección económico de ingreso",
       optionSelect: "Selecciona económico de ingreso",
       errorSelect: "Error debes seleccionar un económico de ingreso",
@@ -110,9 +110,9 @@ export class IndiceComponent implements OnInit {
     this.router.navigateByUrl('/SelectCodigo')
   }
 
-  graficoGastoCapitulo() {
+  graphGastosEconomicaCapitulos() {
     this.sendData = <IDataGraph>{
-      data: "gastoCapitulo",
+      data: "gastosEconomicaCapitulos",
       titleSelect: "Selección capítulo de gasto",
       optionSelect: "Selecciona capítulo de gasto",
       errorSelect: "Error debes seleccionar un capítulo de gasto",
@@ -127,9 +127,9 @@ export class IndiceComponent implements OnInit {
     this.router.navigateByUrl('/SelectCodigo')
   }
 
-  graficoGastoOrganico() {
+  graphGastosOrganicaOrganicos() {
     this.sendData = <IDataGraph>{
-      data: "Organico",
+      data: "gastosOrganicaOrganicos",
       titleSelect: "Selección orgánico",
       optionSelect: "Selecciona orgánico",
       errorSelect: "Error debes seleccionar un orgánico",
@@ -139,9 +139,9 @@ export class IndiceComponent implements OnInit {
     this.router.navigateByUrl('/SelectCodigo')
   }
 
-  graficoGastoPrograma() {
+  graphGastosProgramaProgramas() {
     this.sendData = <IDataGraph>{
-      data: "Programa",
+      data: "gastosProgramaProgramas",
       titleSelect: "Selección programa",
       optionSelect: "Selecciona programa",
       errorSelect: "Error debes seleccionar un programa",
@@ -151,9 +151,9 @@ export class IndiceComponent implements OnInit {
     this.router.navigateByUrl('/SelectCodigo')
   }
 
-  graficoGastoEconomico() {
+  grapgGastosEconomicaEconomicos() {
     this.sendData = <IDataGraph>{
-      data: "gastoEconomico",
+      data: "gastosEconomicaEconomicos",
       titleSelect: "Selección económico de gasto",
       optionSelect: "Selecciona económico de gasto",
       errorSelect: "Error debes seleccionar un económico de gasto",
@@ -164,9 +164,9 @@ export class IndiceComponent implements OnInit {
   }
 
 
-  graficoGastoGruposProgramas() {
+  graphGastosProgramaGruposProgramas() {
     this.sendData = <IDataGraph>{
-      data: "gruposProgramas",
+      data: "gastosProgramaGruposProgramas",
       titleSelect: "Selección grupo programas",
       optionSelect: "Selecciona grupo de programas",
       errorSelect: "Error debes seleccionar un grupo de programas",
@@ -176,9 +176,9 @@ export class IndiceComponent implements OnInit {
     this.router.navigateByUrl('/SelectCodigo')
   }
 
-  graficoGastoPoliticas() {
+  graphGastosProgramaPoliticas() {
     this.sendData = <IDataGraph>{
-      data: "politicasGastos",
+      data: "gastosProgramaPoliticas",
       titleSelect: "Selección política gasto",
       optionSelect: "Selecciona política de gasto",
       errorSelect: "Error debes seleccionar una política de gasto",
@@ -188,9 +188,9 @@ export class IndiceComponent implements OnInit {
     this.router.navigateByUrl('/SelectCodigo')
   }
 
-  graficoGastoAreas() {
+  graphGastosProgramaAreas() {
     this.sendData = <IDataGraph>{
-      data: "areasGastos",
+      data: "gastosProgramaAreas",
       titleSelect: "Selección area gasto",
       optionSelect: "Selecciona area de gasto",
       errorSelect: "Error debes seleccionar una area de gasto",
