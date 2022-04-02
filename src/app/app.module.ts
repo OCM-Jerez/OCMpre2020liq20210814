@@ -34,6 +34,7 @@ import { SelectCodigoComponent } from './comparativas/graph/select-codigo/select
 import { GraphGrupoProgramasComponent } from './comparativas/graph/graph-grupo-programas/graph-grupo-programas.component';
 import { GraphPoliticasProgramasComponent } from './comparativas/graph/graph-politicas-programas/graph-politicas-programas.component';
 import { GraphAreasGastosComponent } from './comparativas/graph/graph-areas-gastos/graph-areas-gastos.component';
+import { IndiceNewComponent } from './indice-new/indice-new.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { GraphAreasGastosComponent } from './comparativas/graph/graph-areas-gast
     GraphGrupoProgramasComponent,
     GraphPoliticasProgramasComponent,
     GraphAreasGastosComponent,
+    IndiceNewComponent,
   ],
   imports: [
     BrowserModule,
