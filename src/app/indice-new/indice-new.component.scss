@@ -7,6 +7,7 @@
     margin-top: 2rem;
     // height: calc(100vh - 125px);
     background-color: #15202b;
+    height: 90vh;
 }
 
 /* Como CSS no tiene la propiedad background.opacity
@@ -83,6 +84,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
     }
 }
 
+// https://grid.layoutit.com/
 .containerNew {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -109,24 +111,26 @@ insertamo sun seudo elemento con el mismo tamaño. */
 
 .Gastos {
     grid-area: Gastos;
-    border: 1px solid #000;
-    background-color: aqua;
+    // border: 1px solid #000;
+    // background-color: aqua;
     display: grid;
     justify-content: center;
     align-content: center;
-    font-size: 32px;
+    font-size: 62px;
     font-weight: bold;
+    color: aliceblue;
 }
 
 .economicaIngreso {
     grid-area: economicaIngreso;
     border: 1px solid #000;
-    background-color: rgb(160, 207, 49);
+    background-color: rgb(38, 40, 34);
     display: grid;
     justify-content: center;
     align-content: center;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: bold;
+    color: aliceblue;
 }
 
 .capitulo {
@@ -147,47 +151,52 @@ insertamo sun seudo elemento con el mismo tamaño. */
 
 .ingresos {
     grid-area: ingresos;
-    border: 1px solid #000;
-    border: 1px solid #000;
-    background-color: aqua;
+    // border: 1px solid #000;
+    // border: 1px solid #000;
+    // background-color: aqua;
     display: grid;
     justify-content: center;
     align-content: center;
-    font-size: 32px;
+    font-size: 62px;
     font-weight: bold;
+    color: aliceblue;
+
 }
 
 .organica {
     grid-area: organica;
     border: 1px solid #000;
-    background-color: rgb(211, 176, 201);
+    background-color: rgb(38, 40, 34);
     display: grid;
     justify-content: center;
     align-content: center;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: bold;
+    color: aliceblue;
 }
 
 .programas {
     grid-area: programas;
     border: 1px solid #000;
-    background-color: rgb(126, 68, 20);
+    background-color: rgb(67, 77, 48);
     display: grid;
     justify-content: center;
     align-content: center;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: bold;
+    color: aliceblue;
 }
 
 .economica {
     grid-area: economica;
     border: 1px solid #000;
-    background-color: rgb(160, 207, 49);
+    background-color: rgb(38, 40, 34);
     display: grid;
     justify-content: center;
     align-content: center;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: bold;
+    color: aliceblue;
 }
 
 .organico {

@@ -25,8 +25,8 @@ import { GraphIngresosEconomicaArticulosComponent } from './comparativas/graph/g
 import { GraphIngresosEconomicaConceptosComponent } from './comparativas/graph/graph-ingresos-economica-conceptos/graph-ingresos-economica-conceptos.component';
 
 const routes: Routes = [
-  { path: 'home', component: IndiceComponent },
-  // { path: 'home', component: IndiceNewComponent },
+  // { path: 'home', component: IndiceComponent },
+  { path: 'home', component: IndiceNewComponent },
   // { path: 'Ingresos', component: IngresosComponent },
   // { path: 'Ingresos', component: IndiceNewComponent },
   // { path: 'Gastos', component: GastosComponent },

@@ -1,76 +1,95 @@
-<div class="containerNew">
-    <div class="espacio">espacio</div>
-    <div class="Gastos">Ingresos</div>
-    <div class="economicaIngreso">Clasificación económica de ingresos.</div>
-    <div class="capitulo">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por capítulos</span>
-        </div>
+<div class="OCM-indice">
+    <hr style="color:white">
+
+    <h3 class=" OCM-text--cabecera OCM-text--años">Selecciona años a mostrar</h3>
+    <div class="OCM-row--add">
+        <section style="color:white">
+            <div>
+                <span class="OCM-no-bullets" *ngFor="let item of list">
+                    <input type="checkbox" [(ngModel)]="item.checked" (change)="changeCheckbox($event)">{{ item.year }}
+                    <!-- <input type="checkbox" [(ngModel)]="item.checked">{{ item.year }} -->
+                </span>
+            </div>
+            <!-- <pre>{{this.result | json}}</pre> -->
+        </section>
     </div>
-    <div class="articulo">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por articulo</span>
+
+    <div class="containerNew">
+        <div class="espacio">espacio</div>
+        <div class="Gastos">Ingresos</div>
+        <div class="economicaIngreso">Clasificación económica de ingresos.</div>
+        <div class="capitulo">
+            <div (click)="ingresosEconomicaCapitulos()" class="OCM-card">
+                <span class="OCM-card__title">Por capítulos</span>
+            </div>
         </div>
-    </div>
-    <div class="concepto">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por concepto</span>
+        <div class="articulo">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por articulo</span>
+            </div>
         </div>
-    </div>
-    <div class="subconcepto">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por económico</span>
+        <div class="concepto">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por concepto</span>
+            </div>
         </div>
-    </div>
-    <div class="espacio1">espacio</div>
-    <div class="ingresos">Gastos</div>
-    <div class="organica">Clasificación orgánica de gastos</div>
-    <div class="programas">Clasificación por programas de gastos</div>
-    <div class="economica">Clasificación económica de gastos</div>
-    <div class="organico">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por orgánico</span>
+        <div (click)="ingresosEconomicaEconomicos()" class="subconcepto">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por económico</span>
+            </div>
         </div>
-    </div>
-    <div class="area">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por área</span>
+        <div class="espacio1">espacio</div>
+        <div class="ingresos">Gastos</div>
+        <div class="organica">Clasificación orgánica de gastos</div>
+        <div class="programas">Clasificación por programas de gastos</div>
+        <div class="economica">Clasificación económica de gastos</div>
+        <div class="organico">
+            <div (click)="gastosOrganicaOrganicos()" class="OCM-card">
+                <span class="OCM-card__title">Por orgánico</span>
+            </div>
         </div>
-    </div>
-    <div class="politica">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por política</span>
+
+        <div class="area">
+            <div (click)="gastosProgramaAreas()" class="OCM-card">
+                <span class="OCM-card__title">Por área</span>
+            </div>
         </div>
-    </div>
-    <div class="grupo">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por grupo programas</span>
+        <div (click)="gastosProgramaPoliticas()" class="politica">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por política</span>
+            </div>
         </div>
-    </div>
-    <div class="programa">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por programa</span>
+        <div (click)="gastosProgramaGrupos()" class="grupo">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por grupo programas</span>
+            </div>
         </div>
-    </div>
-    <div class="capitulo1">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por capítulos</span>
+        <div (click)="gastosProgramaProgramas()" class="programa">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por programa</span>
+            </div>
         </div>
-    </div>
-    <div class="articulo1">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por articulo</span>
+        <div (click)="gastosEconomicaCapitulos()" class="capitulo1">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por capítulos</span>
+            </div>
         </div>
-    </div>
-    <div class="concepto1">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por concepto</span>
+        <div (click)="gastosEconomicaArticulos()" class="articulo1">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por articulo</span>
+            </div>
         </div>
-    </div>
-    <div class="subconcepto1">
-        <div class="OCM-card">
-            <span class="OCM-card__title">Por económico</span>
+        <div (click)="gastosEconomicaConceptos()" class="concepto1">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por concepto</span>
+            </div>
         </div>
+        <div (click)="gastosEconomicaEconomicos()" class="subconcepto1">
+            <div class="OCM-card">
+                <span class="OCM-card__title">Por económico</span>
+            </div>
+        </div>
+
     </div>
 
 </div>
