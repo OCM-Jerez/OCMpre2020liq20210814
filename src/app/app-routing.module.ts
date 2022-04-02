@@ -19,8 +19,8 @@ import { GraphAreasGastosComponent } from './comparativas/graph/graph-areas-gast
 import { IndiceNewComponent } from './indice-new/indice-new.component';
 
 const routes: Routes = [
-  // { path: 'home', component: IndiceComponent },
-  { path: 'home', component: IndiceNewComponent },
+  { path: 'home', component: IndiceComponent },
+  // { path: 'home', component: IndiceNewComponent },
   { path: 'Ingresos', component: IngresosComponent },
   { path: 'Ingresos', component: IndiceNewComponent },
   { path: 'Gastos', component: GastosComponent },

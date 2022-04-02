@@ -7,16 +7,20 @@ import { IDataGraph } from '../../../commons/interfaces/dataGraph.interface';
 // Con import unicamente se crea un enlace, no siginifica que cargue los datos.
 // Por tanto es una forma eficiente de preparar importación de datos
 // https://medium.com/codeptivesolutions/how-to-import-json-file-in-angular-a2e012948479
-import capitulosIngresos from '../../../../assets/data/capitulosIngresos.json';
-import economicosIngresos from '../../../../assets/data/economicosIngresos.json';
-import capitulosGastos from '../../../../assets/data/capitulosGastos.json'
-import organicos from '../../../../assets/data/organicos.json';
-import programas from '../../../../assets/data/programasGastos.json';
-import economicosGastos from '../../../../assets/data/economicosGastos.json';
-import gruposProgramas from '../../../../assets/data/gruposProgramasGastos.json';
-import politicasGastos from '../../../../assets/data/politicasGastos.json';
-import areasGastos from '../../../../assets/data/areasGastos.json';
+import ingresosEconomicaCapitulos from '../../../../assets/data/ingresosEconomicaCapitulos.json';
+import ingresosEconomicaArticulos from '../../../../assets/data/ingresosEconomicaArticulos.json';
+import ingresosEconomicaConceptos from '../../../../assets/data/ingresosEconomicaConceptos.json';
+import ingresosEconomicaEconomicos from '../../../../assets/data/ingresosEconomicaEconomicos.json';
 
+import gastosOrganicaOrganicos from '../../../../assets/data/gastosOrganicaOrganicos.json';
+
+import gastosProgramaAreas from '../../../../assets/data/gastosProgramaAreas.json';
+import gastosProgramaPoliticas from '../../../../assets/data/gastosProgramaPoliticas.json';
+import gastosProgramaGruposProgramas from '../../../../assets/data/gastosProgramaGruposProgramas.json';
+import gastosProgramaProgramas from '../../../../assets/data/gastosProgramaProgramas.json';
+
+import gastosEconomicaCapitulos from '../../../../assets/data/gastosEconomicaCapitulos.json'
+import gastosEconomicaEconomicos from '../../../../assets/data/gastosEconomicaEconomicos.json';
 
 @Component({
   selector: 'app-select-codigo',
@@ -41,15 +45,15 @@ export class SelectCodigoComponent {
     // this.dataIndice = router.getCurrentNavigation().extras.state.data
   }
   array = [
-    { key: 'ingresoCapitulo', data: { tipoSelect: 'Capítulo ingresos', dataJSON: capitulosIngresos } },
-    { key: 'ingresoEconomico', data: { tipoSelect: 'Económico ingresos', dataJSON: economicosIngresos } },
-    { key: 'gastoCapitulo', data: { tipoSelect: 'Capítulo gastos', dataJSON: capitulosGastos } },
-    { key: 'Organico', data: { tipoSelect: 'Orgánico', dataJSON: organicos } },
-    { key: 'Programa', data: { tipoSelect: 'Programa', dataJSON: programas } },
-    { key: 'gastoEconomico', data: { tipoSelect: 'Económico gastos', dataJSON: economicosGastos } },
-    { key: 'gruposProgramas', data: { tipoSelect: 'Grupo programas', dataJSON: gruposProgramas } },
-    { key: 'politicasGastos', data: { tipoSelect: 'Política de gasto', dataJSON: politicasGastos } },
-    { key: 'areasGastos', data: { tipoSelect: 'Area de gasto', dataJSON: areasGastos } }
+    { key: 'ingresoCapitulo', data: { tipoSelect: 'Capítulo ingresos', dataJSON: ingresosEconomicaCapitulos } },
+    { key: 'ingresoEconomico', data: { tipoSelect: 'Económico ingresos', dataJSON: ingresosEconomicaEconomicos } },
+    { key: 'gastoCapitulo', data: { tipoSelect: 'Capítulo gastos', dataJSON: gastosEconomicaCapitulos } },
+    { key: 'Organico', data: { tipoSelect: 'Orgánico', dataJSON: gastosOrganicaOrganicos } },
+    { key: 'Programa', data: { tipoSelect: 'Programa', dataJSON: gastosProgramaProgramas } },
+    { key: 'gastoEconomico', data: { tipoSelect: 'Económico gastos', dataJSON: gastosEconomicaEconomicos } },
+    { key: 'gruposProgramas', data: { tipoSelect: 'Grupo programas', dataJSON: gastosProgramaGruposProgramas } },
+    { key: 'politicasGastos', data: { tipoSelect: 'Política de gasto', dataJSON: gastosProgramaPoliticas } },
+    { key: 'areasGastos', data: { tipoSelect: 'Area de gasto', dataJSON: gastosProgramaAreas } }
   ]
 
   form = new FormGroup({
