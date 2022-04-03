@@ -3,7 +3,11 @@ import { Injectable } from '@angular/core';
 // https://stackoverflow.com/questions/54476526/how-to-reload-the-header-component-when-the-variable-value-changes-via-service/54476754
 import { BehaviorSubject } from 'rxjs';
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
+
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
+import gastosProgramaPoliticas from '../../assets/data/gastosProgramaPoliticas.json';
+import gastosProgramaGruposProgramas from '../../assets/data/gastosProgramaGruposProgramas.json';
+
 import { IDataIngreso } from '../commons/interfaces/dataIngreso.interface';
 import { IDataGasto } from '../commons/interfaces/dataGasto.interface';
 
@@ -151,19 +155,55 @@ export class AvalaibleYearsService {
       });
     })
 
-    console.log(cla);
+    switch (cla) {
+      case 'gastosProgramaAreas':
+        const byArea = [];
+        result.map(item => {
+          item.CodPro = Math.floor((item.CodPro / 10000));
+          byArea.push(item);
+        });
 
-    if (cla === 'gastosProgramaAreas') {
-      const byArea = [];
-      result.map(item => {
-        item.CodPro = Math.floor((item.CodPro / 10000));
-        byArea.push(item);
-      });
+        byArea.map(item => {
+          item.DesPro = gastosProgramaAreas.find((area) => area.codigo === item.CodPro).descripcion;
+        });
+        break;
+      case 'gastosProgramaPoliticas':
+        const byPolitica = [];
+        result.map(item => {
+          item.CodPro = Math.floor((item.CodPro / 1000));
+          byPolitica.push(item);
+        });
 
-      byArea.map(item => {
-        item.DesPro = gastosProgramaAreas.find((area) => area.codigo === item.CodPro).descripcion;
-      });
+        byPolitica.map(item => {
+          item.DesPro = gastosProgramaPoliticas.find((politica) => politica.codigo === item.CodPro).descripcion;
+        });
+        break;
+      case 'gastosProgramaGrupos':
+        const byGrupo = [];
+        result.map(item => {
+          item.CodPro = Math.floor((item.CodPro / 100));
+          byGrupo.push(item);
+        });
+
+        byGrupo.map(item => {
+          // console.log(item);
+          item.DesPro = gastosProgramaGruposProgramas.find((grupo) => grupo.codigo === item.CodPro).descripcion;
+        });
+        break;
     }
+
+
+    // if (cla === 'gastosProgramaAreas') {
+    //   const byArea = [];
+    //   result.map(item => {
+    //     item.CodPro = Math.floor((item.CodPro / 10000));
+    //     byArea.push(item);
+    //   });
+
+    //   byArea.map(item => {
+    //     item.DesPro = gastosProgramaAreas.find((area) => area.codigo === item.CodPro).descripcion;
+    //   });
+    // }
 
 
     return result;

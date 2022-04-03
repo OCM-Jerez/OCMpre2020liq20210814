@@ -55,6 +55,31 @@ export class ComparaGasComponent {
         this._desField = 'DesOrg';
         this._width = 250;
         break;
+
+      case 'gastosProgramaAreas':
+        this._sufijo = 'Pro';
+        this._headerName = 'Clasificado por areas de programas de gasto';
+        this._subHeaderName = 'Area de gasto';
+        this._codField = 'CodPro';
+        this._desField = 'DesPro';
+        this._width = 550;
+        break;
+      case 'gastosProgramaPoliticas':
+        this._sufijo = 'Pro';
+        this._headerName = 'Clasificado por políticas de gasto';
+        this._subHeaderName = 'Política de gasto';
+        this._codField = 'CodPro';
+        this._desField = 'DesPro';
+        this._width = 550;
+        break;
+      case 'gastosProgramaGrupos':
+        this._sufijo = 'Pro';
+        this._headerName = 'Clasificado por grupos programas de gasto';
+        this._subHeaderName = 'Grupo programas de gasto';
+        this._codField = 'CodPro';
+        this._desField = 'DesPro';
+        this._width = 550;
+        break;
       case 'gastosProgramaProgramas':
         this._sufijo = 'Pro';
         this._headerName = 'Clasificado por programa';
@@ -63,14 +88,7 @@ export class ComparaGasComponent {
         this._desField = 'DesPro';
         this._width = 550;
         break;
-      case 'gastosProgramaAreas':
-        this._sufijo = 'Pro';
-        this._headerName = 'Clasificado por areas de programas de gasto';
-        this._subHeaderName = 'Programa';
-        this._codField = 'CodPro';
-        this._desField = 'DesPro';
-        this._width = 550;
-        break;
+
       case 'gastosEconomicaEconomicos':
         this._sufijo = 'Eco';
         this._headerName = 'Clasificado por económico';
