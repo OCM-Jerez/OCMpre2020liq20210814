@@ -83,13 +83,13 @@ export class IndiceNewComponent implements OnInit {
 
 
   gastosOrganicaOrganicos() {
-    this.tipoclasificacionService.tipoClasificacion = 'Org'
+    this.tipoclasificacionService.tipoClasificacion = 'gastosOrganicaOrganicos'
     this.getSelectedItem();
     this.router.navigateByUrl('/ComparaGas')
   }
 
   gastosProgramaAreas() {
-    this.tipoclasificacionService.tipoClasificacion = 'Pro'
+    this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaAreas'
     this.getSelectedItem();
     this.router.navigateByUrl('/ComparaGas')
   }
@@ -107,13 +107,13 @@ export class IndiceNewComponent implements OnInit {
   }
 
   gastosProgramaProgramas() {
-    this.tipoclasificacionService.tipoClasificacion = 'Pro'
+    this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaProgramas'
     this.getSelectedItem();
     this.router.navigateByUrl('/ComparaGas')
   }
 
   gastosEconomicaCapitulos() {
-    this.tipoclasificacionService.tipoClasificacion = 'Cap'
+    this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaCapitulos'
     this.getSelectedItem();
     this.router.navigateByUrl('/ComparaGas')
   }
@@ -131,16 +131,10 @@ export class IndiceNewComponent implements OnInit {
   }
 
   gastosEconomicaEconomicos() {
-    this.tipoclasificacionService.tipoClasificacion = 'Eco'
+    this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaEconomicos'
     this.getSelectedItem();
     this.router.navigateByUrl('/ComparaGas')
   }
-
-
-
-
-
-
 
   private getSelectedItem() {
     const years = this.result.map((year) => year.year);

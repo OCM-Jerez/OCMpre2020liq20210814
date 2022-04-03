@@ -32,34 +32,47 @@ export class ComparaGasComponent {
   private _codField: string;
   private _desField: string;
   private _width: number;
+  private _sufijo: string;
 
   constructor(private avalaibleYearsService: AvalaibleYearsService,
     private tipoclasificacionService: TipoClasificacionService) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
 
     switch (this.tipoClasificacion) {
-      case 'Cap':
+      case 'gastosEconomicaCapitulos':
+        this._sufijo = 'Cap';
         this._headerName = 'Clasificado por capítulo';
         this._subHeaderName = 'Capítulo';
         this._codField = 'CodCap';
         this._desField = 'DesCap';
         this._width = 250;
         break;
-      case 'Org':
+      case 'gastosOrganicaOrganicos':
+        this._sufijo = 'Org';
         this._headerName = 'Clasificado por orgánico';
         this._subHeaderName = 'Orgánico';
         this._codField = 'CodOrg';
         this._desField = 'DesOrg';
         this._width = 250;
         break;
-      case 'Pro':
+      case 'gastosProgramaProgramas':
+        this._sufijo = 'Pro';
         this._headerName = 'Clasificado por programa';
         this._subHeaderName = 'Programa';
         this._codField = 'CodPro';
         this._desField = 'DesPro';
         this._width = 550;
         break;
-      case 'Eco':
+      case 'gastosProgramaAreas':
+        this._sufijo = 'Pro';
+        this._headerName = 'Clasificado por areas de programas de gasto';
+        this._subHeaderName = 'Programa';
+        this._codField = 'CodPro';
+        this._desField = 'DesPro';
+        this._width = 550;
+        break;
+      case 'gastosEconomicaEconomicos':
+        this._sufijo = 'Eco';
         this._headerName = 'Clasificado por económico';
         this._subHeaderName = 'Económico';
         this._codField = 'CodEco';
@@ -132,7 +145,7 @@ export class ComparaGasComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = await this.avalaibleYearsService.getDataAllYear(this.tipoClasificacion, false);
+    this.rowData = await this.avalaibleYearsService.getDataAllYear(this.tipoClasificacion, false, this._sufijo);
   }
 
   // TODO: Las colummnas disparan su altura

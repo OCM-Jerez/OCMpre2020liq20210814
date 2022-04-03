@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 // https://stackoverflow.com/questions/54476526/how-to-reload-the-header-component-when-the-variable-value-changes-via-service/54476754
 import { BehaviorSubject } from 'rxjs';
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
+import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
 import { IDataIngreso } from '../commons/interfaces/dataIngreso.interface';
 import { IDataGasto } from '../commons/interfaces/dataGasto.interface';
 
@@ -102,24 +103,27 @@ export class AvalaibleYearsService {
   }
 
   // Itera por cada uno de los años disponibles para gastos
-  async getDataAllYear(cla: string, isGraph?: boolean): Promise<any[]> {
+  async getDataAllYear(cla: string, isGraph?: boolean, sufijo?: string): Promise<any[]> {
     let rowData = [];
     const years = isGraph ? AVALAIBLE_YEARS : this.yearsSelected;
+    // if (cla === 'gastosProgramaAreas') {
+    //   cla = 'Pro';
+    // }
 
     await asynForEach(years, async (year: number) => {
-      const dataGas = await this.getDataYearGas(year, cla);
+      const dataGas = await this.getDataYearGas(year, cla, sufijo);
       rowData = rowData.concat(...dataGas);
     });
     return rowData;
   }
 
   // Selecciona datos gastos de un año
-  async getDataYearGas(year: number, cla: string) {
+  async getDataYearGas(year: number, cla: string, sufijo: string) {
     const result = [];
 
     this.dataGasto = {
-      cod: `Cod${cla}`,
-      des: `Des${cla}`,
+      cod: `Cod${sufijo}`,
+      des: `Des${sufijo}`,
       Iniciales: `Iniciales${year}`,
       Modificaciones: `Modificaciones${year}`,
       Definitivas: `Definitivas${year}`,
@@ -146,6 +150,22 @@ export class AvalaibleYearsService {
         });
       });
     })
+
+    console.log(cla);
+
+    if (cla === 'gastosProgramaAreas') {
+      const byArea = [];
+      result.map(item => {
+        item.CodPro = Math.floor((item.CodPro / 10000));
+        byArea.push(item);
+      });
+
+      byArea.map(item => {
+        item.DesPro = gastosProgramaAreas.find((area) => area.codigo === item.CodPro).descripcion;
+      });
+    }
+
+
     return result;
   }
 
