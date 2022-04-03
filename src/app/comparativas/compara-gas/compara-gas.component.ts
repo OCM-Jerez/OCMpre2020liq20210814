@@ -39,14 +39,6 @@ export class ComparaGasComponent {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
 
     switch (this.tipoClasificacion) {
-      case 'gastosEconomicaCapitulos':
-        this._sufijo = 'Cap';
-        this._headerName = 'Clasificado por capítulo';
-        this._subHeaderName = 'Capítulo';
-        this._codField = 'CodCap';
-        this._desField = 'DesCap';
-        this._width = 250;
-        break;
       case 'gastosOrganicaOrganicos':
         this._sufijo = 'Org';
         this._headerName = 'Clasificado por orgánico';
@@ -89,6 +81,30 @@ export class ComparaGasComponent {
         this._width = 550;
         break;
 
+      case 'gastosEconomicaCapitulos':
+        this._sufijo = 'Cap';
+        this._headerName = 'Clasificado por capítulo';
+        this._subHeaderName = 'Capítulo';
+        this._codField = 'CodCap';
+        this._desField = 'DesCap';
+        this._width = 250;
+        break;
+      case 'gastosEconomicaArticulos':
+        this._sufijo = 'Eco';
+        this._headerName = 'Clasificado por articulo';
+        this._subHeaderName = 'Articulo';
+        this._codField = 'CodEco';
+        this._desField = 'DesEco';
+        this._width = 250;
+        break;
+      case 'gastosEconomicaConceptos':
+        this._sufijo = 'Eco';
+        this._headerName = 'Clasificado por concepto';
+        this._subHeaderName = 'Concepto';
+        this._codField = 'CodEco';
+        this._desField = 'DesEco';
+        this._width = 250;
+        break;
       case 'gastosEconomicaEconomicos':
         this._sufijo = 'Eco';
         this._headerName = 'Clasificado por económico';

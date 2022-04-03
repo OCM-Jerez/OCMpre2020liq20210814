@@ -8,6 +8,9 @@ import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
 import gastosProgramaPoliticas from '../../assets/data/gastosProgramaPoliticas.json';
 import gastosProgramaGruposProgramas from '../../assets/data/gastosProgramaGruposProgramas.json';
 
+import gastosEconomicaArticulos from '../../assets/data/gastosEconomicaArticulos.json';
+import gastosEconomicaConceptos from '../../assets/data/gastosEconomicaConceptos.json';
+
 import { IDataIngreso } from '../commons/interfaces/dataIngreso.interface';
 import { IDataGasto } from '../commons/interfaces/dataGasto.interface';
 
@@ -190,22 +193,30 @@ export class AvalaibleYearsService {
           item.DesPro = gastosProgramaGruposProgramas.find((grupo) => grupo.codigo === item.CodPro).descripcion;
         });
         break;
+
+      case 'gastosEconomicaArticulos':
+        const byArticulo = [];
+        result.map(item => {
+          item.CodEco = Math.floor((item.CodEco / 1000));
+          byArticulo.push(item);
+        });
+
+        byArticulo.map(item => {
+          item.DesEco = gastosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
+        });
+        break;
+      case 'gastosEconomicaConceptos':
+        const byConcepto = [];
+        result.map(item => {
+          item.CodEco = Math.floor((item.CodEco / 100));
+          byConcepto.push(item);
+        });
+
+        byConcepto.map(item => {
+          item.DesEco = gastosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodEco).descripcion;
+        });
+        break;
     }
-
-
-    // if (cla === 'gastosProgramaAreas') {
-    //   const byArea = [];
-    //   result.map(item => {
-    //     item.CodPro = Math.floor((item.CodPro / 10000));
-    //     byArea.push(item);
-    //   });
-
-    //   byArea.map(item => {
-    //     item.DesPro = gastosProgramaAreas.find((area) => area.codigo === item.CodPro).descripcion;
-    //   });
-    // }
-
-
     return result;
   }
 

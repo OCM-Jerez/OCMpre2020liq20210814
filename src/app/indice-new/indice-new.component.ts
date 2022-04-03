@@ -119,13 +119,13 @@ export class IndiceNewComponent implements OnInit {
   }
 
   gastosEconomicaArticulos() {
-    this.tipoclasificacionService.tipoClasificacion = 'Eco'
+    this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaArticulos'
     this.getSelectedItem();
     this.router.navigateByUrl('/ComparaGas')
   }
 
   gastosEconomicaConceptos() {
-    this.tipoclasificacionService.tipoClasificacion = 'Eco'
+    this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaConceptos'
     this.getSelectedItem();
     this.router.navigateByUrl('/ComparaGas')
   }
