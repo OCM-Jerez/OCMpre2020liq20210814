@@ -44,6 +44,10 @@
     "descripcion": "Vías públicas."
   },
   {
+    "codigo": 160,
+    "descripcion": "Alcantarillado."
+  },
+  {
     "codigo": 161,
     "descripcion": "Saneamiento, abastecimiento y distribución de aguas."
   },
@@ -112,6 +116,10 @@
     "descripcion": "Fomento del Empleo."
   },
   {
+    "codigo": 311,
+    "descripcion": "Protección de la salubridad pública."
+  },
+  {
     "codigo": 312,
     "descripcion": "Hospitales, servicios asistenciales y centros de salud."
   },
@@ -125,19 +133,27 @@
   },
   {
     "codigo": 321,
-    "descripcion": "Educación preescolar y primaria."
+    "descripcion": "Creación de Centros docentes de enseñanza preescolar y primaria."
   },
   {
     "codigo": 322,
-    "descripcion": "Enseñanza secundaria."
+    "descripcion": "Creación de Centros docentes de enseñanza secundaria."
   },
   {
     "codigo": 323,
-    "descripcion": "Promoción educativa."
+    "descripcion": "Funcionamiento de centros docentes de enseñanza preescolar y primaria y educación especial"
   },
   {
     "codigo": 324,
+    "descripcion": "Funcionamiento de centros docentes de enseñanza secundaria."
+  },
+  {
+    "codigo": 326,
     "descripcion": "Servicios complementarios de educación."
+  },
+  {
+    "codigo": 327,
+    "descripcion": "Fomento de la convivencia ciudadana."
   },
   {
     "codigo": 330,
