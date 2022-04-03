@@ -6,7 +6,8 @@
         <section style="color:white">
             <div>
                 <span class="OCM-no-bullets" *ngFor="let item of list">
-                    <input type="checkbox" [(ngModel)]="item.checked" (change)="changeCheckbox($event)">{{ item.year }}
+                    <input style="width: 4rem; height: 4rem;margin-right: 20px;" type="checkbox"
+                        [(ngModel)]="item.checked" (change)="changeCheckbox($event)">{{ item.year }}
                     <!-- <input type="checkbox" [(ngModel)]="item.checked">{{ item.year }} -->
                 </span>
             </div>
