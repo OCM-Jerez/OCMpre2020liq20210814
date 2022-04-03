@@ -37,30 +37,30 @@ export class IndiceNewComponent implements OnInit {
     this.list = [
       {
         year: 2015,
-        checked: false,
+        checked: true,
       },
       {
         year: 2016,
-        checked: false,
+        checked: true,
       }, {
         year: 2017,
-        checked: false,
+        checked: true,
       }, {
         year: 2018,
-        checked: false,
+        checked: true,
       },
       {
         year: 2019,
-        checked: false,
+        checked: true,
       }, {
         year: 2020,
-        checked: false,
+        checked: true,
       }, {
         year: 2021,
         checked: true,
       }, {
         year: 2022,
-        checked: false,
+        checked: true,
       },
       // {
       //   year: "Todos",
@@ -95,13 +95,13 @@ export class IndiceNewComponent implements OnInit {
   }
 
   gastosProgramaPoliticas() {
-    this.tipoclasificacionService.tipoClasificacion = 'Pro'
+    this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaPoliticas'
     this.getSelectedItem();
     this.router.navigateByUrl('/ComparaGas')
   }
 
   gastosProgramaGrupos() {
-    this.tipoclasificacionService.tipoClasificacion = 'Pro'
+    this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaGrupos'
     this.getSelectedItem();
     this.router.navigateByUrl('/ComparaGas')
   }
