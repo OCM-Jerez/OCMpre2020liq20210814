@@ -152,6 +152,10 @@
     "descripcion": "Equipos para procesos de información."
   },
   {
+    "codigo": 217,
+    "descripcion": "Instrumentos musicáles. No existe en listado Hacienda."
+  },
+  {
     "codigo": 219,
     "descripcion": "Otro inmovilizado material."
   },
@@ -288,6 +292,10 @@
     "descripcion": "Otros gastos financieros."
   },
   {
+    "codigo": 410,
+    "descripcion": "Patronatos y fundaciones. No existe en listado Hacienda. Comprobado"
+  },
+  {
     "codigo": 420,
     "descripcion": "A la Administración General del Estado."
   },
@@ -384,12 +392,48 @@
     "descripcion": "Otras subvenciones a Empresas privadas."
   },
   {
+    "codigo": 480,
+    "descripcion": "Ayudas. No existe en listado Hacienda. Comprobado"
+  },
+  {
+    "codigo": 481,
+    "descripcion": "Premios y becas. No existe en listado Hacienda. Comprobado"
+  },
+  {
+    "codigo": 488,
+    "descripcion": "Ayuda internacional y ONG. No existe en listado Hacienda. Comprobado"
+  },
+  {
+    "codigo": 489,
+    "descripcion": "Fundaciones, Consejo social. No existe en listado Hacienda. Comprobado"
+  },
+  {
+    "codigo": 490,
+    "descripcion": "Al exterior. No existe en listado Hacienda. Comprobado"
+  },
+  {
     "codigo": 500,
     "descripcion": "Fondo de Contingencia de Ejecución Presupuestaria. Artículo 31 Ley Orgánica 2/2012, de Estabilidad Presupuestaria y Sostenibilidad Financiera."
   },
   {
     "codigo": 600,
     "descripcion": "Inversiones en terrenos."
+  },
+  {
+    "codigo": 602,
+    "descripcion": "Actuaciones varias. No existe en listado Hacienda. Comprobado"
+  },
+  {
+    "codigo": 603,
+    "descripcion": "Actuaciones varias. No existe en listado Hacienda. Comprobado"
+  },
+  {
+    "codigo": 604,
+    "descripcion": "Actuaciones varias. No existe en listado Hacienda. Comprobado"
+  },
+  {
+    "codigo": 607,
+    "descripcion": "Actuaciones varias. No existe en listado Hacienda. Comprobado"
   },
   {
     "codigo": 609,
@@ -520,6 +564,14 @@
     "descripcion": "A sociedades mercantiles estatales, entidades públicas empresariales y otros organismos públicos."
   },
   {
+    "codigo": 740,
+    "descripcion": "A entes dependientes. No existe en listado Hacienda. Comprobado"
+  },
+  {
+    "codigo": 743,
+    "descripcion": "A entes públicos. No existe en listado Hacienda. Comprobado"
+  },
+  {
     "codigo": 750,
     "descripcion": "A la Administración General de las Comunidades Autónomas."
   },
@@ -566,6 +618,18 @@
   {
     "codigo": 768,
     "descripcion": "A Entidades Locales Menores."
+  },
+  {
+    "codigo": 770,
+    "descripcion": "Actuaciones varias. No existe en listado Hacienda. Comprobado"
+  },
+  {
+    "codigo": 780,
+    "descripcion": "A familias y entiodades sin animo de lucro. No existe en listado Hacienda. Comprobado"
+  },
+  {
+    "codigo": 789,
+    "descripcion": "Otras transferencias de capital. No existe en listado Hacienda. Comprobado"
   },
   {
     "codigo": 800,
