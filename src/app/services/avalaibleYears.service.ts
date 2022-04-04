@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
 
+
+
+
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
 import gastosProgramaPoliticas from '../../assets/data/gastosProgramaPoliticas.json';
 import gastosProgramaGruposProgramas from '../../assets/data/gastosProgramaGruposProgramas.json';
@@ -57,24 +60,23 @@ export class AvalaibleYearsService {
   }
 
   // Itera por cada uno de los años disponibles para ingresos
-  async getDataAllYearIng(cla: string, isGraph?: boolean): Promise<any[]> {
+  async getDataAllYearIng(cla: string, isGraph?: boolean, sufijo?: string): Promise<any[]> {
     let rowData = [];
     const years = isGraph ? AVALAIBLE_YEARS : this.yearsSelected;
-    // await asynForEach(this.yearsSelected, async (year: number) => {
+
     await asynForEach(years, async (year: number) => {
-      const dataIng = await this.getDataYearIng(year, cla);
+      const dataIng = await this.getDataYearIng(year, cla, sufijo);
       rowData = rowData.concat(...dataIng);
     });
     return rowData;
   }
 
   // Selecciona datos ingresos de un año
-  async getDataYearIng(year: number, cla: string) {
+  async getDataYearIng(year: number, cla: string, sufijo: string) {
     const result = [];
-
     this.dataIngreso = {
-      cod: `Cod${cla}`,
-      des: `Des${cla}`,
+      cod: `Cod${sufijo}`,
+      des: `Des${sufijo}`,
       Iniciales: `Iniciales${year}`,
       Modificaciones: `Modificaciones${year}`,
       Definitivas: `Definitivas${year}`,
@@ -105,7 +107,6 @@ export class AvalaibleYearsService {
         });
       });
     })
-    // console.log({ result });
     return result;
   }
 
@@ -113,9 +114,6 @@ export class AvalaibleYearsService {
   async getDataAllYear(cla: string, isGraph?: boolean, sufijo?: string): Promise<any[]> {
     let rowData = [];
     const years = isGraph ? AVALAIBLE_YEARS : this.yearsSelected;
-    // if (cla === 'gastosProgramaAreas') {
-    //   cla = 'Pro';
-    // }
 
     await asynForEach(years, async (year: number) => {
       const dataGas = await this.getDataYearGas(year, cla, sufijo);

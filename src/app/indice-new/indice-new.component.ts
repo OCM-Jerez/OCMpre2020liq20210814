@@ -70,13 +70,25 @@ export class IndiceNewComponent implements OnInit {
   }
 
   ingresosEconomicaCapitulos() {
-    this.tipoclasificacionService.tipoClasificacion = 'Cap'
+    this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaCapitulos'
+    this.getSelectedItem();
+    this.router.navigateByUrl('/ComparaIng')
+  }
+
+  ingresosEconomicaArticulos() {
+    this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaArticulos'
+    this.getSelectedItem();
+    this.router.navigateByUrl('/ComparaIng')
+  }
+
+  ingresosEconomicaConceptos() {
+    this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaConceptos'
     this.getSelectedItem();
     this.router.navigateByUrl('/ComparaIng')
   }
 
   ingresosEconomicaEconomicos() {
-    this.tipoclasificacionService.tipoClasificacion = 'Eco'
+    this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaEconomicos'
     this.getSelectedItem();
     this.router.navigateByUrl('/ComparaIng')
   }

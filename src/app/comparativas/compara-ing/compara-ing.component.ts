@@ -34,6 +34,7 @@ export class ComparaIngComponent {
   private _desField: string;
   private _width: number;
   public year: Observable<string>;
+  private _sufijo: string;
 
   constructor(private avalaibleYearsService: AvalaibleYearsService,
     private tipoclasificacionService: TipoClasificacionService) {
@@ -41,19 +42,56 @@ export class ComparaIngComponent {
 
     this.year = avalaibleYearsService.getAvalaibleYear();
 
-    if (this.tipoClasificacion === 'Cap') {
-      this._headerName = 'Clasificado por capítulo';
-      this._subHeaderName = 'Capítulo';
-      this._codField = 'CodCap';
-      this._desField = 'DesCap';
-      this._width = 250;
-    } else {
-      this._headerName = 'Clasificado por económico';
-      this._subHeaderName = 'Económico';
-      this._codField = 'CodEco';
-      this._desField = 'DesEco';
-      this._width = 520;
+
+    switch (this.tipoClasificacion) {
+      case 'ingresosEconomicaCapitulos':
+        this._sufijo = 'Cap';
+        this._headerName = 'Clasificado por capítulo';
+        this._subHeaderName = 'Capítulo';
+        this._codField = 'CodCap';
+        this._desField = 'DesCap';
+        this._width = 250;
+        break;
+      case 'ingresosEconomicaArticulos':
+        this._sufijo = 'Eco';
+        this._headerName = 'Clasificado por articulo';
+        this._subHeaderName = 'Articulo';
+        this._codField = 'CodEco';
+        this._desField = 'DesEco';
+        this._width = 250;
+        break;
+      case 'ingresosEconomicaConceptos':
+        this._sufijo = 'Eco';
+        this._headerName = 'Clasificado por concepto';
+        this._subHeaderName = 'Concepto';
+        this._codField = 'CodEco';
+        this._desField = 'DesEco';
+        this._width = 250;
+        break;
+      case 'ingresosEconomicaEconomicos':
+        this._sufijo = 'Eco';
+        this._headerName = 'Clasificado por económico';
+        this._subHeaderName = 'Económico';
+        this._codField = 'CodEco';
+        this._desField = 'DesEco';
+        this._width = 400;
+        break;
     }
+
+
+    // if (this.tipoClasificacion === 'Cap') {
+    //   this._headerName = 'Clasificado por capítulo';
+    //   this._subHeaderName = 'Capítulo';
+    //   this._codField = 'CodCap';
+    //   this._desField = 'DesCap';
+    //   this._width = 250;
+    // } else {
+    //   this._headerName = 'Clasificado por económico';
+    //   this._subHeaderName = 'Económico';
+    //   this._codField = 'CodEco';
+    //   this._desField = 'DesEco';
+    //   this._width = 520;
+    // }
 
     this.columnDefs = [
       {
@@ -118,7 +156,7 @@ export class ComparaIngComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = await this.avalaibleYearsService.getDataAllYearIng(this.tipoClasificacion, true);
+    this.rowData = await this.avalaibleYearsService.getDataAllYearIng(this.tipoClasificacion, false, this._sufijo);
   }
 
   // TODO: Las colummnas disparan su altura
