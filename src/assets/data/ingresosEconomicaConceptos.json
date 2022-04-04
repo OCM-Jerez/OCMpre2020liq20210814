@@ -272,8 +272,20 @@
     "descripcion": "Para el establecimiento o ampliación de servicios."
   },
   {
+    "codigo": 360,
+    "descripcion": "Ventas de libros. No existe en listado Hacienda."
+  },
+  {
+    "codigo": 364,
+    "descripcion": "Ventas por maquina expendedora. No existe en listado Hacienda."
+  },
+  {
     "codigo": 380,
     "descripcion": "Reintegro de avales."
+  },
+  {
+    "codigo": 388,
+    "descripcion": "Ejecución de aval incumplimiento contrato obras. No existe en listado Hacienda."
   },
   {
     "codigo": 389,
@@ -332,6 +344,10 @@
     "descripcion": "De sociedades mercantiles estatales, entidades públicas empresariales y otros organismos públicos."
   },
   {
+    "codigo": 441,
+    "descripcion": "De sociedades mercantiles."
+  },
+  {
     "codigo": 450,
     "descripcion": "De la Administración General de las Comunidades Autónomas."
   },
@@ -378,6 +394,14 @@
   {
     "codigo": 468,
     "descripcion": "De Entidades locales Menores."
+  },
+  {
+    "codigo": 470,
+    "descripcion": "De empresas privadas. No existe en listado Hacienda."
+  },
+  {
+    "codigo": 480,
+    "descripcion": "Transferencias a Instituciones sin animo de lucro. No existe en listado Hacienda."
   },
   {
     "codigo": 490,
@@ -452,6 +476,10 @@
     "descripcion": "De familias e instituciones sin ánimo de lucro."
   },
   {
+    "codigo": 520,
+    "descripcion": "Intereses de depósitos. No existe en listado Hacienda."
+  },
+  {
     "codigo": 531,
     "descripcion": "De Organismos Autónomos y agencias."
   },
@@ -508,6 +536,10 @@
     "descripcion": "Otras concesiones y aprovechamientos."
   },
   {
+    "codigo": 590,
+    "descripcion": "Patrocinio eventos de fiestas. No existe en listado Hacienda."
+  },
+  {
     "codigo": 591,
     "descripcion": "Beneficios por realización de inversiones financieras."
   },
@@ -538,6 +570,10 @@
   {
     "codigo": 609,
     "descripcion": "Otros terrenos."
+  },
+  {
+    "codigo": 610,
+    "descripcion": "De las demás inversiones reales. No existe en listado Hacienda."
   },
   {
     "codigo": 611,
@@ -626,6 +662,14 @@
   {
     "codigo": 768,
     "descripcion": "De Entidades locales Menores."
+  },
+  {
+    "codigo": 770,
+    "descripcion": "De empresas privadas. No existe en listado Hacienda."
+  },
+  {
+    "codigo": 780,
+    "descripcion": "De familias e instituciones sin fines de lucro. No existe en listado Hacienda."
   },
   {
     "codigo": 790,

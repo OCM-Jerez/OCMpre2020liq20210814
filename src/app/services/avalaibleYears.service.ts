@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
 
-
-
+import ingresosEconomicaArticulos from '../../assets/data/ingresosEconomicaArticulos.json';
+import ingresosEconomicaConceptos from '../../assets/data/ingresosEconomicaConceptos.json';
 
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
 import gastosProgramaPoliticas from '../../assets/data/gastosProgramaPoliticas.json';
@@ -107,6 +107,34 @@ export class AvalaibleYearsService {
         });
       });
     })
+
+    switch (cla) {
+      case 'ingresosEconomicaArticulos':
+        const byArticulo = [];
+        result.map(item => {
+          item.CodEco = Math.floor((item.CodEco / 1000));
+          byArticulo.push(item);
+        });
+
+        byArticulo.map(item => {
+          item.DesEco = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
+        });
+        break;
+      case 'ingresosEconomicaConceptos':
+        const byConcepto = [];
+        result.map(item => {
+
+          item.CodEco = Math.floor((item.CodEco / 100));
+          byConcepto.push(item);
+        });
+
+        byConcepto.map(item => {
+          // console.log(item);
+          item.DesEco = ingresosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodEco).descripcion;
+        });
+        break;
+    }
+
     return result;
   }
 
