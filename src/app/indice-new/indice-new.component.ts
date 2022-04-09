@@ -62,24 +62,40 @@ export class IndiceNewComponent implements OnInit {
   ingresosEconomicaCapitulos() {
     this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaCapitulos'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      URLSelect: "/GraficoCapituloIngreso"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaIng')
   }
 
   ingresosEconomicaArticulos() {
     this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaArticulos'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      URLSelect: "/ingresosEconomicaArticulos"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaIng')
   }
 
   ingresosEconomicaConceptos() {
     this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaConceptos'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      URLSelect: "/ingresosEconomicaConceptos"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaIng')
   }
 
   ingresosEconomicaEconomicos() {
     this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaEconomicos'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      URLSelect: "/GraficoEconomicoIngreso"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaIng')
   }
 

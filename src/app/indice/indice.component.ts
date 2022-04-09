@@ -258,6 +258,7 @@ export class IndiceComponent implements OnInit {
       optionSelect: "Selecciona articulo de ingreso",
       errorSelect: "Error debes seleccionar un articulo de ingreso",
       URLSelect: "/ingresosEconomicaArticulos"
+
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/SelectCodigo')

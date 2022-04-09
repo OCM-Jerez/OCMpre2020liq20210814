@@ -1,10 +1,12 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Location } from "@angular/common";
+// import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../../app/ag-grid/CellRendererOCM';
-import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
+// import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
 import { DataGraphService } from '../../../services/data-graph.service';
+import { PrepareDataIngresosService } from '../../../services/prepareDataIngresos.service';
 
 @Component({
   selector: 'app-graph-economico-ingreso',
@@ -28,9 +30,11 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
   public headerHeight = 25;
 
   constructor(
-    private avalaibleYearsService: AvalaibleYearsService,
+    // private avalaibleYearsService: AvalaibleYearsService,
     private dataGraphService: DataGraphService,
-    private router: Router,
+    // private router: Router,
+    private prepareDataIngresosService: PrepareDataIngresosService,
+    private location: Location,
   ) {
     this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
   }
@@ -123,7 +127,7 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
   }
 
   async createData(eco: string) {
-    this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Eco', true);
+    this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', true, 'Eco');
     const datos = this.getObjects(await this.rowData, 'CodEco', eco);
     // console.log("Datos: ", datos);
     // Convierto los valores para que sirvan de data al grafico
@@ -209,7 +213,8 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
   }
 
   volver() {
-    this.router.navigateByUrl('/SelectCodigo')
+    // this.router.navigateByUrl('/SelectCodigo')
+    this.location.back();
   }
 
 }

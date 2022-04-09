@@ -1,11 +1,12 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
 import { accumulate, initYears } from '../../../commons/util/util';
 import { DataGraphService } from '../../../services/data-graph.service';
 import { PrepareDataIngresosService } from '../../../services/prepareDataIngresos.service';
+import { Location } from "@angular/common";
 
 
 @Component({
@@ -32,9 +33,10 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   codigo = '';
 
   constructor(
-    private router: Router,
+    // private router: Router,
     private dataGraphService: DataGraphService,
     private prepareDataIngresosService: PrepareDataIngresosService,
+    private location: Location,
   ) {
     this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
     // this.text = router.getCurrentNavigation().extras.state.data.tipo;
@@ -156,7 +158,8 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   }
 
   volver() {
-    this.router.navigateByUrl('/SelectCodigo')
+    // this.router.navigateByUrl('/SelectCodigo')
+    this.location.back();
   }
 
 }

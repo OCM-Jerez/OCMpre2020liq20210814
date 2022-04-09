@@ -9,6 +9,9 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
+import { Logger } from 'ag-grid-community';
+import { Router } from '@angular/router';
+import { DataGraphService } from '../../services/data-graph.service';
 
 @Component({
   selector: 'app-compara-ing',
@@ -27,6 +30,7 @@ export class ComparaIngComponent {
   public headerHeight = 36;
   public CreditosWidth?: number = 130;
   public tipoClasificacion: string;
+  public rowSelection = 'single';
   private _headerName: string;
   private _subHeaderName: string;
   private _codField: string;
@@ -36,9 +40,11 @@ export class ComparaIngComponent {
   private _sufijo: string;
 
   constructor(
+    private router: Router,
     private prepareDataIngresosService: PrepareDataIngresosService,
     private tipoclasificacionService: TipoClasificacionService,
     private avalaibleYearsService: AvalaibleYearsService,
+    private dataGraphService: DataGraphService,
   ) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
     this.year = avalaibleYearsService.getAvalaibleYear();
@@ -91,6 +97,7 @@ export class ComparaIngComponent {
             rowGroup: true,
             showRowGroup: this._codField,
             columnGroupShow: 'open',
+            // checkboxSelection: true,
             cellRenderer: CellRendererOCMtext,
             valueGetter: params => {
               if (params.data) {
@@ -215,6 +222,32 @@ export class ComparaIngComponent {
         field: `DiferenciaPrevision${year}`,
       },
     ];
+  }
+
+  // https://www.ag-grid.Çcom/angular-data-grid/row-selection/
+  onSelectionChanged(event) {
+    // const selectedRows = this.gridApi.getSelectedRows();
+    // const selectedRows = this.gridApi.getSelectedRows()[0];
+    // const selectedRows = this.gridOptions.api.getSelectedRows();
+    // const selectedRows = this.agGrid.api.getSelectedNodes();
+    // console.log(selectedRows);
+    // (document.querySelector('#selectedRows') as any).innerHTML = selectedRows[0].key;
+    // this.dataGraphService.codigoSelect = selectedRows[0].key;
+
+    // this.router.navigateByUrl("/GraficoCapituloIngreso")
+
+    // (document.querySelector('#selectedRows') as any).innerHTML =
+    //   // selectedRows.length;
+    //   selectedRows.length === 1 ? selectedRows[0].this._desField : '';
+  }
+
+  showGraph() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    // (document.querySelector('#selectedRows') as any).innerHTML = selectedRows[0].key;
+    this.dataGraphService.codigoSelect = selectedRows[0].key;
+    // this.router.navigateByUrl("/GraficoCapituloIngreso")
+    this.router.navigateByUrl(this.dataGraphService.getURLSelect())
+
   }
 
 }

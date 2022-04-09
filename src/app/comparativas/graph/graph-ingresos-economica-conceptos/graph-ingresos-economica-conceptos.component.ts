@@ -1,12 +1,14 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Location } from "@angular/common";
+// import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
-import { IYears } from '../../../commons/interfaces/components.interface';
+// import { IYears } from '../../../commons/interfaces/components.interface';
 import { accumulate, initYears } from '../../../commons/util/util';
-import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
+// import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
 import { DataGraphService } from '../../../services/data-graph.service';
+import { PrepareDataIngresosService } from '../../../services/prepareDataIngresos.service';
 
 @Component({
   selector: 'app-graph-ingresos-economica-conceptos',
@@ -32,9 +34,11 @@ export class GraphIngresosEconomicaConceptosComponent implements AfterViewInit {
   codigo = '';
 
   constructor(
-    private avalaibleYearsService: AvalaibleYearsService,
+    // private avalaibleYearsService: AvalaibleYearsService,
     private dataGraphService: DataGraphService,
-    private router: Router,
+    // private router: Router,
+    private prepareDataIngresosService: PrepareDataIngresosService,
+    private location: Location,
   ) {
     this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
     // this.text = router.getCurrentNavigation().extras.state.data.tipo;
@@ -131,7 +135,7 @@ export class GraphIngresosEconomicaConceptosComponent implements AfterViewInit {
   }
 
   async createData(eco: string) {
-    this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Eco', true);
+    this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', true, 'Eco');
     const datos = this.rowData.filter(x => Math.round(x.CodEco / 100) === parseInt(eco, 10));
 
     const yearsDefinitivas = accumulate('Definitivas', datos);
@@ -157,7 +161,8 @@ export class GraphIngresosEconomicaConceptosComponent implements AfterViewInit {
   }
 
   volver() {
-    this.router.navigateByUrl('/SelectCodigo')
+    this.location.back();
+    // this.router.navigateByUrl('/SelectCodigo')
   }
 
 }
