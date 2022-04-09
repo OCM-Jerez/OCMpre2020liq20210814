@@ -23,7 +23,7 @@ export class AvalaibleYearsService {
   private year = '2021'
   private dataIngreso: IDataIngreso = <IDataIngreso>{};
   private dataGasto: IDataGasto = <IDataGasto>{};
-  private yearsSelected: number[] = [];
+  public yearsSelected: number[] = [];
   public setAvalaibleYear(yearSelected: number[]): void {
     this.yearsSelected = yearSelected;
     // const minor = Math.min(...yearSelected);

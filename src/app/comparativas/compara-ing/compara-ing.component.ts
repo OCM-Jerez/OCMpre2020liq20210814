@@ -1,16 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
+import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
+import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
-
-// import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
-import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
-
-// import { AVALAIBLE_YEARS } from '../../../assets/data/avalaible-years-data'
-import { Observable } from 'rxjs';
-import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
 @Component({
   selector: 'app-compara-ing',
@@ -38,13 +36,12 @@ export class ComparaIngComponent {
   private _sufijo: string;
 
   constructor(
-    // private avalaibleYearsService: AvalaibleYearsService,
     private prepareDataIngresosService: PrepareDataIngresosService,
-    private tipoclasificacionService: TipoClasificacionService
+    private tipoclasificacionService: TipoClasificacionService,
+    private avalaibleYearsService: AvalaibleYearsService,
   ) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
-    // this.year = avalaibleYearsService.getAvalaibleYear();
-    this.year = prepareDataIngresosService.getAvalaibleYear();
+    this.year = avalaibleYearsService.getAvalaibleYear();
 
     switch (this.tipoClasificacion) {
       case 'ingresosEconomicaCapitulos':
@@ -81,21 +78,6 @@ export class ComparaIngComponent {
         break;
     }
 
-
-    // if (this.tipoClasificacion === 'Cap') {
-    //   this._headerName = 'Clasificado por capítulo';
-    //   this._subHeaderName = 'Capítulo';
-    //   this._codField = 'CodCap';
-    //   this._desField = 'DesCap';
-    //   this._width = 250;
-    // } else {
-    //   this._headerName = 'Clasificado por económico';
-    //   this._subHeaderName = 'Económico';
-    //   this._codField = 'CodEco';
-    //   this._desField = 'DesEco';
-    //   this._width = 520;
-    // }
-
     this.columnDefs = [
       {
         headerName: this._headerName,
@@ -121,9 +103,7 @@ export class ComparaIngComponent {
         ]
       },
 
-      // ...avalaibleYearsService.getYearsSelected().map(year => {
-      ...prepareDataIngresosService.getYearsSelected().map(year => {
-
+      ...avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
           children: this.createColumnsChildren(year),
@@ -161,9 +141,7 @@ export class ComparaIngComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    // this.rowData = await this.avalaibleYearsService.getDataAllYearIng(this.tipoClasificacion, false, this._sufijo);
     this.rowData = await this.prepareDataIngresosService.getDataAllYear(this.tipoClasificacion, false, this._sufijo);
-
   }
 
   // TODO: Las colummnas disparan su altura

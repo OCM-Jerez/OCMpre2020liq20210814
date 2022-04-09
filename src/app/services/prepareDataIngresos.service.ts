@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 import ingresosEconomicaArticulos from '../../assets/data/ingresosEconomicaArticulos.json';
 import ingresosEconomicaConceptos from '../../assets/data/ingresosEconomicaConceptos.json';
@@ -8,45 +7,22 @@ import { IDataIngreso } from '../commons/interfaces/dataIngreso.interface';
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
 import { asynForEach } from '../commons/util/util';
 
+import { AvalaibleYearsService } from '../services/avalaibleYears.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class PrepareDataIngresosService {
-  public subject$ = new BehaviorSubject<string>('2021');
-  private year = '2021'
   private dataIngreso: IDataIngreso = <IDataIngreso>{};
-  private yearsSelected: number[] = [];
 
-  public setAvalaibleYear(yearSelected: number[]): void {
-    this.yearsSelected = yearSelected;
-    const message = yearSelected.join(',');
-    this.subject$.next(message);
-  }
-
-  public getAvalaibleYear() {
-    return this.subject$.asObservable();
-  }
-
-  getYearsSelected(): number[] {
-    return this.yearsSelected;
-  }
-
-  // Seleciona datos del año seleccionado en los radioButtons
-  async getDataJson() {
-    const data = await import(`../../assets/data/${this.year}LiqIng.json`);
-    return data.default;
-  }
-
-  // Seleciona datos del año que se pasa como parametro
-  async getYearDataJson(year: number) {
-    const data = await import(`../../assets/data/${year}LiqIng.json`);
-    return data.default;
-  }
+  constructor(
+    private avalaibleYearsService: AvalaibleYearsService,
+  ) { }
 
   // Itera por cada uno de los años disponibles para ingresos
   async getDataAllYear(cla: string, isGraph?: boolean, sufijo?: string): Promise<any[]> {
     let rowData = [];
-    const years = isGraph ? AVALAIBLE_YEARS : this.yearsSelected;
+    const years = isGraph ? AVALAIBLE_YEARS : this.avalaibleYearsService.getYearsSelected();
 
     await asynForEach(years, async (year: number) => {
       const dataIng = await this.getDataYear(year, cla, sufijo);
@@ -122,4 +98,11 @@ export class PrepareDataIngresosService {
     return result;
   }
 
+  // Seleciona datos del año que se pasa como parametro
+  async getYearDataJson(year: number) {
+    const data = await import(`../../assets/data/${year}LiqIng.json`);
+    return data.default;
+  }
+
 }
+
