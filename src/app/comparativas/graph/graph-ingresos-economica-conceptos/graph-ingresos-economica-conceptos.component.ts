@@ -1,12 +1,12 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Location } from "@angular/common";
-// import { Router } from '@angular/router';
+
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
-// import { IYears } from '../../../commons/interfaces/components.interface';
-import { accumulate, initYears } from '../../../commons/util/util';
-// import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
+
+import { accumulate } from '../../../commons/util/util';
+
 import { DataGraphService } from '../../../services/data-graph.service';
 import { PrepareDataIngresosService } from '../../../services/prepareDataIngresos.service';
 
@@ -19,6 +19,7 @@ export class GraphIngresosEconomicaConceptosComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
+
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
   public gridColumnApi;
@@ -30,19 +31,14 @@ export class GraphIngresosEconomicaConceptosComponent implements AfterViewInit {
   public groupHeaderHeight = 25;
   public headerHeight = 25;
 
-  text = '';
-  codigo = '';
-
   constructor(
-    // private avalaibleYearsService: AvalaibleYearsService,
     private dataGraphService: DataGraphService,
-    // private router: Router,
     private prepareDataIngresosService: PrepareDataIngresosService,
     private location: Location,
   ) {
     this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
-    // this.text = router.getCurrentNavigation().extras.state.data.tipo;
-    // this.codigo = router.getCurrentNavigation().extras.state.data.codigo;
+
+
   }
 
   ngAfterViewInit(): void {
@@ -52,11 +48,10 @@ export class GraphIngresosEconomicaConceptosComponent implements AfterViewInit {
         // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
-          // text: `${this.text} ${this.codigo}`,
+          text: `${this.dataGraphService.getTitleSelect()}`,
         },
         subtitle: {
-          text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
+          text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
         },
         data: [...this.data],
         series: [
@@ -162,7 +157,6 @@ export class GraphIngresosEconomicaConceptosComponent implements AfterViewInit {
 
   volver() {
     this.location.back();
-    // this.router.navigateByUrl('/SelectCodigo')
   }
 
 }

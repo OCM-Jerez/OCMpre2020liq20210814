@@ -8,10 +8,8 @@
                 <span class="OCM-no-bullets" *ngFor="let item of list">
                     <input style="width: 4rem; height: 4rem;margin-right: 20px;" type="checkbox"
                         [(ngModel)]="item.checked" (change)="changeCheckbox($event)">{{ item.year }}
-                    <!-- <input type="checkbox" [(ngModel)]="item.checked">{{ item.year }} -->
                 </span>
             </div>
-            <!-- <pre>{{this.result | json}}</pre> -->
         </section>
     </div>
 
@@ -23,9 +21,6 @@
             <div (click)="ingresosEconomicaCapitulos()" class="OCM-card">
                 <span class="OCM-card__title">Por capítulos</span>
             </div>
-            <!-- <div (click)="graphIngresosEconomicaCapitulos()" class="OCM-card">
-                <span class="OCM-card__title">Grafico por capítulo</span>
-            </div> -->
         </div>
         <div class="articulo">
             <div (click)="ingresosEconomicaArticulos()" class="OCM-card">

@@ -63,6 +63,7 @@ export class IndiceNewComponent implements OnInit {
     this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaCapitulos'
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
+      titleSelect: "Gráfico capítulo de ingresos",
       URLSelect: "/GraficoCapituloIngreso"
     };
     this.dataGraphService.sendData = this.sendData;
@@ -73,7 +74,7 @@ export class IndiceNewComponent implements OnInit {
     this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaArticulos'
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
-      titleSelect: "Gráfico articulo de ingreso",
+      titleSelect: "Gráfico articulo de ingresos",
       URLSelect: "/ingresosEconomicaArticulos"
     };
     this.dataGraphService.sendData = this.sendData;
@@ -84,6 +85,7 @@ export class IndiceNewComponent implements OnInit {
     this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaConceptos'
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
+      titleSelect: "Gráfico concepto de ingresos",
       URLSelect: "/ingresosEconomicaConceptos"
     };
     this.dataGraphService.sendData = this.sendData;
@@ -94,12 +96,12 @@ export class IndiceNewComponent implements OnInit {
     this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaEconomicos'
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
+      titleSelect: "Gráfico económico de ingresos",
       URLSelect: "/GraficoEconomicoIngreso"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaIng')
   }
-
 
   gastosOrganicaOrganicos() {
     this.tipoclasificacionService.tipoClasificacion = 'gastosOrganicaOrganicos'
@@ -174,20 +176,6 @@ export class IndiceNewComponent implements OnInit {
   changeCheckbox(event: Event) {
     this.getSelectedItem();
     // console.log(event.target);
-  }
-
-  graphIngresosEconomicaCapitulos() {
-    this.sendData = <IDataGraph>{
-      data: "ingresosEconomicaCapitulos",
-      titleSelect: "Selección capítulo de ingreso",
-      optionSelect: "Selecciona capítulo de ingreso",
-      errorSelect: "Error debes seleccionar un capítulo de ingreso",
-      URLSelect: "/GraficoCapituloIngreso"
-    };
-    this.dataGraphService.sendData = this.sendData;
-    const years = this.result.map((year) => year.year);
-    this.avalaibleYearsService.setAvalaibleYear(years);
-    this.router.navigateByUrl('/SelectCodigo')
   }
 
 }

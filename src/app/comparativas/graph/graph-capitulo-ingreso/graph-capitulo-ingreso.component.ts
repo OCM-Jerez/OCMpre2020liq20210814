@@ -1,13 +1,14 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-// import { Router } from '@angular/router';
+import { Location } from "@angular/common";
+
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
-import { accumulate, initYears } from '../../../commons/util/util';
+
+import { accumulate } from '../../../commons/util/util';
+
 import { DataGraphService } from '../../../services/data-graph.service';
 import { PrepareDataIngresosService } from '../../../services/prepareDataIngresos.service';
-import { Location } from "@angular/common";
-
 
 @Component({
   selector: 'app-graph-capitulo-ingreso',
@@ -18,6 +19,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
+
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
   public gridColumnApi;
@@ -29,14 +31,10 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   public groupHeaderHeight = 25;
   public headerHeight = 25;
 
-  text = '';
-  codigo = '';
-
   constructor(
-    // private router: Router,
+    private location: Location,
     private dataGraphService: DataGraphService,
     private prepareDataIngresosService: PrepareDataIngresosService,
-    private location: Location,
   ) {
     this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
     // this.text = router.getCurrentNavigation().extras.state.data.tipo;
@@ -50,11 +48,11 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
         // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
-          // text: `${this.text} ${this.codigo}`,
+          text: `${this.dataGraphService.getTitleSelect()}`,
         },
         subtitle: {
-          text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
+          text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
+          // text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
         },
         data: [...this.data],
         series: [
@@ -158,10 +156,7 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   }
 
   volver() {
-    // this.router.navigateByUrl('/SelectCodigo')
     this.location.back();
   }
 
 }
-
-
