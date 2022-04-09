@@ -11,7 +11,7 @@ import { SelectCodigoComponent } from './comparativas/graph/select-codigo/select
 import { GraphGrupoProgramasComponent } from './comparativas/graph/graph-grupo-programas/graph-grupo-programas.component';
 import { GraphPoliticasProgramasComponent } from './comparativas/graph/graph-politicas-programas/graph-politicas-programas.component';
 import { GraphAreasGastosComponent } from './comparativas/graph/graph-areas-gastos/graph-areas-gastos.component';
-import { IndiceNewComponent } from './indice-new/indice-new.component';
+import { IndiceComponent } from './indice/indice.component';
 
 import { GraphGastosEconomicaArticulosComponent } from './comparativas/graph/graph-gastos-economica-articulos/graph-gastos-economica-articulos.component';
 import { GraphGastosEconomicaConceptosComponent } from './comparativas/graph/graph-gastos-economica-conceptos/graph-gastos-economica-conceptos.component';
@@ -20,7 +20,7 @@ import { GraphIngresosComponent } from './graphs/graph-ingresos/graph-ingresos.c
 
 const routes: Routes = [
   // { path: 'home', component: IndiceComponent },
-  { path: 'home', component: IndiceNewComponent },
+  { path: 'home', component: IndiceComponent },
 
   { path: 'ComparaIng', component: ComparaIngComponent },
   { path: 'ComparaGas', component: ComparaGasComponent },

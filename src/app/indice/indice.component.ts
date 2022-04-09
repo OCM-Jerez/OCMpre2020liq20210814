@@ -9,10 +9,10 @@ import { DataGraphService } from '../services/data-graph.service';
 
 @Component({
   selector: 'app-indice-new',
-  templateUrl: './indice-new.component.html',
-  styleUrls: ['./indice-new.component.scss']
+  templateUrl: './indice.component.html',
+  styleUrls: ['./indice.component.scss']
 })
-export class IndiceNewComponent implements OnInit {
+export class IndiceComponent implements OnInit {
   private sendData: IDataGraph = <IDataGraph>{};
   list: any[] = [];
 
