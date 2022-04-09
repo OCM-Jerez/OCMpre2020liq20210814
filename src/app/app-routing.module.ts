@@ -23,6 +23,7 @@ import { GraphGastosEconomicaConceptosComponent } from './comparativas/graph/gra
 
 import { GraphIngresosEconomicaArticulosComponent } from './comparativas/graph/graph-ingresos-economica-articulos/graph-ingresos-economica-articulos.component';
 import { GraphIngresosEconomicaConceptosComponent } from './comparativas/graph/graph-ingresos-economica-conceptos/graph-ingresos-economica-conceptos.component';
+import { GraphIngresosComponent } from './graphs/graph-ingresos/graph-ingresos.component';
 
 const routes: Routes = [
   // { path: 'home', component: IndiceComponent },
@@ -34,6 +35,10 @@ const routes: Routes = [
   { path: 'ComparaGas', component: ComparaGasComponent },
 
   { path: 'SelectCodigo', component: SelectCodigoComponent },
+
+  { path: 'graphIngresos', component: GraphIngresosComponent },
+
+
 
   { path: 'GraficoCapituloIngreso', component: GraphCapituloIngresoComponent },
   { path: 'GraficoEconomicoIngreso', component: GraphEconomicoIngresoComponent },

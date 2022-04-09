@@ -24,8 +24,7 @@ export class DataGraphService {
   // URLSelect = "";
 
   getData(): string {
-    return this.sendData.
-      data;
+    return this.sendData.data;
   }
 
   getTitleSelect(): string {
