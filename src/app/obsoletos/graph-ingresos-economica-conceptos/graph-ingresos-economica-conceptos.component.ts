@@ -3,19 +3,19 @@ import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
-import { CellRendererOCM } from '../../../../app/ag-grid/CellRendererOCM';
+import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
-import { accumulate } from '../../../commons/util/util';
+import { accumulate } from '../../commons/util/util';
 
-import { DataGraphService } from '../../../services/data-graph.service';
-import { PrepareDataIngresosService } from '../../../services/prepareDataIngresos.service';
+import { DataGraphService } from '../../services/data-graph.service';
+import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
 @Component({
-  selector: 'app-graph-economico-ingreso',
-  templateUrl: './graph-economico-ingreso.component.html',
-  styleUrls: ['./graph-economico-ingreso.component.scss']
+  selector: 'app-graph-ingresos-economica-conceptos',
+  templateUrl: './graph-ingresos-economica-conceptos.component.html',
+  styleUrls: ['./graph-ingresos-economica-conceptos.component.scss']
 })
-export class GraphEconomicoIngresoComponent implements AfterViewInit {
+export class GraphIngresosEconomicaConceptosComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
@@ -53,7 +53,7 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
         subtitle: {
           text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
         },
-        data: this.data,
+        data: [...this.data],
         series: [
           {
             xKey: 'year',
@@ -131,8 +131,7 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
 
   async createData(eco: string) {
     this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', true, 'Eco');
-    const datos = this.rowData.filter(x => x.CodEco == eco);
-
+    const datos = this.rowData.filter(x => Math.round(x.CodEco / 100) === parseInt(eco, 10));
     const yearsDefinitivas = accumulate('Definitivas', datos);
     const yearsIniciales = accumulate('Iniciales', datos);
     const yearsNetas = accumulate('RecaudacionNeta', datos);
@@ -160,3 +159,7 @@ export class GraphEconomicoIngresoComponent implements AfterViewInit {
   }
 
 }
+
+
+
+
