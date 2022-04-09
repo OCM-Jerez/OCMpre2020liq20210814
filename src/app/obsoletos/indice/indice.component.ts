@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AvalaibleYearsService } from '../services/avalaibleYears.service';
-import { TipoClasificacionService } from '../services/tipoClasificacion.service';
+import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
+import { TipoClasificacionService } from '../../services/tipoClasificacion.service';
 
 // import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data'
-import { DataGraphService } from '../services/data-graph.service';
-import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
+import { DataGraphService } from '../../services/data-graph.service';
+import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-indice',
