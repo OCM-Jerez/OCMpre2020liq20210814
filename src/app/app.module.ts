@@ -28,7 +28,7 @@ import { GraphEconomicoGastoComponent } from './comparativas/graph/graph-economi
 import { GraphProgramaComponent } from './comparativas/graph/graph-programa/graph-programa.component';
 import { GraphCapituloGastoComponent } from './comparativas/graph/graph-capitulo-gasto/graph-capitulo-gasto.component';
 import { GraphOrganicoGastoComponent } from './comparativas/graph/graph-organico-gasto/graph-organico-gasto.component';
-import { GraphCapituloIngresoComponent } from './comparativas/graph/graph-capitulo-ingreso/graph-capitulo-ingreso.component';
+// import { GraphCapituloIngresoComponent } from './comparativas/graph/graph-capitulo-ingreso/graph-capitulo-ingreso.component';
 import { GraphEconomicoIngresoComponent } from './comparativas/graph/graph-economico-ingreso/graph-economico-ingreso.component';
 import { SelectCodigoComponent } from './comparativas/graph/select-codigo/select-codigo.component';
 import { GraphGrupoProgramasComponent } from './comparativas/graph/graph-grupo-programas/graph-grupo-programas.component';
@@ -56,7 +56,7 @@ import { GraphIngresosComponent } from './graphs/graph-ingresos/graph-ingresos.c
     GraphProgramaComponent,
     GraphCapituloGastoComponent,
     GraphOrganicoGastoComponent,
-    GraphCapituloIngresoComponent,
+    // GraphCapituloIngresoComponent,
     GraphEconomicoIngresoComponent,
     SelectCodigoComponent,
     GraphGrupoProgramasComponent,

@@ -3,12 +3,12 @@ import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
-import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
+import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
-import { accumulate } from '../../../commons/util/util';
+import { accumulate } from '../../commons/util/util';
 
-import { DataGraphService } from '../../../services/data-graph.service';
-import { PrepareDataIngresosService } from '../../../services/prepareDataIngresos.service';
+import { DataGraphService } from '../../services/data-graph.service';
+import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
 @Component({
   selector: 'app-graph-capitulo-ingreso',
