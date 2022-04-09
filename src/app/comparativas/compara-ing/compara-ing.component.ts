@@ -1,17 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-
-import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
-import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
-import { Logger } from 'ag-grid-community';
-import { Router } from '@angular/router';
+
 import { DataGraphService } from '../../services/data-graph.service';
+import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
+import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
+import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
 @Component({
   selector: 'app-compara-ing',
@@ -224,30 +223,10 @@ export class ComparaIngComponent {
     ];
   }
 
-  // https://www.ag-grid.Çcom/angular-data-grid/row-selection/
-  onSelectionChanged(event) {
-    // const selectedRows = this.gridApi.getSelectedRows();
-    // const selectedRows = this.gridApi.getSelectedRows()[0];
-    // const selectedRows = this.gridOptions.api.getSelectedRows();
-    // const selectedRows = this.agGrid.api.getSelectedNodes();
-    // console.log(selectedRows);
-    // (document.querySelector('#selectedRows') as any).innerHTML = selectedRows[0].key;
-    // this.dataGraphService.codigoSelect = selectedRows[0].key;
-
-    // this.router.navigateByUrl("/GraficoCapituloIngreso")
-
-    // (document.querySelector('#selectedRows') as any).innerHTML =
-    //   // selectedRows.length;
-    //   selectedRows.length === 1 ? selectedRows[0].this._desField : '';
-  }
-
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    // (document.querySelector('#selectedRows') as any).innerHTML = selectedRows[0].key;
     this.dataGraphService.codigoSelect = selectedRows[0].key;
-    // this.router.navigateByUrl("/GraficoCapituloIngreso")
     this.router.navigateByUrl(this.dataGraphService.getURLSelect())
-
   }
 
 }

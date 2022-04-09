@@ -9,7 +9,6 @@
         rowSelection="multiple" [groupSuppressAutoColumn]="true" [groupIncludeFooter]="true"
         [groupIncludeTotalFooter]="true" [groupHeaderHeight]="groupHeaderHeight" [headerHeight]="headerHeight"
         [localeText]="localeText" [suppressAggFuncInHeader]="true" (gridReady)="onGridReady($event)"
-        [rowSelection]="rowSelection" (selectionChanged)="onSelectionChanged($event)"
-        (firstDataRendered)="headerHeightSetter()" (columnResized)="headerHeightSetter()">
+        [rowSelection]="rowSelection" (firstDataRendered)="headerHeightSetter()" (columnResized)="headerHeightSetter()">
     </ag-grid-angular>
 </div>

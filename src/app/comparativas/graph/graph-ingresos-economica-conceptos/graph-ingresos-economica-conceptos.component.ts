@@ -132,7 +132,6 @@ export class GraphIngresosEconomicaConceptosComponent implements AfterViewInit {
   async createData(eco: string) {
     this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', true, 'Eco');
     const datos = this.rowData.filter(x => Math.round(x.CodEco / 100) === parseInt(eco, 10));
-
     const yearsDefinitivas = accumulate('Definitivas', datos);
     const yearsIniciales = accumulate('Iniciales', datos);
     const yearsNetas = accumulate('RecaudacionNeta', datos);

@@ -52,7 +52,6 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
         },
         subtitle: {
           text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
-          // text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
         },
         data: [...this.data],
         series: [
