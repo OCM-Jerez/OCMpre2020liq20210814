@@ -1,7 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { AgGridAngular } from 'ag-grid-angular';
+// import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
 import { GridOptions } from 'ag-grid-community/main';
+// import { } from 'ag-grid-enterprise';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
@@ -27,6 +29,7 @@ export class ComparaGasComponent {
   public headerHeight = 54;
   public CreditosWidth?: number = 110;
   public tipoClasificacion: string;
+  public rowSelection = 'single';
   private _headerName: string;
   private _subHeaderName: string;
   private _codField: string;
@@ -248,6 +251,28 @@ export class ComparaGasComponent {
         // hide: true,
       },
     ];
+  }
+
+  onSelectionChanged(event: any) {
+    const selectedRows = this.gridApi.getSelectedRows();
+    // const selectedRows = this.gridApi.getSelectedRows()[0];
+    // const selectedRows = this.gridOptions.api.getSelectedRows();
+    (document.querySelector('#selectedRows') as any).innerHTML =
+      console.log(selectedRows);
+
+    // selectedRows.length;
+    selectedRows.length === 0 ? selectedRows[0].this._desField : '';
+  }
+
+  // onSelectionChanged() {
+  //   let selectedNodes = this.gridApi.getSelectedNodes();
+  //   let selectedData = selectedNodes.map(node => node.data);
+  //   alert(`Selected Nodes:\n${JSON.stringify(selectedData)}`);
+  //   return selectedData;
+  // }
+
+  showGraph() {
+    console.log('showGraph');
   }
 
 }
