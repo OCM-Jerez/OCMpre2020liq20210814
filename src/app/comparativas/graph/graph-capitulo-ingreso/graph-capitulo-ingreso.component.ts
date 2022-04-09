@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../../ag-grid/CellRendererOCM';
-import { IYears } from '../../../commons/interfaces/components.interface';
 import { accumulate, initYears } from '../../../commons/util/util';
-import { AvalaibleYearsService } from '../../../services/avalaibleYears.service';
 import { DataGraphService } from '../../../services/data-graph.service';
+import { PrepareDataIngresosService } from '../../../services/prepareDataIngresos.service';
+
 
 @Component({
   selector: 'app-graph-capitulo-ingreso',
@@ -32,9 +32,9 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   codigo = '';
 
   constructor(
-    private avalaibleYearsService: AvalaibleYearsService,
-    private dataGraphService: DataGraphService,
     private router: Router,
+    private dataGraphService: DataGraphService,
+    private prepareDataIngresosService: PrepareDataIngresosService,
   ) {
     this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
     // this.text = router.getCurrentNavigation().extras.state.data.tipo;
@@ -131,9 +131,8 @@ export class GraphCapituloIngresoComponent implements AfterViewInit {
   }
 
   async createData(cap: string) {
-    this.rowData = await this.avalaibleYearsService.getDataAllYearIng('Cap', true);
+    this.rowData = await this.prepareDataIngresosService.getDataAllYear('Cap', true, 'Cap');
     const datos = this.rowData.filter(x => x.CodCap == cap);
-
     const yearsDefinitivas = accumulate('Definitivas', datos);
     const yearsIniciales = accumulate('Iniciales', datos);
     const yearsNetas = accumulate('RecaudacionNeta', datos);
