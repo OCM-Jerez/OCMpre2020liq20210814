@@ -15,8 +15,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
-// import { IngresosComponent } from './obsoletos/ingresos/ingresos.component';
-import { GastosComponent } from './gastos/gastos.component';
 import { ComparaIngComponent } from './comparativas/compara-ing/compara-ing.component';
 import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.component';
 
@@ -40,9 +38,7 @@ import { GraphIngresosComponent } from './graphs/graph-ingresos/graph-ingresos.c
   declarations: [
     AppComponent,
     FooterComponent,
-    GastosComponent,
     NavbarComponent,
-    // IngresosComponent,
     HeaderAgGridComponent,
     ComparaIngComponent,
     ComparaGasComponent,

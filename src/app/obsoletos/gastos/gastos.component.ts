@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
-import { AvalaibleYearsService } from '../services/avalaibleYears.service';
+import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 import { SCREEN_SIZE } from 'src/app/enums/screen-size.enum';
-import { GetScreenSizeService } from '../services/get-screen-size.service';
+import { GetScreenSizeService } from '../../services/get-screen-size.service';
 
-import localeTextESPes from '../../assets/data/localeTextESPes.json';
-import { CellRendererOCM } from '../ag-grid/CellRendererOCM';
+import localeTextESPes from '../../../assets/data/localeTextESPes.json';
+import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 import { HeaderAgGridComponent } from 'src/app/ag-grid/header-ag-grid/header-ag-grid.component';
 
 @Component({
