@@ -52,11 +52,12 @@ export class GraphIngresosEconomicaArticulosComponent implements AfterViewInit {
         // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
+          text: `${this.dataGraphService.getTitleSelect()}`,
           // text: `${this.text} ${this.codigo}`,
         },
         subtitle: {
-          text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
+          text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
+          // text: 'Los valores de recaudación neta del año 2022 se igualan a los del 2021, hasta tener los datos definitivos.'
         },
         data: [...this.data],
         series: [
@@ -135,7 +136,7 @@ export class GraphIngresosEconomicaArticulosComponent implements AfterViewInit {
   }
 
   async createData(eco: string) {
-    this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', true, 'Eco');
+    this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', false, 'Eco');
     const datos = this.rowData.filter(x => Math.round(x.CodEco / 1000) === parseInt(eco, 10));
 
     const yearsDefinitivas = accumulate('Definitivas', datos);

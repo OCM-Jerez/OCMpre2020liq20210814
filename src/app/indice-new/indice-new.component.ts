@@ -73,6 +73,7 @@ export class IndiceNewComponent implements OnInit {
     this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaArticulos'
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
+      titleSelect: "Gráfico articulo de ingreso",
       URLSelect: "/ingresosEconomicaArticulos"
     };
     this.dataGraphService.sendData = this.sendData;
