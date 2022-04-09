@@ -3,13 +3,14 @@ import { Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
-import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
+// import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 
-import { AVALAIBLE_YEARS } from '../../../assets/data/avalaible-years-data'
+// import { AVALAIBLE_YEARS } from '../../../assets/data/avalaible-years-data'
 import { Observable } from 'rxjs';
+import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 
 @Component({
   selector: 'app-compara-ing',
@@ -36,12 +37,14 @@ export class ComparaIngComponent {
   public year: Observable<string>;
   private _sufijo: string;
 
-  constructor(private avalaibleYearsService: AvalaibleYearsService,
-    private tipoclasificacionService: TipoClasificacionService) {
+  constructor(
+    // private avalaibleYearsService: AvalaibleYearsService,
+    private prepareDataIngresosService: PrepareDataIngresosService,
+    private tipoclasificacionService: TipoClasificacionService
+  ) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
-
-    this.year = avalaibleYearsService.getAvalaibleYear();
-
+    // this.year = avalaibleYearsService.getAvalaibleYear();
+    this.year = prepareDataIngresosService.getAvalaibleYear();
 
     switch (this.tipoClasificacion) {
       case 'ingresosEconomicaCapitulos':
@@ -118,7 +121,9 @@ export class ComparaIngComponent {
         ]
       },
 
-      ...avalaibleYearsService.getYearsSelected().map(year => {
+      // ...avalaibleYearsService.getYearsSelected().map(year => {
+      ...prepareDataIngresosService.getYearsSelected().map(year => {
+
         return {
           headerName: year,
           children: this.createColumnsChildren(year),
@@ -156,7 +161,9 @@ export class ComparaIngComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = await this.avalaibleYearsService.getDataAllYearIng(this.tipoClasificacion, false, this._sufijo);
+    // this.rowData = await this.avalaibleYearsService.getDataAllYearIng(this.tipoClasificacion, false, this._sufijo);
+    this.rowData = await this.prepareDataIngresosService.getDataAllYear(this.tipoClasificacion, false, this._sufijo);
+
   }
 
   // TODO: Las colummnas disparan su altura

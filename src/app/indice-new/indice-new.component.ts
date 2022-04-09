@@ -4,9 +4,8 @@ import { Router } from '@angular/router';
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
 
-// import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data'
-import { DataGraphService } from '../services/data-graph.service';
 import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
+import { PrepareDataIngresosService } from '../services/prepareDataIngresos.service';
 
 @Component({
   selector: 'app-indice-new',
@@ -14,26 +13,17 @@ import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
   styleUrls: ['./indice-new.component.scss']
 })
 export class IndiceNewComponent implements OnInit {
-
-  // private radioSel!: any;
   private sendData: IDataGraph = <IDataGraph>{};
-
-  radioSelected?: string;
-  // yearsList: any[];
   list: any[] = [];
 
   constructor(
     private router: Router,
     private tipoclasificacionService: TipoClasificacionService,
     private avalaibleYearsService: AvalaibleYearsService,
-    private dataGraphService: DataGraphService
-  ) {
-    // this.yearsList = AVALAIBLE_YEARS;
-    // this.radioSelected = "2021";
-  }
+    private prepareDataIngresosService: PrepareDataIngresosService,
+  ) { }
 
   ngOnInit() {
-    this.radioSelected = this.avalaibleYearsService.getCurrentYear();
     this.list = [
       {
         year: 2015,
@@ -71,7 +61,7 @@ export class IndiceNewComponent implements OnInit {
 
   ingresosEconomicaCapitulos() {
     this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaCapitulos'
-    this.getSelectedItem();
+    this.getSelectedItem('ingresos');
     this.router.navigateByUrl('/ComparaIng')
   }
 
@@ -148,9 +138,13 @@ export class IndiceNewComponent implements OnInit {
     this.router.navigateByUrl('/ComparaGas')
   }
 
-  private getSelectedItem() {
+  private getSelectedItem(tipo?: string) {
     const years = this.result.map((year) => year.year);
-    this.avalaibleYearsService.setAvalaibleYear(years);
+    if (tipo === 'ingresos') {
+      this.prepareDataIngresosService.setAvalaibleYear(years);
+    } else {
+      this.avalaibleYearsService.setAvalaibleYear(years);
+    }
   }
 
   onItemChange() {

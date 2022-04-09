@@ -11,3 +11,9 @@ export const accumulate = (identity: string, datos: any[], years = initYears()):
     })
     return years;
 }
+
+export async function asynForEach(array: Array<number>, callback: Function) {
+    for (let index = 0; index < array.length; index++) {
+        await callback(array[index], index, array);
+    }
+}
