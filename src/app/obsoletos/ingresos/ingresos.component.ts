@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
-import { AvalaibleYearsService } from '../services/avalaibleYears.service';
-import { GetScreenSizeService } from '../services/get-screen-size.service';
+import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
+import { GetScreenSizeService } from '../../services/get-screen-size.service';
 
 import localeTextESPes from '@presu/json/localeTextESPes.json';
 import { SCREEN_SIZE } from 'src/app/enums/screen-size.enum';
-import { CellRendererOCM } from '../ag-grid/CellRendererOCM';
+import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 @Component({
   selector: 'app-ingresos',
