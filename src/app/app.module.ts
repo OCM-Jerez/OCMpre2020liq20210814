@@ -17,8 +17,8 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 
 import { IndiceComponent } from './indice/indice.component';
-import { ComparaIngComponent } from './comparativas/compara-ing/compara-ing.component';
-import { ComparaGasComponent } from './comparativas/compara-gas/compara-gas.component';
+import { TableIngresosComponent } from './tables/table-ingresos/table-ingresos.component';
+import { TableGastosComponent } from './tables/table-gastos/table-gastos.component';
 import { GraphIngresosComponent } from './graphs/graph-ingresos/graph-ingresos.component';
 import { GraphGastosComponent } from './graphs/graph-gastos/graph-gastos.component';
 
@@ -32,8 +32,8 @@ import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.c
     NavbarComponent,
     HeaderAgGridComponent,
     IndiceComponent,
-    ComparaIngComponent,
-    ComparaGasComponent,
+    TableIngresosComponent,
+    TableGastosComponent,
     GraphIngresosComponent,
     GraphGastosComponent,
   ],

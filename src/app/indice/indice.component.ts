@@ -67,7 +67,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "/GraficoCapituloIngreso"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaIng')
+    this.router.navigateByUrl('/tableIngresos')
   }
 
   ingresosEconomicaArticulos() {
@@ -78,7 +78,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "/ingresosEconomicaArticulos"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaIng')
+    this.router.navigateByUrl('/tableIngresos')
   }
 
   ingresosEconomicaConceptos() {
@@ -89,7 +89,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "/ingresosEconomicaConceptos"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaIng')
+    this.router.navigateByUrl('/tableIngresos')
   }
 
   ingresosEconomicaEconomicos() {
@@ -100,7 +100,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "/GraficoEconomicoIngreso"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaIng')
+    this.router.navigateByUrl('/tableIngresos')
   }
 
   gastosOrganicaOrganicos() {
@@ -111,7 +111,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "gastosOrganicaOrganicos"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaGas')
+    this.router.navigateByUrl('/tableGastos')
   }
 
   gastosProgramaAreas() {
@@ -122,7 +122,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "gastosProgramaAreas"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaGas')
+    this.router.navigateByUrl('/tableGastos')
   }
 
   gastosProgramaPoliticas() {
@@ -133,7 +133,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "gastosProgramaPoliticas"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaGas')
+    this.router.navigateByUrl('/tableGastos')
   }
 
   gastosProgramaGrupos() {
@@ -144,7 +144,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "gastosProgramaGrupos"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaGas')
+    this.router.navigateByUrl('/tableGastos')
   }
 
   gastosProgramaProgramas() {
@@ -155,7 +155,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "gastosProgramaProgramas"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaGas')
+    this.router.navigateByUrl('/tableGastos')
   }
 
   gastosEconomicaCapitulos() {
@@ -166,7 +166,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "gastosEconomicaCapitulos"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaGas')
+    this.router.navigateByUrl('/tableGastos')
   }
 
   gastosEconomicaArticulos() {
@@ -177,7 +177,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "gastosEconomicaArticulos"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaGas')
+    this.router.navigateByUrl('/tableGastos')
   }
 
   gastosEconomicaConceptos() {
@@ -188,7 +188,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "gastosEconomicaConceptos"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaGas')
+    this.router.navigateByUrl('/tableGastos')
   }
 
   gastosEconomicaEconomicos() {
@@ -199,7 +199,7 @@ export class IndiceComponent implements OnInit {
       URLSelect: "gastosEconomicaEconomicos"
     };
     this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/ComparaGas')
+    this.router.navigateByUrl('/tableGastos')
   }
 
   private getSelectedItem(tipo?: string) {

@@ -1,22 +1,24 @@
 import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 import { AgGridAngular } from 'ag-grid-angular';
+// import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
 import { GridOptions } from 'ag-grid-community/main';
+// import { } from 'ag-grid-enterprise';
+
+import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
-
-import { DataGraphService } from '../../services/data-graph.service';
-import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
-import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
+
+import { AVALAIBLE_YEARS } from '../../../assets/data/avalaible-years-data'
+import { DataGraphService } from '../../services/data-graph.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-compara-ing',
-  templateUrl: './compara-ing.component.html',
+  selector: 'app-compara-gas',
+  templateUrl: './table-gastos.component.html',
 })
-export class ComparaIngComponent {
+export class TableGastosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
   public gridColumnApi;
@@ -26,8 +28,8 @@ export class ComparaIngComponent {
   public localeText;
   public rowData: any;
   public groupHeaderHeight = 25;
-  public headerHeight = 36;
-  public CreditosWidth?: number = 130;
+  public headerHeight = 54;
+  public CreditosWidth?: number = 110;
   public tipoClasificacion: string;
   public rowSelection = 'single';
   private _headerName: string;
@@ -35,21 +37,60 @@ export class ComparaIngComponent {
   private _codField: string;
   private _desField: string;
   private _width: number;
-  public year: Observable<string>;
   private _sufijo: string;
 
   constructor(
     private router: Router,
-    private prepareDataIngresosService: PrepareDataIngresosService,
-    private tipoclasificacionService: TipoClasificacionService,
-    private avalaibleYearsService: AvalaibleYearsService,
     private dataGraphService: DataGraphService,
+    private avalaibleYearsService: AvalaibleYearsService,
+    private tipoclasificacionService: TipoClasificacionService
   ) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
-    this.year = avalaibleYearsService.getAvalaibleYear();
 
     switch (this.tipoClasificacion) {
-      case 'ingresosEconomicaCapitulos':
+      case 'gastosOrganicaOrganicos':
+        this._sufijo = 'Org';
+        this._headerName = 'Clasificado por orgánico';
+        this._subHeaderName = 'Orgánico';
+        this._codField = 'CodOrg';
+        this._desField = 'DesOrg';
+        this._width = 250;
+        break;
+
+      case 'gastosProgramaAreas':
+        this._sufijo = 'Pro';
+        this._headerName = 'Clasificado por areas de programas de gasto';
+        this._subHeaderName = 'Area de gasto';
+        this._codField = 'CodPro';
+        this._desField = 'DesPro';
+        this._width = 550;
+        break;
+      case 'gastosProgramaPoliticas':
+        this._sufijo = 'Pro';
+        this._headerName = 'Clasificado por políticas de gasto';
+        this._subHeaderName = 'Política de gasto';
+        this._codField = 'CodPro';
+        this._desField = 'DesPro';
+        this._width = 550;
+        break;
+      case 'gastosProgramaGrupos':
+        this._sufijo = 'Pro';
+        this._headerName = 'Clasificado por grupos programas de gasto';
+        this._subHeaderName = 'Grupo programas de gasto';
+        this._codField = 'CodPro';
+        this._desField = 'DesPro';
+        this._width = 550;
+        break;
+      case 'gastosProgramaProgramas':
+        this._sufijo = 'Pro';
+        this._headerName = 'Clasificado por programa';
+        this._subHeaderName = 'Programa';
+        this._codField = 'CodPro';
+        this._desField = 'DesPro';
+        this._width = 550;
+        break;
+
+      case 'gastosEconomicaCapitulos':
         this._sufijo = 'Cap';
         this._headerName = 'Clasificado por capítulo';
         this._subHeaderName = 'Capítulo';
@@ -57,7 +98,7 @@ export class ComparaIngComponent {
         this._desField = 'DesCap';
         this._width = 250;
         break;
-      case 'ingresosEconomicaArticulos':
+      case 'gastosEconomicaArticulos':
         this._sufijo = 'Eco';
         this._headerName = 'Clasificado por articulo';
         this._subHeaderName = 'Articulo';
@@ -65,7 +106,7 @@ export class ComparaIngComponent {
         this._desField = 'DesEco';
         this._width = 250;
         break;
-      case 'ingresosEconomicaConceptos':
+      case 'gastosEconomicaConceptos':
         this._sufijo = 'Eco';
         this._headerName = 'Clasificado por concepto';
         this._subHeaderName = 'Concepto';
@@ -73,7 +114,7 @@ export class ComparaIngComponent {
         this._desField = 'DesEco';
         this._width = 250;
         break;
-      case 'ingresosEconomicaEconomicos':
+      case 'gastosEconomicaEconomicos':
         this._sufijo = 'Eco';
         this._headerName = 'Clasificado por económico';
         this._subHeaderName = 'Económico';
@@ -96,7 +137,6 @@ export class ComparaIngComponent {
             rowGroup: true,
             showRowGroup: this._codField,
             columnGroupShow: 'open',
-            // checkboxSelection: true,
             cellRenderer: CellRendererOCMtext,
             valueGetter: params => {
               if (params.data) {
@@ -109,6 +149,7 @@ export class ComparaIngComponent {
         ]
       },
 
+      // ...AVALAIBLE_YEARS.map(year => {
       ...avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
@@ -116,12 +157,12 @@ export class ComparaIngComponent {
         }
       })
 
-    ]
+    ];
 
     this.defaultColDef = {
       width: this.CreditosWidth,
       sortable: true,
-      resizable: true,
+      resizable: false,
       filter: true,
       aggFunc: 'sum',
       cellRenderer: CellRendererOCM,
@@ -147,7 +188,7 @@ export class ComparaIngComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = await this.prepareDataIngresosService.getDataAllYear(this.tipoClasificacion, false, this._sufijo);
+    this.rowData = await this.avalaibleYearsService.getDataAllYear(this.tipoClasificacion, false, this._sufijo);
   }
 
   // TODO: Las colummnas disparan su altura
@@ -171,54 +212,49 @@ export class ComparaIngComponent {
           {
             headerName: 'Total Modificaciones',
             field: `Modificaciones${year}`,
+            width: 140,
             columnGroupShow: 'open'
           },
           {
-            headerName: 'Previsiones definitivas',
+            headerName: 'Creditos definitivos',
             field: `Definitivas${year}`,
+            width: 140,
             columnGroupShow: 'close'
           },
         ]
       },
-
       {
-        headerName: 'Derechos',
+        headerName: 'Gastos',
         children: [
           {
-            headerName: 'Derechos Reconocidos',
-            field: `DerechosReconocidos${year}`,
-            columnGroupShow: 'open'
+            headerName: 'Gastos Comprometidos',
+            field: `GastosComprometidos${year}`,
+            width: 140,
+            columnGroupShow: 'open',
           },
           {
-            headerName: 'Derechos anulados',
-            field: `DerechosAnulados${year}`,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Derechos cancelados',
-            field: `DerechosCancelados${year}`,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Derechos Reconocidos Netos',
-            field: `DerechosReconocidosNetos${year}`,
-            columnGroupShow: 'open'
-          },
-          {
-            headerName: 'Recaudación neta',
-            field: `RecaudacionNeta${year}`,
+            headerName: 'Obligaciones reconocidas netas',
+            field: `ObligacionesReconocidasNetas${year}`,
+            width: 135,
             columnGroupShow: 'close'
           },
           {
-            headerName: 'Derechos Pendientes de cobro al 31 diciembre',
-            field: `DerechosPendienteCobro${year}`,
+            headerName: 'Pagos',
+            field: `Pagos${year}`,
+            columnGroupShow: 'open'
+          },
+          {
+            headerName: 'Obligaciones pendientes de pago al 31 diciembre',
+            field: `ObligacionesPendientePago${year}`,
+            width: 120,
             columnGroupShow: 'open'
           },
         ]
       },
       {
-        headerName: 'Exceso/defecto previsión',
-        field: `DiferenciaPrevision${year}`,
+        headerName: 'Remanente Credito',
+        field: `RemanenteCredito${year}`,
+        // hide: true,
       },
     ];
   }
@@ -227,7 +263,7 @@ export class ComparaIngComponent {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     this.dataGraphService.codigoSelect = selectedRows[0].key;
     // this.router.navigateByUrl(this.dataGraphService.getURLSelect())
-    this.router.navigateByUrl("/graphIngresos")
+    this.router.navigateByUrl("/graphGastos")
   }
 
 }
