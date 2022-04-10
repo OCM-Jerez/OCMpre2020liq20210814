@@ -64,7 +64,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Gráfico capítulo de ingresos",
-      URLSelect: "/GraficoCapituloIngreso"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableIngresos')
@@ -75,7 +74,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Gráfico articulo de ingresos",
-      URLSelect: "/ingresosEconomicaArticulos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableIngresos')
@@ -86,7 +84,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Gráfico concepto de ingresos",
-      URLSelect: "/ingresosEconomicaConceptos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableIngresos')
@@ -97,7 +94,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Gráfico económico de ingresos",
-      URLSelect: "/GraficoEconomicoIngreso"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableIngresos')
@@ -108,7 +104,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Orgánico de gastos",
-      // URLSelect: "gastosOrganicaOrganicos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -119,7 +114,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Area de gastos",
-      // URLSelect: "gastosProgramaAreas"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -130,7 +124,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Política de gastos",
-      // URLSelect: "gastosProgramaPoliticas"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -141,7 +134,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Grupo de prográmas de gastos",
-      // URLSelect: "gastosProgramaGrupos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -152,7 +144,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Prográma de gastos",
-      // URLSelect: "gastosProgramaProgramas"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -163,7 +154,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Capítulo económicos de gastos",
-      // URLSelect: "gastosEconomicaCapitulos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -174,7 +164,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Artículo económicos de gastos",
-      // URLSelect: "gastosEconomicaArticulos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -185,7 +174,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Concepto económicos de gastos",
-      // URLSelect: "gastosEconomicaConceptos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -195,8 +183,7 @@ export class IndiceComponent implements OnInit {
     this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaEconomicos'
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
-      titleSelect: "Ecoómico de gastos",
-      // URLSelect: "gastosEconomicaEconomicos"
+      titleSelect: "Económico de gastos",
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -220,7 +207,6 @@ export class IndiceComponent implements OnInit {
 
   changeCheckbox(event: Event) {
     this.getSelectedItem();
-    // console.log(event.target);
   }
 
 }
