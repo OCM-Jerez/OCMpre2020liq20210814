@@ -7,10 +7,10 @@ import { IDataGraph } from '../../../commons/interfaces/dataGraph.interface';
 // Con import unicamente se crea un enlace, no siginifica que cargue los datos.
 // Por tanto es una forma eficiente de preparar importación de datos
 // https://medium.com/codeptivesolutions/how-to-import-json-file-in-angular-a2e012948479
-import ingresosEconomicaCapitulos from '../../../../assets/data/ingresosEconomicaCapitulos.json';
-import ingresosEconomicaArticulos from '../../../../assets/data/ingresosEconomicaArticulos.json';
-import ingresosEconomicaConceptos from '../../../../assets/data/ingresosEconomicaConceptos.json';
-import ingresosEconomicaEconomicos from '../../../../assets/data/ingresosEconomicaEconomicos.json';
+// import ingresosEconomicaCapitulos from '../../../../assets/data/ingresosEconomicaCapitulos.json';
+// import ingresosEconomicaArticulos from '../../../../assets/data/ingresosEconomicaArticulos.json';
+// import ingresosEconomicaConceptos from '../../../../assets/data/ingresosEconomicaConceptos.json';
+// import ingresosEconomicaEconomicos from '../../../../assets/data/ingresosEconomicaEconomicos.json';
 
 import gastosOrganicaOrganicos from '../../../../assets/data/gastosOrganicaOrganicos.json';
 
@@ -47,10 +47,10 @@ export class SelectCodigoComponent {
     // this.dataIndice = router.getCurrentNavigation().extras.state.data
   }
   array = [
-    { key: 'ingresosEconomicaCapitulos', data: { tipoSelect: 'Capítulo ingresos', dataJSON: ingresosEconomicaCapitulos } },
-    { key: 'ingresosEconomicaArticulos', data: { tipoSelect: 'Articulos ingresos', dataJSON: ingresosEconomicaArticulos } },
-    { key: 'ingresosEconomicaConceptos', data: { tipoSelect: 'Caonceptos ingresos', dataJSON: ingresosEconomicaConceptos } },
-    { key: 'ingresosEconomicaEconomicos', data: { tipoSelect: 'Económico ingresos', dataJSON: ingresosEconomicaEconomicos } },
+    // { key: 'ingresosEconomicaCapitulos', data: { tipoSelect: 'Capítulo ingresos', dataJSON: ingresosEconomicaCapitulos } },
+    // { key: 'ingresosEconomicaArticulos', data: { tipoSelect: 'Articulos ingresos', dataJSON: ingresosEconomicaArticulos } },
+    // { key: 'ingresosEconomicaConceptos', data: { tipoSelect: 'Caonceptos ingresos', dataJSON: ingresosEconomicaConceptos } },
+    // { key: 'ingresosEconomicaEconomicos', data: { tipoSelect: 'Económico ingresos', dataJSON: ingresosEconomicaEconomicos } },
 
     { key: 'gastosOrganicaOrganicos', data: { tipoSelect: 'Orgánico', dataJSON: gastosOrganicaOrganicos } },
 

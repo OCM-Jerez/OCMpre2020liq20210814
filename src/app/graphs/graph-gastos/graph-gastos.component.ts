@@ -144,6 +144,7 @@ export class GraphGastosComponent implements AfterViewInit {
         this.rowData = await this.avalaibleYearsService.getDataAllYear('Org', true, 'Org');
         this.datos = this.rowData.filter(x => x.CodOrg == codigo);
         break;
+
       case 'gastosProgramaAreas':
         this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro', true, 'Pro');
         this.datos = this.rowData.filter(x => Math.round(x.CodPro / 10000) === parseInt(codigo, 10));
@@ -159,6 +160,23 @@ export class GraphGastosComponent implements AfterViewInit {
       case 'gastosProgramaProgramas':
         this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro', true, 'Pro');
         this.datos = this.rowData.filter(x => x.CodPro == codigo);
+        break;
+
+      case 'gastosEconomicaCapitulos':
+        this.rowData = await this.avalaibleYearsService.getDataAllYear('Cap', true, 'Cap');
+        this.datos = this.rowData.filter(x => x.CodCap == codigo);
+        break;
+      case 'gastosEconomicaArticulos':
+        this.rowData = await this.avalaibleYearsService.getDataAllYear('Eco', true, 'Eco');
+        this.datos = this.rowData.filter(x => Math.round(x.CodEco / 1000) === parseInt(codigo, 10));
+        break;
+      case 'gastosEconomicaConceptos':
+        this.rowData = await this.avalaibleYearsService.getDataAllYear('Eco', true, 'Eco');
+        this.datos = this.rowData.filter(x => Math.round(x.CodEco / 100) === parseInt(codigo, 10));
+        break;
+      case 'gastosEconomicaEconomicos':
+        this.rowData = await this.avalaibleYearsService.getDataAllYear('Eco', true, 'Eco');
+        this.datos = this.rowData.filter(x => x.CodEco == codigo);
         break;
     }
 
