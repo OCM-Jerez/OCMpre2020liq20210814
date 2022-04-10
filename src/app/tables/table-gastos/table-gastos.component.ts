@@ -6,6 +6,7 @@ import { GridOptions } from 'ag-grid-community/main';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
+import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 
 import { DataGraphService } from '../../services/data-graph.service';
@@ -263,13 +264,13 @@ export class TableGastosComponent {
 
 }
 
-function headerHeightGetter() {
-  var columnHeaderTexts = document.querySelectorAll('.ag-header-cell-text');
-  var columnHeaderTextsArray: Element[] = [];
-  columnHeaderTexts.forEach(node => columnHeaderTextsArray.push(node));
-  var clientHeights = columnHeaderTextsArray.map(
-    headerText => headerText.clientHeight
-  );
-  var tallestHeaderTextHeight = Math.max(...clientHeights);
-  return tallestHeaderTextHeight;
-}
+// function headerHeightGetter() {
+//   var columnHeaderTexts = document.querySelectorAll('.ag-header-cell-text');
+//   var columnHeaderTextsArray: Element[] = [];
+//   columnHeaderTexts.forEach(node => columnHeaderTextsArray.push(node));
+//   var clientHeights = columnHeaderTextsArray.map(
+//     headerText => headerText.clientHeight
+//   );
+//   var tallestHeaderTextHeight = Math.max(...clientHeights);
+//   return tallestHeaderTextHeight;
+// }
