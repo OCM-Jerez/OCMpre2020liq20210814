@@ -134,19 +134,19 @@ export class GraphIngresosComponent {
 
   async createData(codigo: string) {
     switch (this.tipoclasificacionService.getTipoClasificacion()) {
-      case '/GraficoCapituloIngreso':
+      case 'ingresosEconomicaCapitulos':
         this.rowData = await this.prepareDataIngresosService.getDataAllYear('Cap', true, 'Cap');
         this.datos = this.rowData.filter(x => x.CodCap == codigo);
         break;
-      case '/ingresosEconomicaArticulos':
+      case 'ingresosEconomicaArticulos':
         this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', false, 'Eco');
         this.datos = this.rowData.filter(x => Math.round(x.CodEco / 1000) === parseInt(codigo, 10));
         break;
-      case '/ingresosEconomicaConceptos':
+      case 'ingresosEconomicaConceptos':
         this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', false, 'Eco');
         this.datos = this.rowData.filter(x => Math.round(x.CodEco / 100) === parseInt(codigo, 10));
         break;
-      case '/GraficoEconomicoIngreso':
+      case 'ingresosEconomicaEconomicos':
         this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', false, 'Eco');
         this.datos = this.rowData.filter(x => x.CodEco == codigo);
         break;
