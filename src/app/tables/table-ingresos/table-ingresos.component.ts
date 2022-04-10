@@ -46,7 +46,7 @@ export class TableIngresosComponent {
     public avalaibleYearsService: AvalaibleYearsService,
     private dataGraphService: DataGraphService,
   ) {
-    this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
+    this.tipoClasificacion = this.tipoclasificacionService.getTipoClasificacion();
     //this.yearObservable = avalaibleYearsService.getAvalaibleYear();
 
     switch (this.tipoClasificacion) {
