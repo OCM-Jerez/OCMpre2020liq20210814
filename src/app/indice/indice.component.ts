@@ -161,24 +161,44 @@ export class IndiceComponent implements OnInit {
   gastosEconomicaCapitulos() {
     this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaCapitulos'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      titleSelect: "Capítulo económicos de gastos",
+      URLSelect: "gastosEconomicaCapitulos"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaGas')
   }
 
   gastosEconomicaArticulos() {
     this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaArticulos'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      titleSelect: "Artículo económicos de gastos",
+      URLSelect: "gastosEconomicaArticulos"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaGas')
   }
 
   gastosEconomicaConceptos() {
     this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaConceptos'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      titleSelect: "Concepto económicos de gastos",
+      URLSelect: "gastosEconomicaConceptos"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaGas')
   }
 
   gastosEconomicaEconomicos() {
     this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaEconomicos'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      titleSelect: "Ecoómico de gastos",
+      URLSelect: "gastosEconomicaEconomicos"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaGas')
   }
 
