@@ -9,6 +9,7 @@ import { accumulate } from '../../commons/util/util';
 
 import { DataGraphService } from '../../services/data-graph.service';
 import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
+import { TipoClasificacionService } from '../../services/tipoClasificacion.service';
 
 @Component({
   selector: 'app-graph-ingresos',
@@ -36,6 +37,7 @@ export class GraphIngresosComponent {
     private location: Location,
     private dataGraphService: DataGraphService,
     private prepareDataIngresosService: PrepareDataIngresosService,
+    private tipoclasificacionService: TipoClasificacionService,
   ) {
     this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
     // this.text = router.getCurrentNavigation().extras.state.data.tipo;
@@ -131,8 +133,7 @@ export class GraphIngresosComponent {
   }
 
   async createData(codigo: string) {
-    const tipo = this.dataGraphService.getURLSelect();
-    switch (tipo) {
+    switch (this.tipoclasificacionService.getTipoClasificacion()) {
       case '/GraficoCapituloIngreso':
         this.rowData = await this.prepareDataIngresosService.getDataAllYear('Cap', true, 'Cap');
         this.datos = this.rowData.filter(x => x.CodCap == codigo);

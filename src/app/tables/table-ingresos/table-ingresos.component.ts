@@ -36,18 +36,18 @@ export class TableIngresosComponent {
   private _codField: string;
   private _desField: string;
   private _width: number;
-  public year: Observable<string>;
+  //public yearObservable: Observable<string>;
   private _sufijo: string;
 
   constructor(
     private router: Router,
     private prepareDataIngresosService: PrepareDataIngresosService,
     private tipoclasificacionService: TipoClasificacionService,
-    private avalaibleYearsService: AvalaibleYearsService,
+    public avalaibleYearsService: AvalaibleYearsService,
     private dataGraphService: DataGraphService,
   ) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
-    this.year = avalaibleYearsService.getAvalaibleYear();
+    //this.yearObservable = avalaibleYearsService.getAvalaibleYear();
 
     switch (this.tipoClasificacion) {
       case 'ingresosEconomicaCapitulos':

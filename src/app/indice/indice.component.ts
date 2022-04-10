@@ -108,7 +108,7 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Orgánico de gastos",
-      URLSelect: "gastosOrganicaOrganicos"
+      // URLSelect: "gastosOrganicaOrganicos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -119,7 +119,7 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Area de gastos",
-      URLSelect: "gastosProgramaAreas"
+      // URLSelect: "gastosProgramaAreas"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -130,7 +130,7 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Política de gastos",
-      URLSelect: "gastosProgramaPoliticas"
+      // URLSelect: "gastosProgramaPoliticas"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -141,7 +141,7 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Grupo de prográmas de gastos",
-      URLSelect: "gastosProgramaGrupos"
+      // URLSelect: "gastosProgramaGrupos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -152,7 +152,7 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Prográma de gastos",
-      URLSelect: "gastosProgramaProgramas"
+      // URLSelect: "gastosProgramaProgramas"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -163,7 +163,7 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Capítulo económicos de gastos",
-      URLSelect: "gastosEconomicaCapitulos"
+      // URLSelect: "gastosEconomicaCapitulos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -174,7 +174,7 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Artículo económicos de gastos",
-      URLSelect: "gastosEconomicaArticulos"
+      // URLSelect: "gastosEconomicaArticulos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -185,7 +185,7 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Concepto económicos de gastos",
-      URLSelect: "gastosEconomicaConceptos"
+      // URLSelect: "gastosEconomicaConceptos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')
@@ -196,7 +196,7 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     this.sendData = <IDataGraph>{
       titleSelect: "Ecoómico de gastos",
-      URLSelect: "gastosEconomicaEconomicos"
+      // URLSelect: "gastosEconomicaEconomicos"
     };
     this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/tableGastos')

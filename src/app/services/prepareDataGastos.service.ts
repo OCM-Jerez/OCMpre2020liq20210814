@@ -18,44 +18,48 @@ import { AvalaibleYearsService } from '../services/avalaibleYears.service';
   providedIn: 'root'
 })
 export class PrepareDataGastosService {
-  public subject$ = new BehaviorSubject<string>('2021');
-  private year = '2021'
+  // public subject$ = new BehaviorSubject<string>('2021');
+  // private year = '2021'
   private dataGasto: IDataGasto = <IDataGasto>{};
-  public yearsSelected: number[] = [];
-  public setAvalaibleYear(yearSelected: number[]): void {
-    this.yearsSelected = yearSelected;
-    const message = yearSelected.join(',');
-    this.subject$.next(message);
-  }
+  // public yearsSelected: number[] = [];
+  // public setAvalaibleYear(yearSelected: number[]): void {
+  //   this.yearsSelected = yearSelected;
+  //   const message = yearSelected.join(',');
+  //   this.subject$.next(message);
+  // }
 
-  public getAvalaibleYear() {
-    return this.subject$.asObservable();
-  }
+  constructor(
+    private avalaibleYearsService: AvalaibleYearsService,
+  ) { }
+
+  // public getAvalaibleYear() {
+  //   return this.subject$.asObservable();
+  // }
 
   // Seleciona datos del año seleccionado en los radioButtons
-  async getDataJson(isGas: boolean) {
-    const data = await import(`../../assets/data/${this.year}Liq${isGas ? 'Gas' : 'Ing'}.json`);
-    return data.default;
-  }
+  // async getDataJson(isGas: boolean) {
+  //   const data = await import(`../../assets/data/${this.year}LiqGas'.json`);
+  //   return data.default;
+  // }
 
   // Seleciona datos del año que se pasa como parametro
-  async getYearDataJson(year: number, isGas: boolean) {
-    const data = await import(`../../assets/data/${year}Liq${isGas ? 'Gas' : 'Ing'}.json`);
+  async getYearDataJson(year: number) {
+    const data = await import(`../../assets/data/${year}LiqGas.json`);
     return data.default;
   }
 
-  getCurrentYear(): string {
-    return this.year
-  }
+  // getCurrentYear(): string {
+  //   return this.year
+  // }
 
-  getYearsSelected(): number[] {
-    return this.yearsSelected;
-  }
+  // getYearsSelected(): number[] {
+  //   return this.yearsSelected;
+  // }
 
   // Itera por cada uno de los años disponibles para gastos
   async getDataAllYear(cla: string, isGraph?: boolean, sufijo?: string): Promise<any[]> {
     let rowData = [];
-    const years = isGraph ? AVALAIBLE_YEARS : this.yearsSelected;
+    const years = isGraph ? AVALAIBLE_YEARS : this.avalaibleYearsService.getYearsSelected();
 
     await asynForEach(years, async (year: number) => {
       const dataGas = await this.getDataYear(year, cla, sufijo);
@@ -81,7 +85,7 @@ export class PrepareDataGastosService {
       RemanenteCredito: `RemanenteCredito${year}`,
     }
 
-    await this.getYearDataJson(year, true).then(data => {
+    await this.getYearDataJson(year).then(data => {
       Object.entries(data).forEach((currentValue) => {
         result.push({
           [this.dataGasto.cod]: currentValue[1][this.dataGasto.cod],

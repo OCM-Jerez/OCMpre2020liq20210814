@@ -11,6 +11,7 @@ import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.ser
 
 import { DataGraphService } from '../../services/data-graph.service';
 import { Router } from '@angular/router';
+import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
 
 @Component({
   selector: 'app-compara-gas',
@@ -41,9 +42,10 @@ export class TableGastosComponent {
     private router: Router,
     private dataGraphService: DataGraphService,
     private avalaibleYearsService: AvalaibleYearsService,
-    private tipoclasificacionService: TipoClasificacionService
+    private _tipoclasificacionService: TipoClasificacionService,
+    private prepareDataGastosService: PrepareDataGastosService,
   ) {
-    this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
+    this.tipoClasificacion = this._tipoclasificacionService.getTipoClasificacion();
 
     switch (this.tipoClasificacion) {
       case 'gastosOrganicaOrganicos':
@@ -185,7 +187,7 @@ export class TableGastosComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = await this.avalaibleYearsService.getDataAllYear(this.tipoClasificacion, false, this._sufijo);
+    this.rowData = await this.prepareDataGastosService.getDataAllYear(this.tipoClasificacion, false, this._sufijo);
   }
 
   // TODO: Las colummnas disparan su altura
