@@ -137,12 +137,28 @@ export class GraphGastosComponent implements AfterViewInit {
     this.gridColumnApi = params.columnApi;
   }
 
-  async createData(org: string) {
+  async createData(codigo: string) {
     const tipo = this.dataGraphService.getURLSelect();
     switch (tipo) {
       case 'gastosOrganicaOrganicos':
         this.rowData = await this.avalaibleYearsService.getDataAllYear('Org', true, 'Org');
-        this.datos = this.rowData.filter(x => x.CodOrg == org);
+        this.datos = this.rowData.filter(x => x.CodOrg == codigo);
+        break;
+      case 'gastosProgramaAreas':
+        this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro', true, 'Pro');
+        this.datos = this.rowData.filter(x => Math.round(x.CodPro / 10000) === parseInt(codigo, 10));
+        break;
+      case 'gastosProgramaPoliticas':
+        this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro', true, 'Pro');
+        this.datos = this.rowData.filter(x => Math.round(x.CodPro / 1000) === parseInt(codigo, 10));
+        break;
+      case 'gastosProgramaGrupos':
+        this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro', true, 'Pro');
+        this.datos = this.rowData.filter(x => Math.round(x.CodPro / 100) === parseInt(codigo, 10));
+        break;
+      case 'gastosProgramaProgramas':
+        this.rowData = await this.avalaibleYearsService.getDataAllYear('Pro', true, 'Pro');
+        this.datos = this.rowData.filter(x => x.CodPro == codigo);
         break;
     }
 

@@ -117,24 +117,44 @@ export class IndiceComponent implements OnInit {
   gastosProgramaAreas() {
     this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaAreas'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      titleSelect: "Area de gastos",
+      URLSelect: "gastosProgramaAreas"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaGas')
   }
 
   gastosProgramaPoliticas() {
     this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaPoliticas'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      titleSelect: "Política de gastos",
+      URLSelect: "gastosProgramaPoliticas"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaGas')
   }
 
   gastosProgramaGrupos() {
     this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaGrupos'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      titleSelect: "Grupo de prográmas de gastos",
+      URLSelect: "gastosProgramaGrupos"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaGas')
   }
 
   gastosProgramaProgramas() {
     this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaProgramas'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      titleSelect: "Prográma de gastos",
+      URLSelect: "gastosProgramaProgramas"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaGas')
   }
 
