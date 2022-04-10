@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
+import { DataGraphService } from '../services/data-graph.service';
 
 import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
-import { DataGraphService } from '../services/data-graph.service';
 
 @Component({
   selector: 'app-indice-new',
@@ -13,14 +13,14 @@ import { DataGraphService } from '../services/data-graph.service';
   styleUrls: ['./indice.component.scss']
 })
 export class IndiceComponent implements OnInit {
-  private sendData: IDataGraph = <IDataGraph>{};
+  private _sendData: IDataGraph = <IDataGraph>{};
   list: any[] = [];
 
   constructor(
-    private router: Router,
-    private tipoclasificacionService: TipoClasificacionService,
-    private avalaibleYearsService: AvalaibleYearsService,
-    private dataGraphService: DataGraphService
+    private _router: Router,
+    private _tipoclasificacionService: TipoClasificacionService,
+    private _avalaibleYearsService: AvalaibleYearsService,
+    private _dataGraphService: DataGraphService
   ) { }
 
   ngOnInit() {
@@ -60,138 +60,138 @@ export class IndiceComponent implements OnInit {
   }
 
   ingresosEconomicaCapitulos() {
-    this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaCapitulos'
+    this._tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaCapitulos'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Gráfico capítulo de ingresos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableIngresos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableIngresos')
   }
 
   ingresosEconomicaArticulos() {
-    this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaArticulos'
+    this._tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaArticulos'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Gráfico articulo de ingresos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableIngresos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableIngresos')
   }
 
   ingresosEconomicaConceptos() {
-    this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaConceptos'
+    this._tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaConceptos'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Gráfico concepto de ingresos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableIngresos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableIngresos')
   }
 
   ingresosEconomicaEconomicos() {
-    this.tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaEconomicos'
+    this._tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaEconomicos'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Gráfico económico de ingresos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableIngresos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableIngresos')
   }
 
   gastosOrganicaOrganicos() {
-    this.tipoclasificacionService.tipoClasificacion = 'gastosOrganicaOrganicos'
+    this._tipoclasificacionService.tipoClasificacion = 'gastosOrganicaOrganicos'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Orgánico de gastos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableGastos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableGastos')
   }
 
   gastosProgramaAreas() {
-    this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaAreas'
+    this._tipoclasificacionService.tipoClasificacion = 'gastosProgramaAreas'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Area de gastos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableGastos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableGastos')
   }
 
   gastosProgramaPoliticas() {
-    this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaPoliticas'
+    this._tipoclasificacionService.tipoClasificacion = 'gastosProgramaPoliticas'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Política de gastos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableGastos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableGastos')
   }
 
   gastosProgramaGrupos() {
-    this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaGrupos'
+    this._tipoclasificacionService.tipoClasificacion = 'gastosProgramaGrupos'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Grupo de prográmas de gastos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableGastos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableGastos')
   }
 
   gastosProgramaProgramas() {
-    this.tipoclasificacionService.tipoClasificacion = 'gastosProgramaProgramas'
+    this._tipoclasificacionService.tipoClasificacion = 'gastosProgramaProgramas'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Prográma de gastos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableGastos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableGastos')
   }
 
   gastosEconomicaCapitulos() {
-    this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaCapitulos'
+    this._tipoclasificacionService.tipoClasificacion = 'gastosEconomicaCapitulos'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Capítulo económicos de gastos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableGastos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableGastos')
   }
 
   gastosEconomicaArticulos() {
-    this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaArticulos'
+    this._tipoclasificacionService.tipoClasificacion = 'gastosEconomicaArticulos'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Artículo económicos de gastos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableGastos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableGastos')
   }
 
   gastosEconomicaConceptos() {
-    this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaConceptos'
+    this._tipoclasificacionService.tipoClasificacion = 'gastosEconomicaConceptos'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Concepto económicos de gastos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableGastos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableGastos')
   }
 
   gastosEconomicaEconomicos() {
-    this.tipoclasificacionService.tipoClasificacion = 'gastosEconomicaEconomicos'
+    this._tipoclasificacionService.tipoClasificacion = 'gastosEconomicaEconomicos'
     this.getSelectedItem();
-    this.sendData = <IDataGraph>{
+    this._sendData = <IDataGraph>{
       titleSelect: "Económico de gastos",
     };
-    this.dataGraphService.sendData = this.sendData;
-    this.router.navigateByUrl('/tableGastos')
+    this._dataGraphService.sendData = this._sendData;
+    this._router.navigateByUrl('/tableGastos')
   }
 
   private getSelectedItem(tipo?: string) {
     const years = this.result.map((year) => year.year);
-    this.avalaibleYearsService.setAvalaibleYear(years);
+    this._avalaibleYearsService.setAvalaibleYear(years);
   }
 
   onItemChange() {
