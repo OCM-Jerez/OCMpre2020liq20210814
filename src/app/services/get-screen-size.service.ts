@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SCREEN_SIZE } from '../enums/screen-size.enum';
+import { SCREEN_SIZE } from '../commons/enums/screen-size.enum';
 
 @Injectable({
   providedIn: 'root'
