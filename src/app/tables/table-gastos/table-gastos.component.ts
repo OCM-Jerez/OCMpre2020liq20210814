@@ -1,16 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { AgGridAngular } from 'ag-grid-angular';
-// import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
 import { GridOptions } from 'ag-grid-community/main';
-// import { } from 'ag-grid-enterprise';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 
-import { AVALAIBLE_YEARS } from '../../../assets/data/avalaible-years-data'
 import { DataGraphService } from '../../services/data-graph.service';
 import { Router } from '@angular/router';
 
@@ -149,7 +146,6 @@ export class TableGastosComponent {
         ]
       },
 
-      // ...AVALAIBLE_YEARS.map(year => {
       ...avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
@@ -262,7 +258,6 @@ export class TableGastosComponent {
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     this.dataGraphService.codigoSelect = selectedRows[0].key;
-    // this.router.navigateByUrl(this.dataGraphService.getURLSelect())
     this.router.navigateByUrl("/graphGastos")
   }
 
