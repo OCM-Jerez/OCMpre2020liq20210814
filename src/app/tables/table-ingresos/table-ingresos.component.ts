@@ -226,7 +226,6 @@ export class TableIngresosComponent {
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     this.dataGraphService.codigoSelect = selectedRows[0].key;
-    // this.router.navigateByUrl(this.dataGraphService.getURLSelect())
     this.router.navigateByUrl("/graphIngresos")
   }
 
