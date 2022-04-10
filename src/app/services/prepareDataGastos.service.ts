@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject } from 'rxjs';
 import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
 
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
@@ -18,43 +17,17 @@ import { AvalaibleYearsService } from '../services/avalaibleYears.service';
   providedIn: 'root'
 })
 export class PrepareDataGastosService {
-  // public subject$ = new BehaviorSubject<string>('2021');
-  // private year = '2021'
   private dataGasto: IDataGasto = <IDataGasto>{};
-  // public yearsSelected: number[] = [];
-  // public setAvalaibleYear(yearSelected: number[]): void {
-  //   this.yearsSelected = yearSelected;
-  //   const message = yearSelected.join(',');
-  //   this.subject$.next(message);
-  // }
 
   constructor(
     private avalaibleYearsService: AvalaibleYearsService,
   ) { }
-
-  // public getAvalaibleYear() {
-  //   return this.subject$.asObservable();
-  // }
-
-  // Seleciona datos del año seleccionado en los radioButtons
-  // async getDataJson(isGas: boolean) {
-  //   const data = await import(`../../assets/data/${this.year}LiqGas'.json`);
-  //   return data.default;
-  // }
 
   // Seleciona datos del año que se pasa como parametro
   async getYearDataJson(year: number) {
     const data = await import(`../../assets/data/${year}LiqGas.json`);
     return data.default;
   }
-
-  // getCurrentYear(): string {
-  //   return this.year
-  // }
-
-  // getYearsSelected(): number[] {
-  //   return this.yearsSelected;
-  // }
 
   // Itera por cada uno de los años disponibles para gastos
   async getDataAllYear(cla: string, isGraph?: boolean, sufijo?: string): Promise<any[]> {
