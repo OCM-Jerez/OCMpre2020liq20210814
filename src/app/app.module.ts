@@ -33,6 +33,7 @@ import { IndiceComponent } from './indice/indice.component';
 import { GraphGastosEconomicaArticulosComponent } from './comparativas/graph/graph-gastos-economica-articulos/graph-gastos-economica-articulos.component';
 import { GraphGastosEconomicaConceptosComponent } from './comparativas/graph/graph-gastos-economica-conceptos/graph-gastos-economica-conceptos.component';
 import { GraphIngresosComponent } from './graphs/graph-ingresos/graph-ingresos.component';
+import { GraphGastosComponent } from './graphs/graph-gastos/graph-gastos.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { GraphIngresosComponent } from './graphs/graph-ingresos/graph-ingresos.c
     GraphGastosEconomicaArticulosComponent,
     GraphGastosEconomicaConceptosComponent,
     GraphIngresosComponent,
+    GraphGastosComponent,
   ],
   imports: [
     BrowserModule,

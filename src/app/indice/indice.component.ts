@@ -106,6 +106,11 @@ export class IndiceComponent implements OnInit {
   gastosOrganicaOrganicos() {
     this.tipoclasificacionService.tipoClasificacion = 'gastosOrganicaOrganicos'
     this.getSelectedItem();
+    this.sendData = <IDataGraph>{
+      titleSelect: "Orgánico de gastos",
+      URLSelect: "gastosOrganicaOrganicos"
+    };
+    this.dataGraphService.sendData = this.sendData;
     this.router.navigateByUrl('/ComparaGas')
   }
 

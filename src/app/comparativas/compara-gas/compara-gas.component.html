@@ -1,14 +1,12 @@
 <div>
     <h4 class="OCM-text--cabecera">Comparativa gastos liquidaciones anteriores</h4>
-    <button type="button" class="btn OCM-btnExpand" (click)="onSelectionChanged($event)">Mostrar gráfico</button>
-    <span id="selectedRows">prueba</span>
-    <!-- <h6 class="OCM-text--subtitulo">Obligaciones reconocidas netas</h6> -->
+    <button type="button" class="btn OCM-btnExpand" (click)="showGraph()">Mostrar gráfico</button>
     <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
         class="ag-theme-balham" [rowData]="rowData" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
         rowSelection="multiple" [groupSuppressAutoColumn]="true" [groupIncludeFooter]="true"
         [groupIncludeTotalFooter]="true" [groupHeaderHeight]="groupHeaderHeight" [headerHeight]="headerHeight"
         [localeText]="localeText" [suppressAggFuncInHeader]="true" [rowSelection]="rowSelection"
-        (selectionChanged)="onSelectionChanged($event)" (gridReady)="onGridReady($event)"
-        (firstDataRendered)="headerHeightSetter()" (columnResized)="headerHeightSetter()">
+        (gridReady)="onGridReady($event)" (firstDataRendered)="headerHeightSetter()"
+        (columnResized)="headerHeightSetter()">
     </ag-grid-angular>
 </div>

@@ -11,6 +11,8 @@ import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRenderer
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 
 import { AVALAIBLE_YEARS } from '../../../assets/data/avalaible-years-data'
+import { DataGraphService } from '../../services/data-graph.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-compara-gas',
@@ -37,8 +39,12 @@ export class ComparaGasComponent {
   private _width: number;
   private _sufijo: string;
 
-  constructor(private avalaibleYearsService: AvalaibleYearsService,
-    private tipoclasificacionService: TipoClasificacionService) {
+  constructor(
+    private router: Router,
+    private dataGraphService: DataGraphService,
+    private avalaibleYearsService: AvalaibleYearsService,
+    private tipoclasificacionService: TipoClasificacionService
+  ) {
     this.tipoClasificacion = tipoclasificacionService.getTipoClasificacion();
 
     switch (this.tipoClasificacion) {
@@ -253,26 +259,11 @@ export class ComparaGasComponent {
     ];
   }
 
-  onSelectionChanged(event: any) {
-    const selectedRows = this.gridApi.getSelectedRows();
-    // const selectedRows = this.gridApi.getSelectedRows()[0];
-    // const selectedRows = this.gridOptions.api.getSelectedRows();
-    (document.querySelector('#selectedRows') as any).innerHTML =
-      console.log(selectedRows);
-
-    // selectedRows.length;
-    selectedRows.length === 0 ? selectedRows[0].this._desField : '';
-  }
-
-  // onSelectionChanged() {
-  //   let selectedNodes = this.gridApi.getSelectedNodes();
-  //   let selectedData = selectedNodes.map(node => node.data);
-  //   alert(`Selected Nodes:\n${JSON.stringify(selectedData)}`);
-  //   return selectedData;
-  // }
-
   showGraph() {
-    console.log('showGraph');
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    this.dataGraphService.codigoSelect = selectedRows[0].key;
+    // this.router.navigateByUrl(this.dataGraphService.getURLSelect())
+    this.router.navigateByUrl("/graphGastos")
   }
 
 }

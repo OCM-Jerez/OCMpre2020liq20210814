@@ -17,6 +17,7 @@ import { GraphGastosEconomicaArticulosComponent } from './comparativas/graph/gra
 import { GraphGastosEconomicaConceptosComponent } from './comparativas/graph/graph-gastos-economica-conceptos/graph-gastos-economica-conceptos.component';
 
 import { GraphIngresosComponent } from './graphs/graph-ingresos/graph-ingresos.component';
+import { GraphGastosComponent } from './graphs/graph-gastos/graph-gastos.component';
 
 const routes: Routes = [
   // { path: 'home', component: IndiceComponent },
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'graphIngresos', component: GraphIngresosComponent },
 
   { path: 'GraficoCapituloGasto', component: GraphCapituloGastoComponent },
-  { path: 'GraficoOrganicoGasto', component: GraphOrganicoGastoComponent },
+  // { path: 'GraficoOrganicoGasto', component: GraphOrganicoGastoComponent },
+  { path: 'graphGastos', component: GraphGastosComponent },
   { path: 'GraficoEconomicoGasto', component: GraphEconomicoGastoComponent },
   { path: 'GraficoProgramaGasto', component: GraphProgramaComponent },
   { path: 'GraficoGruposProgramas', component: GraphGrupoProgramasComponent },
