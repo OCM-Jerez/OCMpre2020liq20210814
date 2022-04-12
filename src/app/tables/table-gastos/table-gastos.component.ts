@@ -39,11 +39,11 @@ export class TableGastosComponent {
   private _sufijo: string;
 
   constructor(
-    private router: Router,
-    private dataGraphService: DataGraphService,
-    private avalaibleYearsService: AvalaibleYearsService,
+    private _router: Router,
+    private _dataGraphService: DataGraphService,
+    private _avalaibleYearsService: AvalaibleYearsService,
     private _tipoclasificacionService: TipoClasificacionService,
-    private prepareDataGastosService: PrepareDataGastosService,
+    private _prepareDataGastosService: PrepareDataGastosService,
   ) {
     this.tipoClasificacion = this._tipoclasificacionService.getTipoClasificacion();
 
@@ -149,7 +149,7 @@ export class TableGastosComponent {
         ]
       },
 
-      ...avalaibleYearsService.getYearsSelected().map(year => {
+      ...this._avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
           children: this.createColumnsChildren(year),
@@ -187,7 +187,7 @@ export class TableGastosComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = await this.prepareDataGastosService.getDataAllYear(this.tipoClasificacion, false, this._sufijo);
+    this.rowData = await this._prepareDataGastosService.getDataAllYear(this.tipoClasificacion, false, this._sufijo);
   }
 
   // TODO: Las colummnas disparan su altura
@@ -260,8 +260,8 @@ export class TableGastosComponent {
 
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    this.dataGraphService.codigoSelect = selectedRows[0].key;
-    this.router.navigateByUrl("/graphGastos")
+    this._dataGraphService.codigoSelect = selectedRows[0].key;
+    this._router.navigateByUrl("/graphGastos")
   }
 
 }
