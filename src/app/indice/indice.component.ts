@@ -59,134 +59,54 @@ export class IndiceComponent implements OnInit {
     ]
   }
 
+
   ingresosEconomicaCapitulos() {
-    this._tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaCapitulos'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Gráfico capítulo de ingresos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableIngresos')
+    this.openTable('ingresosEconomicaCapitulos', 'Capitulo de ingresos');
   }
-
   ingresosEconomicaArticulos() {
-    this._tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaArticulos'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Gráfico articulo de ingresos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableIngresos')
+    this.openTable('ingresosEconomicaArticulos', 'Artículo de ingresos');
   }
-
   ingresosEconomicaConceptos() {
-    this._tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaConceptos'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Gráfico concepto de ingresos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableIngresos')
+    this.openTable('ingresosEconomicaConceptos', 'Concepto de ingresos');
   }
-
   ingresosEconomicaEconomicos() {
-    this._tipoclasificacionService.tipoClasificacion = 'ingresosEconomicaEconomicos'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Gráfico económico de ingresos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableIngresos')
+    this.openTable('ingresosEconomicaEconomicos', 'Económico de ingresos');
   }
 
   gastosOrganicaOrganicos() {
-    this._tipoclasificacionService.tipoClasificacion = 'gastosOrganicaOrganicos'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Orgánico de gastos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableGastos')
+    this.openTable('gastosOrganicaOrganicos', 'Orgánico de gastos');
   }
 
   gastosProgramaAreas() {
-    this._tipoclasificacionService.tipoClasificacion = 'gastosProgramaAreas'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Area de gastos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableGastos')
+    this.openTable('gastosProgramaAreas', 'Area de gastos');
   }
 
   gastosProgramaPoliticas() {
-    this._tipoclasificacionService.tipoClasificacion = 'gastosProgramaPoliticas'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Política de gastos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableGastos')
+    this.openTable('gastosProgramaPoliticas', 'Política de gastos');
   }
 
   gastosProgramaGrupos() {
-    this._tipoclasificacionService.tipoClasificacion = 'gastosProgramaGrupos'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Grupo de prográmas de gastos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableGastos')
+    this.openTable('gastosProgramaGrupos', 'Grupo de prográmas de gastos');
   }
 
   gastosProgramaProgramas() {
-    this._tipoclasificacionService.tipoClasificacion = 'gastosProgramaProgramas'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Prográma de gastos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableGastos')
+    this.openTable('gastosProgramaProgramas', 'Prográma de gastos');
   }
 
   gastosEconomicaCapitulos() {
-    this._tipoclasificacionService.tipoClasificacion = 'gastosEconomicaCapitulos'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Capítulo económicos de gastos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableGastos')
+    this.openTable('gastosEconomicaCapitulos', 'Capítulo económicos de gastos');
   }
 
   gastosEconomicaArticulos() {
-    this._tipoclasificacionService.tipoClasificacion = 'gastosEconomicaArticulos'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Artículo económicos de gastos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableGastos')
+    this.openTable('gastosEconomicaArticulos', 'Artículo económicos de gastos');
   }
 
   gastosEconomicaConceptos() {
-    this._tipoclasificacionService.tipoClasificacion = 'gastosEconomicaConceptos'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Concepto económicos de gastos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableGastos')
+    this.openTable('gastosEconomicaConceptos', 'Concepto económicos de gastos');
   }
 
   gastosEconomicaEconomicos() {
-    this._tipoclasificacionService.tipoClasificacion = 'gastosEconomicaEconomicos'
-    this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: "Económico de gastos",
-    };
-    this._dataGraphService.sendData = this._sendData;
-    this._router.navigateByUrl('/tableGastos')
+    this.openTable('gastosEconomicaEconomicos', 'Económico de gastos');
   }
 
   private getSelectedItem(tipo?: string) {
@@ -207,6 +127,21 @@ export class IndiceComponent implements OnInit {
 
   changeCheckbox(event: Event) {
     this.getSelectedItem();
+  }
+
+  private openTable(tipoClasificacion: string, titleSelect: string) {
+    this._tipoclasificacionService.tipoClasificacion = tipoClasificacion;
+    this.getSelectedItem();
+    this._sendData = <IDataGraph>{
+      titleSelect: titleSelect,
+    };
+    this._dataGraphService.sendData = this._sendData;
+    if (tipoClasificacion.startsWith('ingresos')) {
+      this._router.navigateByUrl('/tableIngresos')
+    } else {
+      this._router.navigateByUrl('/tableGastos')
+    }
+
   }
 
 }
