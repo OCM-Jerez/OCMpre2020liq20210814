@@ -17,12 +17,6 @@ export class DataGraphService {
       }
     };
 
-  // data = "";
-  // titleSelect = "";
-  // optionSelect = "";
-  // errorSelect = "";
-  // URLSelect = "";
-
   getData(): string {
     return this.sendData.data;
   }
