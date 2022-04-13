@@ -48,18 +48,18 @@ insertamo sun seudo elemento con el mismo tamaño. */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: clamp(20rem, 20rem, 20rem);
+    width: clamp(10rem, 10rem, 20rem);
     height: clamp(5rem, 5rem, 5rem);
     justify-content: space-around;
     text-justify: auto;
     margin-bottom: 0.3rem;
-    margin-top: 2rem;
+    // margin-top: 2rem;
     border-radius: 0.6rem;
     color: rgba(0, 0, 0, 0.87);
     background: #262729;
     box-shadow: 1rem 1rem 0.5rem 0px rgba(0, 0, 0, 0.75);
-    margin-left: 2rem;
-    margin-right: 2rem;
+    // margin-left: 2rem;
+    // margin-right: 2rem;
     text-align: center;
     transition: transform 0.5s ease-in-out;
     transition: box-shadow 0.3s;
@@ -67,11 +67,12 @@ insertamo sun seudo elemento con el mismo tamaño. */
         display: flex;
         align-items: center;
         justify-content: center;
-        width: clamp(20rem, 20rem, 20rem);
+        width: clamp(10rem, 10rem, 20rem);
         color: map-get($OCM-colors, claro);
         font-weight: 700;
         font-family: var(--fuente-principal);
-        font-size: 1.4rem;
+        // font-size: 1.4rem;
+        font-size: clamp(0.7rem, 1rem, 1.4rem);
         // text-shadow: 0.4rem 0.4rem 0.4rem #aaa;
         text-align: center;
     }
@@ -89,7 +90,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
 .containerNew {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1.5fr 1.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 1.5fr 1.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+    grid-template-rows: 1fr 1.5fr 2fr 0.3fr 0.3fr 0.3fr 0.3fr 1.5fr 1.5fr 2fr 0.5fr 0.5fr 0.5fr 0.5fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     border: 1px solid #000;
@@ -110,6 +111,27 @@ insertamo sun seudo elemento con el mismo tamaño. */
         ". . . . . . . programa . . . subconcepto1";
 }
 
+ 
+// @media only screen and (max-width: 2200px) {
+//     .containerNew { 
+//          display: grid;
+//    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+//    grid-template-rows: 1.5fr 1.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr 1.5fr 1.5fr 1fr ;
+//    gap: 0px 0px;
+//    grid-auto-flow: row;
+//    border: 1px solid #000;
+//    grid-template-areas:
+  
+//    ". . economicaIngreso economicaIngreso economicaIngreso economicaIngreso . ."
+//    ". . capitulo . . . . ."
+//    ". . articulo . . . . ."
+//    ". . . . . . concepto . . . . ."
+//    ". . . . . . . subconcepto . . . ."
+   
+//    }
+
+// }
+
 .Gastos {
     grid-area: Gastos;
     // border: 1px solid #000;
@@ -125,6 +147,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
 .economicaIngreso {
     grid-area: economicaIngreso;
     border: 1px solid #000;
+    border-radius: 0.6rem;
     background-color: rgb(38, 40, 34);
     display: grid;
     justify-content: center;
@@ -132,6 +155,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
     font-size: 30px;
     font-weight: bold;
     color: aliceblue;
+    margin-bottom: 10px;
 }
 
 .capitulo {
@@ -167,30 +191,37 @@ insertamo sun seudo elemento con el mismo tamaño. */
 .organica {
     grid-area: organica;
     border: 1px solid #000;
+    border-radius: 0.6rem;
     background-color: rgb(38, 40, 34);
     display: grid;
     justify-content: center;
     align-content: center;
     font-size: 30px;
+    // font-size: clamp(0.5rem,-1.275rem + 8.333vw, 2rem);
     font-weight: bold;
     color: aliceblue;
+    margin-bottom: 10px;
 }
 
 .programas {
     grid-area: programas;
     border: 1px solid #000;
+    border-radius: 0.6rem;
     background-color: rgb(67, 77, 48);
     display: grid;
     justify-content: center;
     align-content: center;
     font-size: 30px;
+    //   font-size: clamp(0.2rem,1.5rem, 2rem);
     font-weight: bold;
     color: aliceblue;
+    margin-bottom: 10px;
 }
 
 .economica {
     grid-area: economica;
     border: 1px solid #000;
+    border-radius: 0.6rem;
     background-color: rgb(38, 40, 34);
     display: grid;
     justify-content: center;
@@ -198,6 +229,7 @@ insertamo sun seudo elemento con el mismo tamaño. */
     font-size: 30px;
     font-weight: bold;
     color: aliceblue;
+    margin-bottom: 10px;
 }
 
 .organico {
