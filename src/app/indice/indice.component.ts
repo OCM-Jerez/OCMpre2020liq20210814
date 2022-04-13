@@ -6,6 +6,7 @@ import { TipoClasificacionService } from '../services/tipoClasificacion.service'
 import { DataGraphService } from '../services/data-graph.service';
 
 import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
+import { TIPO_CLASIFICACION } from '../commons/enums/tiposClasificacion.enum';
 
 @Component({
   selector: 'app-indice-new',
@@ -50,7 +51,7 @@ export class IndiceComponent implements OnInit {
         checked: true,
       }, {
         year: 2022,
-        checked: true,
+        checked: false,
       },
       // {
       //   year: "Todos",
@@ -61,17 +62,22 @@ export class IndiceComponent implements OnInit {
 
 
   ingresosEconomicaCapitulos() {
-    this.openTable('ingresosEconomicaCapitulos', 'Capitulo de ingresos');
+    // this.openTable('ingresosEconomicaCapitulos', 'Capitulo de ingresos');
+    this.openTable(TIPO_CLASIFICACION.IE_CAPITULO, 'Capitulo de ingresos');
   }
+
   ingresosEconomicaArticulos() {
     this.openTable('ingresosEconomicaArticulos', 'Artículo de ingresos');
   }
+
   ingresosEconomicaConceptos() {
     this.openTable('ingresosEconomicaConceptos', 'Concepto de ingresos');
   }
+
   ingresosEconomicaEconomicos() {
     this.openTable('ingresosEconomicaEconomicos', 'Económico de ingresos');
   }
+
 
   gastosOrganicaOrganicos() {
     this.openTable('gastosOrganicaOrganicos', 'Orgánico de gastos');
@@ -92,6 +98,7 @@ export class IndiceComponent implements OnInit {
   gastosProgramaProgramas() {
     this.openTable('gastosProgramaProgramas', 'Prográma de gastos');
   }
+
 
   gastosEconomicaCapitulos() {
     this.openTable('gastosEconomicaCapitulos', 'Capítulo económicos de gastos');
