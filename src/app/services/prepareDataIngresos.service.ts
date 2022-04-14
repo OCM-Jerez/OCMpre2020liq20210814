@@ -70,20 +70,20 @@ export class PrepareDataIngresosService {
 
     switch (cla) {
       case 'ingresosEconomicaArticulos':
-        const byArticulo = [];
+        // const byArticulo = [];
         result.map(item => {
           item.CodEco = Math.floor((item.CodEco / 1000));
-          byArticulo.push(item);
+          item.DesEco = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
+          // byArticulo.push(item);
         });
 
-        byArticulo.map(item => {
-          item.DesEco = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
-        });
+        // byArticulo.map(item => {
+        //   item.DesEco = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
+        // });
         break;
       case 'ingresosEconomicaConceptos':
         const byConcepto = [];
         result.map(item => {
-
           item.CodEco = Math.floor((item.CodEco / 100));
           byConcepto.push(item);
         });
