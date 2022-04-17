@@ -8,6 +8,8 @@ import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
 import { asynForEach } from '../commons/util/util';
 
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
+import { accumulate } from '../commons/util/util';
+
 
 @Injectable({
   providedIn: 'root'
@@ -80,6 +82,9 @@ export class PrepareDataIngresosService {
         // byArticulo.map(item => {
         //   item.DesEco = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
         // });
+
+        // Usar este codigo para agrupar por articulo y no devolver todos los registros
+        // const yearsDefinitivas = accumulate('Definitivas', this.datos);
         break;
       case 'ingresosEconomicaConceptos':
         const byConcepto = [];
@@ -94,7 +99,7 @@ export class PrepareDataIngresosService {
         });
         break;
     }
-
+    console.log(result);
     return result;
   }
 
