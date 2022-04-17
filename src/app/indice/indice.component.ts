@@ -3,10 +3,13 @@ import { Router } from '@angular/router';
 
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { TipoClasificacionService } from '../services/tipoClasificacion.service';
-import { DataGraphService } from '../services/data-graph.service';
+import { DataTableGraphService } from '../services/data-graph.service';
 
-import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
+import { IDataGraph, IDataTableGraph } from '../commons/interfaces/dataGraph.interface';
 import { TIPO_CLASIFICACION } from '../commons/enums/tiposClasificacion.enum';
+import { getClasificacion } from '../tables/data-table';
+import { PrepareDataIngresosService } from '../services/prepareDataIngresos.service';
+import { PrepareDataGastosService } from '../services/prepareDataGastos.service';
 
 @Component({
   selector: 'app-indice-new',
@@ -21,7 +24,9 @@ export class IndiceComponent implements OnInit {
     private _router: Router,
     private _tipoclasificacionService: TipoClasificacionService,
     private _avalaibleYearsService: AvalaibleYearsService,
-    private _dataGraphService: DataGraphService
+    private _dataGraphService: DataTableGraphService,
+    private _prepareDataIngresosService: PrepareDataIngresosService,
+    private _prepareDataGastosService: PrepareDataGastosService
   ) { }
 
   ngOnInit() {
@@ -65,6 +70,7 @@ export class IndiceComponent implements OnInit {
     // this.openTable('ingresosEconomicaCapitulos', 'Capitulo de ingresos');
     this.openTable(TIPO_CLASIFICACION.IE_CAPITULO, 'Capitulo de ingresos');
   }
+
 
   ingresosEconomicaArticulos() {
     this.openTable('ingresosEconomicaArticulos', 'Artículo de ingresos');
@@ -118,6 +124,8 @@ export class IndiceComponent implements OnInit {
 
   private getSelectedItem(tipo?: string) {
     const years = this.result.map((year) => year.year);
+    console.log(years);
+
     this._avalaibleYearsService.setAvalaibleYear(years);
   }
 
@@ -136,14 +144,32 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
   }
 
-  private openTable(tipoClasificacion: string, titleSelect: string) {
-    this._tipoclasificacionService.tipoClasificacion = tipoClasificacion;
+  async openTable(tipoClasificacion: string, title: string): Promise<void> {
     this.getSelectedItem();
-    this._sendData = <IDataGraph>{
-      titleSelect: titleSelect,
-    };
-    this._dataGraphService.sendData = this._sendData;
-    if (tipoClasificacion.startsWith('ingresos')) {
+
+    const isIncome = tipoClasificacion.startsWith('ingresos');
+    const dataPropertyTable = getClasificacion(tipoClasificacion);
+
+    let data;
+    if (isIncome) {
+      data = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion, false, dataPropertyTable.sufijo);
+
+    } else {
+      data = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion, false, dataPropertyTable.sufijo);
+    }
+
+
+    const sendData: IDataTableGraph = {
+      dataPropertyTable,
+      clasificationType: tipoClasificacion,
+      title,
+      data
+    }
+
+
+    this._dataGraphService.dataTableGraph = sendData;
+
+    if (isIncome) {
       this._router.navigateByUrl('/tableIngresos')
     } else {
       this._router.navigateByUrl('/tableGastos')

@@ -9,10 +9,10 @@ import { GraphGastosComponent } from './graphs/graph-gastos/graph-gastos.compone
 
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
-  { path: 'tableIngresos', component: TableIngresosComponent },
-  { path: 'tableGastos', component: TableGastosComponent },
-  { path: 'graphIngresos', component: GraphIngresosComponent },
-  { path: 'graphGastos', component: GraphGastosComponent },
+  { path: 'tableIngresos', loadChildren: () => import('./tables/table-ingresos/table-ingresos.module').then((m) => m.TableIngresosModule) },
+  { path: 'tableGastos', loadChildren: () => import('./tables/table-gastos/table-gastos.module').then((m) => m.TableGastosModule) },
+  { path: 'graphIngresos', loadChildren: () => import('./graphs/graph-ingresos/graph-ingresos.module').then((m) => m.GraphIngresosModule) },
+  { path: 'graphGastos', loadChildren: () => import('./graphs/graph-gastos/graph-gastos.module').then((m) => m.GraphGastosModule) },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 @NgModule({

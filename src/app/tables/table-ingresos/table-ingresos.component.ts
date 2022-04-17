@@ -8,10 +8,11 @@ import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
-import { DataGraphService } from '../../services/data-graph.service';
+import { DataTableGraphService } from '../../services/data-graph.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
+import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-compara-ing',
@@ -31,77 +32,82 @@ export class TableIngresosComponent {
   public CreditosWidth?: number = 130;
   public tipoClasificacion: string;
   public rowSelection = 'single';
-  private _headerName: string;
-  private _subHeaderName: string;
-  private _codField: string;
-  private _desField: string;
-  private _width: number;
+  // private _headerName: string;
+  // private _subHeaderName: string;
+  // private _codField: string;
+  // private _desField: string;
+  // private _width: number;
   //public yearObservable: Observable<string>;
-  private _sufijo: string;
+  // private _sufijo: string;
 
+  private _dataTableGraph: IDataTableGraph;
   constructor(
     private router: Router,
     private prepareDataIngresosService: PrepareDataIngresosService,
     private tipoclasificacionService: TipoClasificacionService,
     public avalaibleYearsService: AvalaibleYearsService,
-    private dataGraphService: DataGraphService,
+    private dataGraphService: DataTableGraphService,
+    private _dataTableGraphService: DataTableGraphService
   ) {
-    this.tipoClasificacion = this.tipoclasificacionService.getTipoClasificacion();
+
+    this._dataTableGraph = _dataTableGraphService.dataTableGraph;
+
+    //this.tipoClasificacion = this.tipoclasificacionService.getTipoClasificacion();
     //this.yearObservable = avalaibleYearsService.getAvalaibleYear();
 
-    switch (this.tipoClasificacion) {
-      case 'ingresosEconomicaCapitulos':
-        this._sufijo = 'Cap';
-        this._headerName = 'Clasificado por capítulo';
-        this._subHeaderName = 'Capítulo';
-        this._codField = 'CodCap';
-        this._desField = 'DesCap';
-        this._width = 250;
-        break;
-      case 'ingresosEconomicaArticulos':
-        this._sufijo = 'Eco';
-        this._headerName = 'Clasificado por articulo';
-        this._subHeaderName = 'Articulo';
-        this._codField = 'CodEco';
-        this._desField = 'DesEco';
-        this._width = 250;
-        break;
-      case 'ingresosEconomicaConceptos':
-        this._sufijo = 'Eco';
-        this._headerName = 'Clasificado por concepto';
-        this._subHeaderName = 'Concepto';
-        this._codField = 'CodEco';
-        this._desField = 'DesEco';
-        this._width = 250;
-        break;
-      case 'ingresosEconomicaEconomicos':
-        this._sufijo = 'Eco';
-        this._headerName = 'Clasificado por económico';
-        this._subHeaderName = 'Económico';
-        this._codField = 'CodEco';
-        this._desField = 'DesEco';
-        this._width = 400;
-        break;
-    }
+    // switch (this.tipoClasificacion) {
+    //   case 'ingresosEconomicaCapitulos':
+    //     this._sufijo = 'Cap';
+    //     this._headerName = 'Clasificado por capítulo';
+    //     this._subHeaderName = 'Capítulo';
+    //     this._codField = 'CodCap';
+    //     this._desField = 'DesCap';
+    //     this._width = 250;
+    //     break;
+    //   case 'ingresosEconomicaArticulos':
+    //     this._sufijo = 'Eco';
+    //     this._headerName = 'Clasificado por articulo';
+    //     this._subHeaderName = 'Articulo';
+    //     this._codField = 'CodEco';
+    //     this._desField = 'DesEco';
+    //     this._width = 250;
+    //     break;
+    //   case 'ingresosEconomicaConceptos':
+    //     this._sufijo = 'Eco';
+    //     this._headerName = 'Clasificado por concepto';
+    //     this._subHeaderName = 'Concepto';
+    //     this._codField = 'CodEco';
+    //     this._desField = 'DesEco';
+    //     this._width = 250;
+    //     break;
+    //   case 'ingresosEconomicaEconomicos':
+    //     this._sufijo = 'Eco';
+    //     this._headerName = 'Clasificado por económico';
+    //     this._subHeaderName = 'Económico';
+    //     this._codField = 'CodEco';
+    //     this._desField = 'DesEco';
+    //     this._width = 400;
+    //     break;
+    // }
 
     this.columnDefs = [
       {
-        headerName: this._headerName,
+        headerName: this._dataTableGraph.dataPropertyTable.headerName,
         children: [
           {
-            headerName: this._subHeaderName,
-            field: this._codField,
+            headerName: this._dataTableGraph.dataPropertyTable.subHeaderName,
+            field: this._dataTableGraph.dataPropertyTable.codField,
             cellClass: 'resaltado',
-            width: this._width,
+            width: this._dataTableGraph.dataPropertyTable.width,
             pinned: 'left',
             rowGroup: true,
-            showRowGroup: this._codField,
+            showRowGroup: this._dataTableGraph.dataPropertyTable.codField,
             columnGroupShow: 'open',
             // checkboxSelection: true,
             cellRenderer: CellRendererOCMtext,
             valueGetter: params => {
               if (params.data) {
-                return params.data[this._codField] + ' - ' + params.data[this._desField];
+                return params.data[this._dataTableGraph.dataPropertyTable.codField] + ' - ' + params.data[this._dataTableGraph.dataPropertyTable.desField];
               } else {
                 return null;
               }
@@ -148,7 +154,7 @@ export class TableIngresosComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = await this.prepareDataIngresosService.getDataAllYear(this.tipoClasificacion, false, this._sufijo);
+    this.rowData = this._dataTableGraph.data;
   }
 
   // TODO: Las colummnas disparan su altura
@@ -226,7 +232,7 @@ export class TableIngresosComponent {
 
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    this.dataGraphService.codigoSelect = selectedRows[0].key;
+    this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
     this.router.navigateByUrl("/graphIngresos")
   }
 

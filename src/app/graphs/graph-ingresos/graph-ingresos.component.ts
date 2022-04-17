@@ -7,9 +7,10 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { accumulate } from '../../commons/util/util';
 
-import { DataGraphService } from '../../services/data-graph.service';
+import { DataTableGraphService } from '../../services/data-graph.service';
 import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 import { TipoClasificacionService } from '../../services/tipoClasificacion.service';
+import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-graph-ingresos',
@@ -31,15 +32,20 @@ export class GraphIngresosComponent {
   public rowDataTable: any;
   public groupHeaderHeight = 25;
   public headerHeight = 25;
-  private datos: [] = [];
+  private datos: any[] = [];
+  private _dataTableGraph: IDataTableGraph;
+
 
   constructor(
     private location: Location,
-    private dataGraphService: DataGraphService,
+    private _dataGraphService: DataTableGraphService,
     private prepareDataIngresosService: PrepareDataIngresosService,
     private tipoclasificacionService: TipoClasificacionService,
   ) {
-    this.createData(this.dataGraphService.getCodigoSelect().split(" ")[0]);
+
+    this._dataTableGraph = _dataGraphService.dataTableGraph;
+
+    this.createData();
     // this.text = router.getCurrentNavigation().extras.state.data.tipo;
     // this.codigo = router.getCurrentNavigation().extras.state.data.codigo;
   }
@@ -51,10 +57,10 @@ export class GraphIngresosComponent {
         // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: `${this.dataGraphService.getTitleSelect()}`,
+          text: this._dataTableGraph.title,
         },
         subtitle: {
-          text: `${this.dataGraphService.getTipoSelect()} ${this.dataGraphService.getCodigoSelect()}`,
+          text: `$this._dataTableGraph.title} ${this._dataGraphService.selectedCodeRow}`,
         },
         data: [...this.data],
         series: [
@@ -132,23 +138,25 @@ export class GraphIngresosComponent {
     this.gridColumnApi = params.columnApi;
   }
 
-  async createData(codigo: string) {
-    switch (this.tipoclasificacionService.getTipoClasificacion()) {
+  async createData() {
+    const codigo = this._dataGraphService.selectedCodeRow.split(" ")[0];
+
+    switch (this._dataTableGraph.clasificationType) {
       case 'ingresosEconomicaCapitulos':
-        this.rowData = await this.prepareDataIngresosService.getDataAllYear('Cap', false, 'Cap');
-        this.datos = this.rowData.filter(x => x.CodCap == codigo);
+        //this.rowData = await this.prepareDataIngresosService.getDataAllYear('Cap', false, 'Cap');
+        this.datos = this._dataTableGraph.data.filter(x => x.CodCap == codigo);
         break;
       case 'ingresosEconomicaArticulos':
-        this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', false, 'Eco');
-        this.datos = this.rowData.filter(x => Math.round(x.CodEco / 1000) === parseInt(codigo, 10));
+        // this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', false, 'Eco');
+        this.datos = this._dataTableGraph.data.filter(x => Math.round(x.CodEco / 1000) === parseInt(codigo, 10));
         break;
       case 'ingresosEconomicaConceptos':
-        this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', false, 'Eco');
-        this.datos = this.rowData.filter(x => Math.round(x.CodEco / 100) === parseInt(codigo, 10));
+        //this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', false, 'Eco');
+        this.datos = this._dataTableGraph.data.filter(x => Math.round(x.CodEco / 100) === parseInt(codigo, 10));
         break;
       case 'ingresosEconomicaEconomicos':
-        this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', false, 'Eco');
-        this.datos = this.rowData.filter(x => x.CodEco == codigo);
+        // this.rowData = await this.prepareDataIngresosService.getDataAllYear('Eco', false, 'Eco');
+        this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
         break;
     }
 

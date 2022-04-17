@@ -1,51 +1,70 @@
 import { Injectable } from '@angular/core';
-import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
+import { IDataGraph, IDataTableGraph } from '../commons/interfaces/dataGraph.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataGraphService {
-  sendData: IDataGraph = <IDataGraph>
-    {
-      data: '',
-      titleSelect: '',
-      optionSelect: '',
-      errorSelect: '',
-      URLSelect: '',
-      get getData(): string {
-        return this.data;
-      }
-    };
+export class DataTableGraphService {
 
-  getData(): string {
-    return this.sendData.data;
+  private _data: IDataTableGraph;
+  private _selectedCodeRow: string;
+
+  get dataTableGraph(): IDataTableGraph {
+    return this._data
   }
 
-  getTitleSelect(): string {
-    return this.sendData.titleSelect;
+  set dataTableGraph(data: IDataTableGraph) {
+    this._data = data
   }
 
-  getOptionSelect(): string {
-    return this.sendData.optionSelect;
+  get selectedCodeRow(): string {
+    return this._selectedCodeRow
   }
 
-  getErrorSelect(): string {
-    return this.sendData.errorSelect;
+  set selectedCodeRow(code: string) {
+    this._selectedCodeRow = code
   }
+  // sendData: IDataGraph = <IDataGraph>
+  //   {
+  //     data: '',
+  //     titleSelect: '',
+  //     optionSelect: '',
+  //     errorSelect: '',
+  //     URLSelect: '',
+  //     get getData(): string {
+  //       return this.data;
+  //     }
+  //   };
 
-  getURLSelect(): string {
-    return this.sendData.URLSelect;
-  }
+  // getData(): string {
+  //   return this.sendData.data;
+  // }
 
-  tipoSelect = "";
-  codigoSelect = "";
+  // getTitleSelect(): string {
+  //   return this.sendData.titleSelect;
+  // }
 
-  public getTipoSelect(): string {
-    return this.tipoSelect;
-  }
+  // getOptionSelect(): string {
+  //   return this.sendData.optionSelect;
+  // }
 
-  public getCodigoSelect(): string {
-    return this.codigoSelect;
-  }
+  // getErrorSelect(): string {
+  //   return this.sendData.errorSelect;
+  // }
+
+  // getURLSelect(): string {
+  //   return this.sendData.URLSelect;
+  // }
+
+  // tipoSelect = "";
+  // codigoSelect = "";
+
+  // public getTipoSelect(): string {
+  //   return this.tipoSelect;
+  // }
+
+  // public getCodigoSelect(): string {
+  //   return this.codigoSelect;
+  // }
 
 }
