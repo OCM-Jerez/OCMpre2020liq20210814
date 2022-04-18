@@ -6,12 +6,8 @@ import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { accumulate } from '../../commons/util/util';
-// import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataTableGraphService } from '../../services/data-graph.service';
-import { TipoClasificacionService } from '../../services/tipoClasificacion.service';
-import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
 import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
-
 
 @Component({
   selector: 'app-graph-gastos',
@@ -37,13 +33,10 @@ export class GraphGastosComponent implements AfterViewInit {
 
   constructor(
     private location: Location,
-    // private avalaibleYearsService: AvalaibleYearsService,
     private _dataGraphService: DataTableGraphService,
-    private tipoclasificacionService: TipoClasificacionService,
   ) {
 
     this._dataTableGraph = _dataGraphService.dataTableGraph;
-
     this.createData();
 
     this.columnDefs = [
@@ -91,7 +84,7 @@ export class GraphGastosComponent implements AfterViewInit {
           text: this._dataTableGraph.title,
         },
         subtitle: {
-          text: `${this._dataTableGraph.clasificationType} ${this._dataGraphService.selectedCodeRow}`,
+          text: `${this._dataTableGraph.dataPropertyTable.subHeaderName} ${this._dataGraphService.selectedCodeRow}`,
         },
         data: [...this.data],
         series: [
@@ -147,44 +140,32 @@ export class GraphGastosComponent implements AfterViewInit {
 
   async createData() {
     const codigo = this._dataGraphService.selectedCodeRow.split(" ")[0];
-
     switch (this._dataTableGraph.clasificationType) {
       case 'gastosOrganicaOrganicos':
-        //this.rowData = await this.prepareDataGastosService.getDataAllYear('Org', true, 'Org');
         this.datos = this._dataTableGraph.data.filter(x => x.CodOrg == codigo);
         break;
-
       case 'gastosProgramaAreas':
-        //this.rowData = await this.prepareDataGastosService.getDataAllYear('Pro', true, 'Pro');
-        this.datos = this._dataTableGraph.data.filter(x => Math.round(x.CodPro / 10000) === parseInt(codigo, 10));
-        break;
-      case 'gastosProgramaPoliticas':
-        //this.rowData = await this.prepareDataGastosService.getDataAllYear('Pro', true, 'Pro');
-        this.datos = this._dataTableGraph.data.filter(x => Math.round(x.CodPro / 1000) === parseInt(codigo, 10));
-        break;
-      case 'gastosProgramaGrupos':
-        //this.rowData = await this.prepareDataGastosService.getDataAllYear('Pro', true, 'Pro');
-        this.datos = this._dataTableGraph.data.filter(x => Math.round(x.CodPro / 100) === parseInt(codigo, 10));
-        break;
-      case 'gastosProgramaProgramas':
-        //this.rowData = await this.prepareDataGastosService.getDataAllYear('Pro', true, 'Pro');
         this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
         break;
-
+      case 'gastosProgramaPoliticas':
+        this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
+        break;
+      case 'gastosProgramaGrupos':
+        this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
+        break;
+      case 'gastosProgramaProgramas':
+        this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
+        break;
       case 'gastosEconomicaCapitulos':
-        //this.rowData = await this.prepareDataGastosService.getDataAllYear('Cap', true, 'Cap');
         this.datos = this._dataTableGraph.data.filter(x => x.CodCap == codigo);
         break;
       case 'gastosEconomicaArticulos':
-        //this.rowData = await this.prepareDataGastosService.getDataAllYear('Eco', true, 'Eco');
-        this.datos = this._dataTableGraph.data.filter(x => Math.round(x.CodEco / 1000) === parseInt(codigo, 10));
+        this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
         break;
       case 'gastosEconomicaConceptos':
-        //this.rowData = await this.prepareDataGastosService.getDataAllYear('Eco', true, 'Eco');
-        this.datos = this._dataTableGraph.data.filter(x => Math.round(x.CodEco / 100) === parseInt(codigo, 10));
+        this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
         break;
       case 'gastosEconomicaEconomicos':
-        //this.rowData = await this.prepareDataGastosService.getDataAllYear('Eco', true, 'Eco');
         this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
         break;
     }
