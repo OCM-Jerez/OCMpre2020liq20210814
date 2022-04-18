@@ -1,8 +1,6 @@
 import { IDataPropertyTable } from "../commons/interfaces/dataGraph.interface";
 
-
 const CLASIFICATION = {
-
     ingresosEconomicaCapitulos: {
         sufijo: 'Cap',
         headerName: 'Clasificado por capítulo',
