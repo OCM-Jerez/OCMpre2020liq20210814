@@ -82,11 +82,11 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
   }
 
-  async openTable(tipoClasificacion: string, title: string): Promise<void> {
+  async openTable(tipoClasificacion: string): Promise<void> {
     this.getSelectedItem();
     const isIncome = tipoClasificacion.startsWith('ingresos');
     const dataPropertyTable = getClasificacion(tipoClasificacion);
-    let data;
+    let data: any[];
     if (isIncome) {
       data = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion, false, dataPropertyTable.sufijo);
     } else {
@@ -96,7 +96,6 @@ export class IndiceComponent implements OnInit {
     const sendData: IDataTableGraph = {
       dataPropertyTable,
       clasificationType: tipoClasificacion,
-      title,
       data
     }
     this._dataGraphService.dataTableGraph = sendData;

@@ -8,6 +8,7 @@ const CLASIFICATION = {
         codField: 'CodCap',
         desField: 'DesCap',
         width: 250,
+        titleGraph: 'Ingresos por capítulo',
     },
     ingresosEconomicaArticulos: {
         sufijo: 'Eco',
@@ -16,6 +17,7 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 250,
+        titleGraph: 'Ingresos por artículo',
     },
     ingresosEconomicaConceptos: {
         sufijo: 'Eco',
@@ -24,6 +26,7 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 250,
+        titleGraph: 'Ingresos por concepto',
     },
     ingresosEconomicaEconomicos: {
         sufijo: 'Eco',
@@ -32,6 +35,7 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 400,
+        titleGraph: 'Ingresos por económico',
     },
     gastosOrganicaOrganicos: {
         sufijo: 'Org',
@@ -40,6 +44,7 @@ const CLASIFICATION = {
         codField: 'CodOrg',
         desField: 'DesOrg',
         width: 250,
+        titleGraph: 'Gastos por orgánico',
     },
     gastosProgramaAreas: {
         sufijo: 'Pro',
@@ -48,6 +53,7 @@ const CLASIFICATION = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
+        titleGraph: 'Gastos por área de programa',
     },
     gastosProgramaPoliticas: {
         sufijo: 'Pro',
@@ -56,6 +62,7 @@ const CLASIFICATION = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
+        titleGraph: 'Gastos por política de gasto',
     },
     gastosProgramaGrupos: {
         sufijo: 'Pro',
@@ -64,6 +71,7 @@ const CLASIFICATION = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
+        titleGraph: 'Gastos por grupo de programa',
     },
     gastosProgramaProgramas: {
         sufijo: 'Pro',
@@ -72,6 +80,7 @@ const CLASIFICATION = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
+        titleGraph: 'Gastos por programa',
     },
     gastosEconomicaCapitulos: {
         sufijo: 'Cap',
@@ -80,6 +89,7 @@ const CLASIFICATION = {
         codField: 'CodCap',
         desField: 'DesCap',
         width: 250,
+        titleGraph: 'Gastos por capítulo',
     },
     gastosEconomicaArticulos: {
         sufijo: 'Eco',
@@ -88,6 +98,7 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 250,
+        titleGraph: 'Gastos por artículo',
     },
     gastosEconomicaConceptos: {
         sufijo: 'Eco',
@@ -96,6 +107,7 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 250,
+        titleGraph: 'Gastos por concepto',
     },
     gastosEconomicaEconomicos: {
         sufijo: 'Eco',
@@ -104,6 +116,7 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 400,
+        titleGraph: 'Gastos por económico',
     }
 }
 

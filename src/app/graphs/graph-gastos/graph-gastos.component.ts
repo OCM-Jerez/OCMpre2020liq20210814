@@ -81,7 +81,7 @@ export class GraphGastosComponent implements AfterViewInit {
       this.options = {
         autoSize: true,
         title: {
-          text: this._dataTableGraph.title,
+          text: this._dataTableGraph.dataPropertyTable.titleGraph,
         },
         subtitle: {
           text: `${this._dataTableGraph.dataPropertyTable.subHeaderName} ${this._dataGraphService.selectedCodeRow}`,

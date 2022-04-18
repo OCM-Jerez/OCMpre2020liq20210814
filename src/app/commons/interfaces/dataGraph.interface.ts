@@ -1,7 +1,6 @@
 export interface IDataTableGraph {
     dataPropertyTable: IDataPropertyTable;
     clasificationType: string;
-    title: string;
     data: any[]
 }
 
@@ -12,4 +11,5 @@ export interface IDataPropertyTable {
     codField: string;
     desField: string;
     width: number;
+    titleGraph: string;
 }
