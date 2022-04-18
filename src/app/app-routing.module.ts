@@ -2,10 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IndiceComponent } from './indice/indice.component';
-import { TableIngresosComponent } from './tables/table-ingresos/table-ingresos.component';
-import { TableGastosComponent } from './tables/table-gastos/table-gastos.component';
-import { GraphIngresosComponent } from './graphs/graph-ingresos/graph-ingresos.component';
-import { GraphGastosComponent } from './graphs/graph-gastos/graph-gastos.component';
 
 const routes: Routes = [
   { path: 'home', component: IndiceComponent },
