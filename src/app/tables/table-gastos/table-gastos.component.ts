@@ -7,11 +7,9 @@ import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
-import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
 
 import { DataTableGraphService } from '../../services/data-graph.service';
 import { Router } from '@angular/router';
-import { PrepareDataGastosService } from '../../services/prepareDataGastos.service';
 import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
@@ -38,91 +36,10 @@ export class TableGastosComponent {
   constructor(
     private _router: Router,
     private _avalaibleYearsService: AvalaibleYearsService,
-    private _tipoclasificacionService: TipoClasificacionService,
-    private _prepareDataGastosService: PrepareDataGastosService,
     private _dataTableGraphService: DataTableGraphService
 
   ) {
     this._dataTableGraph = _dataTableGraphService.dataTableGraph;
-
-    // this.tipoClasificacion = this._tipoclasificacionService.getTipoClasificacion();
-
-    // switch (this.tipoClasificacion) {
-    //   case 'gastosOrganicaOrganicos':
-    //     this._sufijo = 'Org';
-    //     this._headerName = 'Clasificado por orgánico';
-    //     this._subHeaderName = 'Orgánico';
-    //     this._codField = 'CodOrg';
-    //     this._desField = 'DesOrg';
-    //     this._width = 250;
-    //     break;
-
-    //   case 'gastosProgramaAreas':
-    //     this._sufijo = 'Pro';
-    //     this._headerName = 'Clasificado por areas de programas de gasto';
-    //     this._subHeaderName = 'Area de gasto';
-    //     this._codField = 'CodPro';
-    //     this._desField = 'DesPro';
-    //     this._width = 550;
-    //     break;
-    //   case 'gastosProgramaPoliticas':
-    //     this._sufijo = 'Pro';
-    //     this._headerName = 'Clasificado por políticas de gasto';
-    //     this._subHeaderName = 'Política de gasto';
-    //     this._codField = 'CodPro';
-    //     this._desField = 'DesPro';
-    //     this._width = 550;
-    //     break;
-    //   case 'gastosProgramaGrupos':
-    //     this._sufijo = 'Pro';
-    //     this._headerName = 'Clasificado por grupos programas de gasto';
-    //     this._subHeaderName = 'Grupo programas de gasto';
-    //     this._codField = 'CodPro';
-    //     this._desField = 'DesPro';
-    //     this._width = 550;
-    //     break;
-    //   case 'gastosProgramaProgramas':
-    //     this._sufijo = 'Pro';
-    //     this._headerName = 'Clasificado por programa';
-    //     this._subHeaderName = 'Programa';
-    //     this._codField = 'CodPro';
-    //     this._desField = 'DesPro';
-    //     this._width = 550;
-    //     break;
-
-    //   case 'gastosEconomicaCapitulos':
-    //     this._sufijo = 'Cap';
-    //     this._headerName = 'Clasificado por capítulo';
-    //     this._subHeaderName = 'Capítulo';
-    //     this._codField = 'CodCap';
-    //     this._desField = 'DesCap';
-    //     this._width = 250;
-    //     break;
-    //   case 'gastosEconomicaArticulos':
-    //     this._sufijo = 'Eco';
-    //     this._headerName = 'Clasificado por articulo';
-    //     this._subHeaderName = 'Articulo';
-    //     this._codField = 'CodEco';
-    //     this._desField = 'DesEco';
-    //     this._width = 250;
-    //     break;
-    //   case 'gastosEconomicaConceptos':
-    //     this._sufijo = 'Eco';
-    //     this._headerName = 'Clasificado por concepto';
-    //     this._subHeaderName = 'Concepto';
-    //     this._codField = 'CodEco';
-    //     this._desField = 'DesEco';
-    //     this._width = 250;
-    //     break;
-    //   case 'gastosEconomicaEconomicos':
-    //     this._sufijo = 'Eco';
-    //     this._headerName = 'Clasificado por económico';
-    //     this._subHeaderName = 'Económico';
-    //     this._codField = 'CodEco';
-    //     this._desField = 'DesEco';
-    //     this._width = 400;
-    //     break;
-    // }
 
     this.columnDefs = [
       {
@@ -253,7 +170,6 @@ export class TableGastosComponent {
       {
         headerName: 'Remanente Credito',
         field: `RemanenteCredito${year}`,
-        // hide: true,
       },
     ];
   }
@@ -265,14 +181,3 @@ export class TableGastosComponent {
   }
 
 }
-
-// function headerHeightGetter() {
-//   var columnHeaderTexts = document.querySelectorAll('.ag-header-cell-text');
-//   var columnHeaderTextsArray: Element[] = [];
-//   columnHeaderTexts.forEach(node => columnHeaderTextsArray.push(node));
-//   var clientHeights = columnHeaderTextsArray.map(
-//     headerText => headerText.clientHeight
-//   );
-//   var tallestHeaderTextHeight = Math.max(...clientHeights);
-//   return tallestHeaderTextHeight;
-// }
