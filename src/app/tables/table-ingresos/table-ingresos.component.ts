@@ -1,17 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
-import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
+// import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { DataTableGraphService } from '../../services/data-graph.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { TipoClasificacionService } from 'src/app/services/tipoClasificacion.service';
-import { PrepareDataIngresosService } from '../../services/prepareDataIngresos.service';
 import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
@@ -32,64 +29,15 @@ export class TableIngresosComponent {
   public CreditosWidth?: number = 130;
   public tipoClasificacion: string;
   public rowSelection = 'single';
-  // private _headerName: string;
-  // private _subHeaderName: string;
-  // private _codField: string;
-  // private _desField: string;
-  // private _width: number;
-  //public yearObservable: Observable<string>;
-  // private _sufijo: string;
 
   private _dataTableGraph: IDataTableGraph;
   constructor(
     private router: Router,
-    private prepareDataIngresosService: PrepareDataIngresosService,
-    private tipoclasificacionService: TipoClasificacionService,
     public avalaibleYearsService: AvalaibleYearsService,
-    private dataGraphService: DataTableGraphService,
     private _dataTableGraphService: DataTableGraphService
   ) {
 
     this._dataTableGraph = _dataTableGraphService.dataTableGraph;
-
-    //this.tipoClasificacion = this.tipoclasificacionService.getTipoClasificacion();
-    //this.yearObservable = avalaibleYearsService.getAvalaibleYear();
-
-    // switch (this.tipoClasificacion) {
-    //   case 'ingresosEconomicaCapitulos':
-    //     this._sufijo = 'Cap';
-    //     this._headerName = 'Clasificado por capítulo';
-    //     this._subHeaderName = 'Capítulo';
-    //     this._codField = 'CodCap';
-    //     this._desField = 'DesCap';
-    //     this._width = 250;
-    //     break;
-    //   case 'ingresosEconomicaArticulos':
-    //     this._sufijo = 'Eco';
-    //     this._headerName = 'Clasificado por articulo';
-    //     this._subHeaderName = 'Articulo';
-    //     this._codField = 'CodEco';
-    //     this._desField = 'DesEco';
-    //     this._width = 250;
-    //     break;
-    //   case 'ingresosEconomicaConceptos':
-    //     this._sufijo = 'Eco';
-    //     this._headerName = 'Clasificado por concepto';
-    //     this._subHeaderName = 'Concepto';
-    //     this._codField = 'CodEco';
-    //     this._desField = 'DesEco';
-    //     this._width = 250;
-    //     break;
-    //   case 'ingresosEconomicaEconomicos':
-    //     this._sufijo = 'Eco';
-    //     this._headerName = 'Clasificado por económico';
-    //     this._subHeaderName = 'Económico';
-    //     this._codField = 'CodEco';
-    //     this._desField = 'DesEco';
-    //     this._width = 400;
-    //     break;
-    // }
-
     this.columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -103,7 +51,6 @@ export class TableIngresosComponent {
             rowGroup: true,
             showRowGroup: this._dataTableGraph.dataPropertyTable.codField,
             columnGroupShow: 'open',
-            // checkboxSelection: true,
             cellRenderer: CellRendererOCMtext,
             valueGetter: params => {
               if (params.data) {
@@ -238,13 +185,3 @@ export class TableIngresosComponent {
 
 }
 
-// function headerHeightGetter() {
-//   var columnHeaderTexts = document.querySelectorAll('.ag-header-cell-text');
-//   var columnHeaderTextsArray: Element[] = [];
-//   columnHeaderTexts.forEach(node => columnHeaderTextsArray.push(node));
-//   var clientHeights = columnHeaderTextsArray.map(
-//     headerText => headerText.clientHeight
-//   );
-//   var tallestHeaderTextHeight = Math.max(...clientHeights);
-//   return tallestHeaderTextHeight;
-// }
