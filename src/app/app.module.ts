@@ -14,7 +14,6 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { IndiceComponent } from './indice/indice.component';
-import { TipoClasificacionService } from './services/tipoClasificacion.service';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
 @NgModule({
@@ -34,7 +33,6 @@ import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.c
     ReactiveFormsModule,
   ],
   providers: [
-    TipoClasificacionService,
     AvalaibleYearsService
   ],
   bootstrap: [AppComponent]
