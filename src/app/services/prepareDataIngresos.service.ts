@@ -79,6 +79,8 @@ export class PrepareDataIngresosService {
           // byArticulo.push(item);
         });
 
+
+
         // byArticulo.map(item => {
         //   item.DesEco = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
         // });
@@ -99,7 +101,6 @@ export class PrepareDataIngresosService {
         });
         break;
     }
-    console.log(result);
     return result;
   }
 
