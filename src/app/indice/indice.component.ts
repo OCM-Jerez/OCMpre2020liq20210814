@@ -86,7 +86,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     const isIncome = tipoClasificacion.startsWith('ingresos');
     const dataPropertyTable = getClasificacion(tipoClasificacion);
-    console.log('dataPropertyTable: ', dataPropertyTable);
 
     let data: any[];
     if (isIncome) {
