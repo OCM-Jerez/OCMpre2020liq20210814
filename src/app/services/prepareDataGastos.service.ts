@@ -77,59 +77,32 @@ export class PrepareDataGastosService {
 
     switch (cla) {
       case 'gastosProgramaAreas':
-        const byArea = [];
         result.map(item => {
           item.CodPro = Math.floor((item.CodPro / 10000));
-          byArea.push(item);
-        });
-
-        byArea.map(item => {
           item.DesPro = gastosProgramaAreas.find((area) => area.codigo === item.CodPro).descripcion;
         });
         break;
       case 'gastosProgramaPoliticas':
-        const byPolitica = [];
         result.map(item => {
           item.CodPro = Math.floor((item.CodPro / 1000));
-          byPolitica.push(item);
-        });
-
-        byPolitica.map(item => {
           item.DesPro = gastosProgramaPoliticas.find((politica) => politica.codigo === item.CodPro).descripcion;
         });
         break;
       case 'gastosProgramaGrupos':
-        const byGrupo = [];
         result.map(item => {
           item.CodPro = Math.floor((item.CodPro / 100));
-          byGrupo.push(item);
-        });
-
-        byGrupo.map(item => {
-          // console.log(item);
           item.DesPro = gastosProgramaGruposProgramas.find((grupo) => grupo.codigo === item.CodPro).descripcion;
         });
         break;
-
       case 'gastosEconomicaArticulos':
-        const byArticulo = [];
         result.map(item => {
           item.CodEco = Math.floor((item.CodEco / 1000));
-          byArticulo.push(item);
-        });
-
-        byArticulo.map(item => {
           item.DesEco = gastosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
         });
         break;
       case 'gastosEconomicaConceptos':
-        const byConcepto = [];
         result.map(item => {
           item.CodEco = Math.floor((item.CodEco / 100));
-          byConcepto.push(item);
-        });
-
-        byConcepto.map(item => {
           item.DesEco = gastosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodEco).descripcion;
         });
         break;
