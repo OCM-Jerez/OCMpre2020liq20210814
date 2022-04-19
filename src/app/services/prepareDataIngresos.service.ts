@@ -14,13 +14,13 @@ export class PrepareDataIngresosService {
   private dataIngreso: IDataIngreso = <IDataIngreso>{};
 
   constructor(
-    private avalaibleYearsService: AvalaibleYearsService,
+    private _avalaibleYearsService: AvalaibleYearsService,
   ) { }
 
   // Itera por cada uno de los años disponibles para ingresos
   async getDataAllYear(cla: string, sufijo?: string): Promise<any[]> {
     let rowData = [];
-    const years = this.avalaibleYearsService.getYearsSelected();
+    const years = this._avalaibleYearsService.getYearsSelected();
 
     await asynForEach(years, async (year: number) => {
       const dataIng = await this.getDataYear(year, cla, sufijo);
