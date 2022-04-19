@@ -30,19 +30,19 @@ export class PrepareDataGastosService {
   }
 
   // Itera por cada uno de los años disponibles para gastos
-  async getDataAllYear(cla: string, sufijo?: string): Promise<any[]> {
+  async getDataAllYear(tipoClasificacion: string, sufijo?: string): Promise<any[]> {
     let rowData = [];
     const years = this.avalaibleYearsService.getYearsSelected();
 
     await asynForEach(years, async (year: number) => {
-      const dataGas = await this.getDataYear(year, cla, sufijo);
+      const dataGas = await this.getDataYear(year, tipoClasificacion, sufijo);
       rowData = rowData.concat(...dataGas);
     });
     return rowData;
   }
 
   // Selecciona datos gastos de un año
-  async getDataYear(year: number, cla: string, sufijo: string) {
+  async getDataYear(year: number, tipoClasificacion: string, sufijo: string) {
     const result = [];
 
     this.dataGasto = {
@@ -75,7 +75,7 @@ export class PrepareDataGastosService {
       });
     })
 
-    switch (cla) {
+    switch (tipoClasificacion) {
       case 'gastosProgramaAreas':
         result.map(item => {
           item.CodPro = Math.floor((item.CodPro / 10000));
