@@ -3,13 +3,9 @@ import { Injectable } from '@angular/core';
 import ingresosEconomicaArticulos from '../../assets/data/ingresosEconomicaArticulos.json';
 import ingresosEconomicaConceptos from '../../assets/data/ingresosEconomicaConceptos.json';
 
-import { IDataIngreso } from '../commons/interfaces/dataIngreso.interface';
-import { AVALAIBLE_YEARS } from '../../assets/data/avalaible-years-data';
-import { asynForEach } from '../commons/util/util';
-
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
-import { accumulate } from '../commons/util/util';
-
+import { IDataIngreso } from '../commons/interfaces/dataIngreso.interface';
+import { asynForEach } from '../commons/util/util';
 
 @Injectable({
   providedIn: 'root'
@@ -72,31 +68,14 @@ export class PrepareDataIngresosService {
 
     switch (cla) {
       case 'ingresosEconomicaArticulos':
-        // const byArticulo = [];
         result.map(item => {
           item.CodEco = Math.floor((item.CodEco / 1000));
           item.DesEco = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
-          // byArticulo.push(item);
         });
-
-
-
-        // byArticulo.map(item => {
-        //   item.DesEco = ingresosEconomicaArticulos.find((articulo) => articulo.codigo === item.CodEco).descripcion;
-        // });
-
-        // Usar este codigo para agrupar por articulo y no devolver todos los registros
-        // const yearsDefinitivas = accumulate('Definitivas', this.datos);
         break;
       case 'ingresosEconomicaConceptos':
-        const byConcepto = [];
         result.map(item => {
           item.CodEco = Math.floor((item.CodEco / 100));
-          byConcepto.push(item);
-        });
-
-        byConcepto.map(item => {
-          // console.log(item);
           item.DesEco = ingresosEconomicaConceptos.find((concepto) => concepto.codigo === item.CodEco).descripcion;
         });
         break;
