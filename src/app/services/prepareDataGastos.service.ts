@@ -17,7 +17,7 @@ export class PrepareDataGastosService {
   private dataGasto: IDataGasto = <IDataGasto>{};
 
   constructor(
-    private avalaibleYearsService: AvalaibleYearsService,
+    private _avalaibleYearsService: AvalaibleYearsService,
   ) { }
 
   // Seleciona datos del año que se pasa como parametro
@@ -29,7 +29,7 @@ export class PrepareDataGastosService {
   // Itera por cada uno de los años disponibles para gastos
   async getDataAllYear(tipoClasificacion: string, sufijo?: string): Promise<any[]> {
     let rowData = [];
-    const years = this.avalaibleYearsService.getYearsSelected();
+    const years = this._avalaibleYearsService.getYearsSelected();
 
     await asynForEach(years, async (year: number) => {
       const dataGas = await this.getDataYear(year, tipoClasificacion, sufijo);
