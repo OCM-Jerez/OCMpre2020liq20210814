@@ -18,19 +18,19 @@ export class PrepareDataIngresosService {
   ) { }
 
   // Itera por cada uno de los años disponibles para ingresos
-  async getDataAllYear(cla: string, sufijo?: string): Promise<any[]> {
+  async getDataAllYear(tipoClasificacion: string, sufijo?: string): Promise<any[]> {
     let rowData = [];
     const years = this._avalaibleYearsService.getYearsSelected();
 
     await asynForEach(years, async (year: number) => {
-      const dataIng = await this.getDataYear(year, cla, sufijo);
+      const dataIng = await this.getDataYear(year, tipoClasificacion, sufijo);
       rowData = rowData.concat(...dataIng);
     });
     return rowData;
   }
 
   // Selecciona datos ingresos de un año
-  async getDataYear(year: number, cla: string, sufijo: string) {
+  async getDataYear(year: number, tipoClasificacion: string, sufijo: string) {
     const result = [];
     this.dataIngreso = {
       cod: `Cod${sufijo}`,
@@ -66,7 +66,7 @@ export class PrepareDataIngresosService {
       });
     })
 
-    switch (cla) {
+    switch (tipoClasificacion) {
       case 'ingresosEconomicaArticulos':
         result.map(item => {
           item.CodEco = Math.floor((item.CodEco / 1000));
