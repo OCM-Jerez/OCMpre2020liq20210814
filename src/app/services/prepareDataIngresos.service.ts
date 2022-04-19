@@ -22,9 +22,9 @@ export class PrepareDataIngresosService {
   ) { }
 
   // Itera por cada uno de los años disponibles para ingresos
-  async getDataAllYear(cla: string, isGraph?: boolean, sufijo?: string): Promise<any[]> {
+  async getDataAllYear(cla: string, sufijo?: string): Promise<any[]> {
     let rowData = [];
-    const years = isGraph ? AVALAIBLE_YEARS : this.avalaibleYearsService.getYearsSelected();
+    const years = this.avalaibleYearsService.getYearsSelected();
 
     await asynForEach(years, async (year: number) => {
       const dataIng = await this.getDataYear(year, cla, sufijo);

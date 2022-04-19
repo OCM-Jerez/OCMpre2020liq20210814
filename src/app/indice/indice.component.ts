@@ -86,11 +86,13 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     const isIncome = tipoClasificacion.startsWith('ingresos');
     const dataPropertyTable = getClasificacion(tipoClasificacion);
+    console.log('dataPropertyTable: ', dataPropertyTable);
+
     let data: any[];
     if (isIncome) {
-      data = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion, false, dataPropertyTable.sufijo);
+      data = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion, dataPropertyTable.sufijo);
     } else {
-      data = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion, false, dataPropertyTable.sufijo);
+      data = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion, dataPropertyTable.sufijo);
     }
 
     const sendData: IDataTableGraph = {
