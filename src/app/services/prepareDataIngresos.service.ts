@@ -72,8 +72,8 @@ export class PrepareDataIngresosService {
     })
 
     // No puedo utilizarlo aqui porque en Indice envio los datos despues de llar a esta function.
-    this._dataTableGraph = this._dataTableGraphService.dataTableGraph;
-    console.log(this._dataTableGraph.dataPropertyTable.sufijo);
+    // this._dataTableGraph = this._dataTableGraphService.dataTableGraph;
+    // console.log(this._dataTableGraph.dataPropertyTable.sufijo);
 
     switch (tipoClasificacion) {
       case 'ingresosEconomicaArticulos':
