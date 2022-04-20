@@ -16,10 +16,7 @@ export class GraphTreeComponent {
     private _dataTableGraphService: DataTableGraphService
 
   ) {
-
     const dataGrahTree = this._dataTableGraphService.dataGraphTree;
-    console.log(dataGrahTree);
-
 
     let data = {
       name: 'Root',
@@ -27,7 +24,6 @@ export class GraphTreeComponent {
         {
           name: 'Organicos',
           children: [
-
             {
               // name: 'Organico 0',
               name: dataGrahTree[0].descripcion,
