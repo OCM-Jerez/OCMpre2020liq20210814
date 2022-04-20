@@ -9,6 +9,8 @@ const routes: Routes = [
   { path: 'tableGastos', loadChildren: () => import('./tables/table-gastos/table-gastos.module').then((m) => m.TableGastosModule) },
   { path: 'graphIngresos', loadChildren: () => import('./graphs/graph-ingresos/graph-ingresos.module').then((m) => m.GraphIngresosModule) },
   { path: 'graphGastos', loadChildren: () => import('./graphs/graph-gastos/graph-gastos.module').then((m) => m.GraphGastosModule) },
+  { path: 'graphTree', loadChildren: () => import('./graphs/graph-tree/graph-tree.module').then((m) => m.GraphTreeModule) },
+
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 @NgModule({

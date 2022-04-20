@@ -8,6 +8,7 @@ export class DataTableGraphService {
 
   private _data: IDataTableGraph;
   private _selectedCodeRow: string;
+  private _dataGraphTree: any[];
 
   get dataTableGraph(): IDataTableGraph {
     return this._data
@@ -23,6 +24,14 @@ export class DataTableGraphService {
 
   set selectedCodeRow(code: string) {
     this._selectedCodeRow = code
+  }
+
+  get dataGraphTree(): any[] {
+    return this._dataGraphTree
+  }
+
+  set dataGraphTree(dateGraphTree: any[]) {
+    this._dataGraphTree = dateGraphTree
   }
 
 }

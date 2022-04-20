@@ -12,6 +12,11 @@ import { DataTableGraphService } from '../../services/data-graph.service';
 import { Router } from '@angular/router';
 import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
 
+import { accumulateOneYear } from '../../commons/util/util';
+import gastosOrganicaOrganicos from '../../../assets/data/gastosOrganicaOrganicos.json';
+
+
+
 @Component({
   selector: 'app-compara-gas',
   templateUrl: './table-gastos.component.html',
@@ -105,6 +110,8 @@ export class TableGastosComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.rowData = this._dataTableGraph.data
+    // console.log(this.rowData);
+
   }
 
   // TODO: Las colummnas disparan su altura
@@ -178,6 +185,87 @@ export class TableGastosComponent {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
     this._router.navigateByUrl("/graphGastos")
+  }
+
+  showGraphTree() {
+    const dataGraphTree = gastosOrganicaOrganicos.map(item => {
+      const dataLastYear = this.rowData.filter(x => x.CodOrg == item.codigo);
+      const sumDefinitivas = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
+      return { ...item, total: sumDefinitivas }
+    })
+    console.log(dataGraphTree);
+    this._dataTableGraphService.dataGraphTree = dataGraphTree;
+
+
+    // const dataGraphTree = [];
+    // for (let index = 0; index <= 25; index++) {
+    //   const dataLastYear = this.rowData.filter(x => x.CodOrg == index);
+    //   switch (index) {
+    //     case 0:
+    //       const sum0 = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
+    //       const value0 = {
+    //         "Organico": index,
+    //         "Definitivas": sum0,
+    //       }
+    //       dataGraphTree.push(value0);
+    //       break;
+    //     case 1:
+    //       const sum1 = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
+    //       const value1 = {
+    //         "Organico": index,
+    //         "Definitivas": sum1,
+    //       }
+    //       dataGraphTree.push(value1);
+    //       break;
+    //     case 2:
+    //       const sum2 = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
+    //       const value2 = {
+    //         "Organico": index,
+    //         "Definitivas": sum2,
+    //       }
+    //       dataGraphTree.push(value2);
+    //       break;
+    //     case 3:
+    //       const sum3 = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
+    //       const value3 = {
+    //         "Organico": index,
+    //         "Definitivas": sum3,
+    //       }
+    //       dataGraphTree.push(value3);
+    //       break;
+    //     case 4:
+    //       const sum4 = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
+    //       const value4 = {
+    //         "Organico": index,
+    //         "Definitivas": sum4,
+    //       }
+    //       dataGraphTree.push(value4);
+    //       break;
+    //     case 5:
+    //       const sum5 = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
+    //       const value5 = {
+    //         "Organico": index,
+    //         "Definitivas": sum5,
+    //       }
+    //       dataGraphTree.push(value5);
+    //       break;
+    //     case 6:
+    //       const sum6 = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
+    //       const value6 = {
+    //         "Organico": index,
+    //         "Definitivas": sum6,
+    //       }
+    //       dataGraphTree.push(value6);
+    //       break;
+    //   }
+
+    // }
+    // console.log(dataGraphTree);
+
+
+
+
+    this._router.navigateByUrl("/graphTree")
   }
 
 }
