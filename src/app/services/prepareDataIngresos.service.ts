@@ -6,8 +6,9 @@ import ingresosEconomicaConceptos from '../../assets/data/ingresosEconomicaConce
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { IDataIngreso } from '../commons/interfaces/dataIngreso.interface';
 import { asynForEach } from '../commons/util/util';
-import { DataTableGraphService } from './data-graph.service';
-import { IDataTableGraph } from '../commons/interfaces/dataGraph.interface';
+
+// import { DataTableGraphService } from './data-graph.service';
+// import { IDataTableGraph } from '../commons/interfaces/dataGraph.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,11 @@ import { IDataTableGraph } from '../commons/interfaces/dataGraph.interface';
 export class PrepareDataIngresosService {
   private dataIngreso: IDataIngreso = <IDataIngreso>{};
 
-  private _dataTableGraph: IDataTableGraph;
+  // private _dataTableGraph: IDataTableGraph;
 
   constructor(
     private _avalaibleYearsService: AvalaibleYearsService,
-    private _dataTableGraphService: DataTableGraphService
+    // private _dataTableGraphService: DataTableGraphService
   ) { }
 
   // Itera por cada uno de los años disponibles para ingresos
@@ -71,7 +72,7 @@ export class PrepareDataIngresosService {
       });
     })
 
-    // No puedo utilizarlo aqui porque en Indice envio los datos despues de llar a esta function.
+    // No puedo utilizarlo aqui porque en Indice envio los datos despues de llamar a esta function.
     // this._dataTableGraph = this._dataTableGraphService.dataTableGraph;
     // console.log(this._dataTableGraph.dataPropertyTable.sufijo);
 
