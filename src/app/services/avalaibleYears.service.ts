@@ -8,12 +8,10 @@ export class AvalaibleYearsService {
   public yearsSelected: number[] = [];
   public setAvalaibleYear(yearSelected: number[]): void {
     this.yearsSelected = yearSelected;
-    // const minor = Math.min(...yearSelected);
-    // const max = Math.max(...yearSelected);
-    // const message = minor === max ? `${minor}` : `${minor} A ${max} `
-    // this.year = yearSelected;
-    // const message = new Intl.ListFormat('es', { type: 'conjunction' }).format(yearSelected)
-    const message = yearSelected.join(',');
+    const min = Math.min(...this.yearsSelected);
+    const max = Math.max(...this.yearsSelected);
+    let message: string;
+    this.yearsSelected.length > 1 ? message = ` del año ${min} al ${max}` : message = `año ${min}`;
     this.subject$.next(message);
   }
 

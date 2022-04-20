@@ -32,8 +32,8 @@ export class TableIngresosComponent {
 
   private _dataTableGraph: IDataTableGraph;
   constructor(
-    private router: Router,
-    public avalaibleYearsService: AvalaibleYearsService,
+    private _router: Router,
+    public _avalaibleYearsService: AvalaibleYearsService,
     private _dataTableGraphService: DataTableGraphService
   ) {
 
@@ -63,7 +63,7 @@ export class TableIngresosComponent {
         ]
       },
 
-      ...avalaibleYearsService.getYearsSelected().map(year => {
+      ..._avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
           children: this.createColumnsChildren(year),
@@ -180,7 +180,7 @@ export class TableIngresosComponent {
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
-    this.router.navigateByUrl("/graphIngresos")
+    this._router.navigateByUrl("/graphIngresos")
   }
 
 }

@@ -35,7 +35,7 @@ export class TableGastosComponent {
 
   constructor(
     private _router: Router,
-    private _avalaibleYearsService: AvalaibleYearsService,
+    public _avalaibleYearsService: AvalaibleYearsService,
     private _dataTableGraphService: DataTableGraphService
 
   ) {
