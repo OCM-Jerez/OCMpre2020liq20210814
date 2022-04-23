@@ -187,6 +187,13 @@ export class TableGastosComponent {
     this._router.navigateByUrl("/graphGastos")
   }
 
+  showProgramaDetail() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
+    this._router.navigateByUrl("/tableProgramaDetails")
+
+  }
+
   showGraphTree() {
     this._prepareDataGraphTreeService.prepareDataGraphTree(this.rowData);
     this._router.navigateByUrl("/graphTree")
