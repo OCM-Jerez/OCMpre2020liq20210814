@@ -110,17 +110,6 @@ Next fila
 End Sub
 
 
-
-
-
-
-
-
-
-
-
-
-
 - Grabar macros.
 - Ejecutar macro **borrarSuma** seleccionando la columna adecuada (la que contine la palabra Suma) **columna D**.
 - Ejecutar macro **borrarIniciales** seleccionando la columna adecuada (la que contine la palabra INICIALES)  **columna E**.
