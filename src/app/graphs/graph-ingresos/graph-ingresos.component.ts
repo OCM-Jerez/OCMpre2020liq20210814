@@ -151,21 +151,21 @@ export class GraphIngresosComponent {
     }
 
     const yearsDefinitivas = accumulate('Definitivas', this.datos);
-    // const yearsIniciales = accumulate('Iniciales', this.datos);
+    const yearsIniciales = accumulate('Iniciales', this.datos);
     const yearsNetas = accumulate('RecaudacionNeta', this.datos);
 
     // Convierto los valores para que sirvan de data al grafico
     this.data = [];
-    for (let index = 2015; index <= 2021; index++) {
+    for (let index = 2015; index <= 2022; index++) {
       const value = {
         "year": index,
         "Definitivas": yearsDefinitivas[index],
         "RecaudacionNeta": yearsNetas[index]
       }
-      // if (index === 2022) {
-      //   value.Definitivas = yearsIniciales[index]
-      //   value.RecaudacionNeta = yearsNetas[index - 1]
-      // }
+      if (index === 2022) {
+        value.Definitivas = yearsIniciales[index]
+        value.RecaudacionNeta = yearsNetas[index - 1]
+      }
       this.data.push(value)
     }
     // console.log("Datos Tratados: ", this.data);
