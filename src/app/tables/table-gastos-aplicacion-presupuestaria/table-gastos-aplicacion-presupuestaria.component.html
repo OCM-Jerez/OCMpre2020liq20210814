@@ -1,0 +1,14 @@
+<div>
+    <h4 class="OCM-text--cabecera">Detalle programa {{
+        _avalaibleYearsService.getAvalaibleYear() | async }}</h4>
+
+    <button type="button" class="btn OCM-btnExpand" (click)="volver()">volver</button>
+    <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"
+        class="ag-theme-balham" [rowData]="rowData" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+        rowSelection="multiple" [groupSuppressAutoColumn]="true" [groupIncludeFooter]="true"
+        [groupIncludeTotalFooter]="true" [groupHeaderHeight]="groupHeaderHeight" [headerHeight]="headerHeight"
+        [localeText]="localeText" [suppressAggFuncInHeader]="true" [rowSelection]="rowSelection"
+        (gridReady)="onGridReady($event)" (firstDataRendered)="headerHeightSetter()"
+        (columnResized)="headerHeightSetter()">
+    </ag-grid-angular>
+</div>

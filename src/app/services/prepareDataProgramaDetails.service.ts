@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { AvalaibleYearsService } from './avalaibleYears.service';
+import { asynForEach } from '../commons/util/util';
 
 @Injectable({
   providedIn: 'root'
@@ -6,9 +8,23 @@ import { Injectable } from '@angular/core';
 export class PrepareDataProgramaDetailsService {
   private dataGasto: any = <any>{};
 
-  constructor() { }
+  constructor(
+    private _avalaibleYearsService: AvalaibleYearsService,
+  ) { }
 
-  async getData(year: number) {
+  // Itera por cada uno de los años disponibles para gastos
+  async getDataAllYear(): Promise<any[]> {
+    let rowData = [];
+    const years = this._avalaibleYearsService.getYearsSelected();
+
+    await asynForEach(years, async (year: number) => {
+      const dataGas = await this.getDataYear(year);
+      rowData = rowData.concat(...dataGas);
+    });
+    return rowData;
+  }
+
+  async getDataYear(year: number) {
     const result = [];
 
     this.dataGasto = {
@@ -20,14 +36,14 @@ export class PrepareDataProgramaDetailsService {
       DesCap: `DesCap`,
       CodEco: `CodEco`,
       DesEco: `DesEco`,
-      Iniciales: `Iniciales`,
-      Modificaciones: `Modificaciones`,
-      Definitivas: `Definitivas`,
-      GastosComprometidos: `GastosComprometidos`,
-      ObligacionesReconocidasNetas: `ObligacionesReconocidasNetas`,
-      Pagos: `Pagos`,
-      ObligacionesPendientePago: `ObligacionesPendientePago`,
-      RemanenteCredito: `RemanenteCredito`,
+      Iniciales: `Iniciales${year}`,
+      Modificaciones: `Modificaciones${year}`,
+      Definitivas: `Definitivas${year}`,
+      GastosComprometidos: `GastosComprometidos${year}`,
+      ObligacionesReconocidasNetas: `ObligacionesReconocidasNetas${year}`,
+      Pagos: `Pagos${year}`,
+      ObligacionesPendientePago: `ObligacionesPendientePago${year}`,
+      RemanenteCredito: `RemanenteCredito${year}`,
     }
 
     await this.getYearDataJson(year).then(data => {
