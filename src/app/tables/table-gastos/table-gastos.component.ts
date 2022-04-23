@@ -12,8 +12,7 @@ import { DataTableGraphService } from '../../services/data-graph.service';
 import { Router } from '@angular/router';
 import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
 
-import { accumulateOneYear } from '../../commons/util/util';
-import gastosOrganicaOrganicos from '../../../assets/data/gastosOrganicaOrganicos.json';
+import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 
 
 
@@ -41,7 +40,8 @@ export class TableGastosComponent {
   constructor(
     private _router: Router,
     public _avalaibleYearsService: AvalaibleYearsService,
-    private _dataTableGraphService: DataTableGraphService
+    private _dataTableGraphService: DataTableGraphService,
+    private _prepareDataGraphTreeService: PrepareDataGraphTreeService
 
   ) {
     this._dataTableGraph = _dataTableGraphService.dataTableGraph;
@@ -188,13 +188,7 @@ export class TableGastosComponent {
   }
 
   showGraphTree() {
-    const dataGraphTree = gastosOrganicaOrganicos.map(item => {
-      const dataLastYear = this.rowData.filter(x => x.CodOrg == item.codigo);
-      const sumDefinitivas = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
-      return { ...item, total: sumDefinitivas }
-    })
-    console.log(dataGraphTree);
-    this._dataTableGraphService.dataGraphTree = dataGraphTree;
+    this._prepareDataGraphTreeService.prepareDataGraphTree(this.rowData);
     this._router.navigateByUrl("/graphTree")
   }
 
