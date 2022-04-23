@@ -1,6 +1,7 @@
 
 // https://github.com/OCM-Jerez/presupuestos/blob/c908c8b5e9b11b2afbee91679704814e17ecbb77/src/app/gastos/gastos.component.ts
 import { Component, ViewChild } from '@angular/core';
+import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
@@ -41,6 +42,7 @@ export class TableProgramaDetailsComponent {
 
   public DesProWidth = 500;
   public DesCapWidth = 300;
+  public isExpanded = true;
 
   private _dataTableGraph: IDataTableGraph;
 
@@ -50,6 +52,7 @@ export class TableProgramaDetailsComponent {
     private _dataTableGraphService: DataTableGraphService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
+    private location: Location,
 
   ) {
     this._dataTableGraph = _dataTableGraphService.dataTableGraph;
@@ -65,7 +68,6 @@ export class TableProgramaDetailsComponent {
             showRowGroup: 'DesPro',
             filter: true,
             width: this.DesProWidth,
-
             pinned: 'left',
             columnGroupShow: 'close',
             cellRenderer: 'agGroupCellRenderer',
@@ -227,12 +229,10 @@ export class TableProgramaDetailsComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = await this._prepareDataProgramaDetailsService.getData(2020);
+    this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
     // this.rowData = dataJSON;
-    this.rowData = this.rowData.filter(x => x.CodPro == 49111);
+    this.rowData = this.rowData.filter(x => x.CodPro == this._dataTableGraphService.selectedCodeRow.split(" ")[0]);
     console.log(this.rowData);
-    this.gridApi.expandAll();
-    // this.isExpanded = true;
   }
 
   // TODO: Las colummnas disparan su altura
@@ -250,18 +250,18 @@ export class TableProgramaDetailsComponent {
         children: [
           {
             headerName: 'Previsiones Iniciales',
-            field: `Iniciales`,
+            field: `Iniciales${year}`,
             columnGroupShow: 'close'
           },
           {
             headerName: 'Total Modificaciones',
-            field: `Modificaciones`,
+            field: `Modificaciones${year}`,
             width: 140,
             columnGroupShow: 'close'
           },
           {
             headerName: 'Creditos definitivos',
-            field: `Definitivas`,
+            field: `Definitivas${year}`,
             width: 140,
             columnGroupShow: 'close'
           },
@@ -272,24 +272,24 @@ export class TableProgramaDetailsComponent {
         children: [
           {
             headerName: 'Gastos Comprometidos',
-            field: `GastosComprometidos`,
+            field: `GastosComprometidos${year}`,
             width: 140,
             columnGroupShow: 'close',
           },
           {
             headerName: 'Obligaciones reconocidas netas',
-            field: `ObligacionesReconocidasNetas`,
+            field: `ObligacionesReconocidasNetas${year}`,
             width: 135,
             columnGroupShow: 'close'
           },
           {
             headerName: 'Pagos',
-            field: `Pagos`,
+            field: `Pagos${year}`,
             columnGroupShow: 'close'
           },
           {
             headerName: 'Obligaciones pendientes de pago al 31 diciembre',
-            field: `ObligacionesPendientePago`,
+            field: `ObligacionesPendientePago${year}`,
             width: 120,
             columnGroupShow: 'close'
           },
@@ -297,69 +297,33 @@ export class TableProgramaDetailsComponent {
       },
       {
         headerName: 'Remanente Credito',
-        field: `RemanenteCredito`,
+        field: `RemanenteCredito${year}`,
       },
     ];
   }
 
-  // createColumnsChildren(year: number) {
-  //   return [
-  //     {
-  //       headerName: 'Créditos',
-  //       children: [
-  //         {
-  //           headerName: 'Previsiones Iniciales',
-  //           field: `Iniciales${year}`,
-  //           columnGroupShow: 'close'
-  //         },
-  //         {
-  //           headerName: 'Total Modificaciones',
-  //           field: `Modificaciones${year}`,
-  //           width: 140,
-  //           columnGroupShow: 'close'
-  //         },
-  //         {
-  //           headerName: 'Creditos definitivos',
-  //           field: `Definitivas${year}`,
-  //           width: 140,
-  //           columnGroupShow: 'close'
-  //         },
-  //       ]
-  //     },
-  //     {
-  //       headerName: 'Gastos',
-  //       children: [
-  //         {
-  //           headerName: 'Gastos Comprometidos',
-  //           field: `GastosComprometidos${year}`,
-  //           width: 140,
-  //           columnGroupShow: 'close',
-  //         },
-  //         {
-  //           headerName: 'Obligaciones reconocidas netas',
-  //           field: `ObligacionesReconocidasNetas${year}`,
-  //           width: 135,
-  //           columnGroupShow: 'close'
-  //         },
-  //         {
-  //           headerName: 'Pagos',
-  //           field: `Pagos${year}`,
-  //           columnGroupShow: 'close'
-  //         },
-  //         {
-  //           headerName: 'Obligaciones pendientes de pago al 31 diciembre',
-  //           field: `ObligacionesPendientePago${year}`,
-  //           width: 120,
-  //           columnGroupShow: 'close'
-  //         },
-  //       ]
-  //     },
-  //     {
-  //       headerName: 'Remanente Credito',
-  //       field: `RemanenteCredito${year}`,
-  //     },
-  //   ];
-  // }
 
+  expandAll() {
+    this.gridApi.expandAll();
+    this.isExpanded = true;
+  }
+
+  collapseAll() {
+    this.gridApi.collapseAll();
+    this.isExpanded = false;
+  }
+
+  aplicacion() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    const aplicacionPresupuestaria = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
+    console.log(selectedRows[0].data);
+    console.log(aplicacionPresupuestaria);
+    this._dataTableGraphService.selectedCodeRow = aplicacionPresupuestaria;
+    this._router.navigateByUrl('/tableAplicacionPresupuestaria')
+  }
+
+  volver() {
+    this.location.back();
+  }
 
 }
