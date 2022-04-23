@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
+
+import { AgGridModule } from 'ag-grid-angular';
 
 import { TableIngresosComponent } from './table-ingresos.component';
-import { RouterModule } from '@angular/router';
-
-import { Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { AgGridModule } from 'ag-grid-angular';
 
 export const routes: Routes = [{ path: '', component: TableIngresosComponent }]
 @NgModule({
