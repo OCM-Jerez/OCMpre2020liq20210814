@@ -1,3 +1,8 @@
+
+// https://github.com/OCM-Jerez/presupuestos/blob/c908c8b5e9b11b2afbee91679704814e17ecbb77/src/app/gastos/gastos.component.ts
+
+this.expandAll();
+
 <div>
     <h4 class="text-center" > Gastos por { { tipoclasificacionService.getTipoClasificacion() } } </h4>
 
