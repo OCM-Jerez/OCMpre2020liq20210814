@@ -166,13 +166,13 @@ export class TableProgramaDetailsComponent {
           {
             headerName: 'Económico',
             field: 'DesEco',
-            cellClass: 'resaltado',
+            // cellClass: 'resaltado',
             width: 400,
             pinned: 'left',
-            columnGroupShow: 'close',
+            // columnGroupShow: 'close',
+            cellRenderer: '',
             filter: true,
             valueGetter: params => {
-              // console.log(this.screen);
               if (params.data) {
                 return params.data.CodEco + ' - ' + params.data.DesEco;
               } else {
