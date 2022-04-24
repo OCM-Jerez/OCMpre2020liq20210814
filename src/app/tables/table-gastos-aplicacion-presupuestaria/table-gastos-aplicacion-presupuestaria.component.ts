@@ -40,7 +40,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
   private _desCapWidth = 300;
   private _dataTableGraph: IDataTableGraph;
 
-  data: any;
+  data: any[] = [];
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -64,16 +64,16 @@ export class TableGastosAplicacionPresupuestariaComponent {
             filter: false,
             width: 700,
             pinned: 'left',
-            // columnGroupShow: 'close',
-            // cellRenderer: 'agGroupCellRenderer',
-            // valueGetter: params => {
-            //   if (params.data) {
-            //     return params.data.CodOrg + '-' + params.data.CodPro + '-' + params.data.CodEco
-            //       + '  ' + params.data.DesOrg + ' - ' + params.data.DesPro + ' - ' + params.data.DesEco;
-            //   } else {
-            //     return null;
-            //   }
-            // },
+            columnGroupShow: 'close',
+            cellRenderer: 'agGroupCellRenderer',
+            valueGetter: params => {
+              if (params.data) {
+                return params.data.CodOrg + '-' + params.data.CodPro + '-' + params.data.CodEco
+                  + '  ' + params.data.DesOrg + ' - ' + params.data.DesPro + ' - ' + params.data.DesEco;
+              } else {
+                return null;
+              }
+            },
           },
         ]
       },
@@ -124,46 +124,43 @@ export class TableGastosAplicacionPresupuestariaComponent {
       .filter(x => x.CodEco == selectedRow.split("-")[2]);
     console.log(this.rowData);
 
-    // Crear un solo objeto con todos los datos de los años.
-    // const result = [];
-    // const r = this.rowData.map(x => {
-    //   x.aplicacion = x.CodOrg + "-" + x.CodPro + "-" + x.CodEco;
-    //   x.definitivas2105 = x.Definitivas2105;
-    // })
-    // console.log(r);
-
-    // result.push(r);
-    // console.log(result);
-
-    this.data = [];
     const value = {
-      "DesOrg": this.rowData[0].CodOrg + "-" + this.rowData[0].CodPro + "-" + this.rowData[0].CodEco
-        + '  ' + this.rowData[0].DesOrg + ' - ' + this.rowData[0].DesPro + ' - ' + this.rowData[0].DesEco,
-      "Definitivas2015": this.rowData[0].Definitivas2015,
-      "Definitivas2016": this.rowData[1].Definitivas2016,
-      "Definitivas2017": this.rowData[2].Definitivas2017,
-      "Definitivas2018": this.rowData[3].Definitivas2018,
-      "Definitivas2019": this.rowData[4].Definitivas2019,
-      "Definitivas2020": this.rowData[5].Definitivas2020,
-      "Definitivas2021": this.rowData[6].Definitivas2021,
-      "Definitivas2022": this.rowData[7].Definitivas2022,
-      "Iniciales2015": this.rowData[0].Iniciales2015,
-      "Iniciales2016": this.rowData[1].Iniciales2016,
-      "Iniciales2017": this.rowData[2].Iniciales2017,
-      "Iniciales2018": this.rowData[3].Iniciales2018,
-      "Iniciales2019": this.rowData[4].Iniciales2019,
-      "Iniciales2020": this.rowData[5].Iniciales2020,
-      "Iniciales2021": this.rowData[6].Iniciales2021,
-      "Iniciales2022": this.rowData[7].Iniciales2022,
-
+      ...this.rowData[0],
+      ...this.rowData[1],
+      ...this.rowData[2],
+      ...this.rowData[3],
+      ...this.rowData[4],
+      ...this.rowData[5],
+      ...this.rowData[6],
+      ...this.rowData[7]
     }
-
+    console.log(value);
     this.data.push(value)
-    this.rowData = this.data;
+
+    // const value = {
+    //   "DesOrg": this.rowData[0].CodOrg + "-" + this.rowData[0].CodPro + "-" + this.rowData[0].CodEco
+    //     + '  ' + this.rowData[0].DesOrg + ' - ' + this.rowData[0].DesPro + ' - ' + this.rowData[0].DesEco,
+    //   "Definitivas2015": this.rowData[0].Definitivas2015,
+    //   "Definitivas2016": this.rowData[1].Definitivas2016,
+    //   "Definitivas2017": this.rowData[2].Definitivas2017,
+    //   "Definitivas2018": this.rowData[3].Definitivas2018,
+    //   "Definitivas2019": this.rowData[4].Definitivas2019,
+    //   "Definitivas2020": this.rowData[5].Definitivas2020,
+    //   "Definitivas2021": this.rowData[6].Definitivas2021,
+    //   "Definitivas2022": this.rowData[7].Definitivas2022,
+    //   "Iniciales2015": this.rowData[0].Iniciales2015,
+    //   "Iniciales2016": this.rowData[1].Iniciales2016,
+    //   "Iniciales2017": this.rowData[2].Iniciales2017,
+    //   "Iniciales2018": this.rowData[3].Iniciales2018,
+    //   "Iniciales2019": this.rowData[4].Iniciales2019,
+    //   "Iniciales2020": this.rowData[5].Iniciales2020,
+    //   "Iniciales2021": this.rowData[6].Iniciales2021,
+    //   "Iniciales2022": this.rowData[7].Iniciales2022,
+    // }
+
+    // this.data.push(value)
     console.log(this.data);
-
-
-
+    this.rowData = this.data;
   }
 
   // TODO: Las colummnas disparan su altura
