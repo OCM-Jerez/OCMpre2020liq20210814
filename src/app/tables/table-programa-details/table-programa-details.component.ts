@@ -169,7 +169,7 @@ export class TableProgramaDetailsComponent {
             width: 400,
             pinned: 'left',
             columnGroupShow: 'close',
-            filter: false,
+            filter: true,
             valueGetter: params => {
               // console.log(this.screen);
               if (params.data) {
