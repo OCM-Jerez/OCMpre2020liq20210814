@@ -124,17 +124,23 @@ export class TableGastosAplicacionPresupuestariaComponent {
       .filter(x => x.CodEco == selectedRow.split("-")[2]);
     console.log(this.rowData);
 
-    const value = {
-      ...this.rowData[0],
-      ...this.rowData[1],
-      ...this.rowData[2],
-      ...this.rowData[3],
-      ...this.rowData[4],
-      ...this.rowData[5],
-      ...this.rowData[6],
-      ...this.rowData[7]
-    }
-    console.log(value);
+    let value = {}
+    Object.entries(this.rowData).forEach((currentValue) => {
+      value = { ...value, ...this.rowData[currentValue[0]] }
+      console.log(value);
+    });
+
+    // const value = {
+    //   ...this.rowData[0],
+    //   ...this.rowData[1],
+    //   ...this.rowData[2],
+    //   ...this.rowData[3],
+    //   ...this.rowData[4],
+    //   ...this.rowData[5],
+    //   ...this.rowData[6],
+    //   ...this.rowData[7]
+    // }
+    // console.log(value);
     this.data.push(value)
 
     // const value = {
