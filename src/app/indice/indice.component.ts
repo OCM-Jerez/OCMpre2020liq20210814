@@ -30,30 +30,30 @@ export class IndiceComponent implements OnInit {
     this.list = [
       {
         year: 2015,
-        checked: false,
+        checked: true,
       },
       {
         year: 2016,
-        checked: false,
+        checked: true,
       }, {
         year: 2017,
-        checked: false,
+        checked: true,
       }, {
         year: 2018,
-        checked: false,
+        checked: true,
       },
       {
         year: 2019,
-        checked: false,
+        checked: true,
       }, {
         year: 2020,
         checked: true,
       }, {
         year: 2021,
-        checked: false,
+        checked: true,
       }, {
         year: 2022,
-        checked: false,
+        checked: true,
       },
       // {
       //   year: "Todos",
