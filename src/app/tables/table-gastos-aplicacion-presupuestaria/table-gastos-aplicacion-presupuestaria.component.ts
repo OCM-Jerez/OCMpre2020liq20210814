@@ -1,21 +1,19 @@
 import { Component, ViewChild } from '@angular/core';
-import { Location } from "@angular/common";
+import { Location, CommonModule } from '@angular/common';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
+import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
 import { DataTableGraphService } from '../../services/data-graph.service';
-import { Router } from '@angular/router';
 import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
 
-import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
-import dataJSON from '@presu/json/2019LiqGas.json';
+import { accumulate } from '../../commons/util/util';
 
 @Component({
   selector: 'app-table-gastos-aplicacion-presupuestaria',
@@ -25,7 +23,6 @@ import dataJSON from '@presu/json/2019LiqGas.json';
 export class TableGastosAplicacionPresupuestariaComponent {
 
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  private gridApi;
   public gridColumnApi;
   public columnDefs;
   public defaultColDef;
@@ -38,120 +35,50 @@ export class TableGastosAplicacionPresupuestariaComponent {
   public tipoClasificacion: string;
   public rowSelection = 'single';
 
-  public DesProWidth = 500;
-  public DesCapWidth = 300;
-  public isExpanded = true;
-
+  private _gridApi;
+  private _desProWidth = 500;
+  private _desCapWidth = 300;
   private _dataTableGraph: IDataTableGraph;
 
+  data: any;
+
   constructor(
-    private _router: Router,
-    public _avalaibleYearsService: AvalaibleYearsService,
+    public avalaibleYearsService: AvalaibleYearsService,
     private _dataTableGraphService: DataTableGraphService,
-    private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
-    private location: Location,
+    private _location: Location,
 
   ) {
-    this._dataTableGraph = _dataTableGraphService.dataTableGraph;
+    // this._dataTableGraph = _dataTableGraphService.dataTableGraph;
 
     this.columnDefs = [
       {
-        headerName: this._dataTableGraph.dataPropertyTable.headerName,
+        // headerName: this._dataTableGraph.dataPropertyTable.headerName,
+        headerName: 'Clasificado por aplicación presupuestaria',
         children: [
-
           {
-            headerName: 'Organico',
+            headerName: 'Aplicación presupuestaria',
             field: 'DesOrg',
-            rowGroup: true,
-            showRowGroup: 'DesOrg',
+            // rowGroup: true,
+            // showRowGroup: 'DesOrg',
             filter: false,
-            width: this.DesCapWidth,
-            pinned: 'left',
-            columnGroupShow: 'close',
-            cellRenderer: 'agGroupCellRenderer',
-            valueGetter: params => {
-              if (params.data) {
-                return params.data.CodOrg + ' - ' + params.data.DesOrg;
-              } else {
-                return null;
-              }
-            },
-            cellRendererParams: {
-              suppressCount: true,
-              innerRenderer: params => {
-                if (params.node.group) {
-                  return params.value;
-                } else {
-                  return '';
-                }
-              },
-              footerValueGetter(params) {
-                const val = params.value.split(' - ')[1];
-                switch (params.node.level) {
-                  case 1:  // Total organico.
-                    return `<span style="color: red; font-size: 12px;  font-weight: bold; margin-left: 0px;"> Total ${val}</span>`;
-                  case -1: // Total general.
-                    return '';
-                  default:
-                    return 'SIN FORMATO';
-                }
-              }
-            }
-          },
-          {
-            headerName: 'Programa',
-            field: 'DesPro',
-            rowGroup: true,
-            showRowGroup: 'DesPro',
-            filter: true,
-            width: this.DesProWidth,
+            width: 700,
             pinned: 'left',
             // columnGroupShow: 'close',
-            cellRenderer: 'agGroupCellRenderer',
-            valueGetter: params => {
-              if (params.data) {
-                return params.data.CodPro + ' - ' + params.data.DesPro;
-              } else {
-                return null;
-              }
-            },
-            cellRendererParams: {
-              suppressCount: true,
-              innerRenderer: params => params.node.group ? `<span style="color: black; font-size: 12px; margin-left: 0px;">${params.value}</span>` : null,
-              footerValueGetter(params) {
-                switch (params.node.level) {
-                  case 0:  // Total programa.
-                    return `<span style="color: red; font-size: 14px; font-weight: bold; margin-left: 0px;"> Total ${params.value}</span>`;
-                  case -1: // Total general.
-                    return '<span style="color: red; font-size: 18px; font-weight: bold; margin-right: 0px;"> Total general' + '</span>';
-                  default:
-                    return 'SIN FORMATO';
-                }
-              }
-            }
-          },
-          {
-            headerName: 'Económico',
-            field: 'DesEco',
-            cellClass: 'resaltado',
-            width: 400,
-            pinned: 'left',
-            columnGroupShow: 'close',
-            filter: false,
-            valueGetter: params => {
-              // console.log(this.screen);
-              if (params.data) {
-                return params.data.CodEco + ' - ' + params.data.DesEco;
-              } else {
-                return null;
-              }
-            },
+            // cellRenderer: 'agGroupCellRenderer',
+            // valueGetter: params => {
+            //   if (params.data) {
+            //     return params.data.CodOrg + '-' + params.data.CodPro + '-' + params.data.CodEco
+            //       + '  ' + params.data.DesOrg + ' - ' + params.data.DesPro + ' - ' + params.data.DesEco;
+            //   } else {
+            //     return null;
+            //   }
+            // },
           },
         ]
       },
 
-      ...this._avalaibleYearsService.getYearsSelected().map(year => {
+      ...this.avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
           children: this.createColumnsChildren(year),
@@ -164,7 +91,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
       width: this.CreditosWidth,
       sortable: true,
       resizable: true,
-      filter: true,
+      filter: false,
       aggFunc: 'sum',
       cellRenderer: CellRendererOCM,
       headerComponentParams: {
@@ -187,29 +114,64 @@ export class TableGastosAplicacionPresupuestariaComponent {
   }
 
   async onGridReady(params) {
-    this.gridApi = params.api;
+    this._gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
+    let selectedRow = this._dataTableGraphService.selectedCodeRow
+    this.rowData = this.rowData
+      .filter(x => x.CodOrg == selectedRow.split("-")[0])
+      .filter(x => x.CodPro == selectedRow.split("-")[1])
+      .filter(x => x.CodEco == selectedRow.split("-")[2]);
     console.log(this.rowData);
 
-    // this.rowData = dataJSON;
-    console.log(this._dataTableGraphService.selectedCodeRow);
-    console.log(this._dataTableGraphService.selectedCodeRow.split("-")[0]);
-    console.log(this._dataTableGraphService.selectedCodeRow.split("-")[1]);
-    console.log(this._dataTableGraphService.selectedCodeRow.split("-")[2]);
+    // Crear un solo objeto con todos los datos de los años.
+    // const result = [];
+    // const r = this.rowData.map(x => {
+    //   x.aplicacion = x.CodOrg + "-" + x.CodPro + "-" + x.CodEco;
+    //   x.definitivas2105 = x.Definitivas2105;
+    // })
+    // console.log(r);
 
-    this.rowData = this.rowData.filter(x => x.CodOrg == this._dataTableGraphService.selectedCodeRow.split("-")[0]);
-    this.rowData = this.rowData.filter(x => x.CodPro == this._dataTableGraphService.selectedCodeRow.split("-")[1]);
-    this.rowData = this.rowData.filter(x => x.CodEco == this._dataTableGraphService.selectedCodeRow.split("-")[2]);
-    console.log(this.rowData);
+    // result.push(r);
+    // console.log(result);
+
+    this.data = [];
+    const value = {
+      "DesOrg": this.rowData[0].CodOrg + "-" + this.rowData[0].CodPro + "-" + this.rowData[0].CodEco
+        + '  ' + this.rowData[0].DesOrg + ' - ' + this.rowData[0].DesPro + ' - ' + this.rowData[0].DesEco,
+      "Definitivas2015": this.rowData[0].Definitivas2015,
+      "Definitivas2016": this.rowData[1].Definitivas2016,
+      "Definitivas2017": this.rowData[2].Definitivas2017,
+      "Definitivas2018": this.rowData[3].Definitivas2018,
+      "Definitivas2019": this.rowData[4].Definitivas2019,
+      "Definitivas2020": this.rowData[5].Definitivas2020,
+      "Definitivas2021": this.rowData[6].Definitivas2021,
+      "Definitivas2022": this.rowData[7].Definitivas2022,
+      "Iniciales2015": this.rowData[0].Iniciales2015,
+      "Iniciales2016": this.rowData[1].Iniciales2016,
+      "Iniciales2017": this.rowData[2].Iniciales2017,
+      "Iniciales2018": this.rowData[3].Iniciales2018,
+      "Iniciales2019": this.rowData[4].Iniciales2019,
+      "Iniciales2020": this.rowData[5].Iniciales2020,
+      "Iniciales2021": this.rowData[6].Iniciales2021,
+      "Iniciales2022": this.rowData[7].Iniciales2022,
+
+    }
+
+    this.data.push(value)
+    this.rowData = this.data;
+    console.log(this.data);
+
+
+
   }
 
   // TODO: Las colummnas disparan su altura
   headerHeightSetter() {
     // var padding = 20;
     // var height = headerHeightGetter() + padding;
-    // this.gridApi.setHeaderHeight(height);
-    // this.gridApi.resetRowHeights();
+    // this._gridApi.setHeaderHeight(height);
+    // this._gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: number) {
@@ -271,10 +233,8 @@ export class TableGastosAplicacionPresupuestariaComponent {
     ];
   }
 
-
-
   volver() {
-    this.location.back();
+    this._location.back();
   }
 
 }
