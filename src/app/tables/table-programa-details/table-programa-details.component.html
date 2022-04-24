@@ -1,8 +1,9 @@
 <div>
     <h4 class="OCM-text--cabecera">Detalle programa {{
-        _avalaibleYearsService.getAvalaibleYear() | async }}</h4>
-    <button *ngIf="!isExpanded" type="button" class="btn btnExpand" (click)="expandAll()"> Expandir todo </button>
-    <button *ngIf="isExpanded" type="button" class="btn btnCollapse" (click)="collapseAll()"> Colapsar todo </button>
+        avalaibleYearsService.getAvalaibleYear() | async }}</h4>
+    <button *ngIf="!isExpanded" type="button" class="btn OCM-btnExpand" (click)="expandAll()"> Expandir todo </button>
+    <button *ngIf="isExpanded" type="button" class="btn OCM-btnCollapse" (click)="collapseAll()"> Colapsar todo
+    </button>
     <button type="button" class="btn OCM-btnExpand" (click)="volver()">volver</button>
     <button type="button" class="btn OCM-btnExpand" (click)="aplicacion()">Aplicación</button>
     <ag-grid-angular #agGrid style="width: 100%; height: 90vh; padding-right: 20px; margin-left: 10px"

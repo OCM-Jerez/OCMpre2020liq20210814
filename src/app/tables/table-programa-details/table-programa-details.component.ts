@@ -1,23 +1,18 @@
-
-// https://github.com/OCM-Jerez/presupuestos/blob/c908c8b5e9b11b2afbee91679704814e17ecbb77/src/app/gastos/gastos.component.ts
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
-
-import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
+import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataTableGraphService } from '../../services/data-graph.service';
-import { Router } from '@angular/router';
-import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
-
-import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
-import dataJSON from '@presu/json/2019LiqGas.json';
+
+import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-table-programa-details',
@@ -25,9 +20,7 @@ import dataJSON from '@presu/json/2019LiqGas.json';
   styleUrls: ['./table-programa-details.component.scss']
 })
 export class TableProgramaDetailsComponent {
-
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  private gridApi;
   public gridColumnApi;
   public columnDefs;
   public defaultColDef;
@@ -36,24 +29,22 @@ export class TableProgramaDetailsComponent {
   public rowData: any;
   public groupHeaderHeight = 25;
   public headerHeight = 54;
-  public CreditosWidth?: number = 110;
-  public tipoClasificacion: string;
   public rowSelection = 'single';
+  public isExpanded = false;
 
-  public DesProWidth = 500;
-  public DesCapWidth = 300;
-  public isExpanded = true;
+  private _gridApi;
+  private _creditosWidth?: number = 110;
+  private _desProWidth = 500;
+  private _desCapWidth = 300;
 
   private _dataTableGraph: IDataTableGraph;
 
   constructor(
+    public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
-    public _avalaibleYearsService: AvalaibleYearsService,
     private _dataTableGraphService: DataTableGraphService,
-    private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
-    private location: Location,
-
+    private _location: Location,
   ) {
     this._dataTableGraph = _dataTableGraphService.dataTableGraph;
 
@@ -67,7 +58,7 @@ export class TableProgramaDetailsComponent {
             rowGroup: true,
             showRowGroup: 'DesPro',
             filter: true,
-            width: this.DesProWidth,
+            width: this._desProWidth,
             pinned: 'left',
             columnGroupShow: 'close',
             cellRenderer: 'agGroupCellRenderer',
@@ -99,7 +90,7 @@ export class TableProgramaDetailsComponent {
             rowGroup: true,
             showRowGroup: 'DesOrg',
             filter: false,
-            width: this.DesCapWidth,
+            width: this._desCapWidth,
             pinned: 'left',
             columnGroupShow: 'close',
             cellRenderer: 'agGroupCellRenderer',
@@ -138,7 +129,7 @@ export class TableProgramaDetailsComponent {
             rowGroup: true,
             showRowGroup: 'DesCap',
             filter: false,
-            width: this.DesCapWidth,
+            width: this._desCapWidth,
             pinned: 'left',
             columnGroupShow: 'close',
             cellRenderer: 'agGroupCellRenderer',
@@ -191,7 +182,7 @@ export class TableProgramaDetailsComponent {
         ]
       },
 
-      ...this._avalaibleYearsService.getYearsSelected().map(year => {
+      ...this.avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
           children: this.createColumnsChildren(year),
@@ -201,7 +192,7 @@ export class TableProgramaDetailsComponent {
     ];
 
     this.defaultColDef = {
-      width: this.CreditosWidth,
+      width: this._creditosWidth,
       sortable: true,
       resizable: true,
       filter: true,
@@ -227,20 +218,20 @@ export class TableProgramaDetailsComponent {
   }
 
   async onGridReady(params) {
-    this.gridApi = params.api;
+    this._gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
-    // this.rowData = dataJSON;
-    this.rowData = this.rowData.filter(x => x.CodPro == this._dataTableGraphService.selectedCodeRow.split(" ")[0]);
+    this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
+      .filter(x => x.CodPro == this._dataTableGraphService.selectedCodeRow.split(" ")[0]);
     console.log(this.rowData);
+    // this.expandAll();
   }
 
   // TODO: Las colummnas disparan su altura
   headerHeightSetter() {
     // var padding = 20;
     // var height = headerHeightGetter() + padding;
-    // this.gridApi.setHeaderHeight(height);
-    // this.gridApi.resetRowHeights();
+    // this._gridApi.setHeaderHeight(height);
+    // this._gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: number) {
@@ -302,14 +293,14 @@ export class TableProgramaDetailsComponent {
     ];
   }
 
-
   expandAll() {
-    this.gridApi.expandAll();
+    console.log('expandAll');
+    this._gridApi.expandAll();
     this.isExpanded = true;
   }
 
   collapseAll() {
-    this.gridApi.collapseAll();
+    this._gridApi.collapseAll();
     this.isExpanded = false;
   }
 
@@ -323,7 +314,7 @@ export class TableProgramaDetailsComponent {
   }
 
   volver() {
-    this.location.back();
+    this._location.back();
   }
 
 }
