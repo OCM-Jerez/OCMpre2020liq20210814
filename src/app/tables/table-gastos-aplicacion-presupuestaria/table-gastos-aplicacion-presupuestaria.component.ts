@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { Location, CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
@@ -44,6 +45,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
+    private _router: Router,
     private _dataTableGraphService: DataTableGraphService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
     private _location: Location,
@@ -65,7 +67,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
             width: 700,
             pinned: 'left',
             columnGroupShow: 'close',
-            cellRenderer: 'agGroupCellRenderer',
+            cellRenderer: '',
             valueGetter: params => {
               if (params.data) {
                 return params.data.CodOrg + '-' + params.data.CodPro + '-' + params.data.CodEco
@@ -239,5 +241,19 @@ export class TableGastosAplicacionPresupuestariaComponent {
   volver() {
     this._location.back();
   }
+
+  showGraph() {
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
+      this._dataTableGraphService.dataTableGraph.clasificationType = 'aplicacion';
+      this._dataTableGraphService.dataTableGraph.data = this.data;
+
+      this._router.navigateByUrl("/graphGastos")
+    } else {
+      alert('Selecciona un económico');
+    }
+  }
+
 
 }

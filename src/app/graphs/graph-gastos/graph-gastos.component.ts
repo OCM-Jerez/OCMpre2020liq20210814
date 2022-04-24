@@ -139,36 +139,42 @@ export class GraphGastosComponent implements AfterViewInit {
   }
 
   async createData() {
-    const codigo = this._dataGraphService.selectedCodeRow.split(" ")[0];
-    switch (this._dataTableGraph.clasificationType) {
-      case 'gastosOrganicaOrganicos':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodOrg == codigo);
-        break;
-      case 'gastosProgramaAreas':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
-        break;
-      case 'gastosProgramaPoliticas':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
-        break;
-      case 'gastosProgramaGrupos':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
-        break;
-      case 'gastosProgramaProgramas':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
-        break;
-      case 'gastosEconomicaCapitulos':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodCap == codigo);
-        break;
-      case 'gastosEconomicaArticulos':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
-        break;
-      case 'gastosEconomicaConceptos':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
-        break;
-      case 'gastosEconomicaEconomicos':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
-        break;
+    if (this._dataTableGraph.clasificationType != "aplicacion") {
+      const codigo = this._dataGraphService.selectedCodeRow.split(" ")[0];
+      switch (this._dataTableGraph.clasificationType) {
+        case 'gastosOrganicaOrganicos':
+          this.datos = this._dataTableGraph.data.filter(x => x.CodOrg == codigo);
+          break;
+        case 'gastosProgramaAreas':
+          this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
+          break;
+        case 'gastosProgramaPoliticas':
+          this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
+          break;
+        case 'gastosProgramaGrupos':
+          this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
+          break;
+        case 'gastosProgramaProgramas':
+          this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
+          break;
+        case 'gastosEconomicaCapitulos':
+          this.datos = this._dataTableGraph.data.filter(x => x.CodCap == codigo);
+          break;
+        case 'gastosEconomicaArticulos':
+          this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
+          break;
+        case 'gastosEconomicaConceptos':
+          this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
+          break;
+        case 'gastosEconomicaEconomicos':
+          this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
+          break;
+      }
+    } else {
+      this.datos = this._dataTableGraph.data
     }
+
+
 
     // const yearsIniciales = accumulate('Iniciales', this.datos);
     const yearsDefinitivas = accumulate('Definitivas', this.datos);

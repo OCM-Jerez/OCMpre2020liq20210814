@@ -187,7 +187,7 @@ export class TableGastosComponent {
       this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
       this._router.navigateByUrl("/tableProgramaDetails")
     } else {
-      alert('Seleccione un programa');
+      alert('Selecciona un programa');
     }
   }
 
