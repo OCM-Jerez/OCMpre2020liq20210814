@@ -306,11 +306,14 @@ export class TableProgramaDetailsComponent {
 
   aplicacion() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    const aplicacionPresupuestaria = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
-    console.log(selectedRows[0].data);
-    console.log(aplicacionPresupuestaria);
-    this._dataTableGraphService.selectedCodeRow = aplicacionPresupuestaria;
-    this._router.navigateByUrl('/tableAplicacionPresupuestaria')
+    if (selectedRows.length > 0) {
+      const aplicacionPresupuestaria = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
+      console.log(aplicacionPresupuestaria);
+      this._dataTableGraphService.selectedCodeRow = aplicacionPresupuestaria;
+      this._router.navigateByUrl('/tableAplicacionPresupuestaria')
+    } else {
+      alert('Seleccione un económico');
+    }
   }
 
   volver() {
