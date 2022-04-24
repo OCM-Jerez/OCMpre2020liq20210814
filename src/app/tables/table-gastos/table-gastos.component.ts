@@ -1,20 +1,17 @@
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
-
-import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
+import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
+import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataTableGraphService } from '../../services/data-graph.service';
-import { Router } from '@angular/router';
-import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
-
 import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 
-
+import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-compara-gas',
@@ -22,7 +19,6 @@ import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree
 })
 export class TableGastosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  private gridApi;
   public gridColumnApi;
   public columnDefs;
   public defaultColDef;
@@ -31,15 +27,15 @@ export class TableGastosComponent {
   public rowData: any;
   public groupHeaderHeight = 25;
   public headerHeight = 54;
-  public CreditosWidth?: number = 110;
-  public tipoClasificacion: string;
   public rowSelection = 'single';
 
+  private _gridApi;
+  private _creditosWidth?: number = 110;
   private _dataTableGraph: IDataTableGraph;
 
   constructor(
+    public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
-    public _avalaibleYearsService: AvalaibleYearsService,
     private _dataTableGraphService: DataTableGraphService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService
 
@@ -71,7 +67,7 @@ export class TableGastosComponent {
         ]
       },
 
-      ...this._avalaibleYearsService.getYearsSelected().map(year => {
+      ...this.avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
           children: this.createColumnsChildren(year),
@@ -81,7 +77,7 @@ export class TableGastosComponent {
     ];
 
     this.defaultColDef = {
-      width: this.CreditosWidth,
+      width: this._creditosWidth,
       sortable: true,
       resizable: false,
       filter: true,
@@ -107,19 +103,17 @@ export class TableGastosComponent {
   }
 
   async onGridReady(params) {
-    this.gridApi = params.api;
+    this._gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.rowData = this._dataTableGraph.data
-    // console.log(this.rowData);
-
   }
 
   // TODO: Las colummnas disparan su altura
   headerHeightSetter() {
     // var padding = 20;
     // var height = headerHeightGetter() + padding;
-    // this.gridApi.setHeaderHeight(height);
-    // this.gridApi.resetRowHeights();
+    // this._gridApi.setHeaderHeight(height);
+    // this._gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: number) {
@@ -187,11 +181,14 @@ export class TableGastosComponent {
     this._router.navigateByUrl("/graphGastos")
   }
 
-  showProgramaDetail() {
+  showProgramaDetails() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
-    this._router.navigateByUrl("/tableProgramaDetails")
-
+    if (selectedRows.length > 0) {
+      this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
+      this._router.navigateByUrl("/tableProgramaDetails")
+    } else {
+      alert('Seleccione un programa');
+    }
   }
 
   showGraphTree() {
