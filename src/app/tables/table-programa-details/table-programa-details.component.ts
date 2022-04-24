@@ -36,6 +36,7 @@ export class TableProgramaDetailsComponent {
   private _creditosWidth?: number = 110;
   private _desProWidth = 500;
   private _desCapWidth = 300;
+  data: any;
 
   private _dataTableGraph: IDataTableGraph;
 
@@ -224,6 +225,30 @@ export class TableProgramaDetailsComponent {
       .filter(x => x.CodPro == this._dataTableGraphService.selectedCodeRow.split(" ")[0]);
     console.log(this.rowData);
     // this.expandAll();
+
+
+    // this.data = [];
+    // let value = {}
+    // Object.entries(this.rowData).forEach((currentValue) => {
+    //   // console.log(currentValue);
+    //   // console.log(typeof (currentValue[1]));
+    //   value = { ...value, ...this.rowData[currentValue[0]] }
+    //   console.log(value);
+    // });
+    // this.data.push(value);
+    // console.log(this.data);
+    // this.rowData = this.data;
+
+    // const value = {
+    //   ...this.rowData[0],
+    //   ...this.rowData[1],
+    //   ...this.rowData[2],
+    //   ...this.rowData[3],
+    //   ...this.rowData[4],
+    //   ...this.rowData[5],
+    // }
+    // this.data.push(value)
+
   }
 
   // TODO: Las colummnas disparan su altura
