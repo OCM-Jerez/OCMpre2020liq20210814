@@ -1,4 +1,4 @@
-import { IDataPropertyTable } from "../commons/interfaces/dataGraph.interface";
+import { IDataPropertyTableGraph } from "../commons/interfaces/dataGraph.interface";
 
 const CLASIFICATION = {
     ingresosEconomicaCapitulos: {
@@ -120,6 +120,6 @@ const CLASIFICATION = {
     }
 }
 
-export const getClasificacion = (tipo: string): IDataPropertyTable => {
+export const getClasificacion = (tipo: string): IDataPropertyTableGraph => {
     return CLASIFICATION[tipo];
 }

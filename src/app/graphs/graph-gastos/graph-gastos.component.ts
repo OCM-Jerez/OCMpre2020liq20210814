@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, ViewChild } from '@angular/core';
 import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -7,14 +7,15 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { accumulate } from '../../commons/util/util';
 import { DataTableGraphService } from '../../services/data-graph.service';
-import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
+import { IDataPropertyTableGraph, IDataTable, IDataGraph } from '../../commons/interfaces/dataGraph.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-graph-gastos',
   templateUrl: './graph-gastos.component.html',
   styleUrls: ['./graph-gastos.component.scss']
 })
-export class GraphGastosComponent implements AfterViewInit {
+export class GraphGastosComponent implements OnDestroy {
   options: AgChartOptions;
   rowData: any;
   data: any;
@@ -29,15 +30,88 @@ export class GraphGastosComponent implements AfterViewInit {
   public groupHeaderHeight = 25;
   public headerHeight = 25;
   private datos: any[] = [];
-  private _dataTableGraph: IDataTableGraph;
-
+  private _dataTableGraph: IDataGraph;
+  private _subscription: Subscription;
   constructor(
     private location: Location,
-    private _dataGraphService: DataTableGraphService,
+    private _dataTableGraphService: DataTableGraphService,
   ) {
 
-    this._dataTableGraph = _dataGraphService.dataTableGraph;
-    this.createData();
+    this._subscription = this._dataTableGraphService.dataSource$.subscribe((data) => {
+
+      this._dataTableGraph = data;
+      this._createData();
+      this._createColumns()
+      this._showGraph()
+    });
+
+
+
+  }
+  ngOnDestroy(): void {
+    if (this._subscription) {
+      this._subscription.unsubscribe()
+    }
+  }
+
+
+  private _showGraph(): void {
+    this.options = {
+      autoSize: true,
+      title: {
+        text: this._dataTableGraph.dataPropertyTable.titleGraph,
+      },
+      subtitle: {
+        text: `${this._dataTableGraph.dataPropertyTable.subHeaderName} ${this._dataTableGraphService.selectedCodeRow}`,
+      },
+      data: [...this.data],
+      series: [
+        {
+          xKey: 'year',
+          yKey: 'Definitivas',
+        },
+        {
+          xKey: 'year',
+          yKey: 'ObligacionesReconocidasNetas',
+        },
+        {
+          xKey: 'year',
+          yKey: 'ObligacionesPendientes',
+        },
+      ],
+      axes: [
+        {
+          type: 'category',
+          position: 'bottom',
+          title: {
+            text: 'Años',
+            enabled: true,
+          },
+        },
+        {
+          type: 'number',
+          position: 'left',
+          title: {
+            text: 'en miles de Euros',
+            enabled: true,
+          },
+          label: {
+            formatter: function (params) {
+              return params.value / 1000 + '';
+            }
+          },
+        },
+      ],
+      legend: {
+        enabled: true,
+        position: 'bottom',
+      },
+
+    }
+  }
+
+
+  private _createColumns(): void {
 
     this.columnDefs = [
       {
@@ -76,87 +150,33 @@ export class GraphGastosComponent implements AfterViewInit {
 
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.options = {
-        autoSize: true,
-        title: {
-          text: this._dataTableGraph.dataPropertyTable.titleGraph,
-        },
-        subtitle: {
-          text: `${this._dataTableGraph.dataPropertyTable.subHeaderName} ${this._dataGraphService.selectedCodeRow}`,
-        },
-        data: [...this.data],
-        series: [
-          {
-            xKey: 'year',
-            yKey: 'Definitivas',
-          },
-          {
-            xKey: 'year',
-            yKey: 'ObligacionesReconocidasNetas',
-          },
-          {
-            xKey: 'year',
-            yKey: 'ObligacionesPendientes',
-          },
-        ],
-        axes: [
-          {
-            type: 'category',
-            position: 'bottom',
-            title: {
-              text: 'Años',
-              enabled: true,
-            },
-          },
-          {
-            type: 'number',
-            position: 'left',
-            title: {
-              text: 'en miles de Euros',
-              enabled: true,
-            },
-            label: {
-              formatter: function (params) {
-                return params.value / 1000 + '';
-              }
-            },
-          },
-        ],
-        legend: {
-          enabled: true,
-          position: 'bottom',
-        },
-
-      }
-    }, 500);
-  }
-
   async onGridReady(params) {
-    this.gridApi = params.api;
+    // this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
   }
 
-  async createData() {
+  private async _createData() {
     if (this._dataTableGraph.clasificationType != "aplicacion") {
-      const codigo = this._dataGraphService.selectedCodeRow.split(" ")[0];
+      const codigo = this._dataTableGraphService.selectedCodeRow.split(" ")[0];
       switch (this._dataTableGraph.clasificationType) {
         case 'gastosOrganicaOrganicos':
           this.datos = this._dataTableGraph.data.filter(x => x.CodOrg == codigo);
           break;
         case 'gastosProgramaAreas':
-          this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
-          break;
         case 'gastosProgramaPoliticas':
-          this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
-          break;
         case 'gastosProgramaGrupos':
-          this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
-          break;
         case 'gastosProgramaProgramas':
           this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
           break;
+        // case 'gastosProgramaPoliticas':
+        //   this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
+        //   break;
+        // case 'gastosProgramaGrupos':
+        //   this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
+        //   break;
+        // case 'gastosProgramaProgramas':
+        //   this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
+        //   break;
         case 'gastosEconomicaCapitulos':
           this.datos = this._dataTableGraph.data.filter(x => x.CodCap == codigo);
           break;

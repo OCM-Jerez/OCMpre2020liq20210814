@@ -9,7 +9,7 @@ import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRenderer
 
 import { DataTableGraphService } from '../../services/data-graph.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-compara-ing',
@@ -30,7 +30,7 @@ export class TableIngresosComponent {
   public tipoClasificacion: string;
   public rowSelection = 'single';
 
-  private _dataTableGraph: IDataTableGraph;
+  private _dataTableGraph: IDataTable;
   constructor(
     private _router: Router,
     public _avalaibleYearsService: AvalaibleYearsService,

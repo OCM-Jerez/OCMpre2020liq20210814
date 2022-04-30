@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
-import { IDataTableGraph } from '../commons/interfaces/dataGraph.interface';
+import { Subject } from 'rxjs';
+import { IDataGraph, IDataTable } from '../commons/interfaces/dataGraph.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataTableGraphService {
 
-  private _data: IDataTableGraph;
+  private _dataSource = new Subject<IDataGraph>();
+  dataSource$ = this._dataSource.asObservable();
+
+  private _data: IDataTable;
   private _selectedCodeRow: string;
   private _dataGraphTree: any[];
 
-  get dataTableGraph(): IDataTableGraph {
+
+  private _selectedCodeRowFirstLevel: string;
+
+
+  get dataTableGraph(): IDataTable {
     return this._data
   }
 
-  set dataTableGraph(data: IDataTableGraph) {
+  set dataTableGraph(data: IDataTable) {
     this._data = data
   }
 
@@ -34,4 +42,17 @@ export class DataTableGraphService {
     this._dataGraphTree = dateGraphTree
   }
 
+
+  set selectedCodeRowFirstLevel(codeRow: string) {
+    this._selectedCodeRowFirstLevel = codeRow;
+  }
+
+  get selectedCodeRowFirstLevel(): string {
+    return this._selectedCodeRowFirstLevel
+  }
+
+
+  setData(data: IDataGraph) {
+    this._dataSource.next(data)
+  }
 }

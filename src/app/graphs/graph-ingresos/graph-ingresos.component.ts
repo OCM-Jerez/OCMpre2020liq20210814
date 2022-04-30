@@ -8,14 +8,14 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 import { accumulate } from '../../commons/util/util';
 
 import { DataTableGraphService } from '../../services/data-graph.service';
-import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-graph-ingresos',
   templateUrl: './graph-ingresos.component.html',
   styleUrls: ['./graph-ingresos.component.scss']
 })
-export class GraphIngresosComponent {
+export class GraphIngresosComponent implements AfterViewInit {
   options: AgChartOptions;
   rowData: any;
   data: any;
@@ -31,7 +31,7 @@ export class GraphIngresosComponent {
   public groupHeaderHeight = 25;
   public headerHeight = 25;
   private datos: any[] = [];
-  private _dataTableGraph: IDataTableGraph;
+  private _dataTableGraph: IDataTable;
 
   constructor(
     private location: Location,

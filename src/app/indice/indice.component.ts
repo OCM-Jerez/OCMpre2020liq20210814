@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { DataTableGraphService } from '../services/data-graph.service';
 
-import { IDataTableGraph } from '../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../commons/interfaces/dataGraph.interface';
 
 import { getClasificacion } from '../tables/data-table';
 import { PrepareDataIngresosService } from '../services/prepareDataIngresos.service';
@@ -95,11 +95,12 @@ export class IndiceComponent implements OnInit {
       data = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion, dataPropertyTable.sufijo);
     }
 
-    const sendData: IDataTableGraph = {
+    const sendData: IDataTable = {
       dataPropertyTable,
       clasificationType: tipoClasificacion,
       data
     }
+
     this._dataGraphService.dataTableGraph = sendData;
 
     if (isIncome) {

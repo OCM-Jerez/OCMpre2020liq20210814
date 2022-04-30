@@ -1,4 +1,4 @@
-<div class="graph">
+<div class="graph" *ngIf="options">
     <ag-charts-angular *ngIf="options" style="width: 700px; height: 300px" [options]="options"></ag-charts-angular>
 
     <ag-grid-angular #agGrid style="width: 700px; height: 300px; padding-right: 20px; margin-left: 10px"

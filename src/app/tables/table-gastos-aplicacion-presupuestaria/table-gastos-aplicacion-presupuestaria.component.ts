@@ -11,10 +11,9 @@ import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
 import { DataTableGraphService } from '../../services/data-graph.service';
-import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
+import { IDataGraph, IDataTable } from '../../commons/interfaces/dataGraph.interface';
 
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
-import { accumulate } from '../../commons/util/util';
 
 @Component({
   selector: 'app-table-gastos-aplicacion-presupuestaria',
@@ -37,9 +36,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
   public rowSelection = 'single';
 
   private _gridApi;
-  private _desProWidth = 500;
-  private _desCapWidth = 300;
-  private _dataTableGraph: IDataTableGraph;
+  private _dataTableGraph: IDataTable;
 
   data: any[] = [];
 
@@ -61,8 +58,6 @@ export class TableGastosAplicacionPresupuestariaComponent {
           {
             headerName: 'Aplicación presupuestaria',
             field: 'DesOrg',
-            // rowGroup: true,
-            // showRowGroup: 'DesOrg',
             filter: false,
             width: 700,
             pinned: 'left',
@@ -243,13 +238,30 @@ export class TableGastosAplicacionPresupuestariaComponent {
   }
 
   showGraph() {
+    // https://ag-grid.com/angular-data-grid/row-selection/
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
-      this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
-      this._dataTableGraphService.dataTableGraph.clasificationType = 'aplicacion';
-      this._dataTableGraphService.dataTableGraph.data = this.data;
+      // this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
+      //this._dataTableGraphService.dataTableGraph.clasificationType = 'aplicacion';
+      // this._dataTableGraphService.dataLast = this.data;
+      // this._dataTableGraphService.headerName = "Detalle economico"
+      // this._dataTableGraphService.subHeaderName = selectedRows[0].key;
+      // this._router.navigateByUrl("/graphGastos")
 
-      this._router.navigateByUrl("/graphGastos")
+      const dataGraph: IDataGraph = {
+        ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].data.DesEco
+      }
+      dataGraph.data = this.data;
+      dataGraph.dataPropertyTable.headerName = "Detalle economico"
+      dataGraph.dataPropertyTable.subHeaderName = selectedRows[0].data.DesEco
+      dataGraph.clasificationType = "aplicacion"
+
+      this._router.navigateByUrl("/graphGastos").then(() => {
+        this._dataTableGraphService.setData(
+          dataGraph
+        );
+      })
+
     } else {
       alert('Selecciona un económico');
     }

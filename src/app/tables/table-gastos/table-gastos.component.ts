@@ -11,7 +11,8 @@ import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataTableGraphService } from '../../services/data-graph.service';
 import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 
-import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-compara-gas',
@@ -29,9 +30,10 @@ export class TableGastosComponent {
   public headerHeight = 54;
   public rowSelection = 'single';
 
-  private _gridApi;
+  // private _gridApi;
   private _creditosWidth?: number = 110;
-  private _dataTableGraph: IDataTableGraph;
+  private _dataTableGraph: IDataTable;
+  private subscription: Subscription;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -40,6 +42,8 @@ export class TableGastosComponent {
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService
 
   ) {
+
+
     this._dataTableGraph = _dataTableGraphService.dataTableGraph;
 
     this.columnDefs = [
@@ -103,7 +107,7 @@ export class TableGastosComponent {
   }
 
   async onGridReady(params) {
-    this._gridApi = params.api;
+    // this._gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.rowData = this._dataTableGraph.data
   }
@@ -178,13 +182,20 @@ export class TableGastosComponent {
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
-    this._router.navigateByUrl("/graphGastos")
+
+    this._router.navigateByUrl("/graphGastos").then(() => {
+      this._dataTableGraphService.setData(
+        {
+          ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].key
+        }
+      );
+    })
   }
 
   showProgramaDetails() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
-      this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
+      this._dataTableGraphService.selectedCodeRowFirstLevel = selectedRows[0].key;
       this._router.navigateByUrl("/tableProgramaDetails")
     } else {
       alert('Selecciona un programa');

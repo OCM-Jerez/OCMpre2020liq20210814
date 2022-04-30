@@ -12,7 +12,7 @@ import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataTableGraphService } from '../../services/data-graph.service';
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
 
-import { IDataTableGraph } from '../../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-table-programa-details',
@@ -38,7 +38,7 @@ export class TableProgramaDetailsComponent {
   private _desCapWidth = 300;
   data: any;
 
-  private _dataTableGraph: IDataTableGraph;
+  private _dataTableGraph: IDataTable;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -222,7 +222,7 @@ export class TableProgramaDetailsComponent {
     this._gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
-      .filter(x => x.CodPro == this._dataTableGraphService.selectedCodeRow.split(" ")[0]);
+      .filter(x => x.CodPro == this._dataTableGraphService.selectedCodeRowFirstLevel.split(" ")[0]);
     console.log(this.rowData);
     // this.expandAll();
 
@@ -329,7 +329,7 @@ export class TableProgramaDetailsComponent {
     this.isExpanded = false;
   }
 
-  aplicacion() {
+  showEconomicoDetails() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       const aplicacionPresupuestaria = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
