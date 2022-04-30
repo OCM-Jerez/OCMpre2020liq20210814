@@ -12,7 +12,7 @@ import { DataTableGraphService } from '../../services/data-graph.service';
 import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 
 import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
-import { Subscription } from 'rxjs';
+// import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-compara-gas',
@@ -33,7 +33,7 @@ export class TableGastosComponent {
   // private _gridApi;
   private _creditosWidth?: number = 110;
   private _dataTableGraph: IDataTable;
-  private subscription: Subscription;
+  // private subscription: Subscription;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
