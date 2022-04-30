@@ -196,22 +196,22 @@ export class GraphGastosComponent implements OnDestroy {
 
 
 
-    // const yearsIniciales = accumulate('Iniciales', this.datos);
+    const yearsIniciales = accumulate('Iniciales', this.datos);
     const yearsDefinitivas = accumulate('Definitivas', this.datos);
     const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', this.datos);
     const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', this.datos);
 
     this.data = [];
-    for (let index = 2015; index <= 2021; index++) {
+    for (let index = 2015; index <= 2022; index++) {
       const value = {
         "year": index,
         "Definitivas": yearsDefinitivas[index],
         "ObligacionesReconocidasNetas": yearsObligacionesNetas[index],
         "ObligacionesPendientes": yearsObligacionesPendientes[index]
       }
-      // if (index === 2022) {
-      //   value.Definitivas = yearsIniciales[index]  // Se usan las iniciales ya que es el unico dato que existe.
-      // }
+      if (index === 2022) {
+        value.Definitivas = yearsIniciales[index]  // Se usan las iniciales ya que es el unico dato que existe.
+      }
       this.data.push(value)
     }
     // console.log("Datos Tratados: ", this.data);
