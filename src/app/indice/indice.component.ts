@@ -53,10 +53,11 @@ export class IndiceComponent implements OnInit {
         checked: true,
       }, {
         year: 2022,
-        checked: true,
+        checked: false,
       },
       // {
       //   year: "Todos",
+
       //   checked: false,
       // }
     ]
