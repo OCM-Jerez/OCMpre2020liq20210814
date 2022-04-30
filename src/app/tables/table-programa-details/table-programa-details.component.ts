@@ -30,7 +30,7 @@ export class TableProgramaDetailsComponent {
   public groupHeaderHeight = 25;
   public headerHeight = 54;
   public rowSelection = 'single';
-  public isExpanded = false;
+  public isExpanded = true;
 
   private _gridApi;
   private _creditosWidth?: number = 110;
@@ -171,6 +171,7 @@ export class TableProgramaDetailsComponent {
             pinned: 'left',
             // columnGroupShow: 'close',
             filter: true,
+            cellRenderer: "",
             valueGetter: params => {
               if (params.data) {
                 return params.data.CodEco + ' - ' + params.data.DesEco;
@@ -197,7 +198,7 @@ export class TableProgramaDetailsComponent {
       resizable: true,
       filter: true,
       aggFunc: 'sum',
-      // cellRenderer: CellRendererOCM,
+      cellRenderer: CellRendererOCM,
       headerComponentParams: {
         template:
           '<div class="ag-cell-label-container" role="presentation">' +
