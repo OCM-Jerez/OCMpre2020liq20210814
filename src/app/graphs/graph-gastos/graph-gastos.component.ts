@@ -168,24 +168,11 @@ export class GraphGastosComponent implements OnDestroy {
         case 'gastosProgramaProgramas':
           this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
           break;
-        // case 'gastosProgramaPoliticas':
-        //   this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
-        //   break;
-        // case 'gastosProgramaGrupos':
-        //   this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
-        //   break;
-        // case 'gastosProgramaProgramas':
-        //   this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
-        //   break;
         case 'gastosEconomicaCapitulos':
           this.datos = this._dataTableGraph.data.filter(x => x.CodCap == codigo);
           break;
         case 'gastosEconomicaArticulos':
-          this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
-          break;
         case 'gastosEconomicaConceptos':
-          this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
-          break;
         case 'gastosEconomicaEconomicos':
           this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
           break;
