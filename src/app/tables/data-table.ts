@@ -97,7 +97,7 @@ const CLASIFICATION = {
         subHeaderName: 'Articulo',
         codField: 'CodEco',
         desField: 'DesEco',
-        width: 250,
+        width: 550,
         titleGraph: 'Gastos por artículo',
     },
     gastosEconomicaConceptos: {
@@ -106,7 +106,7 @@ const CLASIFICATION = {
         subHeaderName: 'Concepto',
         codField: 'CodEco',
         desField: 'DesEco',
-        width: 250,
+        width: 550,
         titleGraph: 'Gastos por concepto',
     },
     gastosEconomicaEconomicos: {
@@ -115,7 +115,7 @@ const CLASIFICATION = {
         subHeaderName: 'Económico',
         codField: 'CodEco',
         desField: 'DesEco',
-        width: 400,
+        width: 550,
         titleGraph: 'Gastos por económico',
     }
 }
