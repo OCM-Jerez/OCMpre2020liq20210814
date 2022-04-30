@@ -170,7 +170,6 @@ export class TableProgramaDetailsComponent {
             width: 400,
             pinned: 'left',
             // columnGroupShow: 'close',
-            cellRenderer: '',
             filter: true,
             valueGetter: params => {
               if (params.data) {
@@ -198,7 +197,7 @@ export class TableProgramaDetailsComponent {
       resizable: true,
       filter: true,
       aggFunc: 'sum',
-      cellRenderer: CellRendererOCM,
+      // cellRenderer: CellRendererOCM,
       headerComponentParams: {
         template:
           '<div class="ag-cell-label-container" role="presentation">' +
