@@ -81,14 +81,22 @@ export class PrepareDataGastosService {
         break;
       case 'gastosProgramaPoliticas':
         result.map(item => {
-          item.CodPro = Math.floor((item.CodPro / 1000));
-          item.DesPro = gastosProgramaPoliticas.find((politica) => politica.codigo === item.CodPro).descripcion;
+          if (item.CodPro > 0) {
+            item.CodPro = Math.floor((item.CodPro / 1000));
+            item.DesPro = gastosProgramaPoliticas.find((politica) => politica.codigo === item.CodPro).descripcion;
+          } else {
+            console.log(item);
+          }
         });
         break;
       case 'gastosProgramaGrupos':
         result.map(item => {
-          item.CodPro = Math.floor((item.CodPro / 100));
-          item.DesPro = gastosProgramaGruposProgramas.find((grupo) => grupo.codigo === item.CodPro).descripcion;
+          if (item.CodPro > 0) {
+            item.CodPro = Math.floor((item.CodPro / 100));
+            item.DesPro = gastosProgramaGruposProgramas.find((grupo) => grupo.codigo === item.CodPro).descripcion;
+          } else {
+            console.log(item);
+          }
         });
         break;
       case 'gastosEconomicaArticulos':
