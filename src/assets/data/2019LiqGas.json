@@ -96,7 +96,7 @@
     },
     {
         "CodOrg": 17,
-        "CodPro": 1110,
+        "CodPro": "01110",
         "CodEco": 82190,
         "CodCap": 8,
         "DesCap": "Activos financieros",
@@ -2908,7 +2908,7 @@
     },
     {
         "CodOrg": 17,
-        "CodPro": 1110,
+        "CodPro": "01110",
         "CodEco": 91300,
         "CodCap": 9,
         "DesCap": "Pasivos financieros",
@@ -2927,7 +2927,7 @@
     },
     {
         "CodOrg": 17,
-        "CodPro": 1110,
+        "CodPro": "01110",
         "CodEco": 91100,
         "CodCap": 9,
         "DesCap": "Pasivos financieros",
@@ -14042,7 +14042,7 @@
     },
     {
         "CodOrg": 17,
-        "CodPro": 1110,
+        "CodPro": "01110",
         "CodEco": 31100,
         "CodCap": 3,
         "DesCap": "Gastos financieros",
@@ -18127,7 +18127,7 @@
     },
     {
         "CodOrg": 17,
-        "CodPro": 1110,
+        "CodPro": "01110",
         "CodEco": 35200,
         "CodCap": 3,
         "DesCap": "Gastos financieros",
@@ -18146,7 +18146,7 @@
     },
     {
         "CodOrg": 17,
-        "CodPro": 1110,
+        "CodPro": "01110",
         "CodEco": 35201,
         "CodCap": 3,
         "DesCap": "Gastos financieros",
@@ -18165,7 +18165,7 @@
     },
     {
         "CodOrg": 17,
-        "CodPro": 1110,
+        "CodPro": "01110",
         "CodEco": 31000,
         "CodCap": 3,
         "DesCap": "Gastos financieros",
@@ -21623,7 +21623,7 @@
     },
     {
         "CodOrg": 17,
-        "CodPro": 1110,
+        "CodPro": "01110",
         "CodEco": 35300,
         "CodCap": 3,
         "DesCap": "Gastos financieros",
@@ -27532,7 +27532,7 @@
     },
     {
         "CodOrg": 17,
-        "CodPro": 1110,
+        "CodPro": "01110",
         "CodEco": 35900,
         "CodCap": 3,
         "DesCap": "Gastos financieros",
