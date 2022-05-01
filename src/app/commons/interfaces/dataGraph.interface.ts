@@ -12,6 +12,7 @@ export interface IDataPropertyTableGraph {
     desField: string;
     width: number;
     titleGraph: string;
+    subTitleGraph: string;
 }
 
 export interface IDataGraph extends IDataTable {
