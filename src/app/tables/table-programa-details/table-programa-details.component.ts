@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridOptions } from 'ag-grid-community/main';
+// import { GridOptions } from 'ag-grid-community/main';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
@@ -24,7 +24,7 @@ export class TableProgramaDetailsComponent {
   public gridColumnApi;
   public columnDefs;
   public defaultColDef;
-  public gridOptions: GridOptions;
+  // public gridOptions: GridOptions;
   public localeText;
   public rowData: any;
   public groupHeaderHeight = 25;
@@ -48,7 +48,6 @@ export class TableProgramaDetailsComponent {
     private _location: Location,
   ) {
     this._dataTableGraph = _dataTableGraphService.dataTableGraph;
-
     this.columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -166,10 +165,8 @@ export class TableProgramaDetailsComponent {
           {
             headerName: 'Económico',
             field: 'DesEco',
-            // cellClass: 'resaltado',
             width: 400,
             pinned: 'left',
-            // columnGroupShow: 'close',
             filter: true,
             cellRenderer: "",
             valueGetter: params => {
@@ -214,41 +211,16 @@ export class TableProgramaDetailsComponent {
           '</div>',
       },
     };
-    this.gridOptions = {} as GridOptions;
+    // this.gridOptions = {} as GridOptions;
     this.localeText = localeTextESPes;
   }
 
   async onGridReady(params) {
     this._gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
+    // this.gridColumnApi = params.columnApi;
     this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
       .filter(x => x.CodPro == this._dataTableGraphService.selectedCodeRowFirstLevel.split(" ")[0]);
-    console.log(this.rowData);
     // this.expandAll();
-
-
-    // this.data = [];
-    // let value = {}
-    // Object.entries(this.rowData).forEach((currentValue) => {
-    //   // console.log(currentValue);
-    //   // console.log(typeof (currentValue[1]));
-    //   value = { ...value, ...this.rowData[currentValue[0]] }
-    //   console.log(value);
-    // });
-    // this.data.push(value);
-    // console.log(this.data);
-    // this.rowData = this.data;
-
-    // const value = {
-    //   ...this.rowData[0],
-    //   ...this.rowData[1],
-    //   ...this.rowData[2],
-    //   ...this.rowData[3],
-    //   ...this.rowData[4],
-    //   ...this.rowData[5],
-    // }
-    // this.data.push(value)
-
   }
 
   // TODO: Las colummnas disparan su altura
@@ -333,11 +305,10 @@ export class TableProgramaDetailsComponent {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       const aplicacionPresupuestaria = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
-      console.log(aplicacionPresupuestaria);
       this._dataTableGraphService.selectedCodeRow = aplicacionPresupuestaria;
       this._router.navigateByUrl('/tableAplicacionPresupuestaria')
     } else {
-      alert('Seleccione un económico');
+      alert('Selecciona un económico');
     }
   }
 

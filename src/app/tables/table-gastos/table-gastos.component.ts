@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridOptions } from 'ag-grid-community/main';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
@@ -12,7 +11,6 @@ import { DataTableGraphService } from '../../services/data-graph.service';
 import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 
 import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
-// import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-compara-gas',
@@ -20,32 +18,23 @@ import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
 })
 export class TableGastosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  public gridColumnApi;
   public columnDefs;
   public defaultColDef;
-  public gridOptions: GridOptions;
   public localeText;
   public rowData: any;
   public groupHeaderHeight = 25;
   public headerHeight = 54;
   public rowSelection = 'single';
-
-  // private _gridApi;
   private _creditosWidth?: number = 110;
   private _dataTableGraph: IDataTable;
-  // private subscription: Subscription;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
     private _dataTableGraphService: DataTableGraphService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService
-
   ) {
-
-
     this._dataTableGraph = _dataTableGraphService.dataTableGraph;
-
     this.columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -102,13 +91,10 @@ export class TableGastosComponent {
           '</div>',
       },
     };
-    this.gridOptions = {} as GridOptions;
     this.localeText = localeTextESPes;
   }
 
   async onGridReady(params) {
-    // this._gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
     this.rowData = this._dataTableGraph.data
   }
 
@@ -182,7 +168,6 @@ export class TableGastosComponent {
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
-
     this._router.navigateByUrl("/graphGastos").then(() => {
       this._dataTableGraphService.setData(
         {

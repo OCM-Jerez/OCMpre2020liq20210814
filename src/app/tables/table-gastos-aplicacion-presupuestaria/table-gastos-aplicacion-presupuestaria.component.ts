@@ -23,10 +23,10 @@ import { PrepareDataProgramaDetailsService } from '../../services/prepareDataPro
 export class TableGastosAplicacionPresupuestariaComponent {
 
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  public gridColumnApi;
+  // public gridColumnApi;
   public columnDefs;
   public defaultColDef;
-  public gridOptions: GridOptions;
+  // public gridOptions: GridOptions;
   public localeText;
   public rowData: any;
   public groupHeaderHeight = 25;
@@ -35,7 +35,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
   public tipoClasificacion: string;
   public rowSelection = 'single';
 
-  private _gridApi;
+  // private _gridApi;
   private _dataTableGraph: IDataTable;
 
   data: any[] = [];
@@ -49,7 +49,6 @@ export class TableGastosAplicacionPresupuestariaComponent {
 
   ) {
     // this._dataTableGraph = _dataTableGraphService.dataTableGraph;
-
     this.columnDefs = [
       {
         // headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -106,63 +105,26 @@ export class TableGastosAplicacionPresupuestariaComponent {
           '</div>',
       },
     };
-    this.gridOptions = {} as GridOptions;
+    // this.gridOptions = {} as GridOptions;
     this.localeText = localeTextESPes;
   }
 
   async onGridReady(params) {
-    this._gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
+    // this._gridApi = params.api;
+    // this.gridColumnApi = params.columnApi;
     this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
     let selectedRow = this._dataTableGraphService.selectedCodeRow
     this.rowData = this.rowData
       .filter(x => x.CodOrg == selectedRow.split("-")[0])
       .filter(x => x.CodPro == selectedRow.split("-")[1])
       .filter(x => x.CodEco == selectedRow.split("-")[2]);
-    console.log(this.rowData);
 
     let value = {}
     Object.entries(this.rowData).forEach((currentValue) => {
       value = { ...value, ...this.rowData[currentValue[0]] }
-      console.log(value);
+      // console.log(value);
     });
-
-    // const value = {
-    //   ...this.rowData[0],
-    //   ...this.rowData[1],
-    //   ...this.rowData[2],
-    //   ...this.rowData[3],
-    //   ...this.rowData[4],
-    //   ...this.rowData[5],
-    //   ...this.rowData[6],
-    //   ...this.rowData[7]
-    // }
-    // console.log(value);
     this.data.push(value)
-
-    // const value = {
-    //   "DesOrg": this.rowData[0].CodOrg + "-" + this.rowData[0].CodPro + "-" + this.rowData[0].CodEco
-    //     + '  ' + this.rowData[0].DesOrg + ' - ' + this.rowData[0].DesPro + ' - ' + this.rowData[0].DesEco,
-    //   "Definitivas2015": this.rowData[0].Definitivas2015,
-    //   "Definitivas2016": this.rowData[1].Definitivas2016,
-    //   "Definitivas2017": this.rowData[2].Definitivas2017,
-    //   "Definitivas2018": this.rowData[3].Definitivas2018,
-    //   "Definitivas2019": this.rowData[4].Definitivas2019,
-    //   "Definitivas2020": this.rowData[5].Definitivas2020,
-    //   "Definitivas2021": this.rowData[6].Definitivas2021,
-    //   "Definitivas2022": this.rowData[7].Definitivas2022,
-    //   "Iniciales2015": this.rowData[0].Iniciales2015,
-    //   "Iniciales2016": this.rowData[1].Iniciales2016,
-    //   "Iniciales2017": this.rowData[2].Iniciales2017,
-    //   "Iniciales2018": this.rowData[3].Iniciales2018,
-    //   "Iniciales2019": this.rowData[4].Iniciales2019,
-    //   "Iniciales2020": this.rowData[5].Iniciales2020,
-    //   "Iniciales2021": this.rowData[6].Iniciales2021,
-    //   "Iniciales2022": this.rowData[7].Iniciales2022,
-    // }
-
-    // this.data.push(value)
-    console.log(this.data);
     this.rowData = this.data;
   }
 
@@ -241,19 +203,16 @@ export class TableGastosAplicacionPresupuestariaComponent {
     // https://ag-grid.com/angular-data-grid/row-selection/
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
-      // this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
-      //this._dataTableGraphService.dataTableGraph.clasificationType = 'aplicacion';
-      // this._dataTableGraphService.dataLast = this.data;
-      // this._dataTableGraphService.headerName = "Detalle economico"
-      // this._dataTableGraphService.subHeaderName = selectedRows[0].key;
-      // this._router.navigateByUrl("/graphGastos")
-
       const dataGraph: IDataGraph = {
-        ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].data.DesEco
+        // ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].data.DesEco
+        ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: " "
       }
       dataGraph.data = this.data;
-      dataGraph.dataPropertyTable.headerName = "Detalle economico"
-      dataGraph.dataPropertyTable.subHeaderName = selectedRows[0].data.DesEco
+      // dataGraph.dataPropertyTable.headerName = "Detalle economico"
+      dataGraph.dataPropertyTable.titleGraph = "Gasto por aplicación presupuestaria"
+      // dataGraph.dataPropertyTable.subHeaderName = selectedRows[0].data.DesEco
+      dataGraph.dataPropertyTable.subTitleGraph = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco + '  ' + selectedRows[0].data.DesOrg + '-' + selectedRows[0].data.DesPro + '-' + selectedRows[0].data.DesEco
+      dataGraph.dataPropertyTable.subHeaderName = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco + '  ' + selectedRows[0].data.DesOrg + '-' + selectedRows[0].data.DesPro + '-' + selectedRows[0].data.DesEco
       dataGraph.clasificationType = "aplicacion"
 
       this._router.navigateByUrl("/graphGastos").then(() => {
@@ -263,9 +222,8 @@ export class TableGastosAplicacionPresupuestariaComponent {
       })
 
     } else {
-      alert('Selecciona un económico');
+      alert('Selecciona una aplicación presupuestaria');
     }
   }
-
 
 }
