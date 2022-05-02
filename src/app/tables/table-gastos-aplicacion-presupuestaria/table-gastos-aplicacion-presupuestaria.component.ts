@@ -208,7 +208,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
       //   // ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].data.DesEco
       //   ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: " "
       // }
-      this._dataGraph.data = this.data;
+      this._dataGraph.rowData = this.data;
       // dataGraph.dataPropertyTable.headerName = "Detalle economico"
       this._dataGraph.graphTitle = "Gasto por aplicación presupuestaria"
       // dataGraph.dataPropertyTable.subHeaderName = selectedRows[0].data.DesEco

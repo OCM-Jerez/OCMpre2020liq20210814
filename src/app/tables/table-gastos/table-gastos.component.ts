@@ -99,7 +99,7 @@ export class TableGastosComponent {
   }
 
   async onGridReady(params) {
-    this.rowData = this._dataTable.data
+    this.rowData = this._dataTable.rowData
   }
 
   // TODO: Las colummnas disparan su altura
@@ -175,7 +175,7 @@ export class TableGastosComponent {
       this._dataStoreService.selectedCodeRow = selectedRows[0].key;
       this._dataGraph.graphSubTitle = selectedRows[0].key;
       // this._dataGraph.selectedCodeRow = selectedRows[0].key;
-      this._dataGraph.data = this.rowData
+      this._dataGraph.rowData = this.rowData
       this._router.navigateByUrl("/graphGastos").then(() => {
         this._dataStoreService.setData(
           {

@@ -101,7 +101,7 @@ export class TableIngresosComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = this._dataTableGraph.data;
+    this.rowData = this._dataTableGraph.rowData;
   }
 
   // TODO: Las colummnas disparan su altura

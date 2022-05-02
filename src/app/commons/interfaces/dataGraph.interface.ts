@@ -1,7 +1,7 @@
 export interface IDataTable {
     dataPropertyTable: IDataProperty;
     clasificationType: string;
-    data: any[]
+    rowData: any[]
 }
 
 export interface IDataProperty {

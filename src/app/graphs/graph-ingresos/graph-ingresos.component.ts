@@ -138,12 +138,12 @@ export class GraphIngresosComponent implements AfterViewInit {
     const codigo = this._dataStoreService.selectedCodeRow.split(" ")[0];
     switch (this._dataTable.clasificationType) {
       case 'ingresosEconomicaCapitulos':
-        this.datos = this._dataTable.data.filter(x => x.CodCap == codigo);
+        this.datos = this._dataTable.rowData.filter(x => x.CodCap == codigo);
         break;
       case 'ingresosEconomicaArticulos':
       case 'ingresosEconomicaConceptos':
       case 'ingresosEconomicaEconomicos':
-        this.datos = this._dataTable.data.filter(x => x.CodEco == codigo);
+        this.datos = this._dataTable.rowData.filter(x => x.CodEco == codigo);
         break;
     }
 

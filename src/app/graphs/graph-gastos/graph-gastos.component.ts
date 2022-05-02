@@ -54,25 +54,25 @@ export class GraphGastosComponent implements OnDestroy {
       const codigo = this._dataStoreService.selectedCodeRow.split(" ")[0];
       switch (this._dataGraph.clasificationType) {
         case 'gastosOrganicaOrganicos':
-          this.datos = this._dataGraph.data.filter(x => x.CodOrg == codigo);
+          this.datos = this._dataGraph.rowData.filter(x => x.CodOrg == codigo);
           break;
         case 'gastosProgramaAreas':
         case 'gastosProgramaPoliticas':
         case 'gastosProgramaGrupos':
         case 'gastosProgramaProgramas':
-          this.datos = this._dataGraph.data.filter(x => x.CodPro == codigo);
+          this.datos = this._dataGraph.rowData.filter(x => x.CodPro == codigo);
           break;
         case 'gastosEconomicaCapitulos':
-          this.datos = this._dataGraph.data.filter(x => x.CodCap == codigo);
+          this.datos = this._dataGraph.rowData.filter(x => x.CodCap == codigo);
           break;
         case 'gastosEconomicaArticulos':
         case 'gastosEconomicaConceptos':
         case 'gastosEconomicaEconomicos':
-          this.datos = this._dataGraph.data.filter(x => x.CodEco == codigo);
+          this.datos = this._dataGraph.rowData.filter(x => x.CodEco == codigo);
           break;
       }
     } else {
-      this.datos = this._dataGraph.data
+      this.datos = this._dataGraph.rowData
     }
 
     const yearsIniciales = accumulate('Iniciales', this.datos);
