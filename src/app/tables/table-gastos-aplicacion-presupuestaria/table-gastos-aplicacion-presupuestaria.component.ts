@@ -44,7 +44,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
-    private _dataGraphService: DataStoreService,
+    private _dataStoreService: DataStoreService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
     private _location: Location,
 
@@ -114,7 +114,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
     // this._gridApi = params.api;
     // this.gridColumnApi = params.columnApi;
     this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
-    let selectedRow = this._dataGraphService.selectedCodeRow
+    let selectedRow = this._dataStoreService.selectedCodeRow
     this.rowData = this.rowData
       .filter(x => x.CodOrg == selectedRow.split("-")[0])
       .filter(x => x.CodPro == selectedRow.split("-")[1])
@@ -216,11 +216,11 @@ export class TableGastosAplicacionPresupuestariaComponent {
       this._dataGraph.clasificationType = "aplicacion"
       const dataGraph: IDataGraph = {
         // ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].data.DesEco
-        ...this._dataGraphService.dataTableGraph, selectedCodeRow: " "
+        ...this._dataStoreService.dataTableGraph, selectedCodeRow: " "
       }
 
       this._router.navigateByUrl("/graphGastos").then(() => {
-        this._dataGraphService.setData(
+        this._dataStoreService.setData(
           this._dataGraph
         );
       })
