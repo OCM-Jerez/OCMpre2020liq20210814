@@ -7,7 +7,7 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { accumulate } from '../../commons/util/util';
 
-import { DataTableGraphService } from '../../services/dataStore.service';
+import { DataStoreService } from '../../services/dataStore.service';
 import { IDataGraph, IDataTable } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
@@ -31,15 +31,15 @@ export class GraphIngresosComponent implements AfterViewInit {
   public groupHeaderHeight = 25;
   public headerHeight = 25;
   private datos: any[] = [];
-  private _dataTableGraph: IDataTable;
+  private _dataTable: IDataTable;
   private _dataGraph: IDataGraph;
 
   constructor(
     private location: Location,
-    private _dataGraphService: DataTableGraphService,
+    private _dataStoreService: DataStoreService,
   ) {
 
-    this._dataTableGraph = _dataGraphService.dataTableGraph;
+    this._dataTable = _dataStoreService.dataTableGraph;
 
     this.createData();
     // this.text = router.getCurrentNavigation().extras.state.data.tipo;
@@ -56,7 +56,7 @@ export class GraphIngresosComponent implements AfterViewInit {
           text: this._dataGraph.dataPropertyTable.graphTitle,
         },
         subtitle: {
-          text: `${this._dataTableGraph.dataPropertyTable.subHeaderName} ${this._dataGraphService.selectedCodeRow}`,
+          text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRow}`,
         },
         data: [...this.data],
         series: [
@@ -135,19 +135,19 @@ export class GraphIngresosComponent implements AfterViewInit {
   }
 
   async createData() {
-    const codigo = this._dataGraphService.selectedCodeRow.split(" ")[0];
-    switch (this._dataTableGraph.clasificationType) {
+    const codigo = this._dataStoreService.selectedCodeRow.split(" ")[0];
+    switch (this._dataTable.clasificationType) {
       case 'ingresosEconomicaCapitulos':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodCap == codigo);
+        this.datos = this._dataTable.data.filter(x => x.CodCap == codigo);
         break;
       case 'ingresosEconomicaArticulos':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
+        this.datos = this._dataTable.data.filter(x => x.CodEco == codigo);
         break;
       case 'ingresosEconomicaConceptos':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
+        this.datos = this._dataTable.data.filter(x => x.CodEco == codigo);
         break;
       case 'ingresosEconomicaEconomicos':
-        this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
+        this.datos = this._dataTable.data.filter(x => x.CodEco == codigo);
         break;
     }
 

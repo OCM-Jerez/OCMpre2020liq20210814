@@ -6,7 +6,7 @@ import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { accumulate } from '../../commons/util/util';
-import { DataTableGraphService } from '../../services/dataStore.service';
+import { DataStoreService } from '../../services/dataStore.service';
 import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 import { Subscription } from 'rxjs';
 
@@ -31,9 +31,9 @@ export class GraphGastosComponent implements OnDestroy {
 
   constructor(
     private location: Location,
-    private _dataTableGraphService: DataTableGraphService,
+    private _dataStoreService: DataStoreService,
   ) {
-    this._subscription = this._dataTableGraphService.dataSource$.subscribe((data) => {
+    this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
       this._dataGraph = data;
       this._createData();
       this._createColumns()
@@ -51,7 +51,7 @@ export class GraphGastosComponent implements OnDestroy {
     console.log(this._dataGraph.clasificationType);
 
     if (this._dataGraph.clasificationType != "aplicacion") {
-      const codigo = this._dataTableGraphService.selectedCodeRow.split(" ")[0];
+      const codigo = this._dataStoreService.selectedCodeRow.split(" ")[0];
       switch (this._dataGraph.clasificationType) {
         case 'gastosOrganicaOrganicos':
           this.datos = this._dataGraph.data.filter(x => x.CodOrg == codigo);
@@ -138,7 +138,7 @@ export class GraphGastosComponent implements OnDestroy {
   private _showGraph(): void {
     console.log(this._dataGraph);
 
-    this._dataGraph.dataPropertyTable.graphTitle = this._dataTableGraphService.graphTitle;
+    this._dataGraph.dataPropertyTable.graphTitle = this._dataStoreService.graphTitle;
     // this._dataGraph.graphTitle = this._dataTableGraphService.graphTitle;
 
     // console.log("subHeaderName", this._dataGraph.dataPropertyTable.subHeaderName);

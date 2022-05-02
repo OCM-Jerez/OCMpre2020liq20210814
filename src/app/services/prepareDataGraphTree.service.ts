@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataTableGraphService } from './dataStore.service';
+import { DataStoreService } from './dataStore.service';
 import gastosOrganicaOrganicos from '../../assets/data/gastosOrganicaOrganicos.json';
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
 
@@ -9,13 +9,13 @@ import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
 })
 export class PrepareDataGraphTreeService {
   private _dataGraphTree: any[] = [];
-  constructor(private _dataTableGraphService: DataTableGraphService
+  constructor(private _dataStoreService: DataStoreService
   ) {
 
   }
 
   async prepareDataGraphTree(rowData) {
-    const tipoClasificacion = this._dataTableGraphService.dataTableGraph.clasificationType;
+    const tipoClasificacion = this._dataStoreService.dataTableGraph.clasificationType;
     console.log('tipoClasificacion', tipoClasificacion);
     console.log('rowData', rowData);
 
@@ -28,7 +28,7 @@ export class PrepareDataGraphTreeService {
           return { ...item, total: sumDefinitivas }
         })
         console.log(this._dataGraphTree);
-        this._dataTableGraphService.dataGraphTree = this._dataGraphTree;
+        this._dataStoreService.dataGraphTree = this._dataGraphTree;
         break;
       case 'gastosProgramaAreas':
         this._dataGraphTree = gastosProgramaAreas.map(item => {
@@ -37,7 +37,7 @@ export class PrepareDataGraphTreeService {
           return { ...item, total: sumDefinitivas }
         })
         console.log(this._dataGraphTree);
-        this._dataTableGraphService.dataGraphTree = this._dataGraphTree;
+        this._dataStoreService.dataGraphTree = this._dataGraphTree;
         break;
 
 

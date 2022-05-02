@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
-import { DataTableGraphService } from '../services/dataStore.service';
+import { DataStoreService } from '../services/dataStore.service';
 
 import { IDataTable } from '../commons/interfaces/dataGraph.interface';
 
@@ -21,7 +21,7 @@ export class IndiceComponent implements OnInit {
   constructor(
     private _router: Router,
     private _avalaibleYearsService: AvalaibleYearsService,
-    private _dataService: DataTableGraphService,
+    private _dataStoreService: DataStoreService,
     private _prepareDataIngresosService: PrepareDataIngresosService,
     private _prepareDataGastosService: PrepareDataGastosService
   ) { }
@@ -102,7 +102,7 @@ export class IndiceComponent implements OnInit {
     }
     console.log(sendData);
 
-    this._dataService.dataTableGraph = sendData;
+    this._dataStoreService.dataTableGraph = sendData;
 
     if (isIncome) {
       this._router.navigateByUrl('/tableIngresos')

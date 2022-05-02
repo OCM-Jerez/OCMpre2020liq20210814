@@ -5,7 +5,7 @@ import { IDataGraph, IDataTable } from '../commons/interfaces/dataGraph.interfac
 @Injectable({
   providedIn: 'root'
 })
-export class DataTableGraphService {
+export class DataStoreService {
 
   private _dataSource = new Subject<IDataGraph>();
   dataSource$ = this._dataSource.asObservable();
@@ -14,7 +14,6 @@ export class DataTableGraphService {
   private _selectedCodeRow: string;
   private _dataGraphTree: any[];
   private _graphTitle: string;
-
 
   private _selectedCodeRowFirstLevel: string;
 

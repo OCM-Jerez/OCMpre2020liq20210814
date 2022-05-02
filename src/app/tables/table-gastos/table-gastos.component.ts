@@ -7,7 +7,7 @@ import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { DataTableGraphService } from '../../services/dataStore.service';
+import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 
 import { IDataGraph, IDataTable } from '../../commons/interfaces/dataGraph.interface';
@@ -32,10 +32,10 @@ export class TableGastosComponent {
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
-    private _dataTableGraphService: DataTableGraphService,
+    private _dataStoreService: DataStoreService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService
   ) {
-    this._dataTable = _dataTableGraphService.dataTableGraph;
+    this._dataTable = _dataStoreService.dataTableGraph;
     console.log("---------------->", this._dataTable);
     console.log("---------------->", this._dataTable.dataPropertyTable.graphTitle);
 
@@ -172,14 +172,14 @@ export class TableGastosComponent {
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
-      this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
+      this._dataStoreService.selectedCodeRow = selectedRows[0].key;
       this._dataGraph.graphSubTitle = selectedRows[0].key;
       // this._dataGraph.selectedCodeRow = selectedRows[0].key;
       this._dataGraph.data = this.rowData
       this._router.navigateByUrl("/graphGastos").then(() => {
-        this._dataTableGraphService.setData(
+        this._dataStoreService.setData(
           {
-            ...this._dataTableGraphService.dataGraph, selectedCodeRow: selectedRows[0].key, graphTitle: this._dataTable.dataPropertyTable.graphTitle, graphSubTitle: selectedRows[0].key
+            ...this._dataStoreService.dataGraph, selectedCodeRow: selectedRows[0].key, graphTitle: this._dataTable.dataPropertyTable.graphTitle, graphSubTitle: selectedRows[0].key
           }
         );
       })
@@ -191,7 +191,7 @@ export class TableGastosComponent {
   showProgramaDetails() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
-      this._dataTableGraphService.selectedCodeRowFirstLevel = selectedRows[0].key;
+      this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
       this._router.navigateByUrl("/tableProgramaDetails")
     } else {
       alert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);

@@ -9,7 +9,7 @@ import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRenderer
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { DataTableGraphService } from '../../services/dataStore.service';
+import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
 
 import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
@@ -43,11 +43,11 @@ export class TableProgramaDetailsComponent {
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
-    private _dataTableGraphService: DataTableGraphService,
+    private _dataStoreService: DataStoreService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
     private _location: Location,
   ) {
-    this._dataTableGraph = _dataTableGraphService.dataTableGraph;
+    this._dataTableGraph = _dataStoreService.dataTableGraph;
     this.columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -219,7 +219,7 @@ export class TableProgramaDetailsComponent {
     this._gridApi = params.api;
     // this.gridColumnApi = params.columnApi;
     this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
-      .filter(x => x.CodPro == this._dataTableGraphService.selectedCodeRowFirstLevel.split(" ")[0]);
+      .filter(x => x.CodPro == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     // this.expandAll();
   }
 
@@ -305,7 +305,7 @@ export class TableProgramaDetailsComponent {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       const aplicacionPresupuestaria = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
-      this._dataTableGraphService.selectedCodeRow = aplicacionPresupuestaria;
+      this._dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
       this._router.navigateByUrl('/tableAplicacionPresupuestaria')
     } else {
       alert('Selecciona un económico');

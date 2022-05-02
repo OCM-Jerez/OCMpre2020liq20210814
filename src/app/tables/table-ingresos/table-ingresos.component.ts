@@ -7,7 +7,7 @@ import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 // import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
-import { DataTableGraphService } from '../../services/dataStore.service';
+import { DataStoreService } from '../../services/dataStore.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
 
@@ -34,10 +34,10 @@ export class TableIngresosComponent {
   constructor(
     private _router: Router,
     public _avalaibleYearsService: AvalaibleYearsService,
-    private _dataTableGraphService: DataTableGraphService
+    private _dataStoreService: DataStoreService
   ) {
 
-    this._dataTableGraph = _dataTableGraphService.dataTableGraph;
+    this._dataTableGraph = _dataStoreService.dataTableGraph;
     this.columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -179,7 +179,7 @@ export class TableIngresosComponent {
 
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
+    this._dataStoreService.selectedCodeRow = selectedRows[0].key;
     this._router.navigateByUrl("/graphIngresos")
   }
 

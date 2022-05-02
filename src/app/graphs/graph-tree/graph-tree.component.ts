@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AgChartOptions } from 'ag-charts-community';
-import { DataTableGraphService } from '../../services/dataStore.service';
+import { DataStoreService } from '../../services/dataStore.service';
 
 @Component({
   selector: 'app-graphtree',
@@ -11,12 +11,11 @@ export class GraphTreeComponent {
   options: AgChartOptions = {} as AgChartOptions;
 
   constructor(
-    private _dataTableGraphService: DataTableGraphService,
-    private _dataGraphService: DataTableGraphService
+    private _dataStoreService: DataStoreService
 
   ) {
-    const dataGrahTree = this._dataTableGraphService.dataGraphTree;
-    const tipoClasificacion = this._dataTableGraphService.dataTableGraph.clasificationType;
+    const dataGrahTree = this._dataStoreService.dataGraphTree;
+    const tipoClasificacion = this._dataStoreService.dataTableGraph.clasificationType;
     switch (tipoClasificacion) {
       case 'gastosOrganicaOrganicos':
         let data = {
@@ -648,10 +647,6 @@ export class GraphTreeComponent {
         }
       ]
     }
-
-
-
-
 
     this.options = {
       type: 'hierarchy',

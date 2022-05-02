@@ -10,7 +10,7 @@ import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRenderer
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
-import { DataTableGraphService } from '../../services/dataStore.service';
+import { DataStoreService } from '../../services/dataStore.service';
 import { IDataGraph, IDataTable } from '../../commons/interfaces/dataGraph.interface';
 
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
@@ -44,7 +44,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
-    private _dataTableGraphService: DataTableGraphService,
+    private _dataGraphService: DataStoreService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
     private _location: Location,
 
@@ -114,7 +114,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
     // this._gridApi = params.api;
     // this.gridColumnApi = params.columnApi;
     this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
-    let selectedRow = this._dataTableGraphService.selectedCodeRow
+    let selectedRow = this._dataGraphService.selectedCodeRow
     this.rowData = this.rowData
       .filter(x => x.CodOrg == selectedRow.split("-")[0])
       .filter(x => x.CodPro == selectedRow.split("-")[1])
@@ -216,11 +216,11 @@ export class TableGastosAplicacionPresupuestariaComponent {
       this._dataGraph.clasificationType = "aplicacion"
       const dataGraph: IDataGraph = {
         // ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].data.DesEco
-        ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: " "
+        ...this._dataGraphService.dataTableGraph, selectedCodeRow: " "
       }
 
       this._router.navigateByUrl("/graphGastos").then(() => {
-        this._dataTableGraphService.setData(
+        this._dataGraphService.setData(
           this._dataGraph
         );
       })
