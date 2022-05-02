@@ -8,7 +8,7 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 import { accumulate } from '../../commons/util/util';
 
 import { DataTableGraphService } from '../../services/data-graph.service';
-import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
+import { IDataGraph, IDataTable } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-graph-ingresos',
@@ -32,6 +32,7 @@ export class GraphIngresosComponent implements AfterViewInit {
   public headerHeight = 25;
   private datos: any[] = [];
   private _dataTableGraph: IDataTable;
+  private _dataGraph: IDataGraph;
 
   constructor(
     private location: Location,
@@ -52,7 +53,7 @@ export class GraphIngresosComponent implements AfterViewInit {
         // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: this._dataTableGraph.dataPropertyTable.titleGraph,
+          text: this._dataGraph.dataPropertyTable.graphTitle,
         },
         subtitle: {
           text: `${this._dataTableGraph.dataPropertyTable.subHeaderName} ${this._dataGraphService.selectedCodeRow}`,

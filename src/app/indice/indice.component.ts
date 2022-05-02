@@ -100,6 +100,7 @@ export class IndiceComponent implements OnInit {
       clasificationType: tipoClasificacion,
       data
     }
+    console.log(sendData);
 
     this._dataGraphService.dataTableGraph = sendData;
 

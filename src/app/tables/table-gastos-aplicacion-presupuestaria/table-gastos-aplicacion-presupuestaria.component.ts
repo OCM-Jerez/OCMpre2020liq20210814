@@ -37,6 +37,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
 
   // private _gridApi;
   private _dataTableGraph: IDataTable;
+  private _dataGraph: IDataGraph = {} as IDataGraph;
 
   data: any[] = [];
 
@@ -203,21 +204,24 @@ export class TableGastosAplicacionPresupuestariaComponent {
     // https://ag-grid.com/angular-data-grid/row-selection/
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
+      // const dataGraph: IDataGraph = {
+      //   // ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].data.DesEco
+      //   ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: " "
+      // }
+      this._dataGraph.data = this.data;
+      // dataGraph.dataPropertyTable.headerName = "Detalle economico"
+      this._dataGraph.graphTitle = "Gasto por aplicación presupuestaria"
+      // dataGraph.dataPropertyTable.subHeaderName = selectedRows[0].data.DesEco
+      this._dataGraph.graphSubTitle = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco + '  ' + selectedRows[0].data.DesOrg + '-' + selectedRows[0].data.DesPro + '-' + selectedRows[0].data.DesEco
+      this._dataGraph.clasificationType = "aplicacion"
       const dataGraph: IDataGraph = {
         // ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].data.DesEco
         ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: " "
       }
-      dataGraph.data = this.data;
-      // dataGraph.dataPropertyTable.headerName = "Detalle economico"
-      dataGraph.dataPropertyTable.titleGraph = "Gasto por aplicación presupuestaria"
-      // dataGraph.dataPropertyTable.subHeaderName = selectedRows[0].data.DesEco
-      dataGraph.dataPropertyTable.subTitleGraph = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco + '  ' + selectedRows[0].data.DesOrg + '-' + selectedRows[0].data.DesPro + '-' + selectedRows[0].data.DesEco
-      dataGraph.dataPropertyTable.subHeaderName = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco + '  ' + selectedRows[0].data.DesOrg + '-' + selectedRows[0].data.DesPro + '-' + selectedRows[0].data.DesEco
-      dataGraph.clasificationType = "aplicacion"
 
       this._router.navigateByUrl("/graphGastos").then(() => {
         this._dataTableGraphService.setData(
-          dataGraph
+          this._dataGraph
         );
       })
 

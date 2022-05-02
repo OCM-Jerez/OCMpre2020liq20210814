@@ -10,7 +10,7 @@ import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataTableGraphService } from '../../services/data-graph.service';
 import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 
-import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
+import { IDataGraph, IDataTable } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-compara-gas',
@@ -26,7 +26,8 @@ export class TableGastosComponent {
   public headerHeight = 54;
   public rowSelection = 'single';
   private _creditosWidth?: number = 110;
-  private _dataTableGraph: IDataTable;
+  private _dataTable: IDataTable;
+  private _dataGraph: IDataGraph = {} as IDataGraph;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -34,24 +35,27 @@ export class TableGastosComponent {
     private _dataTableGraphService: DataTableGraphService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService
   ) {
-    this._dataTableGraph = _dataTableGraphService.dataTableGraph;
+    this._dataTable = _dataTableGraphService.dataTableGraph;
+    console.log("---------------->", this._dataTable);
+    console.log("---------------->", this._dataTable.dataPropertyTable.graphTitle);
+
     this.columnDefs = [
       {
-        headerName: this._dataTableGraph.dataPropertyTable.headerName,
+        headerName: this._dataTable.dataPropertyTable.headerName,
         children: [
           {
-            headerName: this._dataTableGraph.dataPropertyTable.subHeaderName,
-            field: this._dataTableGraph.dataPropertyTable.codField,
+            headerName: this._dataTable.dataPropertyTable.subHeaderName,
+            field: this._dataTable.dataPropertyTable.codField,
             cellClass: 'resaltado',
-            width: this._dataTableGraph.dataPropertyTable.width,
+            width: this._dataTable.dataPropertyTable.width,
             pinned: 'left',
             rowGroup: true,
-            showRowGroup: this._dataTableGraph.dataPropertyTable.codField,
+            showRowGroup: this._dataTable.dataPropertyTable.codField,
             columnGroupShow: 'open',
             cellRenderer: CellRendererOCMtext,
             valueGetter: params => {
               if (params.data) {
-                return params.data[this._dataTableGraph.dataPropertyTable.codField] + ' - ' + params.data[this._dataTableGraph.dataPropertyTable.desField];
+                return params.data[this._dataTable.dataPropertyTable.codField] + ' - ' + params.data[this._dataTable.dataPropertyTable.desField];
               } else {
                 return null;
               }
@@ -95,7 +99,7 @@ export class TableGastosComponent {
   }
 
   async onGridReady(params) {
-    this.rowData = this._dataTableGraph.data
+    this.rowData = this._dataTable.data
   }
 
   // TODO: Las colummnas disparan su altura
@@ -168,10 +172,13 @@ export class TableGastosComponent {
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
+    this._dataGraph.graphSubTitle = selectedRows[0].key;
+    // this._dataGraph.selectedCodeRow = selectedRows[0].key;
+    this._dataGraph.data = this.rowData
     this._router.navigateByUrl("/graphGastos").then(() => {
       this._dataTableGraphService.setData(
         {
-          ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].key
+          ...this._dataTableGraphService.dataGraph, selectedCodeRow: selectedRows[0].key, graphTitle: this._dataTable.dataPropertyTable.graphTitle, graphSubTitle: selectedRows[0].key
         }
       );
     })

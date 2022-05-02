@@ -11,10 +11,11 @@ export interface IDataPropertyTableGraph {
     codField: string;
     desField: string;
     width: number;
-    titleGraph: string;
-    subTitleGraph: string;
+    graphTitle: string;
 }
 
 export interface IDataGraph extends IDataTable {
-    selectedCodeRow: string;
+    selectedCodeRow?: string;
+    graphTitle?: string;
+    graphSubTitle?: string;
 }

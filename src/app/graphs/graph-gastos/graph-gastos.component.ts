@@ -26,7 +26,7 @@ export class GraphGastosComponent implements OnDestroy {
   public headerHeight = 25;
   public options: AgChartOptions;
   private datos: any[] = [];
-  private _dataTableGraph: IDataGraph;
+  private _dataGraph: IDataGraph;
   private _subscription: Subscription;
 
   constructor(
@@ -34,7 +34,7 @@ export class GraphGastosComponent implements OnDestroy {
     private _dataTableGraphService: DataTableGraphService,
   ) {
     this._subscription = this._dataTableGraphService.dataSource$.subscribe((data) => {
-      this._dataTableGraph = data;
+      this._dataGraph = data;
       this._createData();
       this._createColumns()
       this._showGraph()
@@ -48,29 +48,31 @@ export class GraphGastosComponent implements OnDestroy {
   }
 
   private async _createData() {
-    if (this._dataTableGraph.clasificationType != "aplicacion") {
+    console.log(this._dataGraph.clasificationType);
+
+    if (this._dataGraph.clasificationType != "aplicacion") {
       const codigo = this._dataTableGraphService.selectedCodeRow.split(" ")[0];
-      switch (this._dataTableGraph.clasificationType) {
+      switch (this._dataGraph.clasificationType) {
         case 'gastosOrganicaOrganicos':
-          this.datos = this._dataTableGraph.data.filter(x => x.CodOrg == codigo);
+          this.datos = this._dataGraph.data.filter(x => x.CodOrg == codigo);
           break;
         case 'gastosProgramaAreas':
         case 'gastosProgramaPoliticas':
         case 'gastosProgramaGrupos':
         case 'gastosProgramaProgramas':
-          this.datos = this._dataTableGraph.data.filter(x => x.CodPro == codigo);
+          this.datos = this._dataGraph.data.filter(x => x.CodPro == codigo);
           break;
         case 'gastosEconomicaCapitulos':
-          this.datos = this._dataTableGraph.data.filter(x => x.CodCap == codigo);
+          this.datos = this._dataGraph.data.filter(x => x.CodCap == codigo);
           break;
         case 'gastosEconomicaArticulos':
         case 'gastosEconomicaConceptos':
         case 'gastosEconomicaEconomicos':
-          this.datos = this._dataTableGraph.data.filter(x => x.CodEco == codigo);
+          this.datos = this._dataGraph.data.filter(x => x.CodEco == codigo);
           break;
       }
     } else {
-      this.datos = this._dataTableGraph.data
+      this.datos = this._dataGraph.data
     }
 
     const yearsIniciales = accumulate('Iniciales', this.datos);
@@ -134,15 +136,22 @@ export class GraphGastosComponent implements OnDestroy {
   }
 
   private _showGraph(): void {
-    console.log("subHeaderName", this._dataTableGraph.dataPropertyTable.subHeaderName);
-    console.log("selectedCodeRow", this._dataTableGraphService.selectedCodeRow);
+    console.log(this._dataGraph);
+
+    this._dataGraph.dataPropertyTable.graphTitle = this._dataTableGraphService.graphTitle;
+    // this._dataGraph.graphTitle = this._dataTableGraphService.graphTitle;
+
+    // console.log("subHeaderName", this._dataGraph.dataPropertyTable.subHeaderName);
+    // console.log("selectedCodeRow", this._dataTableGraphService.selectedCodeRow);
+    // console.log("subTitleGraph", this._dataGraph.graphSubTitle);
     this.options = {
       autoSize: true,
       title: {
-        text: this._dataTableGraph.dataPropertyTable.titleGraph,
+        text: `${this._dataGraph.graphTitle}`
       },
       subtitle: {
-        text: `${this._dataTableGraph.dataPropertyTable.subHeaderName} ${this._dataTableGraphService.selectedCodeRow}`,
+        // text: `${this._dataGraph.dataPropertyTable.subHeaderName} ${this._dataTableGraphService.selectedCodeRow}`,
+        text: `${this._dataGraph.graphSubTitle}`
       },
       data: [...this.data],
       series: [
