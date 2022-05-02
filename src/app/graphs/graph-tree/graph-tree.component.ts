@@ -15,7 +15,7 @@ export class GraphTreeComponent {
 
   ) {
     const dataGrahTree = this._dataStoreService.dataGraphTree;
-    const tipoClasificacion = this._dataStoreService.dataTableGraph.clasificationType;
+    const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
     switch (tipoClasificacion) {
       case 'gastosOrganicaOrganicos':
         let data = {

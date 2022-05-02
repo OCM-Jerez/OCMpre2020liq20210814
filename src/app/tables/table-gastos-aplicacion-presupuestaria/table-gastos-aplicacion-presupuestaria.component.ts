@@ -11,8 +11,9 @@ import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
 import { DataStoreService } from '../../services/dataStore.service';
-import { IDataGraph, IDataTable } from '../../commons/interfaces/dataGraph.interface';
+import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 
+import { getClasificacion } from '../../tables/data-table';
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
 
 @Component({
@@ -23,10 +24,8 @@ import { PrepareDataProgramaDetailsService } from '../../services/prepareDataPro
 export class TableGastosAplicacionPresupuestariaComponent {
 
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  // public gridColumnApi;
   public columnDefs;
   public defaultColDef;
-  // public gridOptions: GridOptions;
   public localeText;
   public rowData: any;
   public groupHeaderHeight = 25;
@@ -34,10 +33,6 @@ export class TableGastosAplicacionPresupuestariaComponent {
   public CreditosWidth?: number = 110;
   public tipoClasificacion: string;
   public rowSelection = 'single';
-
-  // private _gridApi;
-  private _dataTableGraph: IDataTable;
-  private _dataGraph: IDataGraph = {} as IDataGraph;
 
   data: any[] = [];
 
@@ -49,7 +44,6 @@ export class TableGastosAplicacionPresupuestariaComponent {
     private _location: Location,
 
   ) {
-    // this._dataTableGraph = _dataTableGraphService.dataTableGraph;
     this.columnDefs = [
       {
         // headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -106,7 +100,6 @@ export class TableGastosAplicacionPresupuestariaComponent {
           '</div>',
       },
     };
-    // this.gridOptions = {} as GridOptions;
     this.localeText = localeTextESPes;
   }
 
@@ -196,38 +189,31 @@ export class TableGastosAplicacionPresupuestariaComponent {
     ];
   }
 
-  volver() {
-    this._location.back();
-  }
-
   showGraph() {
     // https://ag-grid.com/angular-data-grid/row-selection/
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
-      // const dataGraph: IDataGraph = {
-      //   // ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].data.DesEco
-      //   ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: " "
-      // }
-      this._dataGraph.rowData = this.data;
-      // dataGraph.dataPropertyTable.headerName = "Detalle economico"
-      this._dataGraph.graphTitle = "Gasto por aplicación presupuestaria"
-      // dataGraph.dataPropertyTable.subHeaderName = selectedRows[0].data.DesEco
-      this._dataGraph.graphSubTitle = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco + '  ' + selectedRows[0].data.DesOrg + '-' + selectedRows[0].data.DesPro + '-' + selectedRows[0].data.DesEco
-      this._dataGraph.clasificationType = "aplicacion"
-      const dataGraph: IDataGraph = {
-        // ...this._dataTableGraphService.dataTableGraph, selectedCodeRow: selectedRows[0].data.DesEco
-        ...this._dataStoreService.dataTableGraph, selectedCodeRow: " "
+      const dataPropertyTable = getClasificacion("aplicacion");
+      const sendData: IDataGraph = {
+        dataPropertyTable,
+        clasificationType: "aplicacion",
+        rowData: this.data,
+        graphSubTitle: selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco + '  ' + selectedRows[0].data.DesOrg + '-' + selectedRows[0].data.DesPro + '-' + selectedRows[0].data.DesEco
       }
-
+      // Uso el setter
+      this._dataStoreService.setDataTable = sendData;
       this._router.navigateByUrl("/graphGastos").then(() => {
         this._dataStoreService.setData(
-          this._dataGraph
+          sendData
         );
       })
-
     } else {
       alert('Selecciona una aplicación presupuestaria');
     }
+  }
+
+  volver() {
+    this._location.back();
   }
 
 }

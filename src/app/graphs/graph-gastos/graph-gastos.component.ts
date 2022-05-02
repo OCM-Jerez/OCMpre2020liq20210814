@@ -138,16 +138,12 @@ export class GraphGastosComponent implements OnDestroy {
   private _showGraph(): void {
     console.log(this._dataGraph);
 
-    this._dataGraph.dataPropertyTable.graphTitle = this._dataStoreService.graphTitle;
-    // this._dataGraph.graphTitle = this._dataTableGraphService.graphTitle;
-
-    // console.log("subHeaderName", this._dataGraph.dataPropertyTable.subHeaderName);
-    // console.log("selectedCodeRow", this._dataTableGraphService.selectedCodeRow);
-    // console.log("subTitleGraph", this._dataGraph.graphSubTitle);
+    // this._dataGraph.dataPropertyTable.graphTitle = this._dataStoreService.graphTitle;
     this.options = {
       autoSize: true,
       title: {
-        text: `${this._dataGraph.graphTitle}`
+        // text: this._dataGraph.graphTitle
+        text: this._dataStoreService.getDataTable.dataPropertyTable.graphTitle
       },
       subtitle: {
         // text: `${this._dataGraph.dataPropertyTable.subHeaderName} ${this._dataTableGraphService.selectedCodeRow}`,

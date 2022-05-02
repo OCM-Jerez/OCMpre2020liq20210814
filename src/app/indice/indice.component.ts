@@ -87,7 +87,6 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     const isIncome = tipoClasificacion.startsWith('ingresos');
     const dataPropertyTable = getClasificacion(tipoClasificacion);
-
     let rowData: any[];
     if (isIncome) {
       rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion, dataPropertyTable.sufijo);
@@ -100,9 +99,8 @@ export class IndiceComponent implements OnInit {
       clasificationType: tipoClasificacion,
       rowData
     }
-    console.log(sendData);
-
-    this._dataStoreService.dataTableGraph = sendData;
+    // Uso el setter
+    this._dataStoreService.setDataTable = sendData;
 
     if (isIncome) {
       this._router.navigateByUrl('/tableIngresos')

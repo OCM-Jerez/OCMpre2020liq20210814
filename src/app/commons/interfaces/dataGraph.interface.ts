@@ -15,7 +15,5 @@ export interface IDataProperty {
 }
 
 export interface IDataGraph extends IDataTable {
-    selectedCodeRow?: string;
-    graphTitle?: string;
     graphSubTitle?: string;
 }

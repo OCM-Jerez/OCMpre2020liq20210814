@@ -15,7 +15,7 @@ export class PrepareDataGraphTreeService {
   }
 
   async prepareDataGraphTree(rowData) {
-    const tipoClasificacion = this._dataStoreService.dataTableGraph.clasificationType;
+    const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
     console.log('tipoClasificacion', tipoClasificacion);
     console.log('rowData', rowData);
 

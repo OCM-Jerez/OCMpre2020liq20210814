@@ -35,7 +35,7 @@ export class TableGastosComponent {
     private _dataStoreService: DataStoreService,
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService
   ) {
-    this._dataTable = _dataStoreService.dataTableGraph;
+    this._dataTable = _dataStoreService.getDataTable;
     console.log("---------------->", this._dataTable);
     console.log("---------------->", this._dataTable.dataPropertyTable.graphTitle);
 
@@ -174,12 +174,11 @@ export class TableGastosComponent {
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRow = selectedRows[0].key;
       this._dataGraph.graphSubTitle = selectedRows[0].key;
-      // this._dataGraph.selectedCodeRow = selectedRows[0].key;
       this._dataGraph.rowData = this.rowData
       this._router.navigateByUrl("/graphGastos").then(() => {
         this._dataStoreService.setData(
           {
-            ...this._dataStoreService.dataGraph, selectedCodeRow: selectedRows[0].key, graphTitle: this._dataTable.dataPropertyTable.graphTitle, graphSubTitle: selectedRows[0].key
+            ...this._dataStoreService.dataGraph, graphSubTitle: selectedRows[0].key
           }
         );
       })

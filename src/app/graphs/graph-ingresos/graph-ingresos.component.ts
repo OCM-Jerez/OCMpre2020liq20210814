@@ -39,7 +39,7 @@ export class GraphIngresosComponent implements AfterViewInit {
     private _dataStoreService: DataStoreService,
   ) {
 
-    this._dataTable = _dataStoreService.dataTableGraph;
+    this._dataTable = _dataStoreService.getDataTable;
 
     this.createData();
     // this.text = router.getCurrentNavigation().extras.state.data.tipo;

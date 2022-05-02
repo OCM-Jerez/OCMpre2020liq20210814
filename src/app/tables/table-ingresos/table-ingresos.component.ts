@@ -37,7 +37,7 @@ export class TableIngresosComponent {
     private _dataStoreService: DataStoreService
   ) {
 
-    this._dataTableGraph = _dataStoreService.dataTableGraph;
+    this._dataTableGraph = _dataStoreService.getDataTable;
     this.columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
