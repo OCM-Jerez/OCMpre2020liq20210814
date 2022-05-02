@@ -1,10 +1,10 @@
 export interface IDataTable {
-    dataPropertyTable: IDataPropertyTableGraph;
+    dataPropertyTable: IDataProperty;
     clasificationType: string;
     data: any[]
 }
 
-export interface IDataPropertyTableGraph {
+export interface IDataProperty {
     sufijo: string;
     headerName: string;
     subHeaderName: string;
