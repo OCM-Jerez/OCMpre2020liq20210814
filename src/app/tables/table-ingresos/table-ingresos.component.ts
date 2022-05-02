@@ -7,7 +7,7 @@ import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 // import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
-import { DataTableGraphService } from '../../services/data-graph.service';
+import { DataTableGraphService } from '../../services/dataStore.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
 

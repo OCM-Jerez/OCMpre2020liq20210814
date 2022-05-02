@@ -6,7 +6,7 @@ import { AgChartOptions, GridOptions } from 'ag-grid-community';
 import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { accumulate } from '../../commons/util/util';
-import { DataTableGraphService } from '../../services/data-graph.service';
+import { DataTableGraphService } from '../../services/dataStore.service';
 import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 import { Subscription } from 'rxjs';
 

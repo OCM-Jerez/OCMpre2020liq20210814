@@ -7,7 +7,7 @@ import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { DataTableGraphService } from '../../services/data-graph.service';
+import { DataTableGraphService } from '../../services/dataStore.service';
 import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 
 import { IDataGraph, IDataTable } from '../../commons/interfaces/dataGraph.interface';

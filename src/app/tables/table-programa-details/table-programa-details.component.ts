@@ -9,7 +9,7 @@ import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRenderer
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { DataTableGraphService } from '../../services/data-graph.service';
+import { DataTableGraphService } from '../../services/dataStore.service';
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
 
 import { IDataTable } from '../../commons/interfaces/dataGraph.interface';

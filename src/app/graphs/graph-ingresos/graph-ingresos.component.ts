@@ -7,7 +7,7 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { accumulate } from '../../commons/util/util';
 
-import { DataTableGraphService } from '../../services/data-graph.service';
+import { DataTableGraphService } from '../../services/dataStore.service';
 import { IDataGraph, IDataTable } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({

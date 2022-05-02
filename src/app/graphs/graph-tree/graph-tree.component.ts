@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AgChartOptions } from 'ag-charts-community';
-import { DataTableGraphService } from '../../services/data-graph.service';
+import { DataTableGraphService } from '../../services/dataStore.service';
 
 @Component({
   selector: 'app-graphtree',

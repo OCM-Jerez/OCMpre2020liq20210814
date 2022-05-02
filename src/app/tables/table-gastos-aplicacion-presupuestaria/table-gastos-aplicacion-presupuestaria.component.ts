@@ -10,7 +10,7 @@ import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRenderer
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
-import { DataTableGraphService } from '../../services/data-graph.service';
+import { DataTableGraphService } from '../../services/dataStore.service';
 import { IDataGraph, IDataTable } from '../../commons/interfaces/dataGraph.interface';
 
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';

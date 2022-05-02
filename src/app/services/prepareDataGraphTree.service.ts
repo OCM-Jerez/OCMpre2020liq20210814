@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataTableGraphService } from './data-graph.service';
+import { DataTableGraphService } from './dataStore.service';
 import gastosOrganicaOrganicos from '../../assets/data/gastosOrganicaOrganicos.json';
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
 
