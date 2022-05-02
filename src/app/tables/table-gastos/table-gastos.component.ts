@@ -171,17 +171,21 @@ export class TableGastosComponent {
 
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
-    this._dataGraph.graphSubTitle = selectedRows[0].key;
-    // this._dataGraph.selectedCodeRow = selectedRows[0].key;
-    this._dataGraph.data = this.rowData
-    this._router.navigateByUrl("/graphGastos").then(() => {
-      this._dataTableGraphService.setData(
-        {
-          ...this._dataTableGraphService.dataGraph, selectedCodeRow: selectedRows[0].key, graphTitle: this._dataTable.dataPropertyTable.graphTitle, graphSubTitle: selectedRows[0].key
-        }
-      );
-    })
+    if (selectedRows.length > 0) {
+      this._dataTableGraphService.selectedCodeRow = selectedRows[0].key;
+      this._dataGraph.graphSubTitle = selectedRows[0].key;
+      // this._dataGraph.selectedCodeRow = selectedRows[0].key;
+      this._dataGraph.data = this.rowData
+      this._router.navigateByUrl("/graphGastos").then(() => {
+        this._dataTableGraphService.setData(
+          {
+            ...this._dataTableGraphService.dataGraph, selectedCodeRow: selectedRows[0].key, graphTitle: this._dataTable.dataPropertyTable.graphTitle, graphSubTitle: selectedRows[0].key
+          }
+        );
+      })
+    } else {
+      alert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+    }
   }
 
   showProgramaDetails() {
@@ -190,7 +194,7 @@ export class TableGastosComponent {
       this._dataTableGraphService.selectedCodeRowFirstLevel = selectedRows[0].key;
       this._router.navigateByUrl("/tableProgramaDetails")
     } else {
-      alert('Selecciona un programa');
+      alert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
   }
 
