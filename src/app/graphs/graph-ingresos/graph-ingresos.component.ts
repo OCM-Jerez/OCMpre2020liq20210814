@@ -8,7 +8,8 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 import { accumulate } from '../../commons/util/util';
 
 import { DataStoreService } from '../../services/dataStore.service';
-import { IDataGraph, IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-graph-ingresos',
@@ -53,7 +54,7 @@ export class GraphIngresosComponent implements AfterViewInit {
         // theme: 'ag-default-dark',
         autoSize: true,
         title: {
-          text: this._dataGraph.dataPropertyTable.graphTitle,
+          // text: this._dataGraph.graphTitle,
         },
         subtitle: {
           text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRow}`,

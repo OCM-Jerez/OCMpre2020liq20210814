@@ -11,7 +11,7 @@ import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
 import { DataStoreService } from '../../services/dataStore.service';
-import { IDataGraph } from '../../commons/interfaces/dataTable.interface';
+import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 
 import { getClasificacion } from '../../tables/data-table';
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
@@ -193,15 +193,16 @@ export class TableGastosAplicacionPresupuestariaComponent {
     // https://ag-grid.com/angular-data-grid/row-selection/
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
-      const dataPropertyTable = getClasificacion("aplicacion");
+      // const dataPropertyTable = getClasificacion("aplicacion");
       const sendData: IDataGraph = {
-        dataPropertyTable,
+        // dataPropertyTable,
         clasificationType: "aplicacion",
         rowData: this.data,
+        graphTitle: 'Gasto por aplicación presupuestaria',
         graphSubTitle: selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco + '  ' + selectedRows[0].data.DesOrg + '-' + selectedRows[0].data.DesPro + '-' + selectedRows[0].data.DesEco
       }
       // Uso el setter
-      this._dataStoreService.setDataTable = sendData;
+      this._dataStoreService.setDataGraph = sendData;
       this._router.navigateByUrl("/graphGastos").then(() => {
         this._dataStoreService.setData(
           sendData

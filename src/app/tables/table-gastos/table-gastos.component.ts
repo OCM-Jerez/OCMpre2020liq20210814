@@ -10,7 +10,8 @@ import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 
-import { IDataGraph, IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { IDataTable } from '../../commons/interfaces/dataTable.interface';
+import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 
 @Component({
   selector: 'app-compara-gas',

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { IDataGraph, IDataTable } from '../commons/interfaces/dataTable.interface';
+import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../commons/interfaces/dataTable.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class DataStoreService {
   private _dataSource = new Subject<IDataGraph>();
   dataSource$ = this._dataSource.asObservable();
   private _data: IDataTable;
+  private _dataGraph: IDataGraph;
   private _selectedCodeRow: string;
   private _dataGraphTree: any[];
   private _graphTitle: string;
@@ -22,12 +24,16 @@ export class DataStoreService {
     this._data = data
   }
 
+  set setDataGraph(data: IDataGraph) {
+    this._dataGraph = data
+  }
+
   get dataGraph(): IDataGraph {
     return this._data
   }
 
   set dataGraph(data: IDataGraph) {
-    this._data = data
+    this._dataGraph = data
   }
 
   set graphTitle(graphTitle: string) {

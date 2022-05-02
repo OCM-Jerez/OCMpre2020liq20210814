@@ -7,7 +7,7 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 
 import { accumulate } from '../../commons/util/util';
 import { DataStoreService } from '../../services/dataStore.service';
-import { IDataGraph } from '../../commons/interfaces/dataTable.interface';
+import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -136,17 +136,13 @@ export class GraphGastosComponent implements OnDestroy {
   }
 
   private _showGraph(): void {
-    console.log(this._dataGraph);
-
-    // this._dataGraph.dataPropertyTable.graphTitle = this._dataStoreService.graphTitle;
+    const title = this._dataGraph.clasificationType == "aplicacion" ? this._dataGraph.graphTitle : this._dataStoreService.getDataTable.dataPropertyTable.graphTitle;
     this.options = {
       autoSize: true,
       title: {
-        // text: this._dataGraph.graphTitle
-        text: this._dataStoreService.getDataTable.dataPropertyTable.graphTitle
+        text: title
       },
       subtitle: {
-        // text: `${this._dataGraph.dataPropertyTable.subHeaderName} ${this._dataTableGraphService.selectedCodeRow}`,
         text: `${this._dataGraph.graphSubTitle}`
       },
       data: [...this.data],

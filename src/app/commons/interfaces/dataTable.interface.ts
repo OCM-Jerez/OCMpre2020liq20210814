@@ -13,7 +13,3 @@ export interface IDataProperty {
     width: number;
     graphTitle: string;
 }
-
-export interface IDataGraph extends IDataTable {
-    graphSubTitle?: string;
-}
