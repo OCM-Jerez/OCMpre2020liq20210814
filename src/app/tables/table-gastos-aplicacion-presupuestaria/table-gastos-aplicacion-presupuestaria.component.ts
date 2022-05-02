@@ -11,7 +11,7 @@ import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
 import { DataStoreService } from '../../services/dataStore.service';
-import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
+import { IDataGraph } from '../../commons/interfaces/dataTable.interface';
 
 import { getClasificacion } from '../../tables/data-table';
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';

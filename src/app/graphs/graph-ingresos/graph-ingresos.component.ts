@@ -8,7 +8,7 @@ import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
 import { accumulate } from '../../commons/util/util';
 
 import { DataStoreService } from '../../services/dataStore.service';
-import { IDataGraph, IDataTable } from '../../commons/interfaces/dataGraph.interface';
+import { IDataGraph, IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 @Component({
   selector: 'app-graph-ingresos',

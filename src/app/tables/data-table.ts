@@ -1,4 +1,4 @@
-import { IDataProperty } from "../commons/interfaces/dataGraph.interface";
+import { IDataProperty } from "../commons/interfaces/dataTable.interface";
 
 const CLASIFICATION = {
     ingresosEconomicaCapitulos: {

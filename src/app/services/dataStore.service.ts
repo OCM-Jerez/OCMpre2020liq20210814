@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { IDataGraph, IDataTable } from '../commons/interfaces/dataGraph.interface';
+import { IDataGraph, IDataTable } from '../commons/interfaces/dataTable.interface';
 
 @Injectable({
   providedIn: 'root'

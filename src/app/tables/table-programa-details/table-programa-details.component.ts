@@ -12,7 +12,7 @@ import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
 
-import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 @Component({
   selector: 'app-table-programa-details',

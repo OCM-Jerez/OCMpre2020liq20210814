@@ -9,7 +9,7 @@ import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRenderer
 
 import { DataStoreService } from '../../services/dataStore.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { IDataTable } from '../../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 @Component({
   selector: 'app-compara-ing',

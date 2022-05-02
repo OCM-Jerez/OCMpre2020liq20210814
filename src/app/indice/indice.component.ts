@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { DataStoreService } from '../services/dataStore.service';
 
-import { IDataTable } from '../commons/interfaces/dataGraph.interface';
+import { IDataTable } from '../commons/interfaces/dataTable.interface';
 
 import { getClasificacion } from '../tables/data-table';
 import { PrepareDataIngresosService } from '../services/prepareDataIngresos.service';
