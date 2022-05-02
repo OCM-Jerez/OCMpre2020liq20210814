@@ -141,11 +141,7 @@ export class GraphIngresosComponent implements AfterViewInit {
         this.datos = this._dataTable.data.filter(x => x.CodCap == codigo);
         break;
       case 'ingresosEconomicaArticulos':
-        this.datos = this._dataTable.data.filter(x => x.CodEco == codigo);
-        break;
       case 'ingresosEconomicaConceptos':
-        this.datos = this._dataTable.data.filter(x => x.CodEco == codigo);
-        break;
       case 'ingresosEconomicaEconomicos':
         this.datos = this._dataTable.data.filter(x => x.CodEco == codigo);
         break;
