@@ -5,10 +5,12 @@ import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { DataStoreService } from '../services/dataStore.service';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
+import { IDataGraph } from '../commons/interfaces/dataGraph.interface';
 
 import { getClasificacion } from '../tables/data-table';
 import { PrepareDataIngresosService } from '../services/prepareDataIngresos.service';
 import { PrepareDataGastosService } from '../services/prepareDataGastos.service';
+import { getClasificacionGraph } from '../graphs/data-graph';
 
 @Component({
   selector: 'app-indice-new',
@@ -87,6 +89,7 @@ export class IndiceComponent implements OnInit {
     this.getSelectedItem();
     const isIncome = tipoClasificacion.startsWith('ingresos');
     const dataPropertyTable = getClasificacion(tipoClasificacion);
+    const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
     let rowData: any[];
     if (isIncome) {
       rowData = await this._prepareDataIngresosService.getDataAllYear(tipoClasificacion, dataPropertyTable.sufijo);
@@ -94,13 +97,21 @@ export class IndiceComponent implements OnInit {
       rowData = await this._prepareDataGastosService.getDataAllYear(tipoClasificacion, dataPropertyTable.sufijo);
     }
 
-    const sendData: IDataTable = {
+    const sendDataTable: IDataTable = {
       dataPropertyTable,
       clasificationType: tipoClasificacion,
       rowData
     }
+
+    const sendDataGraph: IDataGraph = {
+      clasificationType: tipoClasificacion,
+      rowData,
+      graphSubTitle: '',
+      graphTitle: dataPropertyGraph.graphTitle
+    }
     // Uso el setter
-    this._dataStoreService.setDataTable = sendData;
+    this._dataStoreService.setDataTable = sendDataTable;
+    this._dataStoreService.dataGraph = sendDataGraph;
 
     if (isIncome) {
       this._router.navigateByUrl('/tableIngresos')

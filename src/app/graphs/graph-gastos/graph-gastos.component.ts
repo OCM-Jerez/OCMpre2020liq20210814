@@ -35,6 +35,8 @@ export class GraphGastosComponent implements OnDestroy {
   ) {
     this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
       this._dataGraph = data;
+      console.log("Datos: ", this._dataGraph);
+
       this._createData();
       this._createColumns()
       this._showGraph()
@@ -139,6 +141,7 @@ export class GraphGastosComponent implements OnDestroy {
       autoSize: true,
       title: {
         text: title
+        // text: this._dataGraph.graphTitle
       },
       subtitle: {
         text: `${this._dataGraph.graphSubTitle}`
