@@ -85,7 +85,7 @@ export class PrepareDataGastosService {
             item.CodPro = Math.floor((item.CodPro / 1000));
             item.DesPro = gastosProgramaPoliticas.find((politica) => politica.codigo === item.CodPro).descripcion;
           } else {
-            console.log(item);
+            // console.log(item);
           }
         });
         break;
@@ -95,7 +95,7 @@ export class PrepareDataGastosService {
             item.CodPro = Math.floor((item.CodPro / 100));
             item.DesPro = gastosProgramaGruposProgramas.find((grupo) => grupo.codigo === item.CodPro).descripcion;
           } else {
-            console.log(item);
+            // console.log(item);
           }
         });
         break;

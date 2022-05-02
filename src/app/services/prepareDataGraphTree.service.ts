@@ -16,10 +16,8 @@ export class PrepareDataGraphTreeService {
 
   async prepareDataGraphTree(rowData) {
     const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
-    console.log('tipoClasificacion', tipoClasificacion);
-    console.log('rowData', rowData);
-
-
+    // console.log('tipoClasificacion', tipoClasificacion);
+    // console.log('rowData', rowData);
     switch (tipoClasificacion) {
       case 'gastosOrganicaOrganicos':
         this._dataGraphTree = gastosOrganicaOrganicos.map(item => {
@@ -27,7 +25,7 @@ export class PrepareDataGraphTreeService {
           const sumDefinitivas = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
           return { ...item, total: sumDefinitivas }
         })
-        console.log(this._dataGraphTree);
+        // console.log(this._dataGraphTree);
         this._dataStoreService.dataGraphTree = this._dataGraphTree;
         break;
       case 'gastosProgramaAreas':
@@ -36,7 +34,7 @@ export class PrepareDataGraphTreeService {
           const sumDefinitivas = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
           return { ...item, total: sumDefinitivas }
         })
-        console.log(this._dataGraphTree);
+        // console.log(this._dataGraphTree);
         this._dataStoreService.dataGraphTree = this._dataGraphTree;
         break;
 

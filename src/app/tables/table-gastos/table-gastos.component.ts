@@ -37,9 +37,8 @@ export class TableGastosComponent {
     private _prepareDataGraphTreeService: PrepareDataGraphTreeService
   ) {
     this._dataTable = _dataStoreService.getDataTable;
-    console.log("---------------->", this._dataTable);
-    console.log("---------------->", this._dataTable.dataPropertyTable.graphTitle);
-
+    // console.log("---------------->", this._dataTable);
+    // console.log("---------------->", this._dataTable.dataPropertyTable.graphTitle);
     this.columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,

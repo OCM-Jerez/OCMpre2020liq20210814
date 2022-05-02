@@ -48,8 +48,6 @@ export class GraphGastosComponent implements OnDestroy {
   }
 
   private async _createData() {
-    console.log(this._dataGraph.clasificationType);
-
     if (this._dataGraph.clasificationType != "aplicacion") {
       const codigo = this._dataStoreService.selectedCodeRow.split(" ")[0];
       switch (this._dataGraph.clasificationType) {

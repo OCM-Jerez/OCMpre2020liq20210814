@@ -291,7 +291,7 @@ export class TableProgramaDetailsComponent {
   }
 
   expandAll() {
-    console.log('expandAll');
+    // console.log('expandAll');
     this._gridApi.expandAll();
     this.isExpanded = true;
   }

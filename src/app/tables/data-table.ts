@@ -119,19 +119,8 @@ const CLASIFICATION = {
         graphTitle: 'Gastos por económico',
     },
 
-    aplicacion: {
-        sufijo: 'Eco',
-        headerName: 'Clasificado por económico',
-        subHeaderName: 'Económico',
-        codField: 'CodEco',
-        desField: 'DesEco',
-        width: 550,
-        graphTitle: 'Gasto por aplicación presupuestaria',
-    }
 }
 
 export const getClasificacion = (tipo: string): IDataProperty => {
-    console.log(CLASIFICATION[tipo]);
-
     return CLASIFICATION[tipo];
 }
