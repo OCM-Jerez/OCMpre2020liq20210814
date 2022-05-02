@@ -106,8 +106,8 @@ export class IndiceComponent implements OnInit {
     const sendDataGraph: IDataGraph = {
       clasificationType: tipoClasificacion,
       rowData,
-      graphSubTitle: '',
-      graphTitle: dataPropertyGraph.graphTitle
+      graphTitle: dataPropertyGraph.graphTitle,
+      graphSubTitle: ''
     }
     // Uso el setter
     this._dataStoreService.setDataTable = sendDataTable;

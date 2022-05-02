@@ -29,6 +29,7 @@ export class TableIngresosComponent {
   public CreditosWidth?: number = 130;
   public tipoClasificacion: string;
   public rowSelection = 'single';
+  private _dataTable: IDataTable;
 
   private _dataTableGraph: IDataTable;
   constructor(
@@ -179,8 +180,19 @@ export class TableIngresosComponent {
 
   showGraph() {
     const selectedRows = this.agGrid.api.getSelectedNodes();
-    this._dataStoreService.selectedCodeRow = selectedRows[0].key;
-    this._router.navigateByUrl("/graphIngresos")
+    if (selectedRows.length > 0) {
+      this._dataStoreService.selectedCodeRow = selectedRows[0].key;
+      // this._router.navigateByUrl("/graphIngresos")
+      this._router.navigateByUrl("/graphIngresos").then(() => {
+        this._dataStoreService.setData(
+          {
+            ...this._dataStoreService.dataGraph, graphSubTitle: selectedRows[0].key
+          }
+        );
+      })
+    } else {
+      alert(`Selecciona ${this._dataTableGraph.dataPropertyTable.subHeaderName}`);
+    }
   }
 
 }

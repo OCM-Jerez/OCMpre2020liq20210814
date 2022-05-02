@@ -35,11 +35,10 @@ export class GraphGastosComponent implements OnDestroy {
   ) {
     this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
       this._dataGraph = data;
-      console.log("Datos: ", this._dataGraph);
-
       this._createData();
       this._createColumns()
       this._showGraph()
+      console.log("Datos: ", this._dataGraph);
     });
   }
 
@@ -136,12 +135,12 @@ export class GraphGastosComponent implements OnDestroy {
   }
 
   private _showGraph(): void {
-    const title = this._dataGraph.clasificationType == "aplicacion" ? this._dataGraph.graphTitle : this._dataStoreService.getDataTable.dataPropertyTable.graphTitle;
+    // const title = this._dataGraph.clasificationType == "aplicacion" ? this._dataGraph.graphTitle : this._dataStoreService.getDataTable.dataPropertyTable.graphTitle;
     this.options = {
       autoSize: true,
       title: {
-        text: title
-        // text: this._dataGraph.graphTitle
+        // text: title
+        text: this._dataGraph.graphTitle
       },
       subtitle: {
         text: `${this._dataGraph.graphSubTitle}`

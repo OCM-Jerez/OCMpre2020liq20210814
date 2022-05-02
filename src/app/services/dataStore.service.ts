@@ -29,7 +29,7 @@ export class DataStoreService {
   }
 
   get dataGraph(): IDataGraph {
-    return this._data
+    return this._dataGraph
   }
 
   set dataGraph(data: IDataGraph) {

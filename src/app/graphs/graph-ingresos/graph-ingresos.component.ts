@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -10,13 +10,14 @@ import { accumulate } from '../../commons/util/util';
 import { DataStoreService } from '../../services/dataStore.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-graph-ingresos',
   templateUrl: './graph-ingresos.component.html',
   styleUrls: ['./graph-ingresos.component.scss']
 })
-export class GraphIngresosComponent implements AfterViewInit {
+export class GraphIngresosComponent implements OnDestroy {
   options: AgChartOptions;
   rowData: any;
   data: any;
@@ -34,100 +35,59 @@ export class GraphIngresosComponent implements AfterViewInit {
   private datos: any[] = [];
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph;
+  private _subscription: Subscription;
 
   constructor(
     private location: Location,
     private _dataStoreService: DataStoreService,
   ) {
-
     this._dataTable = _dataStoreService.getDataTable;
+    this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
+      this._dataGraph = data;
+      this._createData();
+      this._createColumns()
+      this._showGraph()
+      console.log("Datos: ", this._dataGraph);
+    });
 
-    this.createData();
     // this.text = router.getCurrentNavigation().extras.state.data.tipo;
     // this.codigo = router.getCurrentNavigation().extras.state.data.codigo;
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      // grafico
-      this.options = {
-        // theme: 'ag-default-dark',
-        autoSize: true,
-        title: {
-          // text: this._dataGraph.graphTitle,
-        },
-        subtitle: {
-          text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRow}`,
-        },
-        data: [...this.data],
-        series: [
-          {
-            xKey: 'year',
-            yKey: 'Definitivas',
-          },
-          {
-            xKey: 'year',
-            yKey: 'RecaudacionNeta',
-          },
-        ],
-        axes: [
-          {
-            type: 'category',
-            position: 'bottom',
-            title: {
-              text: 'Años',
-              enabled: true,
-            },
-          },
-          {
-            type: 'number',
-            position: 'left',
-            title: {
-              text: 'en miles de Euros',
-              enabled: true,
-            },
-            label: {
-              formatter: function (params) {
-                return params.value / 1000 + '';
-              },
-            },
-          },
-        ],
-        legend: {
-          enabled: true,
-          position: 'bottom',
-        },
-      }
+  ngOnDestroy(): void {
+    if (this._subscription) {
+      this._subscription.unsubscribe()
+    }
+  }
 
-      // tabla
-      this.columnDefs = [
-        {
-          headerName: 'Año',
-          field: 'year',
-          width: 70,
-        },
-        {
-          headerName: 'Previsiones definitivas',
-          field: 'Definitivas',
-          width: 180,
-          aggFunc: 'sum',
-          cellRenderer: CellRendererOCM,
-        },
-        {
-          headerName: 'RecaudacionNeta',
-          field: 'RecaudacionNeta',
-          width: 200,
-          aggFunc: 'sum',
-          cellRenderer: CellRendererOCM,
-        },
-      ];
+  private _createColumns(): void {
+    this.columnDefs = [
+      {
+        headerName: 'Año',
+        field: 'year',
+        width: 70,
+      },
+      {
+        headerName: 'Previsiones definitivas',
+        field: 'Definitivas',
+        width: 180,
+        aggFunc: 'sum',
+        cellRenderer: CellRendererOCM,
+      },
+      {
+        headerName: 'RecaudacionNeta',
+        field: 'RecaudacionNeta',
+        width: 200,
+        aggFunc: 'sum',
+        cellRenderer: CellRendererOCM,
+      },
+    ];
 
-      this.defaultColDef = {
-        sortable: true,
-        resizable: true,
-        filter: false,
-      };
-    }, 500);
+    this.defaultColDef = {
+      sortable: true,
+      resizable: true,
+      filter: false,
+    };
   }
 
   async onGridReady(params) {
@@ -135,7 +95,7 @@ export class GraphIngresosComponent implements AfterViewInit {
     this.gridColumnApi = params.columnApi;
   }
 
-  async createData() {
+  private async _createData() {
     const codigo = this._dataStoreService.selectedCodeRow.split(" ")[0];
     switch (this._dataTable.clasificationType) {
       case 'ingresosEconomicaCapitulos':
@@ -168,6 +128,58 @@ export class GraphIngresosComponent implements AfterViewInit {
     }
     // console.log("Datos Tratados: ", this.data);
     return this.data;
+  }
+
+  private _showGraph(): void {
+    // const title = this._dataGraph.clasificationType == "aplicacion" ? this._dataGraph.graphTitle : this._dataStoreService.getDataTable.dataPropertyTable.graphTitle;
+    this.options = {
+      // theme: 'ag-default-dark',
+      autoSize: true,
+      title: {
+        text: this._dataGraph.graphTitle,
+      },
+      subtitle: {
+        text: `${this._dataTable.dataPropertyTable.subHeaderName} ${this._dataStoreService.selectedCodeRow}`,
+      },
+      data: [...this.data],
+      series: [
+        {
+          xKey: 'year',
+          yKey: 'Definitivas',
+        },
+        {
+          xKey: 'year',
+          yKey: 'RecaudacionNeta',
+        },
+      ],
+      axes: [
+        {
+          type: 'category',
+          position: 'bottom',
+          title: {
+            text: 'Años',
+            enabled: true,
+          },
+        },
+        {
+          type: 'number',
+          position: 'left',
+          title: {
+            text: 'en miles de Euros',
+            enabled: true,
+          },
+          label: {
+            formatter: function (params) {
+              return params.value / 1000 + '';
+            },
+          },
+        },
+      ],
+      legend: {
+        enabled: true,
+        position: 'bottom',
+      },
+    }
   }
 
   volver() {
