@@ -40,8 +40,6 @@ export class TableGastosComponent {
 
   ) {
     this._dataTable = _dataStoreService.getDataTable;
-    // console.log("---------------->", this._dataTable);
-    // console.log("---------------->", this._dataTable.dataPropertyTable.graphTitle);
     this.columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
@@ -187,7 +185,6 @@ export class TableGastosComponent {
       })
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
-      // alert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
   }
 
@@ -198,7 +195,6 @@ export class TableGastosComponent {
       this._router.navigateByUrl("/tableProgramaDetails")
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
-      // alert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
   }
 
@@ -209,7 +205,6 @@ export class TableGastosComponent {
       this._router.navigateByUrl("/graphTree")
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
-      // alert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
   }
 

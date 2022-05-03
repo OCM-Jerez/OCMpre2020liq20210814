@@ -38,7 +38,6 @@ export class GraphGastosComponent implements OnDestroy {
       this._createData();
       this._createColumns()
       this._showGraph()
-      console.log("Datos: ", this._dataGraph);
     });
   }
 
@@ -92,7 +91,6 @@ export class GraphGastosComponent implements OnDestroy {
       }
       this.data.push(value)
     }
-    // console.log("Datos Tratados: ", this.data);
     return this.data;
   }
 
@@ -135,11 +133,9 @@ export class GraphGastosComponent implements OnDestroy {
   }
 
   private _showGraph(): void {
-    // const title = this._dataGraph.clasificationType == "aplicacion" ? this._dataGraph.graphTitle : this._dataStoreService.getDataTable.dataPropertyTable.graphTitle;
     this.options = {
       autoSize: true,
       title: {
-        // text: title
         text: this._dataGraph.graphTitle
       },
       subtitle: {

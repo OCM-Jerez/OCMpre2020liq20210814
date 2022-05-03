@@ -6,7 +6,6 @@ import { AlertService } from './services/alert.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  private _quantity: number = 0;
   message = '';
   showAlert = false;
 

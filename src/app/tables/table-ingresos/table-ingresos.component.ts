@@ -184,7 +184,6 @@ export class TableIngresosComponent {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRow = selectedRows[0].key;
-      // this._router.navigateByUrl("/graphIngresos")
       this._router.navigateByUrl("/graphIngresos").then(() => {
         this._dataStoreService.setData(
           {
@@ -194,7 +193,6 @@ export class TableIngresosComponent {
       })
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTableGraph.dataPropertyTable.subHeaderName}`);
-      // alert(`Selecciona ${this._dataTableGraph.dataPropertyTable.subHeaderName}`);
     }
   }
 

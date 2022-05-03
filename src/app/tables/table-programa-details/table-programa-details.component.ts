@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Location } from "@angular/common";
 
 import { AgGridAngular } from 'ag-grid-angular';
-// import { GridOptions } from 'ag-grid-community/main';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
@@ -25,7 +24,6 @@ export class TableProgramaDetailsComponent {
   public gridColumnApi;
   public columnDefs;
   public defaultColDef;
-  // public gridOptions: GridOptions;
   public localeText;
   public rowData: any;
   public groupHeaderHeight = 25;
@@ -213,13 +211,11 @@ export class TableProgramaDetailsComponent {
           '</div>',
       },
     };
-    // this.gridOptions = {} as GridOptions;
     this.localeText = localeTextESPes;
   }
 
   async onGridReady(params) {
     this._gridApi = params.api;
-    // this.gridColumnApi = params.columnApi;
     this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
       .filter(x => x.CodPro == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     // this.expandAll();
@@ -293,7 +289,6 @@ export class TableProgramaDetailsComponent {
   }
 
   expandAll() {
-    // console.log('expandAll');
     this._gridApi.expandAll();
     this.isExpanded = true;
   }
@@ -311,7 +306,6 @@ export class TableProgramaDetailsComponent {
       this._router.navigateByUrl('/tableAplicacionPresupuestaria')
     } else {
       this._alertService.showAlert('Selecciona un económico');
-      // alert('Selecciona un económico');
     }
   }
 

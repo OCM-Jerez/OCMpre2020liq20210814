@@ -16,8 +16,6 @@ import { AlertService } from '../../services/alert.service';
 
 import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 
-import { getClasificacion } from '../../tables/data-table';
-
 @Component({
   selector: 'app-table-gastos-aplicacion-presupuestaria',
   templateUrl: './table-gastos-aplicacion-presupuestaria.component.html',
@@ -49,7 +47,6 @@ export class TableGastosAplicacionPresupuestariaComponent {
   ) {
     this.columnDefs = [
       {
-        // headerName: this._dataTableGraph.dataPropertyTable.headerName,
         headerName: 'Clasificado por aplicación presupuestaria',
         children: [
           {
@@ -107,8 +104,6 @@ export class TableGastosAplicacionPresupuestariaComponent {
   }
 
   async onGridReady(params) {
-    // this._gridApi = params.api;
-    // this.gridColumnApi = params.columnApi;
     this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
     let selectedRow = this._dataStoreService.selectedCodeRow
     this.rowData = this.rowData
@@ -119,7 +114,6 @@ export class TableGastosAplicacionPresupuestariaComponent {
     let value = {}
     Object.entries(this.rowData).forEach((currentValue) => {
       value = { ...value, ...this.rowData[currentValue[0]] }
-      // console.log(value);
     });
     this.data.push(value)
     this.rowData = this.data;
@@ -196,9 +190,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
     // https://ag-grid.com/angular-data-grid/row-selection/
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
-      // const dataPropertyTable = getClasificacion("aplicacion");
       const sendData: IDataGraph = {
-        // dataPropertyTable,
         clasificationType: "aplicacion",
         rowData: this.data,
         graphTitle: 'Gasto por aplicación presupuestaria',
@@ -213,7 +205,6 @@ export class TableGastosAplicacionPresupuestariaComponent {
       })
     } else {
       this._alertService.showAlert('Selecciona una aplicación presupuestaria');
-      // alert('Selecciona una aplicación presupuestaria');
     }
   }
 

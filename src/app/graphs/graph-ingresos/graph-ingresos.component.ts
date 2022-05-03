@@ -47,11 +47,7 @@ export class GraphIngresosComponent implements OnDestroy {
       this._createData();
       this._createColumns()
       this._showGraph()
-      console.log("Datos: ", this._dataGraph);
     });
-
-    // this.text = router.getCurrentNavigation().extras.state.data.tipo;
-    // this.codigo = router.getCurrentNavigation().extras.state.data.codigo;
   }
 
   ngOnDestroy(): void {
@@ -126,12 +122,10 @@ export class GraphIngresosComponent implements OnDestroy {
       // }
       this.data.push(value)
     }
-    // console.log("Datos Tratados: ", this.data);
     return this.data;
   }
 
   private _showGraph(): void {
-    // const title = this._dataGraph.clasificationType == "aplicacion" ? this._dataGraph.graphTitle : this._dataStoreService.getDataTable.dataPropertyTable.graphTitle;
     this.options = {
       // theme: 'ag-default-dark',
       autoSize: true,
