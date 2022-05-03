@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridOptions } from 'ag-grid-community/main';
+import { GridOptions, Logger } from 'ag-grid-community/main';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
@@ -187,7 +187,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
   }
 
   showGraph() {
-    // https://ag-grid.com/angular-data-grid/row-selection/
+    this.agGrid.api.getRowNode('0').setSelected(true);
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       const sendData: IDataGraph = {
