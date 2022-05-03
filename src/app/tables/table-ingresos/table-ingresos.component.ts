@@ -5,6 +5,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
+import { AlertService } from '../../services/alert.service';
 // import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { DataStoreService } from '../../services/dataStore.service';
@@ -35,7 +36,8 @@ export class TableIngresosComponent {
   constructor(
     private _router: Router,
     public _avalaibleYearsService: AvalaibleYearsService,
-    private _dataStoreService: DataStoreService
+    private _dataStoreService: DataStoreService,
+    private _alertService: AlertService
   ) {
 
     this._dataTableGraph = _dataStoreService.getDataTable;
@@ -191,7 +193,8 @@ export class TableIngresosComponent {
         );
       })
     } else {
-      alert(`Selecciona ${this._dataTableGraph.dataPropertyTable.subHeaderName}`);
+      this._alertService.showAlert(`Selecciona ${this._dataTableGraph.dataPropertyTable.subHeaderName}`);
+      // alert(`Selecciona ${this._dataTableGraph.dataPropertyTable.subHeaderName}`);
     }
   }
 

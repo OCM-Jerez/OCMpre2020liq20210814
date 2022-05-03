@@ -11,6 +11,7 @@ import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
+import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
@@ -46,6 +47,7 @@ export class TableProgramaDetailsComponent {
     private _dataStoreService: DataStoreService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
     private _location: Location,
+    private _alertService: AlertService
   ) {
     this._dataTableGraph = _dataStoreService.getDataTable;
     this.columnDefs = [
@@ -308,7 +310,8 @@ export class TableProgramaDetailsComponent {
       this._dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
       this._router.navigateByUrl('/tableAplicacionPresupuestaria')
     } else {
-      alert('Selecciona un económico');
+      this._alertService.showAlert('Selecciona un económico');
+      // alert('Selecciona un económico');
     }
   }
 

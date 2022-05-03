@@ -1,6 +1,7 @@
 <div class="OCM-app-root">
     <div>
         <app-navbar></app-navbar>
+        <div class="OCM-alert" *ngIf="showAlert">{{message}} </div>
     </div>
     <div>
         <router-outlet></router-outlet>

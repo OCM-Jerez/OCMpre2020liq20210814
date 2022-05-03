@@ -12,6 +12,21 @@
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/legacy/ag-theme-balham-v22-compat.scss";
 
 // #region OCM
+.OCM-alert {
+  background-color: #d31f1f;
+  border-color: #1b0408;
+  color: #f4ecec;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #1b0408;
+  border-radius: 4px;
+
+  position: fixed;
+  max-width: 500px;
+  top: 85px;
+  left: 150px;
+}
+
 .OCM-app-root {
   width: 98vw;
   min-height: 100vh;

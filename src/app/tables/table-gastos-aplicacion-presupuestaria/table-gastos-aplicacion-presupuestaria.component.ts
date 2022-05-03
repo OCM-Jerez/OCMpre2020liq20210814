@@ -11,10 +11,12 @@ import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 
 import { DataStoreService } from '../../services/dataStore.service';
+import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
+import { AlertService } from '../../services/alert.service';
+
 import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 
 import { getClasificacion } from '../../tables/data-table';
-import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
 
 @Component({
   selector: 'app-table-gastos-aplicacion-presupuestaria',
@@ -42,6 +44,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
     private _dataStoreService: DataStoreService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
     private _location: Location,
+    private _alertService: AlertService
 
   ) {
     this.columnDefs = [
@@ -209,7 +212,8 @@ export class TableGastosAplicacionPresupuestariaComponent {
         );
       })
     } else {
-      alert('Selecciona una aplicación presupuestaria');
+      this._alertService.showAlert('Selecciona una aplicación presupuestaria');
+      // alert('Selecciona una aplicación presupuestaria');
     }
   }
 

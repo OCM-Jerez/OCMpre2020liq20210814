@@ -9,6 +9,7 @@ import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
+import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
@@ -34,7 +35,9 @@ export class TableGastosComponent {
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
     private _dataStoreService: DataStoreService,
-    private _prepareDataGraphTreeService: PrepareDataGraphTreeService
+    private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
+    private _alertService: AlertService
+
   ) {
     this._dataTable = _dataStoreService.getDataTable;
     // console.log("---------------->", this._dataTable);
@@ -183,7 +186,8 @@ export class TableGastosComponent {
         );
       })
     } else {
-      alert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+      this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+      // alert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
   }
 
@@ -193,13 +197,20 @@ export class TableGastosComponent {
       this._dataStoreService.selectedCodeRowFirstLevel = selectedRows[0].key;
       this._router.navigateByUrl("/tableProgramaDetails")
     } else {
-      alert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+      this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+      // alert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
   }
 
   showGraphTree() {
-    this._prepareDataGraphTreeService.prepareDataGraphTree(this.rowData);
-    this._router.navigateByUrl("/graphTree")
+    const selectedRows = this.agGrid.api.getSelectedNodes();
+    if (selectedRows.length > 0) {
+      this._prepareDataGraphTreeService.prepareDataGraphTree(this.rowData);
+      this._router.navigateByUrl("/graphTree")
+    } else {
+      this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+      // alert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
+    }
   }
 
 }
