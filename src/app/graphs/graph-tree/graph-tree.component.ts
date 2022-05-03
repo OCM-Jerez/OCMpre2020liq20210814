@@ -15,8 +15,6 @@ export class GraphTreeComponent {
 
   ) {
     const dataGrahTree = this._dataStoreService.dataGraphTree;
-    console.log(dataGrahTree);
-
     const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
     // switch (tipoClasificacion) {
     //   case 'gastosOrganicaOrganicos':
@@ -671,9 +669,10 @@ export class GraphTreeComponent {
           // colorKey: 'color',
           tooltip: {
             renderer: (params) => {
-              console.log(params);
+              // console.log(params);
               return {
-                content: `<b>Creditos</b>: ${params.datum.datum.size}`,
+                content: `<b>Creditos</b>: ${params.datum.datum.size.toString()
+                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}`,
               };
             },
           },
