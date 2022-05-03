@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
@@ -18,7 +18,7 @@ import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
   selector: 'app-compara-gas',
   templateUrl: './table-gastos.component.html',
 })
-export class TableGastosComponent {
+export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public columnDefs;
   public defaultColDef;
@@ -27,6 +27,7 @@ export class TableGastosComponent {
   public groupHeaderHeight = 25;
   public headerHeight = 54;
   public rowSelection = 'single';
+  public hasGraphTree = false;
   private _creditosWidth?: number = 110;
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
@@ -97,6 +98,11 @@ export class TableGastosComponent {
       },
     };
     this.localeText = localeTextESPes;
+  }
+  ngOnInit(): void {
+    if (this._dataTable.dataPropertyTable.subHeaderName === 'Orgánico') {
+      this.hasGraphTree = true;
+    }
   }
 
   async onGridReady(params) {
@@ -199,13 +205,8 @@ export class TableGastosComponent {
   }
 
   showGraphTree() {
-    const selectedRows = this.agGrid.api.getSelectedNodes();
-    if (selectedRows.length > 0) {
-      this._prepareDataGraphTreeService.prepareDataGraphTree(this.rowData);
-      this._router.navigateByUrl("/graphTree")
-    } else {
-      this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
-    }
+    this._prepareDataGraphTreeService.prepareDataGraphTree(this.rowData);
+    this._router.navigateByUrl("/graphTree")
   }
 
 }
