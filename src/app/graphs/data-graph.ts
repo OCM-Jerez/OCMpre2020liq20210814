@@ -40,7 +40,6 @@ const CLASIFICATION_GRAPH = {
     gastosEconomicaEconomicos: {
         graphTitle: 'Gastos por económico',
     },
-
 }
 
 export const getClasificacionGraph = (tipo: string): IDataProperty => {

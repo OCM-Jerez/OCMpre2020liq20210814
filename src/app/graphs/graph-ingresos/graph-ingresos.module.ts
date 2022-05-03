@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-
-import { RouterModule } from '@angular/router';
-
-import { Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+
 import { AgGridModule } from 'ag-grid-angular';
-import { GraphIngresosComponent } from './graph-ingresos.component';
 import { AgChartsAngularModule } from 'ag-charts-angular';
+
+import { GraphIngresosComponent } from './graph-ingresos.component';
 
 export const routes: Routes = [{ path: '', component: GraphIngresosComponent }]
 @NgModule({

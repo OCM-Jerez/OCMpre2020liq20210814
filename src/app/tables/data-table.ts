@@ -8,7 +8,6 @@ const CLASIFICATION = {
         codField: 'CodCap',
         desField: 'DesCap',
         width: 250,
-        // graphTitle: 'Ingresos por capítulo',
     },
     ingresosEconomicaArticulos: {
         sufijo: 'Eco',
@@ -17,7 +16,6 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 250,
-        // graphTitle: 'Ingresos por artículo',
     },
     ingresosEconomicaConceptos: {
         sufijo: 'Eco',
@@ -26,7 +24,6 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 250,
-        // graphTitle: 'Ingresos por concepto',
     },
     ingresosEconomicaEconomicos: {
         sufijo: 'Eco',
@@ -35,7 +32,6 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 400,
-        // graphTitle: 'Ingresos por económico',
     },
     gastosOrganicaOrganicos: {
         sufijo: 'Org',
@@ -44,7 +40,6 @@ const CLASIFICATION = {
         codField: 'CodOrg',
         desField: 'DesOrg',
         width: 250,
-        // graphTitle: 'Gastos por orgánico',
     },
     gastosProgramaAreas: {
         sufijo: 'Pro',
@@ -53,7 +48,6 @@ const CLASIFICATION = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
-        // graphTitle: 'Gastos por área de programa',
     },
     gastosProgramaPoliticas: {
         sufijo: 'Pro',
@@ -62,7 +56,6 @@ const CLASIFICATION = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
-        // graphTitle: 'Gastos por política de gasto',
     },
     gastosProgramaGrupos: {
         sufijo: 'Pro',
@@ -71,7 +64,6 @@ const CLASIFICATION = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
-        // graphTitle: 'Gastos por grupo de programa',
     },
     gastosProgramaProgramas: {
         sufijo: 'Pro',
@@ -80,7 +72,6 @@ const CLASIFICATION = {
         codField: 'CodPro',
         desField: 'DesPro',
         width: 550,
-        // graphTitle: 'Gastos por programa',
     },
     gastosEconomicaCapitulos: {
         sufijo: 'Cap',
@@ -89,7 +80,6 @@ const CLASIFICATION = {
         codField: 'CodCap',
         desField: 'DesCap',
         width: 250,
-        // graphTitle: 'Gastos por capítulo',
     },
     gastosEconomicaArticulos: {
         sufijo: 'Eco',
@@ -98,7 +88,6 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 550,
-        // graphTitle: 'Gastos por artículo',
     },
     gastosEconomicaConceptos: {
         sufijo: 'Eco',
@@ -107,7 +96,6 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 550,
-        // graphTitle: 'Gastos por concepto',
     },
     gastosEconomicaEconomicos: {
         sufijo: 'Eco',
@@ -116,9 +104,7 @@ const CLASIFICATION = {
         codField: 'CodEco',
         desField: 'DesEco',
         width: 550,
-        // graphTitle: 'Gastos por económico',
     },
-
 }
 
 export const getClasificacion = (tipo: string): IDataProperty => {
