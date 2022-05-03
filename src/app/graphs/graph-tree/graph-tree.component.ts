@@ -680,10 +680,13 @@ export class GraphTreeComponent {
       ],
       title: {
         text: `Donde van mis impuestos`,
+        fontSize: 30,
+        fontWeight: 'bold',
       },
       subtitle: {
-        text:
-          'Por orgánico',
+        text: 'Por orgánico',
+        fontSize: 20,
+        fontWeight: 'bold',
       },
     };
   }
