@@ -15,326 +15,11 @@ export class GraphTreeComponent {
 
   ) {
     const dataGrahTree = this._dataStoreService.dataGraphTree;
+    console.log(dataGrahTree);
+
     const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
-    switch (tipoClasificacion) {
-      case 'gastosOrganicaOrganicos':
-        let data = {
-          name: 'Root',
-          children: [
-            {
-              name: 'Organicos',
-              children: [
-                {
-                  // name: 'Organico 0',
-                  name: dataGrahTree[0].descripcion,
-                  children: [
-                    {
-                      name: dataGrahTree[0].descripcion,
-                      size: dataGrahTree[0].total,
-                      description: dataGrahTree[0].codigo,
-                      color: 4.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '1',
-                  children: [
-                    {
-                      name: dataGrahTree[1].descripcion,
-                      size: dataGrahTree[1].total,
-                      description: dataGrahTree[1].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '2',
-                  children: [
-                    {
-                      name: dataGrahTree[2].descripcion,
-                      size: dataGrahTree[2].total,
-                      description: dataGrahTree[2].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '3',
-                  children: [
-                    {
-                      name: dataGrahTree[3].descripcion,
-                      size: dataGrahTree[3].total,
-                      description: dataGrahTree[3].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '4',
-                  children: [
-                    {
-                      name: dataGrahTree[4].descripcion,
-                      size: dataGrahTree[4].total,
-                      description: dataGrahTree[4].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '5',
-                  children: [
-                    {
-                      name: dataGrahTree[5].descripcion,
-                      size: dataGrahTree[5].total,
-                      description: dataGrahTree[5].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '6',
-                  children: [
-                    {
-                      name: dataGrahTree[6].descripcion,
-                      size: dataGrahTree[6].total,
-                      description: dataGrahTree[6].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[8].descripcion,
-                      size: dataGrahTree[8].total,
-                      description: dataGrahTree[8].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '9',
-                  children: [
-                    {
-                      name: dataGrahTree[9].descripcion,
-                      size: dataGrahTree[9].total,
-                      description: dataGrahTree[8].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: dataGrahTree[10].descripcion,
-                  children: [
-                    {
-                      name: dataGrahTree[10].descripcion,
-                      size: dataGrahTree[10].total,
-                      description: dataGrahTree[10].codigo,
-                      color: 5.31,
-                    },
-                  ],
-                  color: -5.27,
-                },
-                {
-                  name: dataGrahTree[11].descripcion,
-                  children: [
-                    {
-                      name: dataGrahTree[11].descripcion,
-                      size: dataGrahTree[11].total,
-                      description: dataGrahTree[11].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[12].descripcion,
-                      size: dataGrahTree[12].total,
-                      description: dataGrahTree[12].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[13].descripcion,
-                      size: dataGrahTree[13].total,
-                      description: dataGrahTree[13].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[14].descripcion,
-                      size: dataGrahTree[14].total,
-                      description: dataGrahTree[14].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[15].descripcion,
-                      size: dataGrahTree[15].total,
-                      description: dataGrahTree[15].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[16].descripcion,
-                      size: dataGrahTree[16].total,
-                      description: dataGrahTree[16].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[17].descripcion,
-                      size: dataGrahTree[17].total,
-                      description: dataGrahTree[17].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[18].descripcion,
-                      size: dataGrahTree[18].total,
-                      description: dataGrahTree[18].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[19].descripcion,
-                      size: dataGrahTree[19].total,
-                      description: dataGrahTree[19].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[20].descripcion,
-                      size: dataGrahTree[20].total,
-                      description: dataGrahTree[20].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[21].descripcion,
-                      size: dataGrahTree[21].total,
-                      description: dataGrahTree[21].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[22].descripcion,
-                      size: dataGrahTree[22].total,
-                      description: dataGrahTree[22].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[23].descripcion,
-                      size: dataGrahTree[23].total,
-                      description: dataGrahTree[23].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[24].descripcion,
-                      size: dataGrahTree[24].total,
-                      description: dataGrahTree[24].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-                {
-                  name: '8',
-                  children: [
-                    {
-                      name: dataGrahTree[25].descripcion,
-                      size: dataGrahTree[25].total,
-                      description: dataGrahTree[25].codigo,
-                      color: 2.29,
-                    },
-                  ],
-                  color: -4.27,
-                },
-
-              ]
-            }
-          ]
-        }
-        break;
-
-      default:
-        break;
-    }
+    // switch (tipoClasificacion) {
+    //   case 'gastosOrganicaOrganicos':
     let data = {
       name: 'Root',
       children: [
@@ -342,7 +27,6 @@ export class GraphTreeComponent {
           name: 'Organicos',
           children: [
             {
-              // name: 'Organico 0',
               name: dataGrahTree[0].descripcion,
               children: [
                 {
@@ -355,7 +39,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '1',
+              name: dataGrahTree[1].descripcion,
               children: [
                 {
                   name: dataGrahTree[1].descripcion,
@@ -367,7 +51,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '2',
+              name: dataGrahTree[2].descripcion,
               children: [
                 {
                   name: dataGrahTree[2].descripcion,
@@ -379,7 +63,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '3',
+              name: dataGrahTree[3].descripcion,
               children: [
                 {
                   name: dataGrahTree[3].descripcion,
@@ -391,7 +75,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '4',
+              name: dataGrahTree[4].descripcion,
               children: [
                 {
                   name: dataGrahTree[4].descripcion,
@@ -403,7 +87,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '5',
+              name: dataGrahTree[5].descripcion,
               children: [
                 {
                   name: dataGrahTree[5].descripcion,
@@ -415,7 +99,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '6',
+              name: dataGrahTree[6].descripcion,
               children: [
                 {
                   name: dataGrahTree[6].descripcion,
@@ -427,7 +111,19 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[7].descripcion,
+              children: [
+                {
+                  name: dataGrahTree[7].descripcion,
+                  size: dataGrahTree[7].total,
+                  description: dataGrahTree[7].codigo,
+                  color: 2.29,
+                },
+              ],
+              color: -4.27,
+            },
+            {
+              name: dataGrahTree[8].descripcion,
               children: [
                 {
                   name: dataGrahTree[8].descripcion,
@@ -439,7 +135,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '9',
+              name: dataGrahTree[9].descripcion,
               children: [
                 {
                   name: dataGrahTree[9].descripcion,
@@ -475,7 +171,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[12].descripcion,
               children: [
                 {
                   name: dataGrahTree[12].descripcion,
@@ -487,7 +183,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[13].descripcion,
               children: [
                 {
                   name: dataGrahTree[13].descripcion,
@@ -499,7 +195,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[14].descripcion,
               children: [
                 {
                   name: dataGrahTree[14].descripcion,
@@ -511,7 +207,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[15].descripcion,
               children: [
                 {
                   name: dataGrahTree[15].descripcion,
@@ -523,7 +219,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[16].descripcion,
               children: [
                 {
                   name: dataGrahTree[16].descripcion,
@@ -535,7 +231,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[17].descripcion,
               children: [
                 {
                   name: dataGrahTree[17].descripcion,
@@ -547,7 +243,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[18].descripcion,
               children: [
                 {
                   name: dataGrahTree[18].descripcion,
@@ -559,7 +255,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[19].descripcion,
               children: [
                 {
                   name: dataGrahTree[19].descripcion,
@@ -571,7 +267,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[20].descripcion,
               children: [
                 {
                   name: dataGrahTree[20].descripcion,
@@ -583,7 +279,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[21].descripcion,
               children: [
                 {
                   name: dataGrahTree[21].descripcion,
@@ -595,7 +291,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[22].descripcion,
               children: [
                 {
                   name: dataGrahTree[22].descripcion,
@@ -607,7 +303,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[23].descripcion,
               children: [
                 {
                   name: dataGrahTree[23].descripcion,
@@ -619,7 +315,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[24].descripcion,
               children: [
                 {
                   name: dataGrahTree[24].descripcion,
@@ -631,7 +327,7 @@ export class GraphTreeComponent {
               color: -4.27,
             },
             {
-              name: '8',
+              name: dataGrahTree[25].descripcion,
               children: [
                 {
                   name: dataGrahTree[25].descripcion,
@@ -647,6 +343,322 @@ export class GraphTreeComponent {
         }
       ]
     }
+    //     break;
+
+    //   default:
+    //     break;
+    // }
+    // let data = {
+    //   name: 'Root',
+    //   children: [
+    //     {
+    //       name: 'Organicos',
+    //       children: [
+    //         {
+    //           name: dataGrahTree[0].descripcion,
+    //           children: [
+    //             {
+    //               name: dataGrahTree[0].descripcion,
+    //               size: dataGrahTree[0].total,
+    //               description: dataGrahTree[0].codigo,
+    //               color: 4.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '1',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[1].descripcion,
+    //               size: dataGrahTree[1].total,
+    //               description: dataGrahTree[1].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '2',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[2].descripcion,
+    //               size: dataGrahTree[2].total,
+    //               description: dataGrahTree[2].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '3',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[3].descripcion,
+    //               size: dataGrahTree[3].total,
+    //               description: dataGrahTree[3].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '4',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[4].descripcion,
+    //               size: dataGrahTree[4].total,
+    //               description: dataGrahTree[4].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '5',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[5].descripcion,
+    //               size: dataGrahTree[5].total,
+    //               description: dataGrahTree[5].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '6',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[6].descripcion,
+    //               size: dataGrahTree[6].total,
+    //               description: dataGrahTree[6].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[8].descripcion,
+    //               size: dataGrahTree[8].total,
+    //               description: dataGrahTree[8].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '9',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[9].descripcion,
+    //               size: dataGrahTree[9].total,
+    //               description: dataGrahTree[8].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: dataGrahTree[10].descripcion,
+    //           children: [
+    //             {
+    //               name: dataGrahTree[10].descripcion,
+    //               size: dataGrahTree[10].total,
+    //               description: dataGrahTree[10].codigo,
+    //               color: 5.31,
+    //             },
+    //           ],
+    //           color: -5.27,
+    //         },
+    //         {
+    //           name: dataGrahTree[11].descripcion,
+    //           children: [
+    //             {
+    //               name: dataGrahTree[11].descripcion,
+    //               size: dataGrahTree[11].total,
+    //               description: dataGrahTree[11].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[12].descripcion,
+    //               size: dataGrahTree[12].total,
+    //               description: dataGrahTree[12].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[13].descripcion,
+    //               size: dataGrahTree[13].total,
+    //               description: dataGrahTree[13].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[14].descripcion,
+    //               size: dataGrahTree[14].total,
+    //               description: dataGrahTree[14].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[15].descripcion,
+    //               size: dataGrahTree[15].total,
+    //               description: dataGrahTree[15].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[16].descripcion,
+    //               size: dataGrahTree[16].total,
+    //               description: dataGrahTree[16].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[17].descripcion,
+    //               size: dataGrahTree[17].total,
+    //               description: dataGrahTree[17].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[18].descripcion,
+    //               size: dataGrahTree[18].total,
+    //               description: dataGrahTree[18].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[19].descripcion,
+    //               size: dataGrahTree[19].total,
+    //               description: dataGrahTree[19].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[20].descripcion,
+    //               size: dataGrahTree[20].total,
+    //               description: dataGrahTree[20].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[21].descripcion,
+    //               size: dataGrahTree[21].total,
+    //               description: dataGrahTree[21].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[22].descripcion,
+    //               size: dataGrahTree[22].total,
+    //               description: dataGrahTree[22].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[23].descripcion,
+    //               size: dataGrahTree[23].total,
+    //               description: dataGrahTree[23].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[24].descripcion,
+    //               size: dataGrahTree[24].total,
+    //               description: dataGrahTree[24].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+    //         {
+    //           name: '8',
+    //           children: [
+    //             {
+    //               name: dataGrahTree[25].descripcion,
+    //               size: dataGrahTree[25].total,
+    //               description: dataGrahTree[25].codigo,
+    //               color: 2.29,
+    //             },
+    //           ],
+    //           color: -4.27,
+    //         },
+
+    //       ]
+    //     }
+    //   ]
+    // }
 
     this.options = {
       type: 'hierarchy',
@@ -655,14 +667,13 @@ export class GraphTreeComponent {
         {
           type: 'treemap',
           labelKey: 'name',
-          sizeKey: 'size',
-          colorKey: 'color',
+          // sizeKey: 'size',
+          // colorKey: 'color',
           tooltip: {
             renderer: (params) => {
+              console.log(params);
               return {
-                content: `<b>Change</b>: ${params.datum.colorValue.toFixed(
-                  2
-                )}%`,
+                content: `<b>Creditos</b>: ${params.datum.datum.size}`,
               };
             },
           },
