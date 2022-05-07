@@ -23,7 +23,7 @@ export async function asynForEach(array: Array<number>, callback: Function) {
 
 export const accumulateAplicacionPresupuestaria = (identity: string, datos: any[], years = initYears()): IYears => {
     Object.keys(years).forEach((key) => {
-        const sum = datos.filter((item) => item[identity]).reduce((prev, current) => prev + current[identity + key], 0);
+        const sum = datos.filter((item) => item[identity + key]).reduce((prev, current) => prev + current[identity + key], 0);
         years[key] = sum;
     })
     return years;
