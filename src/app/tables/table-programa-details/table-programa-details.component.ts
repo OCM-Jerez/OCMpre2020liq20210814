@@ -14,7 +14,7 @@ import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
-import { accumulateAplicacionPresupuestaria } from '../../commons/util/util';
+import { accumulate, accumulateAplicacionPresupuestaria } from '../../commons/util/util';
 
 
 @Component({
@@ -33,6 +33,7 @@ export class TableProgramaDetailsComponent {
   public headerHeight = 54;
   public rowSelection = 'single';
   public isExpanded = true;
+  public data: any;
 
   private _gridApi;
   // data: any;
@@ -227,10 +228,63 @@ export class TableProgramaDetailsComponent {
     });
     console.log(this.rowData);
 
-    this.rowData = this.rowData.filter(x => x.AplicacionPresupuestaria === "0-49111-13101");
+    // this.rowData = this.rowData.filter(x => x.AplicacionPresupuestaria === "0-49111-13101");
 
-    const yearsIniciales = accumulateAplicacionPresupuestaria('Iniciales', this.rowData);
-    console.log(yearsIniciales);
+    const yearsIniciales = accumulate('Iniciales', this.rowData);
+    const yearsDefinitivas = accumulate('Definitivas', this.rowData);
+    const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', this.rowData);
+    const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', this.rowData);
+
+    this.data = [];
+    const value = {
+      "aplicacion": "0-49111-13101",
+      "CodOrg": 0,
+      "CodPro": 49111,
+      "CodCap": 1,
+      "CodEco": 13101,
+      "DesOrg": "Servicios centrales",
+      "DesPro": "Servicio de radio y TV municipal",
+      "DesCap": "Gastos de personal",
+      "DesEco": "Indefinidos no fijos en plantilla",
+      "Iniciales2015": yearsIniciales[2015],
+      "Definitivas2015": yearsDefinitivas[2015],
+      "ObligacionesReconocidasNetas2015": yearsObligacionesNetas[2015],
+      "ObligacionesPendientes2015": yearsObligacionesPendientes[2015],
+      "Iniciales2016": yearsIniciales[2016],
+      "Definitivas2016": yearsDefinitivas[2016],
+      "ObligacionesReconocidasNetas2016": yearsObligacionesNetas[2016],
+      "ObligacionesPendientes2016": yearsObligacionesPendientes[2016],
+      "Iniciales2017": yearsIniciales[2017],
+      "Definitivas2017": yearsDefinitivas[2017],
+      "ObligacionesReconocidasNetas2017": yearsObligacionesNetas[2017],
+      "ObligacionesPendientes2017": yearsObligacionesPendientes[2017],
+      "Iniciales2018": yearsIniciales[2018],
+      "Definitivas2018": yearsDefinitivas[2018],
+      "ObligacionesReconocidasNetas2018": yearsObligacionesNetas[2018],
+      "ObligacionesPendientes2018": yearsObligacionesPendientes[2018],
+      "Iniciales2019": yearsIniciales[2019],
+      "Definitivas2019": yearsDefinitivas[2019],
+      "ObligacionesReconocidasNetas2019": yearsObligacionesNetas[2019],
+      "ObligacionesPendientes2019": yearsObligacionesPendientes[2019],
+      "Iniciales2020": yearsIniciales[2020],
+      "Definitivas2020": yearsDefinitivas[2020],
+      "ObligacionesReconocidasNetas2020": yearsObligacionesNetas[2020],
+      "ObligacionesPendientes2020": yearsObligacionesPendientes[2020],
+      "Iniciales2021": yearsIniciales[2021],
+      "Definitivas2021": yearsDefinitivas[2021],
+      "ObligacionesReconocidasNetas2021": yearsObligacionesNetas[2021],
+      "ObligacionesPendientes2021": yearsObligacionesPendientes[2021],
+      "Iniciales2022": yearsIniciales[2022],
+      "Definitivas2022": yearsDefinitivas[2022],
+      "ObligacionesReconocidasNetas2022": yearsObligacionesNetas[2022],
+      "ObligacionesPendientes2022": yearsObligacionesPendientes[2022],
+    }
+
+    this.data.push(value)
+    console.log(this.data);
+    this.rowData = this.data;
+    // Trato de acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
+
 
 
 
