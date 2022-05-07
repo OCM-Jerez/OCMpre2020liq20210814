@@ -32,22 +32,19 @@ export class TableProgramaDetailsComponent {
   public isExpanded = true;
 
   private _gridApi;
-  private _creditosWidth?: number = 110;
-  private _desProWidth = 500;
-  private _desCapWidth = 300;
-  data: any;
+  // data: any;
 
   private _dataTableGraph: IDataTable;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
+    public dataStoreService: DataStoreService,
     private _router: Router,
-    private _dataStoreService: DataStoreService,
     private _prepareDataProgramaDetailsService: PrepareDataProgramaDetailsService,
     private _location: Location,
     private _alertService: AlertService
   ) {
-    this._dataTableGraph = _dataStoreService.getDataTable;
+    this._dataTableGraph = dataStoreService.getDataTable;
     this.columnDefs = [
       {
         headerName: this._dataTableGraph.dataPropertyTable.headerName,
@@ -58,7 +55,7 @@ export class TableProgramaDetailsComponent {
             rowGroup: true,
             showRowGroup: 'DesPro',
             filter: true,
-            width: this._desProWidth,
+            width: 500,
             pinned: 'left',
             columnGroupShow: 'close',
             cellRenderer: 'agGroupCellRenderer',
@@ -90,7 +87,7 @@ export class TableProgramaDetailsComponent {
             rowGroup: true,
             showRowGroup: 'DesOrg',
             filter: false,
-            width: this._desCapWidth,
+            width: 300,
             pinned: 'left',
             columnGroupShow: 'close',
             cellRenderer: 'agGroupCellRenderer',
@@ -129,7 +126,7 @@ export class TableProgramaDetailsComponent {
             rowGroup: true,
             showRowGroup: 'DesCap',
             filter: false,
-            width: this._desCapWidth,
+            width: 300,
             pinned: 'left',
             columnGroupShow: 'close',
             cellRenderer: 'agGroupCellRenderer',
@@ -190,7 +187,7 @@ export class TableProgramaDetailsComponent {
     ];
 
     this.defaultColDef = {
-      width: this._creditosWidth,
+      width: 110,
       sortable: true,
       resizable: true,
       filter: true,
@@ -217,7 +214,7 @@ export class TableProgramaDetailsComponent {
   async onGridReady(params) {
     this._gridApi = params.api;
     this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
-      .filter(x => x.CodPro == this._dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+      .filter(x => x.CodPro == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
     // this.expandAll();
   }
 
@@ -302,7 +299,7 @@ export class TableProgramaDetailsComponent {
     const selectedRows = this.agGrid.api.getSelectedNodes();
     if (selectedRows.length > 0) {
       const aplicacionPresupuestaria = selectedRows[0].data.CodOrg + '-' + selectedRows[0].data.CodPro + '-' + selectedRows[0].data.CodEco;
-      this._dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
+      this.dataStoreService.selectedCodeRow = aplicacionPresupuestaria;
       this._router.navigateByUrl('/tableAplicacionPresupuestaria')
     } else {
       this._alertService.showAlert('Selecciona un económico');

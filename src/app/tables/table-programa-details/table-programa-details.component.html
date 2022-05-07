@@ -1,5 +1,5 @@
 <div>
-    <h4 class="OCM-text--cabecera">Detalle programa {{
+    <h4 class="OCM-text--cabecera">Detalle programa {{ dataStoreService.selectedCodeRowFirstLevel}}{{
         avalaibleYearsService.getAvalaibleYear() | async }}</h4>
     <button *ngIf="!isExpanded" type="button" class="btn OCM-btnExpand" (click)="expandAll()"> Expandir todo </button>
     <button *ngIf="isExpanded" type="button" class="btn OCM-btnCollapse" (click)="collapseAll()"> Colapsar todo
