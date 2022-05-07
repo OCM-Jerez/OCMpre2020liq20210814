@@ -14,6 +14,9 @@ import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
+import { accumulateAplicacionPresupuestaria } from '../../commons/util/util';
+
+
 @Component({
   selector: 'app-table-programa-details',
   templateUrl: './table-programa-details.component.html',
@@ -215,6 +218,22 @@ export class TableProgramaDetailsComponent {
     this._gridApi = params.api;
     this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
       .filter(x => x.CodPro == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
+    console.log(this.rowData);
+
+
+    // Trato de acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
+    this.rowData.map(item => {
+      item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
+    });
+    console.log(this.rowData);
+
+    this.rowData = this.rowData.filter(x => x.AplicacionPresupuestaria === "0-49111-13101");
+
+    const yearsIniciales = accumulateAplicacionPresupuestaria('Iniciales', this.rowData);
+    console.log(yearsIniciales);
+
+
+
     // this.expandAll();
   }
 
