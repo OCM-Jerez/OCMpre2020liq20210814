@@ -4,7 +4,6 @@ export const initYears = (): IYears => {
     return { 2015: 0, 2016: 0, 2017: 0, 2018: 0, 2019: 0, 2020: 0, 2021: 0, 2022: 0, }
 }
 
-
 // groupBy javascript
 export const accumulate = (identity: string, datos: any[], years = initYears()): IYears => {
     Object.keys(years).forEach((key) => {
@@ -12,11 +11,6 @@ export const accumulate = (identity: string, datos: any[], years = initYears()):
         years[key] = sum;
     })
     return years;
-}
-
-export const accumulateOneYear = () => {
-
-
 }
 
 export async function asynForEach(array: Array<number>, callback: Function) {
