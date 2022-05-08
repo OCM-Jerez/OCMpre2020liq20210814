@@ -14,7 +14,7 @@ import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
-import { accumulate, accumulateAplicacionPresupuestaria } from '../../commons/util/util';
+import { accumulate } from '../../commons/util/util';
 import { ColumnState, GridReadyEvent } from 'ag-grid-community';
 
 @Component({
@@ -231,6 +231,11 @@ export class TableProgramaDetailsComponent {
     this.dataIntermedio = [];
     this.dataFinal = [];
 
+    //  Crear key para cada aplicación presupuestaria.
+    const years = this.avalaibleYearsService.getYearsSelected()
+    const keys = []
+    console.log("years", years);
+
     // Creo array de aplicaciones presupuestarias existentes en programa seleccionado.
     this.rowData.map(item => {
       item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
@@ -246,6 +251,12 @@ export class TableProgramaDetailsComponent {
       const yearsDefinitivas = accumulate('Definitivas', dataIntermedio);
       const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', dataIntermedio);
       const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', dataIntermedio);
+
+
+
+
+
+
 
       const value = {
         "AplicacionPresupuestaria": item,

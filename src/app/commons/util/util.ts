@@ -18,13 +18,3 @@ export async function asynForEach(array: Array<number>, callback: Function) {
         await callback(array[index], index, array);
     }
 }
-
-
-
-export const accumulateAplicacionPresupuestaria = (identity: string, datos: any[], years = initYears()): IYears => {
-    Object.keys(years).forEach((key) => {
-        const sum = datos.filter((item) => item[identity + key]).reduce((prev, current) => prev + current[identity + key], 0);
-        years[key] = sum;
-    })
-    return years;
-}
