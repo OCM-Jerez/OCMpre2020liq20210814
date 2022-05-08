@@ -15,6 +15,7 @@ import { AlertService } from '../../services/alert.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { accumulate, accumulateAplicacionPresupuestaria } from '../../commons/util/util';
+import { ColumnState, GridReadyEvent } from 'ag-grid-community';
 
 @Component({
   selector: 'app-table-programa-details',
@@ -37,8 +38,6 @@ export class TableProgramaDetailsComponent {
   public aplicacionesPresupuestarias: any;
 
   private _gridApi;
-  // data: any;
-
   private _dataTableGraph: IDataTable;
 
   constructor(
@@ -216,12 +215,16 @@ export class TableProgramaDetailsComponent {
     this.localeText = localeTextESPes;
   }
 
-  async onGridReady(params) {
+  async onGridReady(params: GridReadyEvent) {
     this._gridApi = params.api;
+    var defaultSortModel: ColumnState[] = [
+      { colId: 'DesEco', sort: 'asc', sortIndex: 0 },
+    ];
+    params.columnApi.applyColumnState({ state: defaultSortModel });
+
     this.rowData = (await this._prepareDataProgramaDetailsService.getDataAllYear())
       .filter(x => x.CodPro == this.dataStoreService.selectedCodeRowFirstLevel.split(" ")[0]);
-    console.log(this.rowData);
-
+    // console.log(this.rowData);
 
     // Acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
     this.aplicacionesPresupuestarias = []
@@ -234,7 +237,7 @@ export class TableProgramaDetailsComponent {
       this.aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria)
       this.aplicacionesPresupuestarias = [...new Set(this.aplicacionesPresupuestarias)];
     });
-    console.log("aplicacionesPresupuestarias", this.aplicacionesPresupuestarias);
+    // console.log("aplicacionesPresupuestarias", this.aplicacionesPresupuestarias);
 
     // Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
     this.aplicacionesPresupuestarias.map(item => {
