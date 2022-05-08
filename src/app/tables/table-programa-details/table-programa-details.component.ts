@@ -15,6 +15,7 @@ import { AlertService } from '../../services/alert.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { accumulate, accumulateAplicacionPresupuestaria } from '../../commons/util/util';
+import { Logger } from 'ag-grid-community/main';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class TableProgramaDetailsComponent {
   public isExpanded = true;
   public dataIntermedio: any;
   public dataFinal: any;
+  public aplicacionesPresupuestarias: any;
 
   private _gridApi;
   // data: any;
@@ -224,11 +226,25 @@ export class TableProgramaDetailsComponent {
 
 
     // Trato de acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
+    this.aplicacionesPresupuestarias = []
     this.dataIntermedio = [];
     this.dataFinal = [];
+
+    // Creo array de aplicaciones presupuestarias existentes en programa seleccionado.
     this.rowData.map(item => {
       item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
-      const dataIntermedio = this.rowData.filter(x => x.AplicacionPresupuestaria === item.CodOrg + '-' + item.CodPro + '-' + item.CodEco);
+      this.aplicacionesPresupuestarias.push(item.AplicacionPresupuestaria)
+      this.aplicacionesPresupuestarias = [...new Set(this.aplicacionesPresupuestarias)];
+    });
+    console.log("aplicacionesPresupuestarias", this.aplicacionesPresupuestarias);
+
+
+
+
+    this.aplicacionesPresupuestarias.map(item => {
+      // item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
+      // const dataIntermedio = this.rowData.filter(x => x.AplicacionPresupuestaria === item.CodOrg + '-' + item.CodPro + '-' + item.CodEco);
+      const dataIntermedio = this.rowData.filter(x => x.AplicacionPresupuestaria === item);
 
       const yearsIniciales = accumulate('Iniciales', dataIntermedio);
       const yearsDefinitivas = accumulate('Definitivas', dataIntermedio);
@@ -279,22 +295,37 @@ export class TableProgramaDetailsComponent {
         "ObligacionesPendientes2022": yearsObligacionesPendientes[2022],
       }
 
-      // const hasAP = this.dataFinal.filter(x => x.AplicacionPresupuestaria === item.AplicacionPresupuestaria);
-      this.dataIntermedio = this.dataFinal.filter(x => x.AplicacionPresupuestaria === item.AplicacionPresupuestaria)
-      if (this.dataIntermedio.length > 0) {
-        console.log('Ya existe', this.dataIntermedio);
-        this.dataFinal.slice(0, 1);
-        console.log("Despues slice", this.dataFinal);
-      } else {
-        this.dataFinal.push(value)
-      }
+
+
+
+
+      this.dataFinal.push(value)
+
     });
+
+    this.rowData = this.dataFinal;
+    console.log("After", this.rowData);
+
+
+    //  ---------------- NO FUNCIONAN ----------------
+
+    // const hasAP = this.dataFinal.filter(x => x.AplicacionPresupuestaria === item.AplicacionPresupuestaria);
+    // this.dataIntermedio = this.dataFinal.filter(x => x.AplicacionPresupuestaria === item.AplicacionPresupuestaria)
+    // if (this.dataIntermedio.length > 0) {
+    //   console.log('Ya existe', this.dataIntermedio);
+    //   this.dataFinal.slice(0, 1);
+    //   console.log("Despues slice", this.dataFinal);
+    // } else {
+    //   this.dataFinal.push(value)
+    // }
 
     // this.dataFinal = this.dataFinal.filter(item => item(item.index) >= 245);
 
-
-    console.log(this.dataFinal);
-    this.rowData = this.dataFinal;
+    // console.log("Before", this.dataFinal);
+    // this.dataFinal = [...new Set(this.dataFinal)];
+    // console.log("After", this.dataFinal);
+    // this.rowData = this.dataFinal;
+    // -------------------------------------------------
 
 
     // Trato de acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
