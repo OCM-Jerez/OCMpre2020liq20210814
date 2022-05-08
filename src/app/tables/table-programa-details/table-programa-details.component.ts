@@ -15,8 +15,6 @@ import { AlertService } from '../../services/alert.service';
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 import { accumulate, accumulateAplicacionPresupuestaria } from '../../commons/util/util';
-import { Logger } from 'ag-grid-community/main';
-
 
 @Component({
   selector: 'app-table-programa-details',
@@ -225,7 +223,7 @@ export class TableProgramaDetailsComponent {
     console.log(this.rowData);
 
 
-    // Trato de acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
+    // Acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
     this.aplicacionesPresupuestarias = []
     this.dataIntermedio = [];
     this.dataFinal = [];
@@ -238,101 +236,61 @@ export class TableProgramaDetailsComponent {
     });
     console.log("aplicacionesPresupuestarias", this.aplicacionesPresupuestarias);
 
-
-
-
+    // Creo item para cada uno de los aplicaciones presupuestarias existentes en programa seleccionado.
     this.aplicacionesPresupuestarias.map(item => {
-      // item.AplicacionPresupuestaria = item.CodOrg + '-' + item.CodPro + '-' + item.CodEco;
-      // const dataIntermedio = this.rowData.filter(x => x.AplicacionPresupuestaria === item.CodOrg + '-' + item.CodPro + '-' + item.CodEco);
       const dataIntermedio = this.rowData.filter(x => x.AplicacionPresupuestaria === item);
-
       const yearsIniciales = accumulate('Iniciales', dataIntermedio);
       const yearsDefinitivas = accumulate('Definitivas', dataIntermedio);
       const yearsObligacionesNetas = accumulate('ObligacionesReconocidasNetas', dataIntermedio);
       const yearsObligacionesPendientes = accumulate('ObligacionesPendientePago', dataIntermedio);
 
       const value = {
-        "AplicacionPresupuestaria": item.AplicacionPresupuestaria,
-        "CodOrg": item.CodOrg,
-        "CodPro": item.CodPro,
-        "CodCap": item.CodCap,
-        "CodEco": item.CodEco,
-        "DesOrg": item.DesOrg,
-        "DesPro": item.DesPro,
-        "DesCap": item.DesCap,
-        "DesEco": item.DesEco,
+        "AplicacionPresupuestaria": item,
+        "CodOrg": item.split('-')[0],
+        "CodPro": item.split('-')[1],
+        "CodEco": item.split('-')[2],
+        "CodCap": item.split('-')[2].charAt(0),
+        "DesOrg": dataIntermedio[0].DesOrg,
+        "DesPro": dataIntermedio[0].DesPro,
+        "DesCap": dataIntermedio[0].DesCap,
+        "DesEco": dataIntermedio[0].DesEco,
         "Iniciales2015": yearsIniciales[2015],
         "Definitivas2015": yearsDefinitivas[2015],
         "ObligacionesReconocidasNetas2015": yearsObligacionesNetas[2015],
-        "ObligacionesPendientes2015": yearsObligacionesPendientes[2015],
+        "ObligacionesPendientePago2015": yearsObligacionesPendientes[2015],
         "Iniciales2016": yearsIniciales[2016],
         "Definitivas2016": yearsDefinitivas[2016],
         "ObligacionesReconocidasNetas2016": yearsObligacionesNetas[2016],
-        "ObligacionesPendientes2016": yearsObligacionesPendientes[2016],
+        "ObligacionesPendientePago2016": yearsObligacionesPendientes[2016],
         "Iniciales2017": yearsIniciales[2017],
         "Definitivas2017": yearsDefinitivas[2017],
         "ObligacionesReconocidasNetas2017": yearsObligacionesNetas[2017],
-        "ObligacionesPendientes2017": yearsObligacionesPendientes[2017],
+        "ObligacionesPendientePago2017": yearsObligacionesPendientes[2017],
         "Iniciales2018": yearsIniciales[2018],
         "Definitivas2018": yearsDefinitivas[2018],
         "ObligacionesReconocidasNetas2018": yearsObligacionesNetas[2018],
-        "ObligacionesPendientes2018": yearsObligacionesPendientes[2018],
+        "ObligacionesPendientePago2018": yearsObligacionesPendientes[2018],
         "Iniciales2019": yearsIniciales[2019],
         "Definitivas2019": yearsDefinitivas[2019],
         "ObligacionesReconocidasNetas2019": yearsObligacionesNetas[2019],
-        "ObligacionesPendientes2019": yearsObligacionesPendientes[2019],
+        "ObligacionesPendientePago2019": yearsObligacionesPendientes[2019],
         "Iniciales2020": yearsIniciales[2020],
         "Definitivas2020": yearsDefinitivas[2020],
         "ObligacionesReconocidasNetas2020": yearsObligacionesNetas[2020],
-        "ObligacionesPendientes2020": yearsObligacionesPendientes[2020],
+        "ObligacionesPendientePago2020": yearsObligacionesPendientes[2020],
         "Iniciales2021": yearsIniciales[2021],
         "Definitivas2021": yearsDefinitivas[2021],
         "ObligacionesReconocidasNetas2021": yearsObligacionesNetas[2021],
-        "ObligacionesPendientes2021": yearsObligacionesPendientes[2021],
+        "ObligacionesPendientePago2021": yearsObligacionesPendientes[2021],
         "Iniciales2022": yearsIniciales[2022],
         "Definitivas2022": yearsDefinitivas[2022],
         "ObligacionesReconocidasNetas2022": yearsObligacionesNetas[2022],
-        "ObligacionesPendientes2022": yearsObligacionesPendientes[2022],
+        "ObligacionesPendientePago2022": yearsObligacionesPendientes[2022],
       }
-
-
-
-
-
       this.dataFinal.push(value)
-
     });
-
     this.rowData = this.dataFinal;
-    console.log("After", this.rowData);
-
-
-    //  ---------------- NO FUNCIONAN ----------------
-
-    // const hasAP = this.dataFinal.filter(x => x.AplicacionPresupuestaria === item.AplicacionPresupuestaria);
-    // this.dataIntermedio = this.dataFinal.filter(x => x.AplicacionPresupuestaria === item.AplicacionPresupuestaria)
-    // if (this.dataIntermedio.length > 0) {
-    //   console.log('Ya existe', this.dataIntermedio);
-    //   this.dataFinal.slice(0, 1);
-    //   console.log("Despues slice", this.dataFinal);
-    // } else {
-    //   this.dataFinal.push(value)
-    // }
-
-    // this.dataFinal = this.dataFinal.filter(item => item(item.index) >= 245);
-
-    // console.log("Before", this.dataFinal);
-    // this.dataFinal = [...new Set(this.dataFinal)];
-    // console.log("After", this.dataFinal);
-    // this.rowData = this.dataFinal;
-    // -------------------------------------------------
-
-
-    // Trato de acumular los datos por aplicación presupuestaria = orgánico + programa + económico.
-
-
-
-
+    // console.log("After", this.rowData);
     // this.expandAll();
   }
 
