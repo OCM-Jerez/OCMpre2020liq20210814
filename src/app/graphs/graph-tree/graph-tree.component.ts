@@ -16,349 +16,251 @@ export class GraphTreeComponent {
     const dataGrahTree = this._dataStoreService.dataGraphTree;
     // const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
     let data = {
-      name: 'Root',
       children: [
         {
-          name: 'Organicos',
+          // Dejo clildren para que muestre un recuadro negro alrededor del tile
           children: [
             {
-              name: dataGrahTree[0].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[0].descripcion,
-                  size: dataGrahTree[0].total,
-                  description: dataGrahTree[0].codigo,
-                  color: 4.29,
-                },
-              ],
-              color: -4.27,
+              label: dataGrahTree[0].descripcion + " P",
+              size: dataGrahTree[0].total,
+              color: 4.29,
             },
+          ],
+        },
+        {
+          children: [
             {
-              name: dataGrahTree[1].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[1].descripcion,
-                  size: dataGrahTree[1].total,
-                  description: dataGrahTree[1].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[2].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[2].descripcion,
-                  size: dataGrahTree[2].total,
-                  description: dataGrahTree[2].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[3].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[3].descripcion,
-                  size: dataGrahTree[3].total,
-                  description: dataGrahTree[3].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[4].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[4].descripcion,
-                  size: dataGrahTree[4].total,
-                  description: dataGrahTree[4].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[5].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[5].descripcion,
-                  size: dataGrahTree[5].total,
-                  description: dataGrahTree[5].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[6].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[6].descripcion,
-                  size: dataGrahTree[6].total,
-                  description: dataGrahTree[6].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[7].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[7].descripcion,
-                  size: dataGrahTree[7].total,
-                  description: dataGrahTree[7].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[8].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[8].descripcion,
-                  size: dataGrahTree[8].total,
-                  description: dataGrahTree[8].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[9].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[9].descripcion,
-                  size: dataGrahTree[9].total,
-                  description: dataGrahTree[8].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[10].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[10].descripcion,
-                  size: dataGrahTree[10].total,
-                  description: dataGrahTree[10].codigo,
-                  color: 5.31,
-                },
-              ],
-              color: -5.27,
-            },
-            {
-              name: dataGrahTree[11].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[11].descripcion,
-                  size: dataGrahTree[11].total,
-                  description: dataGrahTree[11].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[12].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[12].descripcion,
-                  size: dataGrahTree[12].total,
-                  description: dataGrahTree[12].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[13].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[13].descripcion,
-                  size: dataGrahTree[13].total,
-                  description: dataGrahTree[13].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[14].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[14].descripcion,
-                  size: dataGrahTree[14].total,
-                  description: dataGrahTree[14].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[15].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[15].descripcion,
-                  size: dataGrahTree[15].total,
-                  description: dataGrahTree[15].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[16].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[16].descripcion,
-                  size: dataGrahTree[16].total,
-                  description: dataGrahTree[16].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[17].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[17].descripcion,
-                  size: dataGrahTree[17].total,
-                  description: dataGrahTree[17].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[18].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[18].descripcion,
-                  size: dataGrahTree[18].total,
-                  description: dataGrahTree[18].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[19].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[19].descripcion,
-                  size: dataGrahTree[19].total,
-                  description: dataGrahTree[19].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[20].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[20].descripcion,
-                  size: dataGrahTree[20].total,
-                  description: dataGrahTree[20].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[21].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[21].descripcion,
-                  size: dataGrahTree[21].total,
-                  description: dataGrahTree[21].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[22].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[22].descripcion,
-                  size: dataGrahTree[22].total,
-                  description: dataGrahTree[22].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[23].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[23].descripcion,
-                  size: dataGrahTree[23].total,
-                  description: dataGrahTree[23].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[24].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[24].descripcion,
-                  size: dataGrahTree[24].total,
-                  description: dataGrahTree[24].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-            {
-              name: dataGrahTree[25].descripcion,
-              children: [
-                {
-                  name: dataGrahTree[25].descripcion,
-                  size: dataGrahTree[25].total,
-                  description: dataGrahTree[25].codigo,
-                  color: 2.29,
-                },
-              ],
-              color: -4.27,
-            },
-
+              label: dataGrahTree[1].descripcion + " Pruebas",
+              size: dataGrahTree[1].total,
+              color: 2.29,
+            }
           ]
-        }
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[2].descripcion + "no",
+              size: dataGrahTree[2].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[3].descripcion,
+              size: dataGrahTree[3].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[4].descripcion,
+              size: dataGrahTree[4].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[5].descripcion,
+              size: dataGrahTree[5].total,
+              color: 2.29,
+            },
+          ],
+          color: -4.27,
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[6].descripcion,
+              size: dataGrahTree[6].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[7].descripcion,
+              size: dataGrahTree[7].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[8].descripcion,
+              size: dataGrahTree[8].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[9].descripcion,
+              size: dataGrahTree[9].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[10].descripcion,
+              size: dataGrahTree[10].total,
+              color: 5.31,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[11].descripcion,
+              size: dataGrahTree[11].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[12].descripcion,
+              size: dataGrahTree[12].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[13].descripcion,
+              size: dataGrahTree[13].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[14].descripcion,
+              size: dataGrahTree[14].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[15].descripcion,
+              size: dataGrahTree[15].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[16].descripcion,
+              size: dataGrahTree[16].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[17].descripcion,
+              size: dataGrahTree[17].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[18].descripcion,
+              size: dataGrahTree[18].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[19].descripcion,
+              size: dataGrahTree[19].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[20].descripcion,
+              size: dataGrahTree[20].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          label: dataGrahTree[21].descripcion,
+          children: [
+            {
+              label: dataGrahTree[21].descripcion,
+              size: dataGrahTree[21].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          label: dataGrahTree[22].descripcion,
+          children: [
+            {
+              label: dataGrahTree[22].descripcion,
+              size: dataGrahTree[22].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[23].descripcion,
+              size: dataGrahTree[23].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[24].descripcion,
+              size: dataGrahTree[24].total,
+              color: 2.29,
+            },
+          ],
+        },
+        {
+          children: [
+            {
+              label: dataGrahTree[25].descripcion,
+              size: dataGrahTree[25].total,
+              color: 2.29,
+            },
+          ],
+        },
       ]
     }
 
     this.options = {
       type: 'hierarchy',
       data,
-      series: [
-        {
-          type: 'treemap',
-          labelKey: 'name',
-          // sizeKey: 'size',
-          // colorKey: 'color',
-          tooltip: {
-            renderer: (params) => {
-              // console.log(params);
-              return {
-                content: `<b>Creditos</b>: ${params.datum.datum.size.toString()
-                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}`,
-              };
-            },
-          },
-        },
-      ],
       title: {
         text: `Donde van mis impuestos`,
         fontSize: 30,
@@ -369,6 +271,27 @@ export class GraphTreeComponent {
         fontSize: 20,
         fontWeight: 'bold',
       },
+
+      series: [
+
+        {
+          type: 'treemap',
+          // The labelKey, sizeKey and colorKey configs can be omitted, if the node objects in your data happen to have the label,
+          // size and color fields.
+          // labelKey: 'label',
+          // sizeKey: 'size',
+          // colorKey: 'color',
+          tooltip: {
+            renderer: (params) => {
+              return {
+                content: `<b>Creditos</b>: ${params.datum.datum.size.toString()
+                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}`,
+              };
+            },
+          },
+
+        },
+      ],
     };
   }
 }
