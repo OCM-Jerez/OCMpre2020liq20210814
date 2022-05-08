@@ -3,16 +3,13 @@ import { DataStoreService } from './dataStore.service';
 import gastosOrganicaOrganicos from '../../assets/data/gastosOrganicaOrganicos.json';
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class PrepareDataGraphTreeService {
   private _dataGraphTree: any[] = [];
   constructor(private _dataStoreService: DataStoreService
-  ) {
-
-  }
+  ) { }
 
   async prepareDataGraphTree(rowData) {
     const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
@@ -37,11 +34,7 @@ export class PrepareDataGraphTreeService {
         // console.log(this._dataGraphTree);
         this._dataStoreService.dataGraphTree = this._dataGraphTree;
         break;
-
-
-
     }
-
 
   }
 
