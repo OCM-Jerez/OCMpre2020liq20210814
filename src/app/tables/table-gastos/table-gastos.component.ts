@@ -100,6 +100,7 @@ export class TableGastosComponent implements OnInit {
     this.localeText = localeTextESPes;
   }
   ngOnInit(): void {
+    // if (this._dataTable.dataPropertyTable.subHeaderName === 'Orgánico' || this._dataTable.dataPropertyTable.subHeaderName === 'Area de gasto') {
     if (this._dataTable.dataPropertyTable.subHeaderName === 'Orgánico') {
       this.hasGraphTree = true;
     }
