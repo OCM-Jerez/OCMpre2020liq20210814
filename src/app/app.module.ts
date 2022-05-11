@@ -16,6 +16,7 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { IndiceComponent } from './indice/indice.component';
 import { AvalaibleYearsService } from './services/avalaibleYears.service';
 import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.component';
+import { CheckboxComponent } from './commons/components/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HeaderAgGridComponent } from './ag-grid/header-ag-grid/header-ag-grid.c
     NavbarComponent,
     IndiceComponent,
     HeaderAgGridComponent,
+    CheckboxComponent,
   ],
   imports: [
     BrowserModule,

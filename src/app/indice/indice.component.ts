@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AvalaibleYearsService } from '../services/avalaibleYears.service';
+// import { AvalaibleYearsService } from '../services/avalaibleYears.service';
 import { DataStoreService } from '../services/dataStore.service';
 
 import { IDataTable } from '../commons/interfaces/dataTable.interface';
@@ -22,71 +22,71 @@ export class IndiceComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    private _avalaibleYearsService: AvalaibleYearsService,
+    // private _avalaibleYearsService: AvalaibleYearsService,
     private _dataStoreService: DataStoreService,
     private _prepareDataIngresosService: PrepareDataIngresosService,
     private _prepareDataGastosService: PrepareDataGastosService
   ) { }
 
   ngOnInit() {
-    this.list = [
-      {
-        year: 2015,
-        checked: true,
-      },
-      {
-        year: 2016,
-        checked: true,
-      }, {
-        year: 2017,
-        checked: true,
-      }, {
-        year: 2018,
-        checked: true,
-      },
-      {
-        year: 2019,
-        checked: true,
-      }, {
-        year: 2020,
-        checked: true,
-      }, {
-        year: 2021,
-        checked: true,
-      }, {
-        year: 2022,
-        checked: true,
-      },
-      // {
-      //   year: "Todos",
+    // this.list = [
+    //   {
+    //     year: 2015,
+    //     checked: true,
+    //   },
+    //   {
+    //     year: 2016,
+    //     checked: true,
+    //   }, {
+    //     year: 2017,
+    //     checked: true,
+    //   }, {
+    //     year: 2018,
+    //     checked: true,
+    //   },
+    //   {
+    //     year: 2019,
+    //     checked: true,
+    //   }, {
+    //     year: 2020,
+    //     checked: true,
+    //   }, {
+    //     year: 2021,
+    //     checked: true,
+    //   }, {
+    //     year: 2022,
+    //     checked: true,
+    //   },
+    //   // {
+    //   //   year: "Todos",
 
-      //   checked: false,
-      // }
-    ]
+    //   //   checked: false,
+    //   // }
+    // ]
   }
 
-  private getSelectedItem(tipo?: string) {
-    const years = this.result.map((year) => year.year);
-    this._avalaibleYearsService.setAvalaibleYear(years);
-  }
+  // private getSelectedItem(tipo?: string) {
+  //   const years = this.result.map((year) => year.year);
+  //   this._avalaibleYearsService.setAvalaibleYear(years);
+  // }
 
-  onItemChange() {
-    this.getSelectedItem();
-  }
+  // onItemChange() {
+  //   this.getSelectedItem();
+  // }
 
-  get result(): {
-    year: number,
-    checked: boolean,
-  }[] {
-    return this.list.filter(item => item.checked);
-  }
+  // get result(): {
+  //   year: number,
+  //   checked: boolean,
+  // }[] {
+  //   return this.list.filter(item => item.checked);
+  // }
 
-  changeCheckbox(event: Event) {
-    this.getSelectedItem();
-  }
+  // changeCheckbox(event: Event) {
+  // this.getSelectedItem();
+  // }
 
   async openTable(tipoClasificacion: string): Promise<void> {
-    this.getSelectedItem();
+    // this.getSelectedItem();
     const isIncome = tipoClasificacion.startsWith('ingresos');
     const dataPropertyTable = getClasificacion(tipoClasificacion);
     const dataPropertyGraph = getClasificacionGraph(tipoClasificacion);
