@@ -62,5 +62,4 @@ export class CheckboxComponent implements OnInit {
     this.getSelectedItem();
   }
 
-
 }
