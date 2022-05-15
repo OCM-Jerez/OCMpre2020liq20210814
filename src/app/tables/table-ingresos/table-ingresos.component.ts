@@ -24,9 +24,7 @@ export class TableIngresosComponent {
   private _dataTable: IDataTable;
   private columnDefs;
   private defaultColDef;
-  // private rowData: any;
   private CreditosWidth?: number = 130;
-  // private tipoClasificacion: string;
 
   constructor(
     public _avalaibleYearsService: AvalaibleYearsService,
