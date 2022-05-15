@@ -20,13 +20,13 @@ export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
   private gridApi;
-  private _dataTable: IDataTable;
   private gridColumnApi;
+  private _dataTable: IDataTable;
   private columnDefs;
   private defaultColDef;
-  private rowData: any;
+  // private rowData: any;
   private CreditosWidth?: number = 130;
-  private tipoClasificacion: string;
+  // private tipoClasificacion: string;
 
   constructor(
     public _avalaibleYearsService: AvalaibleYearsService,
