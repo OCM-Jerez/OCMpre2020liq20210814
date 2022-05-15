@@ -19,6 +19,8 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   private gridApi;
+  private _dataTable: IDataTable;
+
   public gridColumnApi;
   public columnDefs;
   public defaultColDef;
@@ -30,9 +32,7 @@ export class TableIngresosComponent {
   public CreditosWidth?: number = 130;
   public tipoClasificacion: string;
   public rowSelection = 'single';
-  private _dataTable: IDataTable;
 
-  private _dataTableGraph: IDataTable;
   constructor(
     private _router: Router,
     public _avalaibleYearsService: AvalaibleYearsService,
@@ -40,24 +40,24 @@ export class TableIngresosComponent {
     private _alertService: AlertService
   ) {
 
-    this._dataTableGraph = _dataStoreService.getDataTable;
+    this._dataTable = _dataStoreService.getDataTable;
     this.columnDefs = [
       {
-        headerName: this._dataTableGraph.dataPropertyTable.headerName,
+        headerName: this._dataTable.dataPropertyTable.headerName,
         children: [
           {
-            headerName: this._dataTableGraph.dataPropertyTable.subHeaderName,
-            field: this._dataTableGraph.dataPropertyTable.codField,
+            headerName: this._dataTable.dataPropertyTable.subHeaderName,
+            field: this._dataTable.dataPropertyTable.codField,
             cellClass: 'resaltado',
-            width: this._dataTableGraph.dataPropertyTable.width,
+            width: this._dataTable.dataPropertyTable.width,
             pinned: 'left',
             rowGroup: true,
-            showRowGroup: this._dataTableGraph.dataPropertyTable.codField,
+            showRowGroup: this._dataTable.dataPropertyTable.codField,
             columnGroupShow: 'open',
             cellRenderer: CellRendererOCMtext,
             valueGetter: params => {
               if (params.data) {
-                return params.data[this._dataTableGraph.dataPropertyTable.codField] + ' - ' + params.data[this._dataTableGraph.dataPropertyTable.desField];
+                return params.data[this._dataTable.dataPropertyTable.codField] + ' - ' + params.data[this._dataTable.dataPropertyTable.desField];
               } else {
                 return null;
               }
@@ -104,7 +104,7 @@ export class TableIngresosComponent {
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = this._dataTableGraph.rowData;
+    this.rowData = this._dataTable.rowData;
   }
 
   // TODO: Las colummnas disparan su altura
@@ -192,7 +192,7 @@ export class TableIngresosComponent {
         );
       })
     } else {
-      this._alertService.showAlert(`Selecciona ${this._dataTableGraph.dataPropertyTable.subHeaderName}`);
+      this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
   }
 
