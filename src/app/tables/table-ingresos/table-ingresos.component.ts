@@ -27,11 +27,11 @@ export class TableIngresosComponent {
   public gridOptions: GridOptions;
   public localeText;
   public rowData: any;
-  public groupHeaderHeight = 25;
-  public headerHeight = 36;
+  // public groupHeaderHeight = 25;
+  // public headerHeight = 36;
   public CreditosWidth?: number = 130;
   public tipoClasificacion: string;
-  public rowSelection = 'single';
+  // public rowSelection = 'single';
 
   constructor(
     private _router: Router,
@@ -97,14 +97,40 @@ export class TableIngresosComponent {
           '</div>',
       },
     };
-    this.gridOptions = {} as GridOptions;
+    this.gridOptions = {
+      // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
+      rowData: this._dataTable.rowData,
+      columnDefs: this.columnDefs,
+      defaultColDef: this.defaultColDef,
+      groupSuppressAutoColumn: true,
+      groupIncludeTotalFooter: true,
+      groupIncludeFooter: true,
+      groupHeaderHeight: 25,
+      headerHeight: 36,
+      suppressAggFuncInHeader: true,
+      rowSelection: 'single',
+      localeText: this.localeText,
+
+      // PROPERTIES - simple boolean / string / number properties
+      pagination: true,
+
+      // EVENTS - add event callback handlers
+      onRowClicked: function (event) { console.log('a row was clicked'); },
+      onColumnResized: function (event) { console.log('a column was resized'); },
+      onGridReady: function (event) { console.log('the grid is now ready'); },
+
+      // CALLBACKS
+      // isScrollLag: function () { return false; }
+      // getRowHeight: (params) => 25
+
+    } as GridOptions;
     this.localeText = localeTextESPes;
   }
 
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = this._dataTable.rowData;
+    // this.rowData = this._dataTable.rowData;
   }
 
   // TODO: Las colummnas disparan su altura
