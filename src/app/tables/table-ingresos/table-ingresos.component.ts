@@ -18,24 +18,19 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 })
 export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
+  public gridOptions: GridOptions;
   private gridApi;
   private _dataTable: IDataTable;
-
-  public gridColumnApi;
-  public columnDefs;
-  public defaultColDef;
-  public gridOptions: GridOptions;
-  public localeText;
-  public rowData: any;
-  // public groupHeaderHeight = 25;
-  // public headerHeight = 36;
-  public CreditosWidth?: number = 130;
-  public tipoClasificacion: string;
-  // public rowSelection = 'single';
+  private gridColumnApi;
+  private columnDefs;
+  private defaultColDef;
+  private rowData: any;
+  private CreditosWidth?: number = 130;
+  private tipoClasificacion: string;
 
   constructor(
-    private _router: Router,
     public _avalaibleYearsService: AvalaibleYearsService,
+    private _router: Router,
     private _dataStoreService: DataStoreService,
     private _alertService: AlertService
   ) {
@@ -109,10 +104,8 @@ export class TableIngresosComponent {
       headerHeight: 36,
       suppressAggFuncInHeader: true,
       rowSelection: 'single',
-      localeText: this.localeText,
-
-      // PROPERTIES - simple boolean / string / number properties
-      pagination: true,
+      localeText: localeTextESPes,
+      pagination: false,
 
       // EVENTS - add event callback handlers
       onRowClicked: function (event) { console.log('a row was clicked'); },
@@ -124,13 +117,11 @@ export class TableIngresosComponent {
       // getRowHeight: (params) => 25
 
     } as GridOptions;
-    this.localeText = localeTextESPes;
   }
 
   async onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    // this.rowData = this._dataTable.rowData;
   }
 
   // TODO: Las colummnas disparan su altura
