@@ -213,6 +213,8 @@ export class TableProgramaDetailsComponent {
       },
     };
     this.localeText = localeTextESPes;
+
+
   }
 
   async onGridReady(params: GridReadyEvent) {
@@ -334,8 +336,10 @@ export class TableProgramaDetailsComponent {
       this.dataFinal.push(value)
     });
     this.rowData = this.dataFinal;
-    console.log("After", this.rowData);
-    // this.expandAll();
+    setTimeout(() => {
+      this.expandAll()
+    }, 10);
+
   }
 
   // TODO: Las colummnas disparan su altura
