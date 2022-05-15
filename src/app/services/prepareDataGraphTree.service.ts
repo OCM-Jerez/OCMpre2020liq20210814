@@ -19,12 +19,21 @@ export class PrepareDataGraphTreeService {
       case 'gastosOrganicaOrganicos':
         this._dataGraphTree = gastosOrganicaOrganicos.map(item => {
           const dataLastYear = rowData.filter(x => x.CodOrg == item.codigo);
-          const sumDefinitivas = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
+          const sumDefinitivas = dataLastYear.filter((item) => item["Iniciales2022"]).reduce((prev, current) => prev + current["Iniciales2022"], 0);
           return { ...item, total: sumDefinitivas }
         })
         // console.log(this._dataGraphTree);
         this._dataStoreService.dataGraphTree = this._dataGraphTree;
         break;
+      // case 'gastosOrganicaOrganicos':
+      //   this._dataGraphTree = gastosOrganicaOrganicos.map(item => {
+      //     const dataLastYear = rowData.filter(x => x.CodOrg == item.codigo);
+      //     const sumDefinitivas = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
+      //     return { ...item, total: sumDefinitivas }
+      //   })
+      //   // console.log(this._dataGraphTree);
+      //   this._dataStoreService.dataGraphTree = this._dataGraphTree;
+      //   break;
       case 'gastosProgramaAreas':
         this._dataGraphTree = gastosProgramaAreas.map(item => {
           const dataLastYear = rowData.filter(x => x.CodPro == item.codigo);
