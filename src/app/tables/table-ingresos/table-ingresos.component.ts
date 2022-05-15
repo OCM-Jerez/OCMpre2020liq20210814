@@ -27,7 +27,7 @@ export class TableIngresosComponent {
   private CreditosWidth?: number = 130;
 
   constructor(
-    public _avalaibleYearsService: AvalaibleYearsService,
+    public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
     private _dataStoreService: DataStoreService,
     private _alertService: AlertService
@@ -59,7 +59,7 @@ export class TableIngresosComponent {
         ]
       },
 
-      ..._avalaibleYearsService.getYearsSelected().map(year => {
+      ...avalaibleYearsService.getYearsSelected().map(year => {
         return {
           headerName: year,
           children: this.createColumnsChildren(year),
