@@ -22,8 +22,8 @@ export class PrepareDataGraphTreeService {
     const years = this._avalaibleYearsService.getYearsSelected();
     if (years.length > 1) {
       this._alertService.showAlert('Hay más de un año seleccionado');
+      this._dataStoreService.dataGraphTree = [];
     } else {
-
       const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
       // console.log('tipoClasificacion', tipoClasificacion);
       // console.log('rowData', rowData);
@@ -60,7 +60,6 @@ export class PrepareDataGraphTreeService {
           this._dataStoreService.dataGraphTree = this._dataGraphTree;
           break;
       }
-
     }
 
 
