@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AgChartOptions } from 'ag-charts-community';
+import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class GraphTreeComponent {
   options: AgChartOptions = {} as AgChartOptions;
 
   constructor(
+    private _avalaibleYearsService: AvalaibleYearsService,
     private _dataStoreService: DataStoreService
   ) {
     const dataGrahTree = this._dataStoreService.dataGraphTree;
@@ -259,7 +261,7 @@ export class GraphTreeComponent {
       type: 'treemap',
       data,
       title: {
-        text: `Donde van mis impuestos`,
+        text: `Donde van mis impuestos año ${this._avalaibleYearsService.getYearsSelected()}`,
         fontSize: 30,
         fontWeight: 'bold',
       },
@@ -306,7 +308,7 @@ export class GraphTreeComponent {
 
   calculaColor(valor: number, descripcion?: string) {
     let colorCalculado = valor / 1_000_000;
-    console.log(colorCalculado);
+    // console.log(colorCalculado);
 
     if (valor > 1 && valor < 1_000_000) {
       colorCalculado = -5;
@@ -711,7 +713,7 @@ export class GraphTreeComponent {
       colorCalculado = 5;
     }
 
-    console.log('Valor: ' + valor + ' Color: ' + colorCalculado + descripcion);
+    // console.log('Valor: ' + valor + ' Color: ' + colorCalculado + descripcion);
     return colorCalculado;
 
   }
