@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Location } from "@angular/common";
+
 import { DataStoreService } from './dataStore.service';
 import gastosOrganicaOrganicos from '../../assets/data/gastosOrganicaOrganicos.json';
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
@@ -13,8 +15,8 @@ export class PrepareDataGraphTreeService {
   constructor(
     private _dataStoreService: DataStoreService,
     private _avalaibleYearsService: AvalaibleYearsService,
-    private _alertService: AlertService
-
+    private _alertService: AlertService,
+    private location: Location,
   ) { }
 
   async prepareDataGraphTree(rowData) {
@@ -23,6 +25,7 @@ export class PrepareDataGraphTreeService {
     if (years.length > 1) {
       this._alertService.showAlert('Hay más de un año seleccionado');
       this._dataStoreService.dataGraphTree = [];
+      this.location.back();
     } else {
       const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
       // console.log('tipoClasificacion', tipoClasificacion);
