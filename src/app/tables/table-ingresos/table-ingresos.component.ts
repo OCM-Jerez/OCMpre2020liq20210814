@@ -3,13 +3,16 @@ import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
 import { GridOptions } from 'ag-grid-community/main';
+// import { ColumnApi, GridApi } from "ag-grid-community/main";
+
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
-import { AlertService } from '../../services/alert.service';
 // import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
-import { DataStoreService } from '../../services/dataStore.service';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
+import { DataStoreService } from '../../services/dataStore.service';
+import { AlertService } from '../../services/alert.service';
+
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 
 @Component({
@@ -19,12 +22,11 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
-  private gridApi;
-  private gridColumnApi;
+  // public GridApi: GridApi;
+  // public ColumnApi: ColumnApi;
+  private columnDefs: any[];
+  private defaultColDef: {};
   private _dataTable: IDataTable;
-  private columnDefs;
-  private defaultColDef;
-  private CreditosWidth?: number = 130;
 
   constructor(
     public avalaibleYearsService: AvalaibleYearsService,
@@ -41,12 +43,12 @@ export class TableIngresosComponent {
           {
             headerName: this._dataTable.dataPropertyTable.subHeaderName,
             field: this._dataTable.dataPropertyTable.codField,
-            cellClass: 'resaltado',
+            // cellClass: 'resaltado',
             width: this._dataTable.dataPropertyTable.width,
-            pinned: 'left',
+            // pinned: 'left',
             rowGroup: true,
             showRowGroup: this._dataTable.dataPropertyTable.codField,
-            columnGroupShow: 'open',
+            // columnGroupShow: 'open',
             cellRenderer: CellRendererOCMtext,
             valueGetter: params => {
               if (params.data) {
@@ -69,7 +71,7 @@ export class TableIngresosComponent {
     ]
 
     this.defaultColDef = {
-      width: this.CreditosWidth,
+      width: 130,
       sortable: true,
       resizable: true,
       filter: true,
@@ -90,6 +92,7 @@ export class TableIngresosComponent {
           '</div>',
       },
     };
+
     this.gridOptions = {
       // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
       rowData: this._dataTable.rowData,
@@ -106,9 +109,9 @@ export class TableIngresosComponent {
       pagination: false,
 
       // EVENTS - add event callback handlers
-      onRowClicked: function (event) { console.log('a row was clicked'); },
-      onColumnResized: function (event) { console.log('a column was resized'); },
-      onGridReady: function (event) { console.log('the grid is now ready'); },
+      // onGridReady: function (event) { console.log('the grid is now ready'); },
+      // onRowClicked: function (event) { console.log('a row was clicked'); },
+      // onColumnResized: function (event) { console.log('a column was resized'); },
 
       // CALLBACKS
       // isScrollLag: function () { return false; }
@@ -117,18 +120,18 @@ export class TableIngresosComponent {
     } as GridOptions;
   }
 
-  async onGridReady(params) {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-  }
+  // async onGridReady(params) {
+  // this.GridApi = params.api;
+  // this.ColumnApi = params.columnApi;
+  // }
 
   // TODO: Las colummnas disparan su altura
-  headerHeightSetter() {
-    // var padding = 20;
-    // var height = headerHeightGetter() + padding;
-    // this.gridApi.setHeaderHeight(height);
-    // this.gridApi.resetRowHeights();
-  }
+  // headerHeightSetter() {
+  // var padding = 20;
+  // var height = headerHeightGetter(1) + padding;
+  // this.GridApi.setHeaderHeight(height);
+  // this.GridApi.resetRowHeights();
+  // }
 
   createColumnsChildren(year: number) {
     return [
