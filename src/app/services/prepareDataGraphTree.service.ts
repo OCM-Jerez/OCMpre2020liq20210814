@@ -56,7 +56,7 @@ export class PrepareDataGraphTreeService {
         case 'gastosProgramaAreas':
           this._dataGraphTree = gastosProgramaAreas.map(item => {
             const dataLastYear = rowData.filter(x => x.CodPro == item.codigo);
-            const sumDefinitivas = dataLastYear.filter((item) => item["Definitivas2015"]).reduce((prev, current) => prev + current["Definitivas2015"], 0);
+            const sumDefinitivas = dataLastYear.filter((item) => item[`Definitivas${years[0]}`]).reduce((prev, current) => prev + current[`Definitivas${years[0]}`], 0);
             return { ...item, total: sumDefinitivas }
           })
           // console.log(this._dataGraphTree);

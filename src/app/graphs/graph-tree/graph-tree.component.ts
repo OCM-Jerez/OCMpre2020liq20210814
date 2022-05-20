@@ -16,7 +16,13 @@ export class GraphTreeComponent {
     private _dataStoreService: DataStoreService
   ) {
     const dataGrahTree = this._dataStoreService.dataGraphTree;
-    // const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
+    console.log(dataGrahTree);
+    const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
+    console.log(tipoClasificacion);
+    if (tipoClasificacion === 'gastosProgramaAreas') {
+
+    }
+
     let data = {
       children: [
         {
@@ -74,186 +80,186 @@ export class GraphTreeComponent {
             },
           ],
         },
-        {
-          children: [
-            {
-              label: dataGrahTree[6].descripcion,
-              size: dataGrahTree[6].total,
-              color: this.calculaColor(dataGrahTree[6].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[7].descripcion,
-              size: dataGrahTree[7].total,
-              color: this.calculaColor(dataGrahTree[7].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[8].descripcion,
-              size: dataGrahTree[8].total,
-              color: this.calculaColor(dataGrahTree[8].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[9].descripcion,
-              size: dataGrahTree[9].total,
-              color: this.calculaColor(dataGrahTree[9].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[10].descripcion,
-              size: dataGrahTree[10].total,
-              color: this.calculaColor(dataGrahTree[10].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[11].descripcion,
-              size: dataGrahTree[11].total,
-              color: this.calculaColor(dataGrahTree[11].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[12].descripcion,
-              size: dataGrahTree[12].total,
-              color: this.calculaColor(dataGrahTree[12].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[13].descripcion,
-              size: dataGrahTree[13].total,
-              color: this.calculaColor(dataGrahTree[13].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[14].descripcion,
-              size: dataGrahTree[14].total,
-              color: this.calculaColor(dataGrahTree[14].total, dataGrahTree[14].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[15].descripcion,
-              size: dataGrahTree[15].total,
-              color: this.calculaColor(dataGrahTree[15].total, dataGrahTree[15].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[16].descripcion,
-              size: dataGrahTree[16].total,
-              color: this.calculaColor(dataGrahTree[16].total)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[17].descripcion,
-              size: dataGrahTree[17].total,
-              color: this.calculaColor(dataGrahTree[17].total)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[18].descripcion,
-              size: dataGrahTree[18].total,
-              color: this.calculaColor(dataGrahTree[18].total)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[19].descripcion,
-              size: dataGrahTree[19].total,
-              color: this.calculaColor(dataGrahTree[19].total)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[20].descripcion,
-              size: dataGrahTree[20].total,
-              color: this.calculaColor(dataGrahTree[20].total)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[21].descripcion,
-              size: dataGrahTree[21].total,
-              color: this.calculaColor(dataGrahTree[21].total)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[22].descripcion,
-              size: dataGrahTree[22].total,
-              color: this.calculaColor(dataGrahTree[22].total)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[23].descripcion,
-              size: dataGrahTree[23].total,
-              color: this.calculaColor(dataGrahTree[23].total)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[24].descripcion,
-              size: dataGrahTree[24].total,
-              color: this.calculaColor(dataGrahTree[24].total)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[25].descripcion,
-              size: dataGrahTree[25].total,
-              color: this.calculaColor(dataGrahTree[25].total)
-            },
-          ],
-        },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[6].descripcion,
+        //       size: dataGrahTree[6].total,
+        //       color: this.calculaColor(dataGrahTree[6].total, dataGrahTree[0].descripcion)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[7].descripcion,
+        //       size: dataGrahTree[7].total,
+        //       color: this.calculaColor(dataGrahTree[7].total, dataGrahTree[0].descripcion)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[8].descripcion,
+        //       size: dataGrahTree[8].total,
+        //       color: this.calculaColor(dataGrahTree[8].total, dataGrahTree[0].descripcion)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[9].descripcion,
+        //       size: dataGrahTree[9].total,
+        //       color: this.calculaColor(dataGrahTree[9].total, dataGrahTree[0].descripcion)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[10].descripcion,
+        //       size: dataGrahTree[10].total,
+        //       color: this.calculaColor(dataGrahTree[10].total, dataGrahTree[0].descripcion)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[11].descripcion,
+        //       size: dataGrahTree[11].total,
+        //       color: this.calculaColor(dataGrahTree[11].total, dataGrahTree[0].descripcion)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[12].descripcion,
+        //       size: dataGrahTree[12].total,
+        //       color: this.calculaColor(dataGrahTree[12].total, dataGrahTree[0].descripcion)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[13].descripcion,
+        //       size: dataGrahTree[13].total,
+        //       color: this.calculaColor(dataGrahTree[13].total, dataGrahTree[0].descripcion)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[14].descripcion,
+        //       size: dataGrahTree[14].total,
+        //       color: this.calculaColor(dataGrahTree[14].total, dataGrahTree[14].descripcion)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[15].descripcion,
+        //       size: dataGrahTree[15].total,
+        //       color: this.calculaColor(dataGrahTree[15].total, dataGrahTree[15].descripcion)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[16].descripcion,
+        //       size: dataGrahTree[16].total,
+        //       color: this.calculaColor(dataGrahTree[16].total)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[17].descripcion,
+        //       size: dataGrahTree[17].total,
+        //       color: this.calculaColor(dataGrahTree[17].total)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[18].descripcion,
+        //       size: dataGrahTree[18].total,
+        //       color: this.calculaColor(dataGrahTree[18].total)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[19].descripcion,
+        //       size: dataGrahTree[19].total,
+        //       color: this.calculaColor(dataGrahTree[19].total)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[20].descripcion,
+        //       size: dataGrahTree[20].total,
+        //       color: this.calculaColor(dataGrahTree[20].total)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[21].descripcion,
+        //       size: dataGrahTree[21].total,
+        //       color: this.calculaColor(dataGrahTree[21].total)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[22].descripcion,
+        //       size: dataGrahTree[22].total,
+        //       color: this.calculaColor(dataGrahTree[22].total)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[23].descripcion,
+        //       size: dataGrahTree[23].total,
+        //       color: this.calculaColor(dataGrahTree[23].total)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[24].descripcion,
+        //       size: dataGrahTree[24].total,
+        //       color: this.calculaColor(dataGrahTree[24].total)
+        //     },
+        //   ],
+        // },
+        // {
+        //   children: [
+        //     {
+        //       label: dataGrahTree[25].descripcion,
+        //       size: dataGrahTree[25].total,
+        //       color: this.calculaColor(dataGrahTree[25].total)
+        //     },
+        //   ],
+        // },
       ]
     }
 
@@ -266,7 +272,7 @@ export class GraphTreeComponent {
         fontWeight: 'bold',
       },
       subtitle: {
-        text: 'Por orgánico',
+        text: `Por ${tipoClasificacion}`,
         fontSize: 20,
         fontWeight: 'bold',
       },
