@@ -2,9 +2,10 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
-import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
+import { GridOptions } from 'ag-grid-community/main';
+
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
+import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
@@ -20,15 +21,11 @@ import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 })
 export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  public columnDefs;
-  public defaultColDef;
-  public localeText;
-  public rowData: any;
-  public groupHeaderHeight = 25;
-  public headerHeight = 54;
-  public rowSelection = 'single';
+  public gridOptions: GridOptions;
+  private _columnDefs: any[];
+  private _defaultColDef: {};
+
   public hasGraphTree = false;
-  private _creditosWidth?: number = 110;
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
 
@@ -41,19 +38,16 @@ export class TableGastosComponent implements OnInit {
 
   ) {
     this._dataTable = _dataStoreService.getDataTable;
-    this.columnDefs = [
+    this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
         children: [
           {
             headerName: this._dataTable.dataPropertyTable.subHeaderName,
             field: this._dataTable.dataPropertyTable.codField,
-            cellClass: 'resaltado',
             width: this._dataTable.dataPropertyTable.width,
-            pinned: 'left',
             rowGroup: true,
             showRowGroup: this._dataTable.dataPropertyTable.codField,
-            columnGroupShow: 'open',
             cellRenderer: CellRendererOCMtext,
             valueGetter: params => {
               if (params.data) {
@@ -75,10 +69,10 @@ export class TableGastosComponent implements OnInit {
 
     ];
 
-    this.defaultColDef = {
-      width: this._creditosWidth,
+    this._defaultColDef = {
+      width: 110,
       sortable: true,
-      resizable: false,
+      resizable: true,
       filter: true,
       aggFunc: 'sum',
       cellRenderer: CellRendererOCM,
@@ -97,25 +91,28 @@ export class TableGastosComponent implements OnInit {
           '</div>',
       },
     };
-    this.localeText = localeTextESPes;
+
+    this.gridOptions = {
+      rowData: this._dataTable.rowData,
+      columnDefs: this._columnDefs,
+      defaultColDef: this._defaultColDef,
+      groupSuppressAutoColumn: true,
+      groupIncludeTotalFooter: true,
+      groupIncludeFooter: true,
+      groupHeaderHeight: 25,
+      headerHeight: 54,
+      suppressAggFuncInHeader: true,
+      rowSelection: 'single',
+      localeText: localeTextESPes,
+      pagination: false,
+    } as GridOptions;
+
   }
+
   ngOnInit(): void {
     if (this._dataTable.dataPropertyTable.subHeaderName === 'Orgánico' || this._dataTable.dataPropertyTable.subHeaderName === 'Area de gasto') {
-      // if (this._dataTable.dataPropertyTable.subHeaderName === 'Orgánico' ) {
       this.hasGraphTree = true;
     }
-  }
-
-  async onGridReady(params) {
-    this.rowData = this._dataTable.rowData
-  }
-
-  // TODO: Las colummnas disparan su altura
-  headerHeightSetter() {
-    // var padding = 20;
-    // var height = headerHeightGetter() + padding;
-    // this._gridApi.setHeaderHeight(height);
-    // this._gridApi.resetRowHeights();
   }
 
   createColumnsChildren(year: number) {
@@ -182,7 +179,7 @@ export class TableGastosComponent implements OnInit {
     if (selectedRows.length > 0) {
       this._dataStoreService.selectedCodeRow = selectedRows[0].key;
       this._dataGraph.graphSubTitle = selectedRows[0].key;
-      this._dataGraph.rowData = this.rowData
+      this._dataGraph.rowData = this._dataTable.rowData
       this._router.navigateByUrl("/graphGastos").then(() => {
         this._dataStoreService.setData(
           {
@@ -206,8 +203,8 @@ export class TableGastosComponent implements OnInit {
   }
 
   showGraphTree() {
-    console.log(this.rowData);
-    this._prepareDataGraphTreeService.prepareDataGraphTree(this.rowData);
+    console.log(this._dataTable.rowData);
+    this._prepareDataGraphTreeService.prepareDataGraphTree(this._dataTable.rowData);
     this._router.navigateByUrl("/graphTree")
   }
 
