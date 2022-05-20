@@ -24,8 +24,8 @@ export class TableIngresosComponent {
   public gridOptions: GridOptions;
   // public GridApi: GridApi;
   // public ColumnApi: ColumnApi;
-  private columnDefs: any[];
-  private defaultColDef: {};
+  private _columnDefs: any[];
+  private _defaultColDef: {};
   private _dataTable: IDataTable;
 
   constructor(
@@ -36,7 +36,7 @@ export class TableIngresosComponent {
   ) {
 
     this._dataTable = _dataStoreService.getDataTable;
-    this.columnDefs = [
+    this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
         children: [
@@ -70,7 +70,7 @@ export class TableIngresosComponent {
 
     ]
 
-    this.defaultColDef = {
+    this._defaultColDef = {
       width: 130,
       sortable: true,
       resizable: true,
@@ -96,8 +96,8 @@ export class TableIngresosComponent {
     this.gridOptions = {
       // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
       rowData: this._dataTable.rowData,
-      columnDefs: this.columnDefs,
-      defaultColDef: this.defaultColDef,
+      columnDefs: this._columnDefs,
+      defaultColDef: this._defaultColDef,
       groupSuppressAutoColumn: true,
       groupIncludeTotalFooter: true,
       groupIncludeFooter: true,
