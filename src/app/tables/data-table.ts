@@ -15,7 +15,7 @@ const CLASIFICATION = {
         subHeaderName: 'Articulo',
         codField: 'CodEco',
         desField: 'DesEco',
-        width: 250,
+        width: 550,
     },
     ingresosEconomicaConceptos: {
         sufijo: 'Eco',
@@ -23,7 +23,7 @@ const CLASIFICATION = {
         subHeaderName: 'Concepto',
         codField: 'CodEco',
         desField: 'DesEco',
-        width: 250,
+        width: 660,
     },
     ingresosEconomicaEconomicos: {
         sufijo: 'Eco',
@@ -31,7 +31,7 @@ const CLASIFICATION = {
         subHeaderName: 'Económico',
         codField: 'CodEco',
         desField: 'DesEco',
-        width: 400,
+        width: 550,
     },
     gastosOrganicaOrganicos: {
         sufijo: 'Org',
