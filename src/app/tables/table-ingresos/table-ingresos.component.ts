@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridOptions } from 'ag-grid-community/main';
-// import { ColumnApi, GridApi } from "ag-grid-community/main";
+import { GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+import { ColumnApi, GridApi } from "ag-grid-community/main";
 
 import localeTextESPes from '../../../assets/data/localeTextESPes.json';
 import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
@@ -22,10 +22,9 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
-  // public GridApi: GridApi;
-  // public ColumnApi: ColumnApi;
+  private _gridApi: GridApi;
+  private _columnApi: ColumnApi;
   private _columnDefs: any[];
-  private _defaultColDef: {};
   private _dataTable: IDataTable;
 
   constructor(
@@ -70,34 +69,33 @@ export class TableIngresosComponent {
 
     ]
 
-    this._defaultColDef = {
-      width: 130,
-      sortable: true,
-      resizable: true,
-      filter: true,
-      aggFunc: 'sum',
-      cellRenderer: CellRendererOCM,
-      headerComponentParams: {
-        template:
-          '<div class="ag-cell-label-container" role="presentation">' +
-          '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
-          '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
-          '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
-          '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
-          '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
-          '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
-          '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
-          '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
-          '  </div>' +
-          '</div>',
-      },
-    };
-
     this.gridOptions = {
+      defaultColDef: {
+        width: 130,
+        sortable: true,
+        resizable: true,
+        filter: true,
+        aggFunc: 'sum',
+        cellRenderer: CellRendererOCM,
+        headerComponentParams: {
+          template:
+            '<div class="ag-cell-label-container" role="presentation">' +
+            '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+            '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+            '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+            '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+            '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+            '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+            '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+            '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+            '  </div>' +
+            '</div>',
+        },
+      },
+
       // PROPERTIES - object properties, myRowData and myColDefs are created somewhere in your application
       rowData: this._dataTable.rowData,
       columnDefs: this._columnDefs,
-      defaultColDef: this._defaultColDef,
       groupSuppressAutoColumn: true,
       groupIncludeTotalFooter: true,
       groupIncludeFooter: true,
@@ -120,10 +118,14 @@ export class TableIngresosComponent {
     } as GridOptions;
   }
 
-  // async onGridReady(params) {
-  // this.GridApi = params.api;
-  // this.ColumnApi = params.columnApi;
-  // }
+  // in onGridReady, store the api for later use
+  onGridReady = (params: GridReadyEvent) => {
+    // console.log(params);
+    this._gridApi = params.api;
+    // console.log(this._gridApi);
+    this._columnApi = params.columnApi;
+    // console.log(this._columnApi);
+  }
 
   // TODO: Las colummnas disparan su altura
   // headerHeightSetter() {
