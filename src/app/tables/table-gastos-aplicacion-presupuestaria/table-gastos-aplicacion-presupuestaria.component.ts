@@ -3,13 +3,13 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridOptions, Logger } from 'ag-grid-community/main';
+import { GridOptions, GridReadyEvent } from 'ag-grid-community/main';
+
+import localeTextESPes from '../../../assets/data/localeTextESPes.json';
+import { CellRendererOCM } from '../../ag-grid/CellRendererOCM';
+import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
-import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRendererOCM';
-import { headerHeightGetter } from '../../ag-grid/headerHeightGetter';
-import localeTextESPes from '../../../assets/data/localeTextESPes.json';
-
 import { DataStoreService } from '../../services/dataStore.service';
 import { PrepareDataProgramaDetailsService } from '../../services/prepareDataProgramaDetails.service';
 import { AlertService } from '../../services/alert.service';
@@ -24,16 +24,9 @@ import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 export class TableGastosAplicacionPresupuestariaComponent {
 
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
-  public columnDefs;
-  public defaultColDef;
-  public localeText;
+  public gridOptions: GridOptions;
   public rowData: any;
-  public groupHeaderHeight = 25;
-  public headerHeight = 54;
-  public CreditosWidth?: number = 110;
-  public tipoClasificacion: string;
-  public rowSelection = 'single';
-
+  private _columnDefs: any[];
   data: any[] = [];
 
   constructor(
@@ -45,7 +38,7 @@ export class TableGastosAplicacionPresupuestariaComponent {
     private _alertService: AlertService
 
   ) {
-    this.columnDefs = [
+    this._columnDefs = [
       {
         headerName: 'Clasificado por aplicación presupuestaria',
         children: [
@@ -78,32 +71,44 @@ export class TableGastosAplicacionPresupuestariaComponent {
 
     ];
 
-    this.defaultColDef = {
-      width: this.CreditosWidth,
-      sortable: true,
-      resizable: true,
-      filter: false,
-      aggFunc: 'sum',
-      cellRenderer: CellRendererOCM,
-      headerComponentParams: {
-        template:
-          '<div class="ag-cell-label-container" role="presentation">' +
-          '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
-          '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
-          '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
-          '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
-          '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
-          '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
-          '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
-          '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
-          '  </div>' +
-          '</div>',
+    this.gridOptions = {
+      defaultColDef: {
+        width: 130,
+        sortable: true,
+        resizable: true,
+        filter: true,
+        aggFunc: 'sum',
+        cellRenderer: CellRendererOCM,
+        headerComponentParams: {
+          template:
+            '<div class="ag-cell-label-container" role="presentation">' +
+            '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+            '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+            '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+            '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+            '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+            '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+            '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+            '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+            '  </div>' +
+            '</div>',
+        },
       },
-    };
-    this.localeText = localeTextESPes;
+
+      columnDefs: this._columnDefs,
+      groupSuppressAutoColumn: true,
+      groupIncludeTotalFooter: true,
+      groupIncludeFooter: true,
+      groupHeaderHeight: 25,
+      headerHeight: 36,
+      suppressAggFuncInHeader: true,
+      rowSelection: 'single',
+      localeText: localeTextESPes,
+      pagination: false,
+    } as GridOptions;
   }
 
-  async onGridReady(params) {
+  async onGridReady(params: GridReadyEvent) {
     this.rowData = await this._prepareDataProgramaDetailsService.getDataAllYear();
     let selectedRow = this._dataStoreService.selectedCodeRow
     this.rowData = this.rowData
