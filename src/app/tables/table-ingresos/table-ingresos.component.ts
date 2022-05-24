@@ -42,12 +42,9 @@ export class TableIngresosComponent {
           {
             headerName: this._dataTable.dataPropertyTable.subHeaderName,
             field: this._dataTable.dataPropertyTable.codField,
-            // cellClass: 'resaltado',
             width: this._dataTable.dataPropertyTable.width,
-            // pinned: 'left',
             rowGroup: true,
             showRowGroup: this._dataTable.dataPropertyTable.codField,
-            // columnGroupShow: 'open',
             cellRenderer: CellRendererOCMtext,
             valueGetter: params => {
               if (params.data) {
@@ -118,13 +115,12 @@ export class TableIngresosComponent {
     } as GridOptions;
   }
 
-  // in onGridReady, store the api for later use
+  // Store the api for later use.
+  // No lo uso en este componente pero si quisiese hacer alguna llamada a las API
+  // este codigo es necesario.
   onGridReady = (params: GridReadyEvent) => {
-    // console.log(params);
     this._gridApi = params.api;
-    // console.log(this._gridApi);
     this._columnApi = params.columnApi;
-    // console.log(this._columnApi);
   }
 
   // TODO: Las colummnas disparan su altura
@@ -162,22 +158,22 @@ export class TableIngresosComponent {
         headerName: 'Derechos',
         children: [
           {
-            headerName: 'Derechos Reconocidos',
+            headerName: 'Reconocidos',
             field: `DerechosReconocidos${year}`,
             columnGroupShow: 'open'
           },
           {
-            headerName: 'Derechos anulados',
+            headerName: 'Anulados',
             field: `DerechosAnulados${year}`,
             columnGroupShow: 'open'
           },
           {
-            headerName: 'Derechos cancelados',
+            headerName: 'Cancelados',
             field: `DerechosCancelados${year}`,
             columnGroupShow: 'open'
           },
           {
-            headerName: 'Derechos Reconocidos Netos',
+            headerName: 'Reconocidos Netos',
             field: `DerechosReconocidosNetos${year}`,
             columnGroupShow: 'open'
           },
@@ -187,7 +183,7 @@ export class TableIngresosComponent {
             columnGroupShow: 'close'
           },
           {
-            headerName: 'Derechos Pendientes de cobro al 31 diciembre',
+            headerName: 'Pendientes de cobro al 31 diciembre',
             field: `DerechosPendienteCobro${year}`,
             columnGroupShow: 'open'
           },
