@@ -22,10 +22,8 @@ import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
-  private _columnDefs: any[];
-  private _defaultColDef: {};
-
   public hasGraphTree = false;
+  private _columnDefs: any[];
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
 
@@ -69,33 +67,31 @@ export class TableGastosComponent implements OnInit {
 
     ];
 
-    this._defaultColDef = {
-      width: 110,
-      sortable: true,
-      resizable: true,
-      filter: true,
-      aggFunc: 'sum',
-      cellRenderer: CellRendererOCM,
-      headerComponentParams: {
-        template:
-          '<div class="ag-cell-label-container" role="presentation">' +
-          '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
-          '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
-          '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
-          '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
-          '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
-          '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
-          '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
-          '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
-          '  </div>' +
-          '</div>',
-      },
-    };
-
     this.gridOptions = {
+      defaultColDef: {
+        width: 130,
+        sortable: true,
+        resizable: true,
+        filter: true,
+        aggFunc: 'sum',
+        cellRenderer: CellRendererOCM,
+        headerComponentParams: {
+          template:
+            '<div class="ag-cell-label-container" role="presentation">' +
+            '  <span ref="eMenu" class="ag-header-icon ag-header-cell-menu-button" ></span>' +
+            '  <div ref="eLabel" class="ag-header-cell-label" role="presentation" >' +
+            '    <span ref="eSortOrder" class="ag-header-icon ag-sort-order"></span>' +
+            '    <span ref="eSortAsc" class="ag-header-icon ag-sort-ascending-icon"></span>' +
+            '    <span ref="eSortDesc" class="ag-header-icon ag-sort-descending-icon"></span>' +
+            '    <span ref="eSortNone" class="ag-header-icon ag-sort-none-icon"></span>' +
+            '    <span ref="eText" class="ag-header-cell-text" role="columnheader" style="white-space: normal;"></span>' +
+            '    <span ref="eFilter" class="ag-header-icon ag-filter-icon"></span>' +
+            '  </div>' +
+            '</div>',
+        },
+      },
       rowData: this._dataTable.rowData,
       columnDefs: this._columnDefs,
-      defaultColDef: this._defaultColDef,
       groupSuppressAutoColumn: true,
       groupIncludeTotalFooter: true,
       groupIncludeFooter: true,
