@@ -17,24 +17,24 @@ export class CheckboxComponent implements OnInit {
     this.years = [
       {
         year: 2015,
-        checked: false,
+        checked: true,
       },
       {
         year: 2016,
-        checked: false,
+        checked: true,
       }, {
         year: 2017,
-        checked: false,
+        checked: true,
       }, {
         year: 2018,
-        checked: false,
+        checked: true,
       },
       {
         year: 2019,
-        checked: false,
+        checked: true,
       }, {
         year: 2020,
-        checked: false,
+        checked: true,
       }, {
         year: 2021,
         checked: true,
