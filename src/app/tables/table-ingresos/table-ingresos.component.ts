@@ -22,6 +22,7 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
+  public textButton: string;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   private _columnDefs: any[];
@@ -35,6 +36,7 @@ export class TableIngresosComponent {
   ) {
 
     this._dataTable = _dataStoreService.getDataTable;
+    this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName} para mostrar gráfico`
     this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
@@ -105,7 +107,12 @@ export class TableIngresosComponent {
 
       // EVENTS - add event callback handlers
       // onGridReady: function (event) { console.log('the grid is now ready'); },
-      // onRowClicked: function (event) { console.log('a row was clicked'); },
+      onRowClicked: function (event) {
+        console.log('a row was clicked');
+        this.textButton = "Mostrar gráfico";
+        document.querySelector('#showGraph')!.innerHTML = `${this.textButton}`;
+        console.log(this.textButton);
+      },
       // onColumnResized: function (event) { console.log('a column was resized'); },
 
       // CALLBACKS
@@ -213,4 +220,7 @@ export class TableIngresosComponent {
   }
 
 }
+
+
+
 
