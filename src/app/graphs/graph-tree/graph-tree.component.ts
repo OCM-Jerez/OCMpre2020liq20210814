@@ -15,253 +15,32 @@ export class GraphTreeComponent {
     private _avalaibleYearsService: AvalaibleYearsService,
     private _dataStoreService: DataStoreService
   ) {
-    const dataGrahTree = this._dataStoreService.dataGraphTree;
-    console.log(dataGrahTree);
+    const dataGraphTree = this._dataStoreService.dataGraphTree;
     const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
     console.log(tipoClasificacion);
     if (tipoClasificacion === 'gastosProgramaAreas') {
 
     }
 
-    let data = {
-      children: [
-        {
-          // Dejo clildren para que muestre un recuadro negro alrededor del tile
-          children: [
-            {
-              label: dataGrahTree[0].descripcion + " P",
-              size: dataGrahTree[0].total,
-              color: this.calculaColor(dataGrahTree[0].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[1].descripcion + " Pruebas",
-              size: dataGrahTree[1].total,
-              color: this.calculaColor(dataGrahTree[1].total, dataGrahTree[0].descripcion)
-            }
-          ]
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[2].descripcion + "no",
-              size: dataGrahTree[2].total,
-              color: this.calculaColor(dataGrahTree[2].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[3].descripcion,
-              size: dataGrahTree[3].total,
-              color: this.calculaColor(dataGrahTree[3].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[4].descripcion,
-              size: dataGrahTree[4].total,
-              color: this.calculaColor(dataGrahTree[4].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        {
-          children: [
-            {
-              label: dataGrahTree[5].descripcion,
-              size: dataGrahTree[5].total,
-              color: this.calculaColor(dataGrahTree[5].total, dataGrahTree[0].descripcion)
-            },
-          ],
-        },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[6].descripcion,
-        //       size: dataGrahTree[6].total,
-        //       color: this.calculaColor(dataGrahTree[6].total, dataGrahTree[0].descripcion)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[7].descripcion,
-        //       size: dataGrahTree[7].total,
-        //       color: this.calculaColor(dataGrahTree[7].total, dataGrahTree[0].descripcion)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[8].descripcion,
-        //       size: dataGrahTree[8].total,
-        //       color: this.calculaColor(dataGrahTree[8].total, dataGrahTree[0].descripcion)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[9].descripcion,
-        //       size: dataGrahTree[9].total,
-        //       color: this.calculaColor(dataGrahTree[9].total, dataGrahTree[0].descripcion)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[10].descripcion,
-        //       size: dataGrahTree[10].total,
-        //       color: this.calculaColor(dataGrahTree[10].total, dataGrahTree[0].descripcion)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[11].descripcion,
-        //       size: dataGrahTree[11].total,
-        //       color: this.calculaColor(dataGrahTree[11].total, dataGrahTree[0].descripcion)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[12].descripcion,
-        //       size: dataGrahTree[12].total,
-        //       color: this.calculaColor(dataGrahTree[12].total, dataGrahTree[0].descripcion)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[13].descripcion,
-        //       size: dataGrahTree[13].total,
-        //       color: this.calculaColor(dataGrahTree[13].total, dataGrahTree[0].descripcion)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[14].descripcion,
-        //       size: dataGrahTree[14].total,
-        //       color: this.calculaColor(dataGrahTree[14].total, dataGrahTree[14].descripcion)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[15].descripcion,
-        //       size: dataGrahTree[15].total,
-        //       color: this.calculaColor(dataGrahTree[15].total, dataGrahTree[15].descripcion)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[16].descripcion,
-        //       size: dataGrahTree[16].total,
-        //       color: this.calculaColor(dataGrahTree[16].total)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[17].descripcion,
-        //       size: dataGrahTree[17].total,
-        //       color: this.calculaColor(dataGrahTree[17].total)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[18].descripcion,
-        //       size: dataGrahTree[18].total,
-        //       color: this.calculaColor(dataGrahTree[18].total)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[19].descripcion,
-        //       size: dataGrahTree[19].total,
-        //       color: this.calculaColor(dataGrahTree[19].total)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[20].descripcion,
-        //       size: dataGrahTree[20].total,
-        //       color: this.calculaColor(dataGrahTree[20].total)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[21].descripcion,
-        //       size: dataGrahTree[21].total,
-        //       color: this.calculaColor(dataGrahTree[21].total)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[22].descripcion,
-        //       size: dataGrahTree[22].total,
-        //       color: this.calculaColor(dataGrahTree[22].total)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[23].descripcion,
-        //       size: dataGrahTree[23].total,
-        //       color: this.calculaColor(dataGrahTree[23].total)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[24].descripcion,
-        //       size: dataGrahTree[24].total,
-        //       color: this.calculaColor(dataGrahTree[24].total)
-        //     },
-        //   ],
-        // },
-        // {
-        //   children: [
-        //     {
-        //       label: dataGrahTree[25].descripcion,
-        //       size: dataGrahTree[25].total,
-        //       color: this.calculaColor(dataGrahTree[25].total)
-        //     },
-        //   ],
-        // },
-      ]
+    // console.log(dataGraphTree.length);
+    const max = Math.max(...dataGraphTree.map(item => item.total));
+    // console.log(max);
+    const tiles = [];
+    for (let i = 0; i < dataGraphTree.length; i++) {
+      tiles.push({
+        children: [
+          {
+            label: dataGraphTree[i].codigo + " " + dataGraphTree[i].descripcion,
+            size: dataGraphTree[i].total,
+            color: this.calculaColor1(dataGraphTree[i].total, max)
+          }
+        ],
+      });
     }
+    let data = {
+      children: tiles
+    }
+    // console.log({ data });
 
     this.options = {
       type: 'treemap',
@@ -312,7 +91,7 @@ export class GraphTreeComponent {
     };
   }
 
-  calculaColor(valor: number, descripcion?: string) {
+  calculaColor(valor: number) {
     let colorCalculado = valor / 1_000_000;
     // console.log(colorCalculado);
 
@@ -720,6 +499,21 @@ export class GraphTreeComponent {
     }
 
     // console.log('Valor: ' + valor + ' Color: ' + colorCalculado + descripcion);
+    return colorCalculado;
+
+  }
+
+  calculaColor1(valor: number, max: number) {
+    // tenemos un rango de 0 a 100
+    // desde -5 a +5 con pasos de 0.1
+    // tenemos que conocer el maximo valor
+    // El intervalo es max/100
+    const interval = (max / 100);
+    const cuantosIntervals = (valor / interval);
+    // console.log('Intervalo: ' + interval);
+    // console.log('Cuantos intervalos: ' + cuantosIntervals);
+    const colorCalculado = -5 + (cuantosIntervals / 10);
+    // console.log('Valor: ' + valor + ' Color: ' + colorCalculado);
     return colorCalculado;
 
   }
