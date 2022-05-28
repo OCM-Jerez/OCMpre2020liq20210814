@@ -17,7 +17,7 @@ export class GraphTreeComponent {
   ) {
     const dataGraphTree = this._dataStoreService.dataGraphTree;
     const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
-    console.log(tipoClasificacion);
+    // console.log(tipoClasificacion);
     if (tipoClasificacion === 'gastosProgramaAreas') {
 
     }
