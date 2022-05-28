@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { Location } from "@angular/common";
 
 import { DataStoreService } from './dataStore.service';
+import ingresosEconomicaCapitulos from '../../assets/data/ingresosEconomicaCapitulos.json';
+import ingresosEconomicaArticulos from '../../assets/data/ingresosEconomicaArticulos.json';
+import ingresosEconomicaConceptos from '../../assets/data/ingresosEconomicaConceptos.json';
+import ingresosEconomicaEconomicos from '../../assets/data/ingresosEconomicaEconomicos.json';
+
 import gastosOrganicaOrganicos from '../../assets/data/gastosOrganicaOrganicos.json';
 import gastosProgramaAreas from '../../assets/data/gastosProgramaAreas.json';
 import { AvalaibleYearsService } from './avalaibleYears.service';
@@ -32,6 +37,44 @@ export class PrepareDataGraphTreeService {
       // console.log('rowData', rowData);
       let sumDefinitivas = 0;
       switch (tipoClasificacion) {
+
+        case 'ingresosEconomicaCapitulos':
+          this._dataGraphTree = ingresosEconomicaCapitulos.map(item => {
+            const dataLastYear = rowData.filter(x => x.CodCap == item.codigo);
+            const sumDefinitivas = dataLastYear.filter((item) => item[`Definitivas${years[0]}`]).reduce((prev, current) => prev + current[`Definitivas${years[0]}`], 0);
+            return { ...item, total: sumDefinitivas }
+          })
+          // console.log(this._dataGraphTree);
+          this._dataStoreService.dataGraphTree = this._dataGraphTree;
+          break;
+        case 'ingresosEconomicaArticulos':
+          this._dataGraphTree = ingresosEconomicaArticulos.map(item => {
+            const dataLastYear = rowData.filter(x => x.CodEco == item.codigo);
+            const sumDefinitivas = dataLastYear.filter((item) => item[`Definitivas${years[0]}`]).reduce((prev, current) => prev + current[`Definitivas${years[0]}`], 0);
+            return { ...item, total: sumDefinitivas }
+          })
+          // console.log(this._dataGraphTree);
+          this._dataStoreService.dataGraphTree = this._dataGraphTree;
+          break;
+        case 'ingresosEconomicaConceptos':
+          this._dataGraphTree = ingresosEconomicaConceptos.map(item => {
+            const dataLastYear = rowData.filter(x => x.CodEco == item.codigo);
+            const sumDefinitivas = dataLastYear.filter((item) => item[`Definitivas${years[0]}`]).reduce((prev, current) => prev + current[`Definitivas${years[0]}`], 0);
+            return { ...item, total: sumDefinitivas }
+          })
+          // console.log(this._dataGraphTree);
+          this._dataStoreService.dataGraphTree = this._dataGraphTree;
+          break;
+        case 'ingresosEconomicaEconomicos':
+          this._dataGraphTree = ingresosEconomicaEconomicos.map(item => {
+            const dataLastYear = rowData.filter(x => x.CodEco == item.codigo);
+            const sumDefinitivas = dataLastYear.filter((item) => item[`Definitivas${years[0]}`]).reduce((prev, current) => prev + current[`Definitivas${years[0]}`], 0);
+            return { ...item, total: sumDefinitivas }
+          })
+          // console.log(this._dataGraphTree);
+          this._dataStoreService.dataGraphTree = this._dataGraphTree;
+          break;
+
         case 'gastosOrganicaOrganicos':
           this._dataGraphTree = gastosOrganicaOrganicos.map(item => {
             const dataLastYear = rowData.filter(x => x.CodOrg == item.codigo);
@@ -53,6 +96,7 @@ export class PrepareDataGraphTreeService {
         //   // console.log(this._dataGraphTree);
         //   this._dataStoreService.dataGraphTree = this._dataGraphTree;
         //   break;
+
         case 'gastosProgramaAreas':
           this._dataGraphTree = gastosProgramaAreas.map(item => {
             const dataLastYear = rowData.filter(x => x.CodPro == item.codigo);
