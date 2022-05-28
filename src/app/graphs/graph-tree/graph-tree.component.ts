@@ -17,14 +17,7 @@ export class GraphTreeComponent {
   ) {
     const dataGraphTree = this._dataStoreService.dataGraphTree;
     const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
-    // console.log(tipoClasificacion);
-    if (tipoClasificacion === 'gastosProgramaAreas') {
-
-    }
-
-    // console.log(dataGraphTree.length);
     const max = Math.max(...dataGraphTree.map(item => item.total));
-    // console.log(max);
     const tiles = [];
     for (let i = 0; i < dataGraphTree.length; i++) {
       tiles.push({
@@ -40,7 +33,6 @@ export class GraphTreeComponent {
     let data = {
       children: tiles
     }
-    // console.log({ data });
 
     this.options = {
       type: 'treemap',
@@ -98,10 +90,7 @@ export class GraphTreeComponent {
     // El intervalo es max/100
     const interval = (max / 100);
     const cuantosIntervals = (valor / interval);
-    // console.log('Intervalo: ' + interval);
-    // console.log('Cuantos intervalos: ' + cuantosIntervals);
     const colorCalculado = -5 + (cuantosIntervals / 10);
-    // console.log('Valor: ' + valor + ' Color: ' + colorCalculado);
     return colorCalculado;
 
   }
