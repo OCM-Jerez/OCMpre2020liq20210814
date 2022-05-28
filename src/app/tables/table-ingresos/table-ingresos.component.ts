@@ -115,6 +115,7 @@ export class TableIngresosComponent {
         this.textButton = "Mostrar gráfico";
         document.querySelector('#showGraph')!.innerHTML = `${this.textButton}`;
         console.log(this.textButton);
+        this.showGraph()
       },
       // onColumnResized: function (event) { console.log('a column was resized'); },
 
