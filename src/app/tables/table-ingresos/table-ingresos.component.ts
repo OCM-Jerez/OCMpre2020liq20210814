@@ -11,6 +11,7 @@ import { CellRendererOCM, CellRendererOCMtext } from '../../ag-grid/CellRenderer
 
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
+import { PrepareDataGraphTreeService } from '../../services/prepareDataGraphTree.service';
 import { AlertService } from '../../services/alert.service';
 
 import { IDataTable } from '../../commons/interfaces/dataTable.interface';
@@ -23,6 +24,7 @@ export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
   public textButton: string;
+  public hasGraphTree = true;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
   private _columnDefs: any[];
@@ -32,6 +34,7 @@ export class TableIngresosComponent {
     public avalaibleYearsService: AvalaibleYearsService,
     private _router: Router,
     private _dataStoreService: DataStoreService,
+    private _prepareDataGraphTreeService: PrepareDataGraphTreeService,
     private _alertService: AlertService
   ) {
 
@@ -217,6 +220,12 @@ export class TableIngresosComponent {
     } else {
       this._alertService.showAlert(`Selecciona ${this._dataTable.dataPropertyTable.subHeaderName}`);
     }
+  }
+
+  showGraphTree() {
+    // console.log(this._dataTable.rowData);
+    this._prepareDataGraphTreeService.prepareDataGraphTree(this._dataTable.rowData);
+    this._router.navigateByUrl("/graphTree")
   }
 
 }
