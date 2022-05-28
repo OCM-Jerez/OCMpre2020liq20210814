@@ -1,20 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { AgChartOptions } from 'ag-charts-community';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
+import { getClasificacionGraph } from '../data-graph';
+import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-graphtree',
   templateUrl: './graph-tree.component.html',
   styleUrls: ['./graph-tree.component.scss']
 })
-export class GraphTreeComponent {
+export class GraphTreeComponent implements OnDestroy {
   options: AgChartOptions = {} as AgChartOptions;
-
+  private _dataGraph: IDataGraph;
+  private _subscription: Subscription;
   constructor(
     private _avalaibleYearsService: AvalaibleYearsService,
-    private _dataStoreService: DataStoreService
+    private _dataStoreService: DataStoreService,
+
   ) {
+
+    this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
+      this._dataGraph = data;
+    });
+    console.log(this._dataGraph);
+
     const dataGraphTree = this._dataStoreService.dataGraphTree;
     const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
     const max = Math.max(...dataGraphTree.map(item => item.total));
@@ -44,6 +55,7 @@ export class GraphTreeComponent {
       },
       subtitle: {
         text: `Por ${tipoClasificacion}`,
+        // text: dataGraphTree[0].descripcion,
         fontSize: 20,
         fontWeight: 'bold',
       },
@@ -81,6 +93,12 @@ export class GraphTreeComponent {
         },
       ],
     };
+  }
+
+  ngOnDestroy(): void {
+    if (this._subscription) {
+      this._subscription.unsubscribe()
+    }
   }
 
   calculaColor(valor: number, max: number) {
