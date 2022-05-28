@@ -22,7 +22,7 @@ import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
 export class TableGastosComponent implements OnInit {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
-  public hasGraphTree = false;
+  public hasGraphTree = true;
   private _columnDefs: any[];
   private _dataTable: IDataTable;
   private _dataGraph: IDataGraph = {} as IDataGraph;
@@ -106,9 +106,9 @@ export class TableGastosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this._dataTable.dataPropertyTable.subHeaderName === 'Orgánico' || this._dataTable.dataPropertyTable.subHeaderName === 'Area de gasto') {
-      this.hasGraphTree = true;
-    }
+    // if (this._dataTable.dataPropertyTable.subHeaderName === 'Orgánico' || this._dataTable.dataPropertyTable.subHeaderName === 'Area de gasto') {
+    //   this.hasGraphTree = true;
+    // }
   }
 
   createColumnsChildren(year: number) {
@@ -199,7 +199,7 @@ export class TableGastosComponent implements OnInit {
   }
 
   showGraphTree() {
-    console.log(this._dataTable.rowData);
+    // console.log(this._dataTable.rowData);
     this._prepareDataGraphTreeService.prepareDataGraphTree(this._dataTable.rowData);
     this._router.navigateByUrl("/graphTree")
   }
