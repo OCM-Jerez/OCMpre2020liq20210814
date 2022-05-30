@@ -1,33 +1,31 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { AgChartOptions } from 'ag-charts-community';
 import { AvalaibleYearsService } from '../../services/avalaibleYears.service';
 import { DataStoreService } from '../../services/dataStore.service';
-import { getClasificacionGraph } from '../data-graph';
-import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
-import { Subscription } from 'rxjs';
+// import { IDataGraph } from '../../commons/interfaces/dataGraph.interface';
+// import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-graphtree',
   templateUrl: './graph-tree.component.html',
   styleUrls: ['./graph-tree.component.scss']
 })
-export class GraphTreeComponent implements OnDestroy {
+export class GraphTreeComponent {
   options: AgChartOptions = {} as AgChartOptions;
-  private _dataGraph: IDataGraph;
-  private _subscription: Subscription;
+  // private _dataGraph: IDataGraph;
+  // private _subscription: Subscription;
   constructor(
     private _avalaibleYearsService: AvalaibleYearsService,
     private _dataStoreService: DataStoreService,
 
   ) {
 
-    this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
-      this._dataGraph = data;
-    });
-    console.log(this._dataGraph);
+    // this._subscription = this._dataStoreService.dataSource$.subscribe((data) => {
+    //   this._dataGraph = data;
+    // });
+    // console.log(this._dataGraph);
 
     const dataGraphTree = this._dataStoreService.dataGraphTree;
-    const tipoClasificacion = this._dataStoreService.getDataTable.clasificationType;
     const max = Math.max(...dataGraphTree.map(item => item.total));
     const tiles = [];
     for (let i = 0; i < dataGraphTree.length; i++) {
@@ -54,8 +52,7 @@ export class GraphTreeComponent implements OnDestroy {
         fontWeight: 'bold',
       },
       subtitle: {
-        text: `Por ${tipoClasificacion}`,
-        // text: dataGraphTree[0].descripcion,
+        text: this._dataStoreService.getDataTable.dataPropertyTable.headerName,
         fontSize: 20,
         fontWeight: 'bold',
       },
@@ -95,11 +92,11 @@ export class GraphTreeComponent implements OnDestroy {
     };
   }
 
-  ngOnDestroy(): void {
-    if (this._subscription) {
-      this._subscription.unsubscribe()
-    }
-  }
+  // ngOnDestroy(): void {
+  //   if (this._subscription) {
+  //     this._subscription.unsubscribe()
+  //   }
+  // }
 
   calculaColor(valor: number, max: number) {
     // tenemos un rango de 0 a 100
