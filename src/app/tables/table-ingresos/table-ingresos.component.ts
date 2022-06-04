@@ -23,7 +23,7 @@ import { IDataTable } from '../../commons/interfaces/dataTable.interface';
 export class TableIngresosComponent {
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   public gridOptions: GridOptions;
-  public textButton: string;
+  textButton: string;
   public hasGraphTree = true;
   private _gridApi: GridApi;
   private _columnApi: ColumnApi;
@@ -39,7 +39,8 @@ export class TableIngresosComponent {
   ) {
 
     this._dataTable = _dataStoreService.getDataTable;
-    this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName} para mostrar gráfico`
+    this.textButton = `Selecciona ${this._dataTable.dataPropertyTable.subHeaderName} para mostrar gráfico`;
+
     this._columnDefs = [
       {
         headerName: this._dataTable.dataPropertyTable.headerName,
@@ -109,14 +110,20 @@ export class TableIngresosComponent {
       pagination: false,
 
       // EVENTS - add event callback handlers
-      // onGridReady: function (event) { console.log('the grid is now ready'); },
-      onRowClicked: function (event) {
-        console.log('a row was clicked');
+      // onGridReady: function (event) { consoltextButtone.log('the grid is now ready'); },
+      onRowClicked: () => {
         this.textButton = "Mostrar gráfico";
-        document.querySelector('#showGraph')!.innerHTML = `${this.textButton}`;
-        console.log(this.textButton);
-        this.showGraph()
-      },
+        // this.showGraph();
+      }
+      // onRowClicked: function (event) {
+      //   // https://michelestieven.medium.com/angular-derived-values-from-forms-with-rxjs-48760807ed1e
+      //   console.log('a row was clicked');
+      //   this.textButton = "Mostrar gráfico";
+
+      //   //document.querySelector('#showGraph')!.innerHTML = `${this.textButton}`;
+      //   console.log(this.textButton);
+      //   //this.showGraph()
+      // },
       // onColumnResized: function (event) { console.log('a column was resized'); },
 
       // CALLBACKS
@@ -226,7 +233,9 @@ export class TableIngresosComponent {
   showGraphTree() {
     // console.log(this._dataTable.rowData);
     this._prepareDataGraphTreeService.prepareDataGraphTree(this._dataTable.rowData);
-    this._router.navigateByUrl("/graphTree")
+    setTimeout(() => {
+      this._router.navigateByUrl("/graphTree")
+    }, 50);
   }
 
 }
