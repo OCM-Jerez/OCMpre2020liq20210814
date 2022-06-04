@@ -201,7 +201,9 @@ export class TableGastosComponent implements OnInit {
   showGraphTree() {
     // console.log(this._dataTable.rowData);
     this._prepareDataGraphTreeService.prepareDataGraphTree(this._dataTable.rowData);
-    this._router.navigateByUrl("/graphTree")
+    setTimeout(() => {
+      this._router.navigateByUrl("/graphTree")
+    }, 50);
   }
 
 }
